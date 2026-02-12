@@ -81,11 +81,30 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        gold: {
+          50: '#fffbf0',
+          100: '#fef5d6',
+          200: '#fce8ac',
+          300: '#f9d678',
+          400: '#f6be42',
+          500: '#f3a21a', // Primary gold
+          600: '#d7820e',
+          700: '#b2610b',
+          800: '#914d0f',
+          900: '#783f12',
+        },
+        rose: {
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          500: '#f43f5e', // Accent
+        },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ["Inter", "sans-serif"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        display: ["Playfair Display", "serif"],
       },
       keyframes: {
         "accordion-down": {
