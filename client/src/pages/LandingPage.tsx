@@ -26,11 +26,8 @@ import imgBefore1 from "@assets/8_1770932876365.webp";
 import imgBefore2 from "@assets/7_1770932876366.webp";
 import imgResult1 from "@assets/5_1770932876367.jpg";
 import imgResult2 from "@assets/3_1770932876368.jpg";
-import imgProduct1 from "@assets/6_1770932876366.jpg";
-import imgProduct2 from "@assets/4_1770932876367.jpg";
-import imgContext1 from "@assets/2_1770932876369.jpg";
-import imgContext2 from "@assets/1_1770932876370.jpg";
-import imgReview from "@assets/p1pp_1770933010199.jpg";
+import imgProduct1 from "@assets/1_frasco_1770938381359.png";
+import imgReview from "@assets/m1_1770938381358.png";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -324,7 +321,7 @@ export default function LandingPage() {
 
             <div className="order-1 lg:order-2 relative">
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgContext1} alt="Mulher com cabelo lindo" className="w-full h-auto" />
+                <img src={imgProduct1} alt="Mulher com cabelo lindo" className="w-full h-auto" />
               </div>
               {/* Decoration */}
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-yellow-200 rounded-full -z-10 blur-3xl opacity-60" />
@@ -397,7 +394,7 @@ export default function LandingPage() {
               features={["2 Frascos Liso Mágico", "Frete Grátis", "Manual de Aplicação", "Garantia de 7 dias"]}
               isPopular={true}
               savings="45%"
-              image={imgProduct2}
+              image={imgProduct1}
             />
 
             {/* Offer 3 */}
@@ -408,7 +405,7 @@ export default function LandingPage() {
               link="https://app.coinzz.com.br/checkout/3-unidades-mwl93-0"
               features={["3 Frascos Liso Mágico", "Frete Grátis Expresso", "Manual de Aplicação", "Garantia VIP"]}
               savings="56%"
-              image={imgContext2}
+              image={imgProduct1}
             />
           </div>
 
@@ -433,9 +430,9 @@ export default function LandingPage() {
           </div>
 
           <div className="mt-12">
-            <Button onClick={scrollToOffer} variant="whatsapp">
+            <Button onClick={scrollToOffer}>
               <span className="flex items-center gap-2">
-                VER MAIS DEPOIMENTOS NO WHATSAPP
+                VER MAIS DEPOIMENTOS
               </span>
             </Button>
           </div>

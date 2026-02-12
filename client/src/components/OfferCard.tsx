@@ -51,7 +51,13 @@ export function OfferCard({
 
       <div className={`p-6 ${isPopular ? 'pt-12' : 'pt-8'}`}>
         <div className="h-48 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
-          <img src={image} alt={title} className="h-full w-full object-cover transform hover:scale-110 transition-duration-500" />
+          <img 
+            src={image} 
+            alt={title} 
+            className={`h-full object-contain transform hover:scale-110 transition-duration-500 ${
+              title.includes("2") ? "scale-110" : title.includes("3") ? "scale-125" : ""
+            }`} 
+          />
         </div>
 
         <h3 className="text-xl font-bold text-slate-800 text-center mb-2">{title}</h3>
