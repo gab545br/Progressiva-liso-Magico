@@ -1,0 +1,119 @@
+You are a senior conversion-focused web designer and direct response copywriter.
+
+Your task is to CREATE A COMPLETE, HIGH-CONVERTING SALES PAGE for a single product called:
+
+"Progressiva Liso Mágico"
+
+IMPORTANT RULES (VERY IMPORTANT):
+- The PROMPT is in English, but ALL THE CONTENT OF THE PAGE MUST BE IN BRAZILIAN PORTUGUESE (PT-BR)
+- This page must be UNIQUE and EXCLUSIVE for this product only
+- The offer must be EXTREMELY AGGRESSIVE and persuasive
+- The MAIN DIFFERENTIAL must be emphasized everywhere: PAYMENT ONLY ON DELIVERY (PAGAMENTO SOMENTE NA ENTREGA)
+- Repeat and reinforce “Você só paga quando o produto chega na sua casa” throughout the page
+- Use strong emotional copy, persuasion, urgency and trust
+- This page is for MILLIONS in monthly sales — do not be generic
+
+PRODUCT:
+Progressiva Liso Mágico – alisamento prático, efeito liso extremo, brilho intenso, redução de frizz, resultado de salão em casa.
+
+PAGE STRUCTURE (FOLLOW EXACTLY):
+
+1. HEADER (Above the fold)
+- Very strong headline in PT-BR
+- Highlight PAYMENT ONLY ON DELIVERY in the header (banner style)
+- Example concepts (do not copy, create better ones):
+  “Liso Perfeito Sem Risco”
+  “Você Só Paga Quando Receber em Casa”
+- CTA button immediately visible
+- Trust badges (Pagamento na Entrega, Compra Segura, Satisfação)
+
+2. HERO SECTION
+- Big promise: cabelo liso, alinhado, sem frizz
+- Emphasize that there is ZERO RISK because payment is only on delivery
+- Strong emotional language (autoestima, praticidade, economia)
+- CTA button
+
+3. BEFORE AND AFTER SECTION
+- Use the images provided by the user
+- Show BEFORE and AFTER as visual proof
+- Frame them as real results from real customers
+- Add short persuasive captions
+
+4. SOCIAL PROOF / TESTIMONIALS
+- Use the photos sent by the user as testimonials
+- Treat them as real customers
+- Add persuasive testimonial copy in PT-BR
+- Reinforce trust and delivery payment
+
+5. BENEFITS SECTION
+Explain clearly:
+- Alisa desde a primeira aplicação
+- Reduz volume e frizz
+- Brilho intenso
+- Fácil de aplicar em casa
+- Resultado profissional
+- Economia de salão
+- Seguro e prático
+- PAGAMENTO SOMENTE NA ENTREGA
+
+6. HOW IT WORKS
+Step-by-step simple explanation:
+1. Você faz o pedido
+2. O produto é enviado
+3. Você recebe em casa
+4. SÓ DEPOIS você paga
+
+Make this VERY clear.
+
+7. OFFER SECTION (VERY IMPORTANT – MAKE IT BEAUTIFUL)
+Create a VERY VISUAL, ATTRACTIVE PRICING SECTION with 3 offers:
+
+- 1 Unidade  
+  R$ 97,90  
+  Link: https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0
+
+- 2 Unidades (MAIS VENDIDO / MELHOR CUSTO-BENEFÍCIO)
+  R$ 167,90  
+  Link: https://app.coinzz.com.br/checkout/2-unidades-kozjf-0
+
+- 3 Unidades (SUPER OFERTA / MAIOR ECONOMIA)
+  R$ 197,90  
+  Link: https://app.coinzz.com.br/checkout/3-unidades-mwl93-0
+
+Highlight savings, urgency and advantages.
+Buttons must be clear and persuasive.
+Mention “Pagamento Somente na Entrega” again.
+
+8. GUARANTEE / TRUST
+- Even with payment on delivery, reinforce security
+- Compra sem risco
+- Atendimento
+- Produto enviado com cuidado
+
+9. FAQ
+Include strong objections handling:
+- Como funciona o pagamento na entrega?
+- Em quanto tempo chega?
+- Funciona em qualquer tipo de cabelo?
+- É seguro?
+- Posso pagar só quando chegar? (Answer YES clearly)
+
+10. FINAL CTA (VERY STRONG)
+- Emotional closing
+- Urgency
+- Reinforce: You don’t pay now, you pay only when it arrives
+- CTA button
+
+DESIGN REQUIREMENTS:
+- Modern, clean, high-conversion layout
+- Mobile-first
+- Use sections, icons, highlights
+- Use the images provided by the user (before/after and testimonials)
+- Make the pricing section visually dominant
+- Use colors that convey beauty, trust and luxury
+
+DELIVERABLE:
+- A COMPLETE READY-TO-USE SALES PAGE
+- All text in Brazilian Portuguese
+- All buttons linked correctly
+- Optimized for conversion
