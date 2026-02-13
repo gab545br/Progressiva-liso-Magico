@@ -26,8 +26,14 @@ import imgBefore1 from "@assets/8_1770932876365.webp";
 import imgBefore2 from "@assets/7_1770932876366.webp";
 import imgResult1 from "@assets/5_1770932876367.jpg";
 import imgResult2 from "@assets/3_1770932876368.jpg";
-import imgProduct1 from "@assets/1_frasco_1770938381359.png";
-import imgReview from "@assets/m1_1770938381358.png";
+import imgProductHero from "@assets/pt1_1770941481606.png";
+import imgProduct1 from "@assets/pt1_1770941481606.png";
+import imgProduct2 from "@assets/Pt2_1770941481605.png";
+import imgProduct3 from "@assets/pt3_1770941481604.png";
+import imgTestimonial1 from "@assets/tp1_1770941481602.png";
+import imgTestimonial2 from "@assets/tp2_1770941481601.png";
+import imgTestimonial3 from "@assets/tp3_1770941481564.png";
+import imgReview from "@assets/Tp4_1770941481564.png";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -166,7 +172,7 @@ export default function LandingPage() {
               className="relative"
             >
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img src={imgProduct1} alt="Liso Mágico Produto" className="w-full h-auto object-cover" />
+                <img src={imgProductHero} alt="Liso Mágico Produto" className="w-full h-auto object-cover" />
                 
                 {/* Float Card */}
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100 max-w-xs">
@@ -321,7 +327,7 @@ export default function LandingPage() {
 
             <div className="order-1 lg:order-2 relative">
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgProduct1} alt="Mulher com cabelo lindo" className="w-full h-auto" />
+                <img src={imgTestimonial1} alt="Mulher com cabelo lindo" className="w-full h-auto" />
               </div>
               {/* Decoration */}
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-yellow-200 rounded-full -z-10 blur-3xl opacity-60" />
@@ -394,7 +400,7 @@ export default function LandingPage() {
               features={["2 Frascos Liso Mágico", "Frete Grátis", "Manual de Aplicação", "Garantia de 7 dias"]}
               isPopular={true}
               savings="45%"
-              image={imgProduct1}
+              image={imgProduct2}
             />
 
             {/* Offer 3 */}
@@ -405,7 +411,7 @@ export default function LandingPage() {
               link="https://app.coinzz.com.br/checkout/3-unidades-mwl93-0"
               features={["3 Frascos Liso Mágico", "Frete Grátis Expresso", "Manual de Aplicação", "Garantia VIP"]}
               savings="56%"
-              image={imgProduct1}
+              image={imgProduct3}
             />
           </div>
 
