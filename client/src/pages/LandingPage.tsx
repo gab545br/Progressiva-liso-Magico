@@ -123,7 +123,7 @@ export default function LandingPage() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section id="hero" className="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-yellow-50 to-transparent -z-10 rounded-l-full opacity-60" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -z-10 opacity-60" />
@@ -172,10 +172,10 @@ export default function LandingPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img src={imgProductHero} alt="Liso Mágico Produto" className="w-full h-auto object-cover" />
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500 max-w-lg w-full">
+                <img src={imgProductHero} alt="Liso Mágico Produto" className="w-full h-auto object-contain" />
                 
                 {/* Float Card */}
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100 max-w-xs">
