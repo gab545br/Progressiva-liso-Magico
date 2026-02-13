@@ -22,17 +22,16 @@ import { useCreateLead } from "@/hooks/use-leads";
 import { useToast } from "@/hooks/use-toast";
 
 // Import images
-import imgBefore1 from "@assets/8_1770932876365.webp";
-import imgBefore2 from "@assets/7_1770932876366.webp";
-import imgResult1 from "@assets/5_1770932876367.jpg";
-import imgResult2 from "@assets/3_1770932876368.jpg";
+import imgBefore1 from "@assets/prova_1_1771025261214.PNG";
+import imgBefore2 from "@assets/prova_2_1771025261150.PNG";
+import imgBefore3 from "@assets/prova_3_1771025261149.PNG";
 import imgProductHero from "@assets/pt1_1770941481606.png";
 import imgProduct1 from "@assets/pt1_1770941481606.png";
 import imgProduct2 from "@assets/Pt2_1770941481605.png";
 import imgProduct3 from "@assets/pt3_1770941481604.png";
-import imgTestimonial1 from "@assets/tp1_1770941481602.png";
-import imgTestimonial2 from "@assets/tp2_1770941481601.png";
-import imgTestimonial3 from "@assets/tp3_1770941481564.png";
+import imgEconomy from "@assets/economia_1771025261218.png";
+import imgTrustBadge from "@assets/pagamento_na_entrega_1771025261215.PNG";
+import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
 
 export default function LandingPage() {
@@ -56,6 +55,11 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-hidden">
       
+      {/* --- ANNOUNCEMENT BAR --- */}
+      <div className="bg-yellow-500 text-slate-900 py-2 text-center font-bold text-sm md:text-base px-4 animate-pulse">
+        🔥 PAGUE SOMENTE NA ENTREGA — VOCÊ SÓ PAGA QUANDO O PRODUTO CHEGAR NA SUA CASA 🔥
+      </div>
+
       {/* --- HEADER --- */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
@@ -138,12 +142,11 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-slate-900 leading-tight mb-6">
-                Liso Perfeito <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600">Sem Riscos</span>
+                Cabelo LISO, ALINHADO e SEM FRIZZ sem sair de casa — <span className="text-yellow-500">e você só paga quando receber</span>
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                Conquiste o cabelo dos sonhos com brilho espelhado e zero frizz na primeira aplicação. 
-                Sinta-se segura: <span className="font-bold text-slate-900">você só paga quando receber o produto em casa.</span>
+                Resultados de salão por uma fração do preço, sem formol e com pagamento somente na entrega.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -222,18 +225,75 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* --- BEFORE AND AFTER --- */}
-      <section id="results" className="py-24 bg-white">
+      {/* --- ECONOMY SECTION --- */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <SectionHeader 
-            title="Resultados Reais" 
+            title="💰 Quanto Você Economiza por Mês?" 
+            subtitle="Compare os gastos do salão com a praticidade do Liso Mágico."
+          />
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div className="space-y-6">
+              <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
+                <h4 className="text-xl font-bold text-rose-900 mb-4">No Salão... (Gasto Alto)</h4>
+                <ul className="space-y-3">
+                  <li className="flex justify-between text-rose-700">
+                    <span>Escova semanal</span>
+                    <span className="font-bold">R$ 240 a R$ 400/mês</span>
+                  </li>
+                  <li className="flex justify-between text-rose-700">
+                    <span>Progressiva/Botox/Selagem</span>
+                    <span className="font-bold">R$ 300 a R$ 600</span>
+                  </li>
+                  <li className="flex justify-between text-rose-700">
+                    <span>Hidratação e manutenção</span>
+                    <span className="font-bold">R$ 100 a R$ 200</span>
+                  </li>
+                  <li className="pt-4 border-t border-rose-200 flex justify-between text-rose-900 font-bold text-lg">
+                    <span>TOTAL MÉDIO</span>
+                    <span>até R$ 1.200/mês</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
+                <h4 className="text-xl font-bold text-green-900 mb-4">Com Progressiva Liso Mágico!</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-green-700">
+                    <CheckCircle2 className="w-5 h-5" /> Com apenas UM frasco, você economiza centenas de reais
+                  </li>
+                  <li className="flex items-center gap-2 text-green-700">
+                    <CheckCircle2 className="w-5 h-5" /> Com os kits, a economia passa de R$ 1.000 em poucos meses
+                  </li>
+                  <li className="pt-4 border-t border-green-200 flex justify-between text-green-900 font-bold text-lg">
+                    <span>INVESTIMENTO</span>
+                    <span>menos de R$ 200</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="relative">
+              <img src={imgEconomy} alt="Comparativo Salão vs Liso Mágico" className="rounded-3xl shadow-2xl w-full" />
+              <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-slate-900 p-4 rounded-xl font-bold shadow-xl">
+                Economia Garantida!
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- BEFORE AND AFTER --- */}
+      <section id="results" className="py-24 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <SectionHeader 
+            title="Resultados Reais de Mulheres Reais" 
             subtitle="Veja a transformação que o Liso Mágico proporciona na primeira aplicação."
           />
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              { before: imgBefore1, after: imgResult1, label: "Cabelos Crespos" },
-              { before: imgBefore2, after: imgResult2, label: "Cabelos Ondulados" }
+              { img: imgBefore1, label: "Resultado 1" },
+              { img: imgBefore2, label: "Resultado 2" },
+              { img: imgBefore3, label: "Resultado 3" }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -241,44 +301,16 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className="group relative rounded-2xl overflow-hidden shadow-xl"
+                className="rounded-2xl overflow-hidden shadow-xl bg-white"
               >
-                <div className="grid grid-cols-2 h-80">
-                  <div className="relative h-full">
-                    <img src={item.before} alt="Antes" className="w-full h-full object-cover" />
-                    <div className="absolute top-4 left-4 bg-black/60 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                      ANTES
-                    </div>
-                  </div>
-                  <div className="relative h-full">
-                    <img src={item.after} alt="Depois" className="w-full h-full object-cover" />
-                    <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                      DEPOIS
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Middle Divider */}
-                <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-white shadow-lg z-10 flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md">
-                    <ArrowRight className="w-4 h-4 text-slate-400" />
-                  </div>
-                </div>
-                
-                <div className="bg-white p-4 text-center border-t border-slate-100">
-                  <p className="font-bold text-slate-800">{item.label}</p>
-                  <div className="flex justify-center gap-1 mt-1">
+                <img src={item.img} alt={item.label} className="w-full h-auto" />
+                <div className="p-4 text-center border-t border-slate-100">
+                  <div className="flex justify-center gap-1">
                     {[1,2,3,4,5].map(star => <Star key={star} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Button onClick={scrollToOffer} variant="outline" className="mx-auto">
-              VER MAIS RESULTADOS
-            </Button>
           </div>
         </div>
       </section>
@@ -327,119 +359,82 @@ export default function LandingPage() {
 
             <div className="order-1 lg:order-2 relative">
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgTestimonial1} alt="Mulher com cabelo lindo" className="w-full h-auto" />
+                <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
               </div>
-              {/* Decoration */}
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-yellow-200 rounded-full -z-10 blur-3xl opacity-60" />
+              {/* Trust Badge Overlay */}
+              <div className="absolute -bottom-10 -right-10 w-48 h-48 z-20">
+                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
+              </div>
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- HOW IT WORKS (PAYMENT) --- */}
+      {/* --- HOW IT WORKS --- */}
       <section id="how-it-works" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-        
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeader title="Compra 100% Segura" subtitle="Pague somente quando receber o produto" light />
-
-          <div className="grid md:grid-cols-4 gap-8">
+          <SectionHeader title="Como Funciona?" light />
+          <div className="grid md:grid-cols-5 gap-8">
             {[
-              { step: "01", title: "Faça seu Pedido", desc: "Escolha seu kit abaixo e preencha seus dados.", icon: ThumbsUp },
-              { step: "02", title: "Envio Imediato", desc: "Nossa equipe prepara e envia seu pacote.", icon: PackageCheck },
-              { step: "03", title: "Entrega em Casa", desc: "Receba no conforto do seu lar via Correios.", icon: Truck },
-              { step: "04", title: "Pagamento", desc: "Pague ao entregador somente na hora da entrega.", icon: CheckCircle2 }
+              { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência." },
+              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico em todo o cabelo." },
+              { step: "03", title: "Deixe agir", desc: "Deixe agir conforme as instruções no frasco." },
+              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e finalize com prancha se desejar." },
+              { step: "05", title: "Liso Perfeito", desc: "Cabelo liso, leve, com brilho e sem frizz!" }
             ].map((item, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.2 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors"
-              >
-                <div className="text-4xl font-bold text-white/10 mb-4 font-display">{item.step}</div>
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-yellow-500/20">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="text-xl font-bold mb-2 text-white font-sans">{item.title}</h4>
-                <p className="text-white/60">{item.desc}</p>
+              <motion.div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                <div className="text-3xl font-bold text-yellow-500 mb-4 font-display">{item.step}</div>
+                <h4 className="text-lg font-bold mb-2">{item.title}</h4>
+                <p className="text-sm text-white/60">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- OFFERS (CRITICAL) --- */}
-      <section id="offers" ref={offerSectionRef} className="py-24 bg-gradient-to-b from-white to-slate-50">
+      {/* --- OFFERS --- */}
+      <section id="offers" ref={offerSectionRef} className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <SectionHeader 
-            title="Escolha seu Kit Ideal" 
-            subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" 
-          />
-
+          <SectionHeader title="Escolha seu Kit Ideal" subtitle="Pagamento SOMENTE na entrega!" />
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
-            {/* Offer 1 */}
-            <OfferCard 
-              title="Kit Iniciante"
-              price="R$ 97,90"
-              originalPrice="R$ 149,90"
-              link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0"
-              features={["1 Frasco Liso Mágico", "Manual de Aplicação", "Garantia de 7 dias"]}
-              image={imgProduct1}
-            />
-
-            {/* Offer 2 - BEST SELLER */}
-            <OfferCard 
-              title="Kit Tratamento Completo"
-              price="R$ 167,90"
-              originalPrice="R$ 299,90"
-              link="https://app.coinzz.com.br/checkout/2-unidades-kozjf-0"
-              features={["2 Frascos Liso Mágico", "Frete Grátis", "Manual de Aplicação", "Garantia de 7 dias"]}
-              isPopular={true}
-              savings="45%"
-              image={imgProduct2}
-            />
-
-            {/* Offer 3 */}
-            <OfferCard 
-              title="Kit Salão em Casa"
-              price="R$ 197,90"
-              originalPrice="R$ 449,90"
-              link="https://app.coinzz.com.br/checkout/3-unidades-mwl93-0"
-              features={["3 Frascos Liso Mágico", "Frete Grátis Expresso", "Manual de Aplicação", "Garantia VIP"]}
-              savings="56%"
-              image={imgProduct3}
-            />
-          </div>
-
-          {/* Secure Badges */}
-          <div className="flex flex-wrap justify-center gap-8 mt-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            {['Compra Segura', 'Privacidade Protegida', 'Entrega Garantida', 'Satisfação 100%'].map((badge, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-sm font-bold text-slate-500">
-                <ShieldCheck className="w-5 h-5" /> {badge}
-              </div>
-            ))}
+            <OfferCard title="1 UNIDADE" price="R$ 97,90" originalPrice="R$ 149,90" link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0" features={["Pagamento SOMENTE na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} image={imgProduct1} />
+            <OfferCard title="2 UNIDADES" price="R$ 167,90" originalPrice="R$ 299,90" link="https://app.coinzz.com.br/checkout/2-unidades-kozjf-0" features={["MAIS VENDIDO", "Pagamento SOMENTE na entrega", "2 Frascos Liso Mágico", "Frete Grátis"]} isPopular={true} savings="45%" image={imgProduct2} />
+            <OfferCard title="3 UNIDADES" price="R$ 197,90" originalPrice="R$ 449,90" link="https://app.coinzz.com.br/checkout/3-unidades-mwl93-0" features={["MAIOR ECONOMIA", "Pagamento SOMENTE na entrega", "3 Frascos Liso Mágico", "Frete Grátis Expresso"]} savings="56%" image={imgProduct3} />
           </div>
         </div>
       </section>
 
-      {/* --- SOCIAL PROOF (Testimonial Image) --- */}
-      <section className="py-20 bg-white border-y border-slate-100">
-        <div className="container mx-auto px-4 text-center">
-          <SectionHeader title="Quem usa, ama!" subtitle="Veja o que estão falando nas redes sociais" />
-          
-          <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-            <img src={imgReview} alt="Depoimentos Clientes" className="w-full h-auto" />
+      {/* --- GUARANTEE --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
+            <div className="w-64 h-64 shrink-0">
+              <img src={imgGuarantee} alt="Garantia 15 Dias" className="w-full h-full object-contain" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Garantia de 15 Dias — Risco Zero</h2>
+              <div className="space-y-4 text-lg text-slate-600">
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Se não gostar, devolvemos seu dinheiro</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Você só paga quando recebe o produto</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Compra 100% segura e garantida</p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12">
-            <Button onClick={scrollToOffer}>
-              <span className="flex items-center gap-2">
-                VER MAIS DEPOIMENTOS
-              </span>
+      {/* --- SOCIAL PROOF --- */}
+      <section className="py-24 bg-white border-y border-slate-100">
+        <div className="container mx-auto px-4 text-center">
+          <SectionHeader title="Quem Usou, Aprovou" subtitle="Veja o que estão falando nas redes sociais" />
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <img src={imgReview} alt="Depoimentos" className="w-full h-auto" />
+          </div>
+          <div className="mt-16">
+            <Button size="xl" onClick={scrollToOffer} className="animate-bounce">
+              QUERO MEU LISO PERFEITO — PAGAMENTO NA ENTREGA
             </Button>
           </div>
         </div>

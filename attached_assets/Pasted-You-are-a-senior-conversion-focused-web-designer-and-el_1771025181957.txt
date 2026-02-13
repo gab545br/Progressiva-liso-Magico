@@ -1,0 +1,173 @@
+You are a senior conversion-focused web designer and elite Brazilian copywriter.
+
+Your task is to CREATE A HIGH-CONVERTING SALES PAGE, 100% UNIQUE and EXCLUSIVE for the product:
+
+PRODUCT NAME: Progressiva Liso Mágico
+
+IMPORTANT GLOBAL RULES:
+- ALL page content must be written in Brazilian Portuguese (PT-BR)
+- The prompt is in English, but the final page text is PT-BR only
+- This page is for MASSIVE CONVERSION (aggressive offer, emotional, persuasive)
+- REMOVE any WhatsApp button or WhatsApp contact section (DO NOT ADD IT)
+- Focus heavily on CASH ON DELIVERY (Pagamento somente na entrega)
+- Use the images provided by the client exactly as instructed below
+- Use strong visual hierarchy, premium design, mobile-first
+- This page will be used officially to scale sales
+
+========================
+HEADER (VERY IMPORTANT)
+========================
+At the very top of the page, create a strong announcement bar and hero section with BIG emphasis on:
+
+“🔥 PAGUE SOMENTE NA ENTREGA — VOCÊ SÓ PAGA QUANDO O PRODUTO CHEGAR NA SUA CASA 🔥”
+
+Repeat variations of:
+- Pagamento na Entrega
+- Sem pagar nada agora
+- Zero risco
+- Você só paga quando receber
+
+Hero headline example (adapt, improve, make it powerful):
+“Cabelo LISO, ALINHADO e SEM FRIZZ sem sair de casa — e você só paga quando receber”
+
+Subheadline:
+“Resultados de salão por uma fração do preço, sem formol e com pagamento somente na entrega”
+
+Place the MAIN PRODUCT IMAGE (1 FRASCO) right next to the headline.
+
+========================
+IMAGE INSTRUCTIONS (VERY CLEAR)
+========================
+
+1) HERO SECTION:
+- Use image: 1 FRASCO (produto individual, premium background)
+
+2) BEFORE & AFTER SECTION (DEPOIMENTOS VISUAIS):
+- Use ONLY the before and after photos sent by the client
+- This section is titled:
+“Resultados Reais de Mulheres Reais”
+- Do NOT change these images
+
+3) OFFER CARDS SECTION:
+- 1 UNIDADE → use image with 1 frasco
+- 2 UNIDADES → use image with 2 frascos
+- 3 UNIDADES → use image with 3 frascos
+Each offer must visually match the quantity
+
+4) SOCIAL PROOF SECTION:
+- Use the testimonial / proof images sent by the client
+- Title:
+“Quem Usou, Aprovou”
+
+========================
+ECONOMY SECTION (VERY IMPORTANT – NEW)
+========================
+Create a section titled:
+
+“💰 Quanto Você Economiza por Mês?”
+
+In this section, EXPLICITLY show the comparison:
+
+TEXT CONTENT (USE THIS LOGIC, YOU CAN IMPROVE THE COPY):
+
+- Muitas mulheres gastam entre R$ 600 e R$ 1.500 POR MÊS no salão
+Breakdown:
+• Escova semanal: R$ 240 a R$ 400/mês  
+• Progressiva/Botox/Selagem: R$ 300 a R$ 600  
+• Hidratação e manutenção: R$ 100 a R$ 200  
+
+TOTAL MÉDIO: R$ 900 a R$ 1.200 por mês
+
+Then compare with Progressiva Liso Mágico:
+- Com apenas UM frasco, você economiza centenas de reais
+- Com os kits, a economia passa de R$ 1.000 em poucos meses
+
+Use visual cards:
+“SALÃO: até R$ 1.200/mês”
+“LISO MÁGICO: menos de R$ 200 e rende várias aplicações”
+
+Place the ECONOMY IMAGE (comparativo salão vs produto) exactly in this section.
+
+========================
+BENEFITS SECTION
+========================
+Create bullet points with icons:
+- Liso alinhado e sem frizz
+- Brilho intenso
+- Sem formol
+- Pode ser feito em casa
+- Resultado de salão
+- Economia absurda
+- Pagamento somente na entrega
+
+========================
+HOW IT WORKS
+========================
+Section:
+“Como Funciona?”
+1. Lave o cabelo
+2. Aplique a Progressiva Liso Mágico
+3. Deixe agir conforme instruções
+4. Seque e finalize
+5. Cabelo liso, leve e com brilho
+
+========================
+OFFERS SECTION (VERY STRONG)
+========================
+
+Create 3 beautiful pricing cards:
+
+1 UNIDADE
+R$ 97,90  
+Pagamento SOMENTE na entrega  
+Button link:
+https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0
+
+2 UNIDADES (MAIS VENDIDO)
+R$ 167,90  
+Pagamento SOMENTE na entrega  
+Highlight as “Mais Vendido”
+Button link:
+https://app.coinzz.com.br/checkout/2-unidades-kozjf-0
+
+3 UNIDADES (MELHOR CUSTO-BENEFÍCIO)
+R$ 197,90  
+Pagamento SOMENTE na entrega  
+Highlight as “Maior Economia”
+Button link:
+https://app.coinzz.com.br/checkout/3-unidades-mwl93-0
+
+Make prices VERY VISUAL, BIG and ATTRACTIVE.
+
+========================
+GUARANTEE SECTION
+========================
+Title:
+“Garantia de 15 Dias — Risco Zero”
+
+Explain:
+- Se não gostar, devolvemos
+- Você só paga quando recebe
+- Compra 100% segura
+
+Use the guarantee image sent by the client.
+
+========================
+FINAL CTA
+========================
+Repeat strongly:
+“Pague somente quando receber”
+“Sem risco”
+“Sem pegadinhas”
+
+Final CTA button:
+“Quero Meu Liso Perfeito — Pagamento na Entrega”
+
+========================
+FINAL RULES
+========================
+- REMOVE WhatsApp button completely
+- Do not add external links
+- Optimize for mobile
+- Premium, clean, persuasive design
+- This page must be ready to sell at scale
