@@ -405,18 +405,11 @@ export default function LandingPage() {
             </div>
 
             <div className="order-1 lg:order-2 relative">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-4 text-center lg:text-left">
+                Veja o resultado de quem já usou
+              </h3>
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
-              </div>
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-20">
-                <div className="bg-white rounded-full shadow-lg px-6 py-3 flex items-center gap-2 border border-slate-100">
-                  <div className="flex items-center gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <span className="text-sm font-bold text-slate-800">+12 mil clientes satisfeitas</span>
-                </div>
               </div>
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
             </div>
