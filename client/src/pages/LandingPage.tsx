@@ -663,7 +663,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-          <div className="mt-12">
+          <div className="mt-12 hidden md:flex justify-center">
             <Button onClick={scrollToOffer}>
               Quero Meu Liso Perfeito — Pagamento na Entrega
             </Button>
