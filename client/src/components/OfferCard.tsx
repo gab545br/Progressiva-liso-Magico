@@ -45,12 +45,6 @@ export function OfferCard({
         </div>
       )}
 
-      {savings && (
-        <div className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md z-[3] border border-white/20">
-          Economize {savings}
-        </div>
-      )}
-
       <div className={`p-6 flex flex-col flex-1 ${isPopular ? 'pt-12' : 'pt-8'}`}>
         <div className="h-64 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
           <img 
@@ -62,14 +56,20 @@ export function OfferCard({
 
         <h3 className="text-xl font-bold text-slate-800 text-center mb-2">{title}</h3>
         
-        <div className="flex justify-center items-center gap-2 mb-1">
+        <div className="flex flex-col items-center gap-1 mb-6">
           <span className="text-slate-400 line-through text-sm">De {originalPrice}</span>
-        </div>
-        
-        <div className="text-center mb-6">
-          <span className="text-sm text-slate-600">Por apenas</span>
-          <div className="text-4xl font-bold text-slate-900 tracking-tight">{price}</div>
-          <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
+          
+          {savings && (
+            <div className="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-sm">
+              Economize {savings}
+            </div>
+          )}
+
+          <div className="text-center mt-2">
+            <span className="text-sm text-slate-600 block">Por apenas</span>
+            <div className="text-4xl font-bold text-slate-900 tracking-tight">{price}</div>
+            <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
+          </div>
         </div>
 
         <ul className="space-y-3 mb-8 flex-1 min-h-[160px]">
