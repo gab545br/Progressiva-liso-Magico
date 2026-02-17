@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   CheckCircle2, 
@@ -12,7 +12,10 @@ import {
   Menu,
   X,
   ArrowRight,
-  PackageCheck
+  PackageCheck,
+  ChevronLeft,
+  ChevronRight,
+  Quote
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -43,6 +46,70 @@ export default function LandingPage() {
   const offerSectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const createLead = useCreateLead();
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [autoPlayTestimonial, setAutoPlayTestimonial] = useState(true);
+
+  const testimonials = [
+    {
+      name: "Ana Carolina",
+      location: "São Paulo, SP",
+      image: imgBefore1,
+      rating: 5,
+      text: "Meu cabelo nunca ficou tão liso e brilhante! Usei a Progressiva Liso Mágico e o resultado foi incrível desde a primeira aplicação. Super recomendo!",
+    },
+    {
+      name: "Juliana Santos",
+      location: "Rio de Janeiro, RJ",
+      image: imgBefore2,
+      rating: 5,
+      text: "Estava com medo de usar progressiva, mas como é sem formol me senti segura. O resultado foi maravilhoso, cabelo alinhado e sem frizz por semanas!",
+    },
+    {
+      name: "Mariana Oliveira",
+      location: "Belo Horizonte, MG",
+      image: imgBefore3,
+      rating: 5,
+      text: "Já gastei muito em salão com progressiva e nunca tive um resultado tão bom quanto com o Liso Mágico. Fácil de aplicar e o cabelo fica perfeito!",
+    },
+    {
+      name: "Camila Ferreira",
+      location: "Curitiba, PR",
+      image: imgBefore4,
+      rating: 5,
+      text: "Comprei sem esperar muito e me surpreendi demais! Meu cabelo ficou lisinho, macio e com muito brilho. Já estou no segundo frasco!",
+    },
+    {
+      name: "Fernanda Lima",
+      location: "Salvador, BA",
+      image: imgBefore5,
+      rating: 5,
+      text: "O melhor investimento que fiz pro meu cabelo! Paguei na entrega, sem risco nenhum. Resultado lindo e duradouro. Amei!",
+    },
+    {
+      name: "Beatriz Costa",
+      location: "Fortaleza, CE",
+      image: imgBefore6,
+      rating: 5,
+      text: "Minhas amigas todas perguntaram o que eu fiz no cabelo! Ficou liso natural, sem aquele aspecto de chapinha. Produto top demais!",
+    },
+  ];
+
+  useEffect(() => {
+    if (!autoPlayTestimonial) return;
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [autoPlayTestimonial, testimonials.length]);
+
+  const goToTestimonial = (index: number) => {
+    setCurrentTestimonial(index);
+    setAutoPlayTestimonial(false);
+    setTimeout(() => setAutoPlayTestimonial(true), 8000);
+  };
+
+  const prevTestimonial = () => goToTestimonial((currentTestimonial - 1 + testimonials.length) % testimonials.length);
+  const nextTestimonial = () => goToTestimonial((currentTestimonial + 1) % testimonials.length);
 
   const scrollToOffer = () => {
     offerSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -459,9 +526,75 @@ export default function LandingPage() {
       <section className="py-24 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Resultados reais de quem já transformou o cabelo com Liso Mágico" />
-          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-            <img src={imgReview} alt="Depoimentos" className="w-full h-auto" />
-          </div>
+          
+          <div className="max-w-4xl mx-auto relative">
+                <div className="overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentTestimonial}
+                      initial={{ opacity: 0, x: 60 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -60 }}
+                      transition={{ duration: 0.4 }}
+                      className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100"
+                    >
+                      <Quote className="w-10 h-10 text-[#d4a017]/30 mx-auto mb-6" />
+                      <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-8 italic" data-testid={`text-testimonial-${currentTestimonial}`}>
+                        "{testimonials[currentTestimonial].text}"
+                      </p>
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#d4a017] shadow-md">
+                          <img
+                            src={testimonials[currentTestimonial].image}
+                            alt={testimonials[currentTestimonial].name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="text-center">
+                          <p className="font-bold text-slate-900 text-lg" data-testid={`text-testimonial-name-${currentTestimonial}`}>
+                            {testimonials[currentTestimonial].name}
+                          </p>
+                          <p className="text-slate-500 text-sm">{testimonials[currentTestimonial].location}</p>
+                          <div className="flex items-center justify-center gap-1 mt-2">
+                            {Array.from({ length: testimonials[currentTestimonial].rating }).map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                <button
+                  onClick={prevTestimonial}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
+                  data-testid="button-testimonial-prev"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
+                  data-testid="button-testimonial-next"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                <div className="flex items-center justify-center gap-2 mt-8">
+                  {testimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => goToTestimonial(idx)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        idx === currentTestimonial ? "bg-[#d4a017] w-6" : "bg-slate-300"
+                      }`}
+                      data-testid={`button-testimonial-dot-${idx}`}
+                    />
+                  ))}
+                </div>
+              </div>
+
           <div className="mt-16">
             <Button size="xl" onClick={scrollToOffer} className="animate-bounce">
               Quero Meu Liso Perfeito — Pagamento na Entrega
