@@ -269,9 +269,9 @@ export default function LandingPage() {
 
               <div className="flex flex-col gap-4 mb-6 items-center md:items-start">
                 <Button 
-                  size="xl" 
+                  size="lg" 
                   onClick={scrollToOffer} 
-                  className="hero-cta-btn w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-10 py-4 border-none shadow-lg transition-all duration-300"
+                  className="hero-cta-btn w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-8 border-none shadow-lg transition-all duration-300"
                 >
                   QUERO MEU LISO MÁGICO
                 </Button>
@@ -400,7 +400,7 @@ export default function LandingPage() {
               </div>
 
               <div className="mt-10">
-                <Button onClick={scrollToOffer} size="lg">QUERO ESSES BENEFÍCIOS</Button>
+                <Button onClick={scrollToOffer}>QUERO ESSES BENEFÍCIOS</Button>
               </div>
             </div>
 
@@ -596,7 +596,7 @@ export default function LandingPage() {
               </div>
 
           <div className="mt-16">
-            <Button size="xl" onClick={scrollToOffer} className="animate-bounce">
+            <Button size="lg" onClick={scrollToOffer} className="animate-bounce">
               Quero Meu Liso Perfeito — Pagamento na Entrega
             </Button>
           </div>
