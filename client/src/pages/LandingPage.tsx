@@ -34,7 +34,7 @@ import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
 import imgEconomy from "@assets/economia_1771025261218.png";
-import imgTrustBadge from "@assets/fu_1771356958158.jpg";
+import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
 
@@ -439,8 +439,8 @@ export default function LandingPage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-transparent rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12">
-            <div className="w-56 h-56 shrink-0 bg-white rounded-2xl flex items-center justify-center overflow-hidden">
-              <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain mix-blend-multiply" />
+            <div className="w-56 h-56 shrink-0 flex items-center justify-center">
+              <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
             </div>
             <div>
               <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Pagamento na Entrega — Compre Sem Medo</h2>
