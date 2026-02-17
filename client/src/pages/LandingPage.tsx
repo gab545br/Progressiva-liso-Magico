@@ -693,16 +693,16 @@ export default function LandingPage() {
       {/* --- SELOS DE SEGURANÇA --- */}
       <div className="py-8 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
+          <div className="flex flex-wrap items-center justify-center gap-8 opacity-70">
             {[
               { icon: ShieldCheck, label: "Compra Segura" },
               { icon: PackageCheck, label: "Entrega Garantida" },
               { icon: Truck, label: "Frete Grátis" },
               { icon: CheckCircle2, label: "Satisfação Garantida" },
             ].map((selo, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-slate-400">
+              <div key={idx} className="flex items-center gap-2 text-slate-500">
                 <selo.icon className="w-5 h-5" />
-                <span className="text-xs font-medium">{selo.label}</span>
+                <span className="text-sm font-medium">{selo.label}</span>
               </div>
             ))}
           </div>
