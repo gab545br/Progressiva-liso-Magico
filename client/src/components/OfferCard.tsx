@@ -36,9 +36,13 @@ export function OfferCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-300 flex flex-col ${
-        isPopular ? 'border-2 border-[#C6A756] scale-105 md:-translate-y-4 z-10 shadow-lg' : 'border border-slate-100 hover:border-[#C6A756]/30'
-      } ${className || ''}`}
+      className={cn(
+        "relative rounded-3xl overflow-hidden transition-all duration-300 flex flex-col",
+        isPopular 
+          ? 'bg-white border-2 border-[#C6A756] shadow-[0_12px_30px_rgba(0,0,0,0.08)] scale-[1.03] z-10' 
+          : 'bg-[#F3EFE9] border-none shadow-md',
+        className
+      )}
     >
       {isPopular && (
         <div className="absolute top-0 inset-x-0 bg-[#C6A756] text-white text-center py-2 text-sm font-bold uppercase tracking-wider">
