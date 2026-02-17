@@ -46,7 +46,7 @@ export function OfferCard({
       )}
 
       {savings && (
-        <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+        <div className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-[3]">
           Economize {savings}
         </div>
       )}

@@ -59,8 +59,8 @@ export default function LandingPage() {
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-hidden">
       
       {/* --- ANNOUNCEMENT BAR --- */}
-      <div className="bg-yellow-500 text-slate-900 py-2 text-center font-bold text-sm md:text-base px-4 animate-pulse">
-        🔥 PAGUE SOMENTE NA ENTREGA — VOCÊ SÓ PAGA QUANDO O PRODUTO CHEGAR NA SUA CASA 🔥
+      <div className="bg-red-600 text-white py-2 text-center font-semibold text-sm md:text-base px-4">
+        Você só paga quando receber
       </div>
 
       {/* --- HEADER --- */}
