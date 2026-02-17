@@ -34,7 +34,7 @@ import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
 import imgEconomy from "@assets/economia_1771025261218.png";
-import imgTrustBadge from "@assets/pagamento_na_entrega_1771025261215.PNG";
+import imgTrustBadge from "@assets/fu_1771356958158.jpg";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
 
