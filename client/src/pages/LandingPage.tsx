@@ -146,18 +146,24 @@ export default function LandingPage() {
 
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-slate-900 leading-tight mb-6">
                 Cabelos mais alinhados, com brilho e aparência saudável sem sair de casa
+                <span className="block mt-2 text-[#C6A756]">
+                  — e você só paga na entrega
+                </span>
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
                 Fórmula cosmética desenvolvida para auxiliar na redução do frizz e melhorar a disciplina dos fios, com aplicação simples no conforto da sua casa.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 mb-2 items-center sm:items-start">
                 <Button size="xl" onClick={scrollToOffer} className="w-full sm:w-auto shadow-yellow-500/40">
                   QUERO MEU LISO MÁGICO
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>
+              <p className="text-[#C6A756] text-sm font-medium mb-10 text-center sm:text-left">
+                Pagamento 100% na entrega
+              </p>
 
               <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
                 <div className="flex items-center gap-2">
@@ -340,15 +346,22 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-5 gap-8">
             {[
               { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência." },
-              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico em todo o cabelo." },
-              { step: "03", title: "Deixe agir", desc: "Deixe agir conforme as instruções no frasco." },
-              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e finalize com prancha se desejar." },
-              { step: "05", title: "Liso Perfeito", desc: "Cabelo liso, leve, com brilho e sem frizz!" }
+              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico em todo o cabelo.", highlight: "Aplique o produto" },
+              { step: "03", title: "Deixe agir", desc: "Deixe agir conforme as instruções no frasco.", highlight: "Deixe agir" },
+              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e finalize com prancha se desejar.", highlight: "Seque e finalize" },
+              { step: "05", title: "Liso Perfeito", desc: "Cabelo liso, leve, com brilho e sem frizz!", highlight: "Liso Perfeito" }
             ].map((item, idx) => (
               <motion.div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-yellow-500 mb-4 font-display">{item.step}</div>
-                <h4 className="text-lg font-bold mb-2">{item.title}</h4>
-                <p className="text-sm text-white/60">{item.desc}</p>
+                <div className="text-3xl font-bold text-[#C6A756] mb-4 font-display">{item.step}</div>
+                <h4 className="text-lg font-bold mb-2 text-[#C6A756]">{item.title}</h4>
+                <p className="text-sm text-white/60">
+                  {item.highlight ? (
+                    <>
+                      <span className="text-[#C6A756] font-bold">{item.highlight}</span>{" "}
+                      {item.desc.replace(item.highlight, "").trim()}
+                    </>
+                  ) : item.desc}
+                </p>
               </motion.div>
             ))}
           </div>

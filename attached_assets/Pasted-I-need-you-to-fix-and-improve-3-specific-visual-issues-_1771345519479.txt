@@ -1,0 +1,151 @@
+I need you to fix and improve 3 specific visual issues on my website.
+
+This is extremely important.
+The page must look clean, premium and NOT broken.
+
+--------------------------------------------------
+1) HERO HEADLINE – ADD PAYMENT HIGHLIGHT (REDLINE STYLE)
+--------------------------------------------------
+
+In the main hero section headline:
+
+Current structure:
+
+"Cabelo LISO, ALINHADO e SEM FRIZZ sem sair de casa
+— e você só paga quando receber"
+
+I want to improve it.
+
+KEEP the structure.
+
+But add emphasis to:
+
+"você só paga na entrega"
+
+Change the phrase from:
+"e você só paga quando receber"
+
+TO:
+
+"— e você só paga na entrega"
+
+STYLE RULES:
+
+- Keep it in gold color (#C6A756)
+- Same style as current yellow text
+- Slightly bold
+- Same font family as headline
+- Keep alignment exactly the same
+- Do NOT break spacing
+- Do NOT change font size dramatically
+
+It must look elegant and premium.
+
+Also:
+
+Add small highlight text below CTA button saying:
+
+"Pagamento 100% na entrega"
+
+In gold color (#C6A756)
+Small, subtle, clean.
+
+
+--------------------------------------------------
+2) FIX “ECONOMIZE” BADGE POSITION (IT LOOKS BUGGED)
+--------------------------------------------------
+
+In the offer cards section:
+
+The red badges:
+"Economize 25%"
+"Economize 17%"
+
+Are overlapping the card titles.
+
+This looks broken.
+
+You must fix this.
+
+Choose ONE of these solutions:
+
+OPTION A (Preferred):
+Move the badge to the TOP RIGHT corner of the card,
+absolutely positioned,
+not covering any text.
+
+OR
+
+OPTION B:
+Place it ABOVE the image,
+centered,
+with spacing between badge and image.
+
+Important:
+- Badge must not overlap text
+- Must not look floating randomly
+- Must align consistently in all cards
+- Add small shadow
+- Rounded corners
+- Clean spacing
+
+Keep badge color:
+Red background
+White text
+
+But make it look intentional and premium.
+
+--------------------------------------------------
+3) FIX “COMO FUNCIONA” SECTION TEXT COLORS
+--------------------------------------------------
+
+In the "Como Funciona" section:
+
+Some numbers and text are dark and low contrast.
+They look almost transparent.
+
+I want you to:
+
+Change step numbers (02, 03, 04, 05 etc)
+To gold color: #C6A756
+
+Change important bold phrases inside each step
+To gold color (#C6A756)
+
+Example:
+
+Instead of black text:
+"Deixe agir conforme as instruções no frasco."
+
+Make:
+
+"Deixe agir"
+in gold color
+
+Keep supporting text in white or light grey.
+
+Goal:
+Better contrast.
+More premium look.
+Better readability.
+
+Do NOT change layout.
+Only improve color contrast and hierarchy.
+
+--------------------------------------------------
+GENERAL RULES
+--------------------------------------------------
+
+- Do not break responsiveness
+- Do not change spacing structure
+- Do not modify offer prices
+- Do not change images
+- Do not change layout grid
+- Keep everything elegant and premium
+
+This must look like a luxury beauty brand website.
+
+Clean.
+Aligned.
+No overlapping.
+No broken spacing.
