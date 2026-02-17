@@ -1,0 +1,88 @@
+// =========================================
+// SCRIPT COMPLETO - ATUALIZAR OFERTAS
+// IMAGENS + PREÇOS + LINKS
+// =========================================
+
+console.log("Atualizando ofertas completas...");
+
+// LINKS NOVOS
+const LINK_BASICO = "https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0";
+const LINK_POPULAR = "https://app.coinzz.com.br/checkout/2-1-unidades-0";
+const LINK_MASTER = "https://app.coinzz.com.br/checkout/4-1-unidades-0";
+
+
+// ===================================================
+// FUNÇÃO PARA ATUALIZAR UMA OFERTA COMPLETA
+// ===================================================
+
+function atualizarOferta(seletor, imagem, precoAntigo, precoNovo, linkNovo) {
+
+  const card = document.querySelector(seletor);
+  if (!card) return;
+
+  // Atualizar imagem
+  const img = card.querySelector("img");
+  if (img) {
+    img.src = imagem;
+  }
+
+  // Atualizar preço
+  const priceBox = card.querySelector(".price, .preco, .valor");
+  if (priceBox) {
+    priceBox.innerHTML = `
+      <div style="margin-top:10px;">
+        <span style="text-decoration:line-through; color:#888; font-size:14px;">
+          De: ${precoAntigo}
+        </span><br>
+        <strong style="font-size:22px; color:#1C1C1C;">
+          Por apenas: ${precoNovo}
+        </strong>
+      </div>
+    `;
+  }
+
+  // Atualizar link do botão
+  const btn = card.querySelector("a, button");
+  if (btn) {
+    btn.setAttribute("href", linkNovo);
+    btn.onclick = function() {
+      window.location.href = linkNovo;
+    };
+  }
+}
+
+
+// ===================================================
+// APLICAR NAS 3 OFERTAS
+// (Se os seletores forem diferentes, me envie o HTML)
+// ===================================================
+
+// KIT BÁSICO
+atualizarOferta(
+  ".kit-basico",
+  "images/kit-basico.jpg",
+  "R$197,90",
+  "R$167,90",
+  LINK_BASICO
+);
+
+// MAIS VENDIDO (2+1)
+atualizarOferta(
+  ".kit-popular",
+  "images/kit-2mais1.jpg",
+  "R$397,90",
+  "R$297,90",
+  LINK_POPULAR
+);
+
+// KIT MASTER (4+1)
+atualizarOferta(
+  ".kit-master",
+  "images/kit-master.jpg",
+  "R$597,90",
+  "R$497,90",
+  LINK_MASTER
+);
+
+
+console.log("Ofertas atualizadas com sucesso!");
