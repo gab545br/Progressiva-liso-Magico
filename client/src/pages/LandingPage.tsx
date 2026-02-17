@@ -405,12 +405,6 @@ export default function LandingPage() {
             </div>
 
             <div className="order-1 lg:order-2 relative">
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-4 text-center lg:text-left">
-                Veja o resultado de quem já usou
-              </h3>
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
-              </div>
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
             </div>
           </div>
