@@ -567,6 +567,20 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+            {[
+              { icon: ShieldCheck, label: "Compra Segura" },
+              { icon: PackageCheck, label: "Entrega Garantida" },
+              { icon: Truck, label: "Frete Grátis" },
+              { icon: CheckCircle2, label: "Satisfação Garantida" },
+            ].map((selo, idx) => (
+              <div key={idx} className="flex flex-col items-center gap-2 bg-slate-50 rounded-xl px-5 py-4 border border-slate-100 min-w-[120px]">
+                <selo.icon className="w-7 h-7 text-green-500" />
+                <span className="text-xs font-bold text-slate-700 text-center">{selo.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
