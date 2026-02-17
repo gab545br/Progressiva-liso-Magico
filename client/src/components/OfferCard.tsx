@@ -93,7 +93,7 @@ export function OfferCard({
             "w-full rounded-full font-bold transition-all duration-300",
             isPopular ? "text-white opacity-100" : "bg-black text-white hover:bg-slate-900"
           )}
-          size="default"
+          size="lg"
         >
           QUERO COMPRAR AGORA
         </Button>
