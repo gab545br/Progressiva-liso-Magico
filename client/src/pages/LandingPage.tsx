@@ -59,7 +59,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-slate-50 font-sans overflow-x-hidden">
       
       {/* --- ANNOUNCEMENT BAR --- */}
-      <div className="bg-red-600 text-white py-2 text-center font-semibold text-sm md:text-base px-4">
+      <div className="bg-[#111111] text-[#D4A62A] py-2 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
         Você só paga quando receber
       </div>
 
