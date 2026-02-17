@@ -22,10 +22,12 @@ import { useCreateLead } from "@/hooks/use-leads";
 import { useToast } from "@/hooks/use-toast";
 
 // Import images
-import imgBefore1 from "@assets/01_1771342379935.jpg";
-import imgBefore2 from "@assets/02_1771342379934.jpg";
-import imgBefore3 from "@assets/03_1771342379932.jpg";
-import imgBefore4 from "@assets/04_1771342379931.jpg";
+import imgBefore1 from "@assets/01_1771343044433.jpg";
+import imgBefore2 from "@assets/02_1771343044433.jpg";
+import imgBefore3 from "@assets/03_1771343044432.jpg";
+import imgBefore4 from "@assets/04_1771343044431.jpg";
+import imgBefore5 from "@assets/05_1771343044431.jpg";
+import imgBefore6 from "@assets/06_1771343044430.jpg";
 import imgProductHero from "@assets/pt1_1770941481606.png";
 import imgProduct1 from "@assets/pt1_1770941481606.png";
 import imgProduct2 from "@assets/Pt2_1770941481605.png";
@@ -249,16 +251,16 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- BEFORE AND AFTER --- */}
-      <section id="results" className="py-24 bg-slate-50 before-after-section">
+      {/* --- RESULTS GALLERY --- */}
+      <section id="results" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader 
-            title="Exemplos de resultados obtidos com o uso do produto*" 
-            subtitle="*Imagens de clientes que utilizaram o produto. Os resultados podem variar de acordo com o tipo de cabelo, rotina de cuidados e forma de aplicação."
+            title="Resultados de Clientes" 
+            subtitle="*Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação."
           />
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[imgBefore1, imgBefore2, imgBefore3, imgBefore4].map((img, idx) => (
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[imgBefore1, imgBefore2, imgBefore3, imgBefore4, imgBefore5, imgBefore6].map((img, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -267,7 +269,7 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.1 }}
                 className="rounded-2xl overflow-hidden shadow-lg bg-white"
               >
-                <img src={img} alt={`Exemplo de resultado ${idx + 1}`} className="w-full h-auto" />
+                <img src={img} alt={`Resultado de cliente ${idx + 1}`} className="w-full h-auto" />
               </motion.div>
             ))}
           </div>
