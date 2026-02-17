@@ -11,6 +11,7 @@ interface OfferCardProps {
   isPopular?: boolean;
   savings?: string;
   image: string;
+  className?: string;
 }
 
 export function OfferCard({ 
@@ -21,7 +22,8 @@ export function OfferCard({
   features, 
   isPopular = false,
   savings,
-  image
+  image,
+  className
 }: OfferCardProps) {
   
   const handleBuy = () => {
@@ -33,13 +35,13 @@ export function OfferCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-300 ${
-        isPopular ? 'border-2 border-yellow-500 scale-105 md:-translate-y-4 z-10 shadow-yellow-500/20' : 'border border-slate-100 hover:border-yellow-200'
-      }`}
+      className={`relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-300 flex flex-col ${
+        isPopular ? 'border-2 border-[#C6A756] scale-105 md:-translate-y-4 z-10 shadow-lg' : 'border border-slate-100 hover:border-[#C6A756]/30'
+      } ${className || ''}`}
     >
       {isPopular && (
-        <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white text-center py-2 text-sm font-bold uppercase tracking-wider">
-          Mais Vendido - Escolha das Clientes
+        <div className="absolute top-0 inset-x-0 bg-[#C6A756] text-white text-center py-2 text-sm font-bold uppercase tracking-wider">
+          MAIS VENDIDO
         </div>
       )}
 
@@ -49,14 +51,12 @@ export function OfferCard({
         </div>
       )}
 
-      <div className={`p-6 ${isPopular ? 'pt-12' : 'pt-8'}`}>
-        <div className="h-48 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
+      <div className={`p-6 flex flex-col flex-1 ${isPopular ? 'pt-12' : 'pt-8'}`}>
+        <div className="h-64 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
           <img 
             src={image} 
             alt={title} 
-            className={`h-full object-contain transform hover:scale-110 transition-duration-500 ${
-              title.includes("2") ? "scale-110" : title.includes("3") ? "scale-125" : ""
-            }`} 
+            className="h-full object-contain transform hover:scale-105 transition-all duration-500" 
           />
         </div>
 
@@ -72,7 +72,7 @@ export function OfferCard({
           <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
         </div>
 
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3 mb-8 flex-1 min-h-[160px]">
           {features.map((feature, idx) => (
             <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
               <div className="mt-0.5 rounded-full bg-green-100 p-1">
@@ -86,7 +86,7 @@ export function OfferCard({
         <Button 
           onClick={handleBuy} 
           variant={isPopular ? "primary" : "secondary"}
-          className="w-full"
+          className={`w-full ${isPopular ? 'bg-black text-[#C6A756] hover:bg-slate-900' : ''}`}
           size="lg"
           pulse={isPopular}
         >
@@ -94,7 +94,7 @@ export function OfferCard({
         </Button>
         
         <p className="text-center text-xs text-slate-400 mt-4 flex items-center justify-center gap-1">
-          <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+          <Star className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
           Garantia de 7 dias ou seu dinheiro de volta
         </p>
       </div>

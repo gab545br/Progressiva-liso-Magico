@@ -356,36 +356,39 @@ export default function LandingPage() {
       </section>
 
       {/* --- OFFERS --- */}
-      <section id="offers" ref={offerSectionRef} className="py-24 bg-white">
+      <section id="offers" ref={offerSectionRef} className="py-24 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Escolha seu Kit Ideal" subtitle="Pagamento SOMENTE na entrega!" />
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+          <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
               title="KIT BÁSICO" 
               price="R$ 167,90" 
               originalPrice="R$ 197,90" 
               link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0" 
-              features={["Pagamento SOMENTE na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
+              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
               image={imgProduct1} 
+              className="h-full"
             />
             <OfferCard 
               title="MAIS VENDIDO (2+1)" 
               price="R$ 297,90" 
               originalPrice="R$ 397,90" 
               link="https://app.coinzz.com.br/checkout/2-1-unidades-0" 
-              features={["Leve 3 Pague 2", "Pagamento SOMENTE na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
+              features={["Leve 3 Pague 2", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
               isPopular={true} 
               savings="25%" 
               image={imgProduct2} 
+              className="h-full"
             />
             <OfferCard 
               title="KIT MASTER (4+1)" 
               price="R$ 497,90" 
               originalPrice="R$ 597,90" 
               link="https://app.coinzz.com.br/checkout/4-1-unidades-0" 
-              features={["Leve 5 Pague 4", "Pagamento SOMENTE na entrega", "5 Frascos Liso Mágico", "Frete Grátis Expresso"]} 
+              features={["Leve 5 Pague 4", "Pagamento na entrega", "5 Frascos Liso Mágico", "Frete Grátis Expresso"]} 
               savings="17%" 
               image={imgProduct3} 
+              className="h-full"
             />
           </div>
         </div>

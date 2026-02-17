@@ -1,0 +1,157 @@
+/* ============================= */
+/* SECTION BACKGROUND */
+/* ============================= */
+
+.premium-offers {
+  background: #F8F6F3;
+  padding: 80px 20px;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.offers-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.offers-header h2 {
+  font-family: serif;
+  font-size: 36px;
+  color: #1C1C1C;
+  margin-bottom: 10px;
+}
+
+.offers-header p {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+
+/* ============================= */
+/* GRID LAYOUT */
+/* ============================= */
+
+.offers-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* MOBILE */
+@media(max-width: 900px){
+  .offers-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================= */
+/* CARD STYLE */
+/* ============================= */
+
+.offer-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* FEATURED CARD */
+.offer-card.featured {
+  border: 2px solid #C6A756;
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+/* ============================= */
+/* IMAGE FIX */
+/* ============================= */
+
+.offer-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* BADGE */
+/* ============================= */
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C6A756;
+  color: white;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+.offer-card h3 {
+  font-family: serif;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #1C1C1C;
+}
+
+.description {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* ============================= */
+/* PRICE */
+/* ============================= */
+
+.price-box {
+  margin-bottom: 20px;
+}
+
+.old-price {
+  display: block;
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+}
+
+.new-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1C1C1C;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.offer-btn {
+  background: #000;
+  color: #C6A756;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.offer-btn:hover {
+  background: #111;
+}
