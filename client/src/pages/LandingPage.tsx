@@ -363,50 +363,41 @@ export default function LandingPage() {
       </section>
 
       {/* --- BENEFITS DETAIL --- */}
-      <section id="benefits" className="py-24 bg-rose-50/50">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <SectionHeader 
-                title="Por que escolher o Liso Mágico?" 
-                className="text-left mx-0"
-              />
-              
-              <div className="space-y-6">
-                {[
-                  { title: "Liso na 1ª Aplicação", desc: "Fórmula potente que alinha os fios instantaneamente sem danificar." },
-                  { title: "Redução Total de Frizz", desc: "Tecnologia anti-umidade que mantém o cabelo disciplinado." },
-                  { title: "Compatível com Químicas", desc: "Pode ser usado em cabelos tingidos, descoloridos ou com outras progressivas." },
-                  { title: "Economia Real", desc: "Um frasco rende até 5 aplicações. Muito mais barato que o salão." },
-                  { title: "Fácil de Aplicar", desc: "Você mesma faz em casa, no chuveiro, sem complicação." }
-                ].map((item, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center shrink-0 border border-slate-100">
-                      <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-slate-900 font-sans">{item.title}</h4>
-                      <p className="text-slate-600">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+      <section id="benefits" className="py-16 bg-rose-50/50">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <SectionHeader 
+            title="Por que escolher o Liso Mágico?" 
+          />
+          
+          <div className="space-y-6">
+            {[
+              { title: "Liso na 1ª Aplicação", desc: "Fórmula potente que alinha os fios instantaneamente sem danificar." },
+              { title: "Redução Total de Frizz", desc: "Tecnologia anti-umidade que mantém o cabelo disciplinado." },
+              { title: "Compatível com Químicas", desc: "Pode ser usado em cabelos tingidos, descoloridos ou com outras progressivas." },
+              { title: "Economia Real", desc: "Um frasco rende até 5 aplicações. Muito mais barato que o salão." },
+              { title: "Fácil de Aplicar", desc: "Você mesma faz em casa, no chuveiro, sem complicação." }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center shrink-0 border border-slate-100">
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-slate-900 font-sans">{item.title}</h4>
+                  <p className="text-slate-600">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-              <div className="mt-10">
-                <Button onClick={scrollToOffer}>QUERO ESSES BENEFÍCIOS</Button>
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2 relative">
-              <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
-            </div>
+          <div className="mt-10 text-center">
+            <Button onClick={scrollToOffer}>QUERO ESSES BENEFÍCIOS</Button>
           </div>
         </div>
       </section>
