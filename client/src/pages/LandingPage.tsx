@@ -22,9 +22,10 @@ import { useCreateLead } from "@/hooks/use-leads";
 import { useToast } from "@/hooks/use-toast";
 
 // Import images
-import imgBefore1 from "@assets/prova_1_1771025261214.PNG";
-import imgBefore2 from "@assets/prova_2_1771025261150.PNG";
-import imgBefore3 from "@assets/prova_3_1771025261149.PNG";
+import imgBefore1 from "@assets/01_1771342379935.jpg";
+import imgBefore2 from "@assets/02_1771342379934.jpg";
+import imgBefore3 from "@assets/03_1771342379932.jpg";
+import imgBefore4 from "@assets/04_1771342379931.jpg";
 import imgProductHero from "@assets/pt1_1770941481606.png";
 import imgProduct1 from "@assets/pt1_1770941481606.png";
 import imgProduct2 from "@assets/Pt2_1770941481605.png";
@@ -138,15 +139,15 @@ export default function LandingPage() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-bold mb-6 border border-green-200 shadow-sm">
                 <Truck className="w-4 h-4" />
-                PAGAMENTO SOMENTE NA ENTREGA
+                Pagamento na entrega
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-slate-900 leading-tight mb-6">
-                Cabelo LISO, ALINHADO e SEM FRIZZ sem sair de casa — <span className="text-yellow-500">e você só paga quando receber</span>
+                Cabelos mais alinhados, com brilho e aparência saudável sem sair de casa
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                Resultados de salão por uma fração do preço, sem formol e com pagamento somente na entrega.
+                Fórmula cosmética desenvolvida para auxiliar na redução do frizz e melhorar a disciplina dos fios, com aplicação simples no conforto da sua casa.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -208,10 +209,10 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: Sparkles, title: "Brilho Espelhado", desc: "Acabamento profissional" },
-              { icon: Clock, title: "Aplicação Rápida", desc: "Resultado em minutos" },
-              { icon: ShieldCheck, title: "Zero Formol", desc: "Seguro para sua saúde" },
-              { icon: Truck, title: "Entrega Expressa", desc: "Pagamento na entrega" },
+              { icon: Sparkles, title: "Resultados visíveis desde a primeira aplicação*", desc: "Auxilia no alinhamento dos fios e melhora a aparência do cabelo já no primeiro uso." },
+              { icon: Clock, title: "Redução significativa do frizz", desc: "Ajuda no controle do frizz e na proteção contra a umidade." },
+              { icon: ShieldCheck, title: "Compatível com diferentes tipos de cabelo", desc: "Pode ser utilizado em cabelos naturais, tingidos ou com química. Recomenda-se teste de mecha antes da aplicação." },
+              { icon: Truck, title: "Aplicação prática", desc: "Aplicação simples que pode ser feita em casa seguindo as instruções do rótulo." },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-2">
@@ -226,89 +227,47 @@ export default function LandingPage() {
       </div>
 
       {/* --- ECONOMY SECTION --- */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white economy-section">
         <div className="container mx-auto px-4">
           <SectionHeader 
-            title="💰 Quanto Você Economiza por Mês?" 
-            subtitle="Compare os gastos do salão com a praticidade do Liso Mágico."
+            title="Compare os custos" 
+            subtitle="Os valores podem variar conforme região, frequência e tipo de procedimento."
           />
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="space-y-6">
-              <div className="bg-rose-50 p-6 rounded-2xl border border-rose-100">
-                <h4 className="text-xl font-bold text-rose-900 mb-4">No Salão... (Gasto Alto)</h4>
-                <ul className="space-y-3">
-                  <li className="flex justify-between text-rose-700">
-                    <span>Escova semanal</span>
-                    <span className="font-bold">R$ 240 a R$ 400/mês</span>
-                  </li>
-                  <li className="flex justify-between text-rose-700">
-                    <span>Progressiva/Botox/Selagem</span>
-                    <span className="font-bold">R$ 300 a R$ 600</span>
-                  </li>
-                  <li className="flex justify-between text-rose-700">
-                    <span>Hidratação e manutenção</span>
-                    <span className="font-bold">R$ 100 a R$ 200</span>
-                  </li>
-                  <li className="pt-4 border-t border-rose-200 flex justify-between text-rose-900 font-bold text-lg">
-                    <span>TOTAL MÉDIO</span>
-                    <span>até R$ 1.200/mês</span>
-                  </li>
-                </ul>
-              </div>
               <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                <h4 className="text-xl font-bold text-green-900 mb-4">Com Progressiva Liso Mágico!</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-green-700">
-                    <CheckCircle2 className="w-5 h-5" /> Com apenas UM frasco, você economiza centenas de reais
-                  </li>
-                  <li className="flex items-center gap-2 text-green-700">
-                    <CheckCircle2 className="w-5 h-5" /> Com os kits, a economia passa de R$ 1.000 em poucos meses
-                  </li>
-                  <li className="pt-4 border-t border-green-200 flex justify-between text-green-900 font-bold text-lg">
-                    <span>INVESTIMENTO</span>
-                    <span>menos de R$ 200</span>
-                  </li>
-                </ul>
+                <h4 className="text-xl font-bold text-green-900 mb-4">Alternativa com bom custo-benefício</h4>
+                <p className="text-green-700">
+                  Opção prática para quem busca reduzir a frequência de procedimentos em salão.
+                </p>
               </div>
             </div>
             <div className="relative">
-              <img src={imgEconomy} alt="Comparativo Salão vs Liso Mágico" className="rounded-3xl shadow-2xl w-full" />
-              <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-slate-900 p-4 rounded-xl font-bold shadow-xl">
-                Economia Garantida!
-              </div>
+              <img src={imgEconomy} alt="Comparativo de custos" className="rounded-3xl shadow-2xl w-full" />
             </div>
           </div>
         </div>
       </section>
 
       {/* --- BEFORE AND AFTER --- */}
-      <section id="results" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section id="results" className="py-24 bg-slate-50 before-after-section">
+        <div className="container mx-auto px-4 text-center">
           <SectionHeader 
-            title="Resultados Reais de Mulheres Reais" 
-            subtitle="Veja a transformação que o Liso Mágico proporciona na primeira aplicação."
+            title="Exemplos de resultados obtidos com o uso do produto*" 
+            subtitle="*Imagens de clientes que utilizaram o produto. Os resultados podem variar de acordo com o tipo de cabelo, rotina de cuidados e forma de aplicação."
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { img: imgBefore1, label: "Resultado 1" },
-              { img: imgBefore2, label: "Resultado 2" },
-              { img: imgBefore3, label: "Resultado 3" }
-            ].map((item, idx) => (
+          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[imgBefore1, imgBefore2, imgBefore3, imgBefore4].map((img, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2 }}
-                className="rounded-2xl overflow-hidden shadow-xl bg-white"
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-2xl overflow-hidden shadow-lg bg-white"
               >
-                <img src={item.img} alt={item.label} className="w-full h-auto" />
-                <div className="p-4 text-center border-t border-slate-100">
-                  <div className="flex justify-center gap-1">
-                    {[1,2,3,4,5].map(star => <Star key={star} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                </div>
+                <img src={img} alt={`Exemplo de resultado ${idx + 1}`} className="w-full h-auto" />
               </motion.div>
             ))}
           </div>
@@ -426,15 +385,15 @@ export default function LandingPage() {
       </section>
 
       {/* --- SOCIAL PROOF --- */}
-      <section className="py-24 bg-white border-y border-slate-100">
+      <section className="py-24 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
-          <SectionHeader title="Quem Usou, Aprovou" subtitle="Veja o que estão falando nas redes sociais" />
+          <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Veja o que estão falando nas redes sociais" />
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
             <img src={imgReview} alt="Depoimentos" className="w-full h-auto" />
           </div>
           <div className="mt-16">
             <Button size="xl" onClick={scrollToOffer} className="animate-bounce">
-              QUERO MEU LISO PERFEITO — PAGAMENTO NA ENTREGA
+              Quero Meu Liso Perfeito — Pagamento na Entrega
             </Button>
           </div>
         </div>
@@ -477,7 +436,10 @@ export default function LandingPage() {
               <p className="text-white/60 mb-6 max-w-sm">
                 Tecnologia avançada para alinhamento capilar. Beleza, praticidade e segurança para você se sentir maravilhosa todos os dias.
               </p>
-              <div className="flex gap-4">
+              <div className="mt-6 text-xs opacity-70">
+                Este produto é cosmético. Os resultados podem variar de acordo com características individuais, rotina de cuidados e modo de aplicação. Recomenda-se realizar teste de mecha antes do uso. Em caso de dúvidas, consulte um profissional.
+              </div>
+              <div className="flex gap-4 mt-6">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 transition-colors cursor-pointer">
                   {/* Fake social icon */}
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>

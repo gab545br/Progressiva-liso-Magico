@@ -1,0 +1,134 @@
+Gabriel, [17/02/2026 12:20]
+// ===============================
+// FACEBOOK SAFE LANDING PAGE UPDATE
+// ===============================
+
+// HERO SECTION
+document.querySelector(".hero-title").innerHTML =
+"Cabelos mais alinhados, com brilho e aparência saudável sem sair de casa";
+
+document.querySelector(".hero-subtitle").innerHTML =
+"Fórmula cosmética desenvolvida para auxiliar na redução do frizz e melhorar a disciplina dos fios, com aplicação simples no conforto da sua casa.";
+
+document.querySelector(".payment-badge").innerHTML =
+"Pagamento na entrega";
+
+// ===============================
+// BENEFITS SECTION
+// ===============================
+
+const benefits = document.querySelectorAll(".benefit-item");
+
+benefits[0].querySelector("h3").innerHTML =
+"Resultados visíveis desde a primeira aplicação*";
+
+benefits[0].querySelector("p").innerHTML =
+"Auxilia no alinhamento dos fios e melhora a aparência do cabelo já no primeiro uso.";
+
+benefits[1].querySelector("h3").innerHTML =
+"Redução significativa do frizz";
+
+benefits[1].querySelector("p").innerHTML =
+"Ajuda no controle do frizz e na proteção contra a umidade.";
+
+benefits[2].querySelector("h3").innerHTML =
+"Compatível com diferentes tipos de cabelo";
+
+benefits[2].querySelector("p").innerHTML =
+"Pode ser utilizado em cabelos naturais, tingidos ou com química. Recomenda-se teste de mecha antes da aplicação.";
+
+benefits[3].querySelector("h3").innerHTML =
+"Aplicação prática";
+
+benefits[3].querySelector("p").innerHTML =
+"Aplicação simples que pode ser feita em casa seguindo as instruções do rótulo.";
+
+benefits[4].querySelector("h3").innerHTML =
+"Alternativa com bom custo-benefício";
+
+benefits[4].querySelector("p").innerHTML =
+"Opção prática para quem busca reduzir a frequência de procedimentos em salão.";
+
+
+// ===============================
+// REMOVE STRONG ECONOMIC CLAIMS
+// ===============================
+
+const economySection = document.querySelector(".economy-section");
+
+if (economySection) {
+  economySection.innerHTML = `
+    <h2>Compare os custos</h2>
+    <p>Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
+  `;
+}
+
+
+// ===============================
+// REPLACE BEFORE/AFTER SECTION
+// ===============================
+
+const resultsSection = document.querySelector(".before-after-section");
+
+if (resultsSection) {
+  resultsSection.innerHTML = `
+    <h2>Exemplos de resultados obtidos com o uso do produto*</h2>
+    <p style="font-size: 13px; opacity: 0.8;">
+      *Imagens de clientes que utilizaram o produto. 
+      Os resultados podem variar de acordo com o tipo de cabelo, 
+      rotina de cuidados e forma de aplicação.
+    </p>
+
+    <div class="gallery-grid">
+      <img src="images/modelo1.jpg" alt="Cabelo liso com brilho natural">
+      <img src="images/modelo2.jpg" alt="Cabelo alinhado e disciplinado">
+      <img src="images/modelo3.jpg" alt="Cabelo castanho escuro com brilho">
+      <img src="images/modelo4.jpg" alt="Cabelo liso longo e saudável">
+    </div>
+  `;
+}
+
+
+// ===============================
+// SOCIAL PROOF SAFE VERSION
+// ===============================
+
+const socialProof = document.querySelector(".social-proof");
+
+if (socialProof) {
+  socialProof.innerHTML =
+  "Avaliações positivas de clientes que testaram o produto.";
+}
+
+
+// ===============================
+// REMOVE ABSOLUTE WORDS IF EXIST
+// ===============================
+
+document.body.innerHTML = document.body.innerHTML
+  .replace(/TOTAL/g, "significativa")
+  .replace(/GARANTIDA/g, "")
+  .replace(/GARANTIDO/g, "")
+  .replace(/100%/g, "")
+  .replace(/RESULTADO IMEDIATO/g, "resultado gradual");
+
+
+// ===============================
+// ADD LEGAL DISCLAIMER FOOTER
+// ===============================
+
+const footer = document.querySelector("footer");
+
+if (footer) {
+  footer.innerHTML += `
+    <div style="margin-top:20px; font-size:12px; opacity:0.7;">
+      Este produto é cosmético. 
+      Os resultados podem variar de acordo com características individuais, 
+      rotina de cuidados e modo de aplicação.
+      Recomenda-se realizar teste de mecha antes do uso.
+      Em caso de dúvidas, consulte um profissional.
+
+Gabriel, [17/02/2026 12:20]
+</div>
+  `;
+}
