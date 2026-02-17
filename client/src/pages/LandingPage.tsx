@@ -143,6 +143,30 @@ export default function LandingPage() {
               background-position: center center !important;
               background-size: cover !important;
             }
+            #hero h1 {
+              font-size: 1.6rem !important;
+              color: rgba(255,255,255,0.85) !important;
+              text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+            }
+            #hero h2 {
+              font-size: 1.3rem !important;
+              opacity: 0.9;
+              text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+            }
+            #hero .hero-description {
+              font-size: 0.9rem !important;
+              color: rgba(255,255,255,0.75) !important;
+            }
+            #hero .hero-cta-btn {
+              font-size: 0.85rem !important;
+              padding: 10px 24px !important;
+              min-height: auto !important;
+              width: 75% !important;
+            }
+            #hero .hero-checks {
+              font-size: 0.75rem !important;
+              color: rgba(255,255,255,0.7) !important;
+            }
           }
         `}} />
 
@@ -170,7 +194,7 @@ export default function LandingPage() {
                 e você só paga na entrega.
               </h2>
               
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
+              <p className="hero-description text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
                 Tratamento sem formol que ajuda a reduzir o frizz, alinhar os fios e devolver o brilho ao cabelo.
               </p>
 
@@ -178,12 +202,12 @@ export default function LandingPage() {
                 <Button 
                   size="xl" 
                   onClick={scrollToOffer} 
-                  className="w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-10 py-4 border-none shadow-lg transition-all duration-300"
+                  className="hero-cta-btn w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-10 py-4 border-none shadow-lg transition-all duration-300"
                 >
                   QUERO MEU LISO MÁGICO
                 </Button>
                 
-                <div className="space-y-1 text-white/90 text-sm font-medium">
+                <div className="hero-checks space-y-1 text-white/90 text-sm font-medium">
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
                     Pagamento somente na entrega
