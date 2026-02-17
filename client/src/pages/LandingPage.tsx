@@ -29,7 +29,7 @@ import imgBefore4 from "@assets/04_1771343044431.jpg";
 import imgBefore5 from "@assets/05_1771343044431.jpg";
 import imgBefore6 from "@assets/06_1771343044430.jpg";
 import imgProductHero from "@assets/topo1_1771351544560.jpg";
-import imgProductHeroMobile from "@assets/pppp_1771356007950.jpg";
+import imgProductHeroMobile from "@assets/progressiva_123_1771356324772.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
