@@ -700,7 +700,7 @@ export default function LandingPage() {
               { icon: Truck, label: "Frete Grátis" },
               { icon: CheckCircle2, label: "Satisfação Garantida" },
             ].map((selo, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-slate-500">
+              <div key={idx} className="flex items-center gap-2 text-[#d4a017]">
                 <selo.icon className="w-5 h-5" />
                 <span className="text-sm font-medium">{selo.label}</span>
               </div>
