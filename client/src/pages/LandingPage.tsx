@@ -527,7 +527,7 @@ export default function LandingPage() {
               title="KIT MASTER (4+1)" 
               price="R$ 497,90" 
               originalPrice="R$ 597,90" 
-              link="https://app.coinzz.com.br/checkout/4-1-unidades-0" 
+              link="https://app.coinzz.com.br/checkout/4-1-unidades-876" 
               features={["Leve 5 Pague 4", "Pagamento na entrega", "5 Frascos Liso Mágico", "Frete Grátis Expresso"]} 
               savings="17%" 
               image={imgProduct3} 
