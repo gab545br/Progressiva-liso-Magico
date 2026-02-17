@@ -445,10 +445,10 @@ export default function LandingPage() {
             <div>
               <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Pagamento na Entrega — Compre Sem Medo</h2>
               <div className="space-y-4 text-lg text-slate-600">
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-[#d4a017]" /> Pague somente quando receber o produto em mãos</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-[#d4a017]" /> Sem precisar de cartão de crédito</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-[#d4a017]" /> Mais segurança: veja antes, pague depois</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-[#d4a017]" /> Entrega rápida para todo o Brasil</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Pague somente quando receber o produto em mãos</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Sem precisar de cartão de crédito</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Mais segurança: veja antes, pague depois</p>
+                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Entrega rápida para todo o Brasil</p>
               </div>
             </div>
           </div>
