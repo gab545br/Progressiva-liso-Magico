@@ -718,7 +718,7 @@ export default function LandingPage() {
           </div>
           
           <div className="pt-8 border-t border-white/10 text-center text-white/40 text-sm">
-            &copy; 2024 Liso Mágico. Todos os direitos reservados.
+            &copy; 2026 Liso Mágico. Todos os direitos reservados.
           </div>
         </div>
       </footer>
