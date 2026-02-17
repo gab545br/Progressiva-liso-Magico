@@ -507,7 +507,7 @@ export default function LandingPage() {
               title="KIT BÁSICO" 
               price="R$ 167,90" 
               originalPrice="R$ 197,90" 
-              link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0" 
+              link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-876" 
               features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
               image={imgProduct1} 
               className="h-full"
@@ -516,7 +516,7 @@ export default function LandingPage() {
               title="MAIS VENDIDO (2+1)" 
               price="R$ 297,90" 
               originalPrice="R$ 397,90" 
-              link="https://app.coinzz.com.br/checkout/2-1-unidades-0" 
+              link="https://app.coinzz.com.br/checkout/2-1-unidades-876" 
               features={["Leve 3 Pague 2", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
               isPopular={true} 
               savings="25%" 
