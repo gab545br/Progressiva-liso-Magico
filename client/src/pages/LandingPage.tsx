@@ -35,7 +35,7 @@ import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
 import imgEconomy from "@assets/economia_1771025261218.png";
 import imgTrustBadge from "@assets/pagamento_na_entrega_1771025261215.PNG";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
-import imgReview from "@assets/Tp4_1770941481564.png";
+import imgMobileProduct from "@assets/pppp_1771354937429.jpg";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -138,8 +138,11 @@ export default function LandingPage() {
         <style dangerouslySetInnerHTML={{ __html: `
           @media (max-width: 768px) {
             #hero { 
-              background-position: 75% center !important;
-              background-size: cover !important;
+              background-image: url(${imgMobileProduct}) !important;
+              background-size: 80% !important;
+              background-position: center 80px !important;
+              background-repeat: no-repeat !important;
+              background-color: #ffffff !important;
             }
           }
         `}} />
@@ -415,9 +418,11 @@ export default function LandingPage() {
       <section className="py-24 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Veja o que estão falando nas redes sociais" />
-          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-            <img src={imgReview} alt="Depoimentos" className="w-full h-auto" />
-          </div>
+            <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-white p-4">
+              <div className="aspect-video bg-slate-100 flex items-center justify-center">
+                <p className="text-slate-400">Avaliações e Depoimentos</p>
+              </div>
+            </div>
           <div className="mt-16">
             <Button size="xl" onClick={scrollToOffer} className="animate-bounce">
               Quero Meu Liso Perfeito — Pagamento na Entrega
