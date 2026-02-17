@@ -458,7 +458,7 @@ export default function LandingPage() {
       {/* --- SOCIAL PROOF --- */}
       <section className="py-24 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
-          <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Veja o que estão falando nas redes sociais" />
+          <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Resultados reais de quem já transformou o cabelo com Liso Mágico" />
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
             <img src={imgReview} alt="Depoimentos" className="w-full h-auto" />
           </div>
