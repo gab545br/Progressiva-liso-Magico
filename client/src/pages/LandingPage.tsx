@@ -45,6 +45,7 @@ import imgBelo2 from "@assets/belo2_1771361035789.jpg";
 import imgBelo3 from "@assets/belo3_1771361035788.jpg";
 import imgBelo4 from "@assets/belo4_1771361035788.jpg";
 import imgBelo5 from "@assets/belo5_1771361035786.jpg";
+import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -93,7 +94,7 @@ export default function LandingPage() {
     {
       name: "Beatriz Costa",
       location: "Fortaleza, CE",
-      image: imgBefore6,
+      image: imgBelo6,
       rating: 5,
       text: "Minhas amigas todas perguntaram o que eu fiz no cabelo! Ficou liso natural, sem aquele aspecto de chapinha. Produto top demais!",
     },
