@@ -145,17 +145,18 @@ export default function LandingPage() {
             }
             #hero h1 {
               font-size: 1.6rem !important;
-              color: rgba(255,255,255,0.85) !important;
-              text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+              color: rgba(255,255,255,1) !important;
+              text-shadow: 0 2px 12px rgba(0,0,0,0.6);
             }
             #hero h2 {
               font-size: 1.3rem !important;
-              opacity: 0.9;
-              text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+              opacity: 1;
+              text-shadow: 0 2px 12px rgba(0,0,0,0.6);
             }
             #hero .hero-description {
               font-size: 0.9rem !important;
-              color: rgba(255,255,255,0.75) !important;
+              color: rgba(255,255,255,0.95) !important;
+              text-shadow: 0 1px 6px rgba(0,0,0,0.5);
             }
             #hero .hero-cta-btn {
               font-size: 0.85rem !important;
@@ -165,7 +166,8 @@ export default function LandingPage() {
             }
             #hero .hero-checks {
               font-size: 0.75rem !important;
-              color: rgba(255,255,255,0.7) !important;
+              color: rgba(255,255,255,0.95) !important;
+              text-shadow: 0 1px 4px rgba(0,0,0,0.5);
             }
           }
         `}} />
