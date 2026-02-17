@@ -138,8 +138,8 @@ export default function LandingPage() {
       </div>
 
       {/* --- HEADER --- */}
-      <header className="absolute top-[46px] left-0 right-0 z-[1000] bg-transparent px-[8%] py-[20px]">
-        <div className="container mx-auto h-20 flex items-center justify-between">
+      <header className="absolute top-[40px] left-0 right-0 z-[1000] bg-transparent px-[8%] py-[16px]">
+        <div className="container mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Sparkles className="w-8 h-8 text-[#d4a017]" />
             <span className="font-display font-bold text-2xl tracking-tight text-white">Liso<span className="text-[#d4a017]">Mágico</span></span>
@@ -255,7 +255,7 @@ export default function LandingPage() {
           }}
         />
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 pt-16 md:pt-24">
           <div className="max-w-[600px] md:pl-[8%] text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
