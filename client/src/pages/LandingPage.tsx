@@ -64,7 +64,7 @@ export default function LandingPage() {
       </div>
 
       {/* --- HEADER --- */}
-      <header className="absolute top-0 left-0 right-0 z-[1000] bg-transparent backdrop-blur-md px-[8%] py-[20px]">
+      <header className="absolute top-0 left-0 right-0 z-[1000] bg-transparent px-[8%] py-[20px]">
         <div className="container mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Sparkles className="w-8 h-8 text-[#d4a017]" />
@@ -103,7 +103,7 @@ export default function LandingPage() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-black/90 backdrop-blur-lg border-b border-white/10 overflow-hidden"
+              className="md:hidden bg-black/95 overflow-hidden"
             >
               <nav className="flex flex-col p-4 gap-4">
                 {navItems.map((item) => (
@@ -143,7 +143,7 @@ export default function LandingPage() {
 
         {/* Soft Dark Gradient Overlay with Blur Mask */}
         <div 
-          className="absolute inset-0 z-0 backdrop-blur-[2px]" 
+          className="absolute inset-0 z-0" 
           style={{ 
             background: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.2) 100%)',
             maskImage: 'linear-gradient(to right, black 40%, transparent 100%)',
