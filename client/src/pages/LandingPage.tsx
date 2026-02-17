@@ -709,7 +709,7 @@ export default function LandingPage() {
               <ul className="space-y-2 text-white/60 text-sm">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  Seg a Sex: 09h às 18h
+                  Segunda a Segunda: 24 horas
                 </li>
                 <li>contato@lisomagico.com.br</li>
                 <li>(11) 99999-9999</li>
