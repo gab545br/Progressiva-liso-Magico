@@ -57,7 +57,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       
       {/* --- ANNOUNCEMENT BAR --- */}
       <div className="bg-[#111111] text-[#D4A62A] py-2 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
@@ -271,7 +271,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- RESULTS GALLERY --- */}
-      <section id="results" className="py-24 bg-slate-50">
+      <section id="results" className="py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader 
             title="Resultados de Clientes" 
@@ -417,7 +417,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- GUARANTEE --- */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
             <div className="w-64 h-64 shrink-0">
@@ -436,7 +436,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- PAGAMENTO NA ENTREGA --- */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
             <div className="w-64 h-64 shrink-0">
@@ -471,7 +471,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- FAQ --- */}
-      <section id="faq" className="py-24 bg-slate-50">
+      <section id="faq" className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <SectionHeader title="Dúvidas Frequentes" />
 
