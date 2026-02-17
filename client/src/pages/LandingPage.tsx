@@ -436,10 +436,10 @@ export default function LandingPage() {
       </section>
 
       {/* --- PAGAMENTO NA ENTREGA --- */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-transparent rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12">
-            <div className="w-56 h-56 shrink-0 flex items-center justify-center">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
+            <div className="w-64 h-64 shrink-0">
               <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
             </div>
             <div>
