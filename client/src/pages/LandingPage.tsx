@@ -40,6 +40,11 @@ import imgEconomy from "@assets/economia_1771025261218.png";
 import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
+import imgBelo1 from "@assets/belo1_1771361035790.jpg";
+import imgBelo2 from "@assets/belo2_1771361035789.jpg";
+import imgBelo3 from "@assets/belo3_1771361035788.jpg";
+import imgBelo4 from "@assets/belo4_1771361035788.jpg";
+import imgBelo5 from "@assets/belo5_1771361035786.jpg";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,35 +58,35 @@ export default function LandingPage() {
     {
       name: "Ana Carolina",
       location: "São Paulo, SP",
-      image: imgBefore1,
+      image: imgBelo1,
       rating: 5,
       text: "Meu cabelo nunca ficou tão liso e brilhante! Usei a Progressiva Liso Mágico e o resultado foi incrível desde a primeira aplicação. Super recomendo!",
     },
     {
       name: "Juliana Santos",
       location: "Rio de Janeiro, RJ",
-      image: imgBefore2,
+      image: imgBelo2,
       rating: 5,
       text: "Estava com medo de usar progressiva, mas como é sem formol me senti segura. O resultado foi maravilhoso, cabelo alinhado e sem frizz por semanas!",
     },
     {
       name: "Mariana Oliveira",
       location: "Belo Horizonte, MG",
-      image: imgBefore3,
+      image: imgBelo3,
       rating: 5,
       text: "Já gastei muito em salão com progressiva e nunca tive um resultado tão bom quanto com o Liso Mágico. Fácil de aplicar e o cabelo fica perfeito!",
     },
     {
       name: "Camila Ferreira",
       location: "Curitiba, PR",
-      image: imgBefore4,
+      image: imgBelo4,
       rating: 5,
       text: "Comprei sem esperar muito e me surpreendi demais! Meu cabelo ficou lisinho, macio e com muito brilho. Já estou no segundo frasco!",
     },
     {
       name: "Fernanda Lima",
       location: "Salvador, BA",
-      image: imgBefore5,
+      image: imgBelo5,
       rating: 5,
       text: "O melhor investimento que fiz pro meu cabelo! Paguei na entrega, sem risco nenhum. Resultado lindo e duradouro. Amei!",
     },
