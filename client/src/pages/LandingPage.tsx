@@ -341,10 +341,6 @@ export default function LandingPage() {
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
               </div>
-              {/* Trust Badge Overlay */}
-              <div className="absolute -bottom-10 -right-10 w-48 h-48 z-20">
-                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
-              </div>
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
             </div>
           </div>
