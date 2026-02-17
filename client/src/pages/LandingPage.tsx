@@ -424,27 +424,63 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- TRANSFORMAÇÃO SECTION --- */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
-              Transforme seu cabelo sem sair de casa
-            </h2>
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Milhares de mulheres já descobriram como ter um cabelo liso, brilhante e sem frizz gastando muito menos do que no salão. Com o Liso Mágico, o resultado profissional está nas suas mãos.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
-              <span className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-[#d4a017]" /> Sem formol</span>
-              <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-[#d4a017]" /> Dermatologicamente testado</span>
-              <span className="flex items-center gap-2"><PackageCheck className="w-4 h-4 text-[#d4a017]" /> Pague na entrega</span>
-            </div>
-          </motion.div>
+      {/* --- SEGURANÇA E CONFIANÇA --- */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+                Seguro para você e seu cabelo
+              </h2>
+              <p className="text-slate-500 mb-8 text-lg">
+                Fórmula desenvolvida com ingredientes seguros, sem substâncias agressivas.
+              </p>
+
+              <div className="space-y-5">
+                {[
+                  { icon: ShieldCheck, title: "Sem efeitos colaterais", desc: "Não causa ardência, irritação no couro cabeludo nem queda de cabelo." },
+                  { icon: Sparkles, title: "100% livre de formol", desc: "Fórmula à base de ácidos orgânicos e vitaminas. Sem cheiro forte nem gases tóxicos." },
+                  { icon: CheckCircle2, title: "Não danifica os fios", desc: "Diferente de outras progressivas, o Liso Mágico não resseca nem quebra o cabelo." },
+                  { icon: ThumbsUp, title: "Compatível com qualquer química", desc: "Pode ser usado em cabelos tingidos, com luzes, descoloridos ou com outras químicas." },
+                  { icon: Clock, title: "Resultado duradouro", desc: "O efeito liso dura em média 3 meses, dependendo dos cuidados e do tipo de cabelo." },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex gap-4 items-start"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-base">{item.title}</h4>
+                      <p className="text-slate-500 text-sm">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
