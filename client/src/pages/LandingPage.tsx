@@ -420,7 +420,7 @@ export default function LandingPage() {
           <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Veja o que estão falando nas redes sociais" />
             <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-white p-4">
               <div className="aspect-video bg-slate-100 flex items-center justify-center">
-                <p className="text-slate-400">Avaliações e Depoimentos</p>
+                <p className="text-slate-400 font-medium">Avaliações e Depoimentos de Clientes</p>
               </div>
             </div>
           <div className="mt-16">
