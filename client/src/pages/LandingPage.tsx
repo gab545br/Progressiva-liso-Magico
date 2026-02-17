@@ -408,9 +408,43 @@ export default function LandingPage() {
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src={imgReview} alt="Resultado Liso Mágico" className="w-full h-auto" />
               </div>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-20">
+                <div className="bg-white rounded-full shadow-lg px-6 py-3 flex items-center gap-2 border border-slate-100">
+                  <div className="flex items-center gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-bold text-slate-800">+12 mil clientes satisfeitas</span>
+                </div>
+              </div>
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-rose-200 rounded-full -z-10 blur-3xl opacity-60" />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* --- TRANSFORMAÇÃO SECTION --- */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
+              Transforme seu cabelo sem sair de casa
+            </h2>
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              Milhares de mulheres já descobriram como ter um cabelo liso, brilhante e sem frizz gastando muito menos do que no salão. Com o Liso Mágico, o resultado profissional está nas suas mãos.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+              <span className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-[#d4a017]" /> Sem formol</span>
+              <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-[#d4a017]" /> Dermatologicamente testado</span>
+              <span className="flex items-center gap-2"><PackageCheck className="w-4 h-4 text-[#d4a017]" /> Pague na entrega</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
