@@ -141,18 +141,6 @@ export default function LandingPage() {
               background-position: 75% center !important;
               background-size: cover !important;
             }
-            body, html, section, .section, .container, .wrapper,
-            .dark-section, .bg-dark, #benefits, #results, .economy-section, #offers, #how-it-works {
-              background-color: #ffffff !important;
-              color: inherit !important;
-            }
-            #how-it-works, #how-it-works * {
-              color: #0f172a !important; /* slate-900 */
-            }
-            #how-it-works .bg-white\\/5 {
-              background-color: #f8fafc !important; /* slate-50 */
-              border-color: #e2e8f0 !important; /* slate-200 */
-            }
           }
         `}} />
 
