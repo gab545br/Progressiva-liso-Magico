@@ -138,7 +138,7 @@ export default function LandingPage() {
       </div>
 
       {/* --- HEADER --- */}
-      <header className="absolute top-0 left-0 right-0 z-[1000] bg-transparent px-[8%] py-[20px]">
+      <header className="absolute top-[36px] left-0 right-0 z-[1000] bg-transparent px-[8%] py-[20px]">
         <div className="container mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Sparkles className="w-8 h-8 text-[#d4a017]" />
