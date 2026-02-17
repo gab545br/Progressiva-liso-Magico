@@ -64,11 +64,11 @@ export default function LandingPage() {
       </div>
 
       {/* --- HEADER --- */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+      <header className="absolute top-0 left-0 right-0 z-[1000] bg-transparent backdrop-blur-md px-[8%] py-[20px]">
+        <div className="container mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-8 h-8 text-yellow-500" />
-            <span className="font-display font-bold text-2xl tracking-tight text-slate-900">Liso<span className="text-yellow-500">Mágico</span></span>
+            <Sparkles className="w-8 h-8 text-[#d4a017]" />
+            <span className="font-display font-bold text-2xl tracking-tight text-white">Liso<span className="text-[#d4a017]">Mágico</span></span>
           </div>
 
           {/* Desktop Nav */}
@@ -77,19 +77,19 @@ export default function LandingPage() {
               <a 
                 key={item.label} 
                 href={item.href}
-                className="text-sm font-medium text-slate-600 hover:text-yellow-600 transition-colors"
+                className="text-sm font-medium text-white hover:text-[#d4a017] transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <Button size="sm" onClick={scrollToOffer} className="animate-pulse">
+            <Button size="sm" onClick={scrollToOffer} className="bg-[#d4a017] hover:bg-[#b88a14] text-white border-none">
               COMPRAR AGORA
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-slate-800"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -103,7 +103,7 @@ export default function LandingPage() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
+              className="md:hidden bg-black/90 backdrop-blur-lg border-b border-white/10 overflow-hidden"
             >
               <nav className="flex flex-col p-4 gap-4">
                 {navItems.map((item) => (
@@ -111,12 +111,12 @@ export default function LandingPage() {
                     key={item.label} 
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-base font-medium text-slate-700 hover:text-yellow-600"
+                    className="text-base font-medium text-white hover:text-[#d4a017]"
                   >
                     {item.label}
                   </a>
                 ))}
-                <Button onClick={() => { setIsMenuOpen(false); scrollToOffer(); }} className="w-full">
+                <Button onClick={() => { setIsMenuOpen(false); scrollToOffer(); }} className="w-full bg-[#d4a017] hover:bg-[#b88a14] text-white border-none">
                   COMPRAR AGORA
                 </Button>
               </nav>
@@ -145,7 +145,7 @@ export default function LandingPage() {
         <div 
           className="absolute inset-0 z-0 backdrop-blur-[2px]" 
           style={{ 
-            background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0) 100%)',
+            background: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.2) 100%)',
             maskImage: 'linear-gradient(to right, black 40%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to right, black 40%, transparent 100%)'
           }}
