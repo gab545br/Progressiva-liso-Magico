@@ -85,17 +85,15 @@ export function OfferCard({
 
         <Button 
           onClick={handleBuy} 
-          variant={isPopular ? "primary" : "secondary"}
-          className={`w-full ${isPopular ? 'bg-black text-[#C6A756] hover:bg-slate-900' : ''}`}
+          className="w-full bg-black text-[#C6A756] hover:bg-[#111111] hover:-translate-y-0.5 transition-all duration-300 rounded-[40px] py-4 px-7 font-semibold border-none opacity-100"
           size="lg"
-          pulse={isPopular}
         >
           QUERO COMPRAR AGORA
         </Button>
         
         <p className="text-center text-xs text-slate-400 mt-4 flex items-center justify-center gap-1">
           <Star className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
-          Garantia de 7 dias ou seu dinheiro de volta
+          Garantia de 15 dias ou seu dinheiro de volta
         </p>
       </div>
     </motion.div>

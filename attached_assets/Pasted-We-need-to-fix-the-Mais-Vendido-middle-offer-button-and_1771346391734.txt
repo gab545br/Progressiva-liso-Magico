@@ -1,0 +1,85 @@
+We need to fix the "Mais Vendido" (middle offer) button and update the guarantee text.
+
+--------------------------------------------------
+ISSUE 1 – BUTTON BLINKING
+--------------------------------------------------
+
+The middle offer button is:
+
+- Blinking
+- Fading
+- Text looks washed out
+- Different from other buttons
+
+This must be fixed immediately.
+
+Remove ANY animation affecting the button:
+- Remove animation
+- Remove keyframes
+- Remove pulse effects
+- Remove opacity transitions
+- Remove gradient animation
+- Remove flicker hover
+
+The button must NOT blink.
+
+--------------------------------------------------
+CORRECT BUTTON STYLE (ALL 3 BUTTONS)
+--------------------------------------------------
+
+All 3 offer buttons must use this exact style:
+
+background-color: #000000;
+color: #C6A756;
+font-weight: 600;
+border-radius: 40px;
+padding: 16px 28px;
+border: none;
+transition: all 0.3s ease;
+opacity: 1;
+
+On hover:
+background-color: #111111;
+transform: translateY(-2px);
+
+Important:
+- Text must be fully visible (no transparency)
+- No blinking
+- No animation loops
+- No gradient movement
+
+The middle card can be slightly larger,
+BUT the button must look identical to the others.
+
+Premium. Stable. Clean.
+
+--------------------------------------------------
+ISSUE 2 – GUARANTEE TEXT
+--------------------------------------------------
+
+Below the buttons it says:
+
+"Garantia de 7 dias ou seu dinheiro de volta"
+
+Change this text everywhere to:
+
+"Garantia de 15 dias ou seu dinheiro de volta"
+
+Make sure:
+- It updates in all 3 offer cards
+- No leftover "7 dias" anywhere
+- Keep the same visual style
+- Just change the number
+
+--------------------------------------------------
+FINAL CHECK
+--------------------------------------------------
+
+After updating:
+- Buttons must not blink
+- Text must be fully readable
+- All 3 must look consistent
+- Guarantee must show 15 dias
+- No layout breaking
+
+Keep the premium luxury aesthetic.
