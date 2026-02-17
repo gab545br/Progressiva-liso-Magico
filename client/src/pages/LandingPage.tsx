@@ -28,7 +28,7 @@ import imgBefore3 from "@assets/03_1771343044432.jpg";
 import imgBefore4 from "@assets/04_1771343044431.jpg";
 import imgBefore5 from "@assets/05_1771343044431.jpg";
 import imgBefore6 from "@assets/06_1771343044430.jpg";
-import imgProductHero from "@assets/pt1_1770941481606.png";
+import imgProductHero from "@assets/topo_1771351248481.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
@@ -126,88 +126,61 @@ export default function LandingPage() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section id="hero" className="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
-        {/* Abstract Background Shapes */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-yellow-50 to-transparent -z-10 rounded-l-full opacity-60" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -z-10 opacity-60" />
+      <section 
+        id="hero" 
+        className="relative h-[100vh] flex items-center overflow-hidden bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `url(${imgProductHero})`,
+          backgroundPosition: 'center right'
+        }}
+      >
+        {/* Soft Dark Gradient Overlay */}
+        <div 
+          className="absolute inset-0 z-0" 
+          style={{ 
+            background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.15) 100%)' 
+          }}
+        />
 
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-2xl text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-bold mb-6 border border-green-200 shadow-sm">
-                <Truck className="w-4 h-4" />
-                Pagamento na entrega
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-slate-900 leading-tight mb-6">
-                Cabelos mais alinhados, com brilho e aparência saudável sem sair de casa
-                <span className="block mt-2 text-[#C6A756]">
-                  — e você só paga na entrega
-                </span>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white leading-tight mb-2">
+                Cabelo liso, alinhado e sem frizz —
               </h1>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#d4a017] mb-6">
+                e você só paga na entrega.
+              </h2>
               
-              <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                Fórmula cosmética desenvolvida para auxiliar na redução do frizz e melhorar a disciplina dos fios, com aplicação simples no conforto da sua casa.
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
+                Tratamento sem formol que ajuda a reduzir o frizz, alinhar os fios e devolver o brilho ao cabelo.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-2 items-center sm:items-start">
-                <Button size="xl" onClick={scrollToOffer} className="w-full sm:w-auto shadow-yellow-500/40">
+              <div className="flex flex-col gap-4 mb-6 items-center md:items-start">
+                <Button 
+                  size="xl" 
+                  onClick={scrollToOffer} 
+                  className="w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-10 py-4 border-none shadow-lg transition-all duration-300"
+                >
                   QUERO MEU LISO MÁGICO
-                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-              </div>
-              <p className="text-[#C6A756] text-sm font-medium mb-10 text-center sm:text-left">
-                Pagamento 100% na entrega
-              </p>
-
-              <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-green-600" />
-                  Compra Segura
-                </div>
-                <div className="flex items-center gap-2">
-                  <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  4.9/5 Avaliações
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex justify-center lg:justify-end"
-            >
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500 max-w-lg w-full">
-                <img src={imgProductHero} alt="Liso Mágico Produto" className="w-full h-auto object-contain" />
                 
-                {/* Float Card */}
-                <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100 max-w-xs">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="flex -space-x-2">
-                      {[1,2,3].map(i => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-xs font-bold overflow-hidden">
-                          <img src={`https://randomuser.me/api/portraits/women/${20+i}.jpg`} alt="User" />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-xs text-slate-500">
-                      <span className="font-bold text-slate-900">+12k</span> clientes felizes
-                    </div>
-                  </div>
-                  <p className="text-sm font-medium text-slate-800">"Melhor progressiva que já usei! O brilho é surreal."</p>
+                <div className="space-y-1 text-white/90 text-sm font-medium">
+                  <p className="flex items-center justify-center md:justify-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
+                    Pagamento somente na entrega
+                  </p>
+                  <p className="flex items-center justify-center md:justify-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
+                    Frete rápido para todo Brasil
+                  </p>
                 </div>
               </div>
-              
-              {/* Decorative circle behind */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-yellow-100 rounded-full -z-10 blur-3xl opacity-50 animate-pulse" />
             </motion.div>
-
           </div>
         </div>
       </section>
