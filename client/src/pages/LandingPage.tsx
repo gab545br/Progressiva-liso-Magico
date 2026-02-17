@@ -315,7 +315,7 @@ export default function LandingPage() {
       </div>
 
       {/* --- ECONOMY SECTION --- */}
-      <section className="py-24 bg-white economy-section">
+      <section className="py-16 bg-white economy-section">
         <div className="container mx-auto px-4">
           <SectionHeader 
             title="Compare os custos" 
@@ -338,7 +338,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- RESULTS GALLERY --- */}
-      <section id="results" className="py-24 bg-white">
+      <section id="results" className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader 
             title="Resultados de Clientes" 
@@ -403,9 +403,9 @@ export default function LandingPage() {
       </section>
 
       {/* --- SEGURANÇA E CONFIANÇA --- */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -463,7 +463,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- HOW IT WORKS --- */}
-      <section id="how-it-works" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section id="how-it-works" className="py-16 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader title="Como Funciona?" light />
@@ -493,7 +493,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- OFFERS --- */}
-      <section id="offers" ref={offerSectionRef} className="py-24 bg-[#F8F6F3]">
+      <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
@@ -532,10 +532,10 @@ export default function LandingPage() {
       </section>
 
       {/* --- GUARANTEE --- */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
-            <div className="w-64 h-64 shrink-0">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl flex flex-col md:flex-row items-center gap-10 border border-slate-100">
+            <div className="w-48 h-48 shrink-0">
               <img src={imgGuarantee} alt="Garantia 15 Dias" className="w-full h-full object-contain" />
             </div>
             <div>
@@ -551,10 +551,10 @@ export default function LandingPage() {
       </section>
 
       {/* --- PAGAMENTO NA ENTREGA --- */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-12 shadow-xl flex flex-col md:flex-row items-center gap-12 border border-slate-100">
-            <div className="w-64 h-64 shrink-0">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl flex flex-col md:flex-row items-center gap-10 border border-slate-100">
+            <div className="w-48 h-48 shrink-0">
               <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
             </div>
             <div>
@@ -571,7 +571,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- SOCIAL PROOF --- */}
-      <section className="py-24 bg-white border-y border-slate-100 social-proof">
+      <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Resultados reais de quem já transformou o cabelo com Liso Mágico" />
           
@@ -643,8 +643,8 @@ export default function LandingPage() {
                 </div>
               </div>
 
-          <div className="mt-16">
-            <Button size="lg" onClick={scrollToOffer} className="animate-bounce">
+          <div className="mt-12">
+            <Button onClick={scrollToOffer}>
               Quero Meu Liso Perfeito — Pagamento na Entrega
             </Button>
           </div>
@@ -652,7 +652,7 @@ export default function LandingPage() {
       </section>
 
       {/* --- FAQ --- */}
-      <section id="faq" className="py-24 bg-white">
+      <section id="faq" className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <SectionHeader title="Dúvidas Frequentes" />
 
@@ -690,15 +690,6 @@ export default function LandingPage() {
               </p>
               <div className="mt-6 text-xs opacity-70">
                 Este produto é cosmético. Os resultados podem variar de acordo com características individuais, rotina de cuidados e modo de aplicação. Recomenda-se realizar teste de mecha antes do uso. Em caso de dúvidas, consulte um profissional.
-              </div>
-              <div className="flex gap-4 mt-6">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 transition-colors cursor-pointer">
-                  {/* Fake social icon */}
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 transition-colors cursor-pointer">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </div>
               </div>
             </div>
 
