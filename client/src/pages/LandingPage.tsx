@@ -28,7 +28,7 @@ import imgBefore3 from "@assets/03_1771343044432.jpg";
 import imgBefore4 from "@assets/04_1771343044431.jpg";
 import imgBefore5 from "@assets/05_1771343044431.jpg";
 import imgBefore6 from "@assets/06_1771343044430.jpg";
-import imgProductHero from "@assets/topo_1771351248481.jpg";
+import imgProductHero from "@assets/topo1_1771351544560.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
@@ -131,19 +131,28 @@ export default function LandingPage() {
         className="relative h-[100vh] flex items-center overflow-hidden bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: `url(${imgProductHero})`,
-          backgroundPosition: 'center right'
+          backgroundPosition: 'right center'
         }}
       >
-        {/* Soft Dark Gradient Overlay */}
+        {/* Mobile background adjustment */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 768px) {
+            #hero { background-position: center top !important; }
+          }
+        `}} />
+
+        {/* Soft Dark Gradient Overlay with Blur Mask */}
         <div 
-          className="absolute inset-0 z-0" 
+          className="absolute inset-0 z-0 backdrop-blur-[2px]" 
           style={{ 
-            background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.15) 100%)' 
+            background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0) 100%)',
+            maskImage: 'linear-gradient(to right, black 40%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 40%, transparent 100%)'
           }}
         />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-2xl text-center md:text-left">
+          <div className="max-w-[600px] md:pl-[8%] text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
