@@ -34,7 +34,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           "rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2",
           variants[variant],
           sizes[size],
-          pulse && "animate-pulse",
           className
         )}
         {...props}

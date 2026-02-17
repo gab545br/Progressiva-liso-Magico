@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import { Button } from "./Button";
+import { cn } from "@/lib/utils";
 
 interface OfferCardProps {
   title: string;
@@ -85,7 +86,11 @@ export function OfferCard({
 
         <Button 
           onClick={handleBuy} 
-          className="w-full bg-black text-[#C6A756] hover:bg-[#111111] hover:-translate-y-0.5 transition-all duration-300 rounded-[40px] py-4 px-7 font-semibold border-none opacity-100"
+          variant={isPopular ? "primary" : "primary"}
+          className={cn(
+            "w-full rounded-full font-bold transition-all duration-300",
+            isPopular ? "text-white opacity-100" : ""
+          )}
           size="lg"
         >
           QUERO COMPRAR AGORA
