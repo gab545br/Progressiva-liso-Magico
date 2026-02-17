@@ -37,10 +37,8 @@ export function OfferCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={cn(
-        "relative rounded-3xl overflow-hidden transition-all duration-300 flex flex-col",
-        isPopular 
-          ? 'bg-white border-2 border-[#C6A756] shadow-[0_12px_30px_rgba(0,0,0,0.08)] scale-[1.03] z-10' 
-          : 'bg-black border-none shadow-md text-white',
+        "relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-300 flex flex-col",
+        isPopular ? 'border-2 border-[#C6A756] scale-105 md:-translate-y-4 z-10 shadow-lg' : 'border border-slate-100 hover:border-[#C6A756]/30',
         className
       )}
     >
@@ -51,10 +49,7 @@ export function OfferCard({
       )}
 
       <div className={`p-6 flex flex-col flex-1 ${isPopular ? 'pt-12' : 'pt-8'}`}>
-        <div className={cn(
-          "h-64 rounded-xl mb-6 overflow-hidden flex items-center justify-center",
-          isPopular ? "bg-slate-50" : "bg-white/5"
-        )}>
+        <div className="h-64 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
           <img 
             src={image} 
             alt={title} 
@@ -62,16 +57,10 @@ export function OfferCard({
           />
         </div>
 
-        <h3 className={cn(
-          "text-xl font-bold text-center mb-2",
-          isPopular ? "text-slate-800" : "text-white"
-        )}>{title}</h3>
+        <h3 className="text-xl font-bold text-slate-800 text-center mb-2">{title}</h3>
         
         <div className="flex flex-col items-center gap-1 mb-6">
-          <span className={cn(
-            "text-sm line-through",
-            isPopular ? "text-slate-400" : "text-white/60"
-          )}>De {originalPrice}</span>
+          <span className="text-slate-400 line-through text-sm">De {originalPrice}</span>
           
           {savings && (
             <div className="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-sm">
@@ -80,24 +69,15 @@ export function OfferCard({
           )}
 
           <div className="text-center mt-2">
-            <span className={cn(
-              "text-sm block",
-              isPopular ? "text-slate-600" : "text-white/85"
-            )}>Por apenas</span>
-            <div className={cn(
-              "text-4xl font-bold tracking-tight",
-              isPopular ? "text-slate-900" : "text-white"
-            )}>{price}</div>
+            <span className="text-sm text-slate-600 block">Por apenas</span>
+            <div className="text-4xl font-bold text-slate-900 tracking-tight">{price}</div>
             <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
           </div>
         </div>
 
         <ul className="space-y-3 mb-8 flex-1 min-h-[160px]">
           {features.map((feature, idx) => (
-            <li key={idx} className={cn(
-              "flex items-start gap-3 text-sm",
-              isPopular ? "text-slate-600" : "text-white/85"
-            )}>
+            <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
               <div className="mt-0.5 rounded-full bg-green-100 p-1">
                 <Check className="w-3 h-3 text-green-600" />
               </div>
@@ -111,7 +91,7 @@ export function OfferCard({
           variant={isPopular ? "primary" : "primary"}
           className={cn(
             "w-full rounded-full font-bold transition-all duration-300",
-            isPopular ? "text-white opacity-100" : ""
+            isPopular ? "text-white opacity-100" : "bg-black text-white hover:bg-slate-900"
           )}
           size="lg"
         >
