@@ -47,6 +47,8 @@ import imgBelo4 from "@assets/belo4_1771361035788.jpg";
 import imgBelo5 from "@assets/belo5_1771361035786.jpg";
 import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
+import mjnj from "@assets/mjnj.jpg";
+
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const offerSectionRef = useRef<HTMLDivElement>(null);
@@ -131,12 +133,10 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
-      
       {/* --- ANNOUNCEMENT BAR --- */}
       <div className="bg-[#111111] text-[#D4A62A] py-2 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
         Você só paga quando receber
       </div>
-
       {/* --- HEADER --- */}
       <header className="absolute top-[40px] left-0 right-0 z-[1000] bg-transparent px-[8%] py-[16px]">
         <div className="container mx-auto h-14 flex items-center justify-between">
@@ -198,7 +198,6 @@ export default function LandingPage() {
           )}
         </AnimatePresence>
       </header>
-
       {/* --- HERO SECTION --- */}
       <section 
         id="hero" 
@@ -297,7 +296,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- BENEFITS STRIP --- */}
       <div className="bg-slate-900 text-white py-12">
         <div className="container mx-auto px-4">
@@ -319,7 +317,6 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-
       {/* --- ECONOMY SECTION --- */}
       <section className="py-16 bg-white economy-section">
         <div className="container mx-auto px-4">
@@ -446,7 +443,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- RESULTS GALLERY --- */}
       <section id="results" className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
@@ -471,7 +467,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- BENEFITS DETAIL --- */}
       <section id="benefits" className="py-16 bg-rose-50/50">
         <div className="container mx-auto px-4 max-w-3xl">
@@ -511,7 +506,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- SEGURANÇA E CONFIANÇA --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -524,7 +518,7 @@ export default function LandingPage() {
               className="relative"
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgSafetyBg} alt="Liso Mágico Produto" className="w-full h-auto" />
+                <img src={mjnj} alt="Liso Mágico Produto" className="w-full h-auto" />
               </div>
             </motion.div>
 
@@ -571,7 +565,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- HOW IT WORKS --- */}
       <section id="how-it-works" className="py-16 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
@@ -601,7 +594,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
@@ -640,7 +632,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- GUARANTEE --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -659,7 +650,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- PAGAMENTO NA ENTREGA --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -693,7 +683,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- SOCIAL PROOF --- */}
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
@@ -774,7 +763,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- FAQ --- */}
       <section id="faq" className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
@@ -799,8 +787,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-
       {/* --- FOOTER --- */}
       <footer className="bg-slate-900 text-white py-12 border-t border-white/10">
         <div className="container mx-auto px-4">
