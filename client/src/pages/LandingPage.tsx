@@ -39,7 +39,7 @@ import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
 import imgEconomyBg from "@assets/salão_1_1771381400201.jpg";
 import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
-import imgSafetyBg from "@assets/m1_1771382570415.jpg";
+import imgSafetyBg from "@assets/m12_1771383810333.jpg";
 import imgBelo1 from "@assets/belo1_1771361035790.jpg";
 import imgBelo2 from "@assets/belo2_1771361035789.jpg";
 import imgBelo3 from "@assets/belo3_1771361035788.jpg";
