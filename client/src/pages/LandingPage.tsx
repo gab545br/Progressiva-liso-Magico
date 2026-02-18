@@ -513,31 +513,20 @@ export default function LandingPage() {
       </section>
 
       {/* --- SEGURANÇA E CONFIANÇA --- */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+      <section className="relative overflow-hidden">
+        <div className="relative flex flex-col md:flex-row min-h-[500px]">
+          <div className="relative z-10 md:w-1/2 bg-slate-900 py-16 px-6 md:px-14 flex items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="max-w-lg"
             >
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={imgSafetyBg} alt="Liso Mágico Produto" className="w-full h-auto" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3 drop-shadow-lg">
                 Seguro para você e seu cabelo
               </h2>
-              <p className="text-slate-500 mb-8 text-lg">
+              <p className="text-white/70 mb-8 text-lg">
                 Fórmula desenvolvida com ingredientes seguros, sem substâncias agressivas.
               </p>
 
@@ -557,17 +546,20 @@ export default function LandingPage() {
                     transition={{ delay: idx * 0.1 }}
                     className="flex gap-4 items-start"
                   >
-                    <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-green-500" />
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-green-400" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-base">{item.title}</h4>
-                      <p className="text-slate-500 text-sm">{item.desc}</p>
+                      <h4 className="font-bold text-white text-base">{item.title}</h4>
+                      <p className="text-white/60 text-sm">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
+          </div>
+          <div className="md:w-1/2 relative">
+            <img src={imgSafetyBg} alt="Liso Mágico Produto" className="w-full h-full object-cover object-top" />
           </div>
         </div>
       </section>
