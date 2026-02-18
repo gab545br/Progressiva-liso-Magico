@@ -36,7 +36,7 @@ import imgProductHeroMobile from "@assets/progressiva_123_1771356324772.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
-import imgEconomy from "@assets/salão_1771380533123.jpg";
+import imgEconomyBg from "@assets/salão_1_1771381400201.jpg";
 import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
@@ -387,29 +387,53 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div className="relative">
-              <img src={imgEconomy} alt="Comparativo de custos" className="rounded-2xl shadow-xl w-full" />
+          <div className="hidden md:block max-w-5xl mx-auto relative rounded-2xl overflow-hidden shadow-xl">
+            <div
+              className="relative bg-cover bg-center min-h-[420px] flex items-center"
+              style={{ backgroundImage: `url(${imgEconomyBg})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+              <div className="relative z-10 p-10 md:p-14 max-w-lg space-y-5">
+                <h3 className="text-3xl font-display font-bold text-white drop-shadow-lg">Por que o Liso Mágico é a melhor escolha?</h3>
+                <div className="space-y-3">
+                  {[
+                    "Economia de até 85% comparado ao salão",
+                    "Aplique no conforto da sua casa",
+                    "Sem agendamento, sem espera",
+                    "Um frasco rende várias aplicações",
+                    "Pagamento somente na entrega"
+                  ].map((item, idx) => (
+                    <p key={idx} className="flex items-center gap-3 text-white/90">
+                      <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
+                      {item}
+                    </p>
+                  ))}
+                </div>
+                <div className="pt-2">
+                  <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
+                </div>
+              </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-display font-bold text-slate-900">Por que o Liso Mágico é a melhor escolha?</h3>
-              <div className="space-y-3">
-                {[
-                  "Economia de até 85% comparado ao salão",
-                  "Aplique no conforto da sua casa",
-                  "Sem agendamento, sem espera",
-                  "Um frasco rende várias aplicações",
-                  "Pagamento somente na entrega"
-                ].map((item, idx) => (
-                  <p key={idx} className="flex items-center gap-3 text-slate-600">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                    {item}
-                  </p>
-                ))}
-              </div>
-              <div className="pt-4">
-                <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
-              </div>
+          </div>
+
+          <div className="md:hidden space-y-4">
+            <h3 className="text-2xl font-display font-bold text-slate-900">Por que o Liso Mágico é a melhor escolha?</h3>
+            <div className="space-y-3">
+              {[
+                "Economia de até 85% comparado ao salão",
+                "Aplique no conforto da sua casa",
+                "Sem agendamento, sem espera",
+                "Um frasco rende várias aplicações",
+                "Pagamento somente na entrega"
+              ].map((item, idx) => (
+                <p key={idx} className="flex items-center gap-3 text-slate-600">
+                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+                  {item}
+                </p>
+              ))}
+            </div>
+            <div className="pt-4">
+              <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
             </div>
           </div>
         </div>
