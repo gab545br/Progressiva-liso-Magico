@@ -535,7 +535,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
               { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Não precisa de cartão de crédito." },
-              { step: "02", title: "Confirmamos", desc: "Entramos em contato para validar o envio do seu pedido." },
+              { step: "02", title: "Enviamos", desc: "Preparamos e despachamos seu pedido com total cuidado." },
               { step: "03", title: "Receba e Pague", desc: "Pague somente quando o produto chegar nas suas mãos." },
             ].map((item, idx) => (
               <motion.div
