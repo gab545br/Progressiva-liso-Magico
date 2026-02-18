@@ -805,7 +805,7 @@ export default function LandingPage() {
                   Segunda a Segunda: das 7h às 23h
                 </li>
                 <li>contato@lisomagico.com.br</li>
-                <li>(11) 99999-9999</li>
+                <li>(34) 99766-8955</li>
               </ul>
             </div>
           </div>
