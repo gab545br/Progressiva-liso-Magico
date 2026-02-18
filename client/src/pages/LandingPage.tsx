@@ -36,7 +36,7 @@ import imgProductHeroMobile from "@assets/progressiva_123_1771356324772.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
 import imgProduct2 from "@assets/2+1_unidade_1771343925545.jpg";
 import imgProduct3 from "@assets/4+1_unidade_1771343925544.jpg";
-import imgEconomy from "@assets/economia_1771025261218.png";
+import imgEconomy from "@assets/salão_1771380533123.jpg";
 import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
 import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
 import imgReview from "@assets/Tp4_1770941481564.png";
