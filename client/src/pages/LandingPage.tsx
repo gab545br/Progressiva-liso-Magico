@@ -792,8 +792,8 @@ export default function LandingPage() {
                 <li><a href="#" className="hover:text-yellow-500">Início</a></li>
                 <li><a href="#offers" className="hover:text-yellow-500">Comprar Agora</a></li>
                 <li><a href="#how-it-works" className="hover:text-yellow-500">Rastrear Pedido</a></li>
-                <li><a href="#" className="hover:text-yellow-500">Política de Privacidade</a></li>
-                <li><a href="#" className="hover:text-yellow-500">Termos de Uso</a></li>
+                <li><a href="/politica-de-privacidade" className="hover:text-yellow-500" data-testid="link-privacy-policy">Política de Privacidade</a></li>
+                <li><a href="/termos-de-uso" className="hover:text-yellow-500" data-testid="link-terms-of-use">Termos de Uso</a></li>
               </ul>
             </div>
 
