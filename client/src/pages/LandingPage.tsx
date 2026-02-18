@@ -513,15 +513,18 @@ export default function LandingPage() {
       </section>
 
       {/* --- SEGURANÇA E CONFIANÇA --- */}
-      <section className="relative overflow-hidden">
-        <div className="relative flex flex-col md:flex-row min-h-[500px]">
-          <div className="relative z-10 md:w-1/2 bg-slate-900 py-16 px-6 md:px-14 flex items-center">
+      <section className="relative">
+        <img src={imgSafetyBg} alt="Liso Mágico Produto" className="absolute inset-0 w-full h-full object-contain object-right bg-slate-900 hidden md:block" />
+        <img src={imgSafetyBg} alt="Liso Mágico Produto" className="absolute inset-0 w-full h-full object-contain object-bottom bg-slate-900 md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40 hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/80 to-slate-900 md:hidden"></div>
+        <div className="relative z-10 container mx-auto px-6 md:px-14 py-16">
+          <div className="max-w-xl">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-lg"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3 drop-shadow-lg">
                 Seguro para você e seu cabelo
@@ -546,7 +549,7 @@ export default function LandingPage() {
                     transition={{ delay: idx * 0.1 }}
                     className="flex gap-4 items-start"
                   >
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-green-400" />
                     </div>
                     <div>
@@ -557,9 +560,6 @@ export default function LandingPage() {
                 ))}
               </div>
             </motion.div>
-          </div>
-          <div className="md:w-1/2 relative">
-            <img src={imgSafetyBg} alt="Liso Mágico Produto" className="w-full h-full object-cover object-top" />
           </div>
         </div>
       </section>
