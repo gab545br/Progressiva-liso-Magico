@@ -324,20 +324,92 @@ export default function LandingPage() {
       <section className="py-16 bg-white economy-section">
         <div className="container mx-auto px-4">
           <SectionHeader 
-            title="Compare os custos" 
+            title="Compare e Economize" 
             subtitle="Os valores podem variar conforme região, frequência e tipo de procedimento."
           />
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div className="space-y-6">
-              <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                <h4 className="text-xl font-bold text-green-900 mb-4">Alternativa com bom custo-benefício</h4>
-                <p className="text-green-700">
-                  Opção prática para quem busca reduzir a frequência de procedimentos em salão.
-                </p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-red-50 rounded-2xl p-8 border border-red-100 relative"
+            >
+              <div className="absolute -top-3 left-6 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+                SALÃO DE BELEZA
               </div>
-            </div>
+              <div className="mt-4 space-y-4">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Progressiva no salão</span>
+                  <span className="font-bold text-red-600">R$ 200 - R$ 500</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Frequência</span>
+                  <span className="font-bold text-red-600">A cada 3 meses</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Custo anual estimado</span>
+                  <span className="font-bold text-red-600">R$ 800 - R$ 2.000</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Tempo no salão</span>
+                  <span className="font-bold text-red-600">3 a 5 horas</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-green-50 rounded-2xl p-8 border border-green-100 relative"
+            >
+              <div className="absolute -top-3 left-6 bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+                LISO MÁGICO EM CASA
+              </div>
+              <div className="mt-4 space-y-4">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Progressiva Liso Mágico</span>
+                  <span className="font-bold text-green-600">A partir de R$ 167,90</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Rendimento</span>
+                  <span className="font-bold text-green-600">Até 5 aplicações</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Custo por aplicação</span>
+                  <span className="font-bold text-green-600">A partir de R$ 33,58</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-slate-700">Tempo de aplicação</span>
+                  <span className="font-bold text-green-600">40 min a 1 hora</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div className="relative">
-              <img src={imgEconomy} alt="Comparativo de custos" className="rounded-3xl shadow-2xl w-full" />
+              <img src={imgEconomy} alt="Comparativo de custos" className="rounded-2xl shadow-xl w-full" />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-display font-bold text-slate-900">Por que o Liso Mágico é a melhor escolha?</h3>
+              <div className="space-y-3">
+                {[
+                  "Economia de até 85% comparado ao salão",
+                  "Aplique no conforto da sua casa",
+                  "Sem agendamento, sem espera",
+                  "Um frasco rende várias aplicações",
+                  "Pagamento somente na entrega"
+                ].map((item, idx) => (
+                  <p key={idx} className="flex items-center gap-3 text-slate-600">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <div className="pt-4">
+                <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
+              </div>
             </div>
           </div>
         </div>
