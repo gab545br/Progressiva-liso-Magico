@@ -506,6 +506,61 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* --- MEDO DE COMPRAR NA INTERNET --- */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+              <ShieldCheck className="w-8 h-8 text-green-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
+              Medo de comprar na internet?
+            </h2>
+            <p className="text-lg text-slate-600 mb-2 max-w-xl mx-auto">
+              Sabemos que golpes são comuns. Por isso, oferecemos o{" "}
+              <span className="font-bold text-green-600">PAGAMENTO NA ENTREGA</span>.
+            </p>
+            <p className="text-lg text-slate-600 mb-6 max-w-xl mx-auto">
+              Você faz o pedido aqui no site, nós enviamos, e você só paga ao carteiro quando o produto chegar na sua mão.
+            </p>
+            <p className="text-xl font-bold text-slate-900 mb-10">Risco ZERO para você!</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {[
+              { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Não precisa de cartão de crédito." },
+              { step: "02", title: "Confirmamos", desc: "Entramos em contato para validar o envio do seu pedido." },
+              { step: "03", title: "Receba e Pague", desc: "Pague somente quando o produto chegar nas suas mãos." },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-left"
+              >
+                <div className="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center mb-4 text-sm">
+                  {item.step}
+                </div>
+                <h4 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h4>
+                <p className="text-slate-500 text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Button onClick={scrollToOffer} data-testid="button-cta-medo">QUERO COMPRAR SEM RISCO</Button>
+          </div>
+        </div>
+      </section>
+
       {/* --- SEGURANÇA E CONFIANÇA --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
