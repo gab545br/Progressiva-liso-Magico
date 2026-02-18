@@ -449,7 +449,7 @@ export default function LandingPage() {
           
           <div className="space-y-6">
             {[
-              { title: "Liso na 1ª Aplicação", desc: "Fórmula potente que alinha os fios instantaneamente sem danificar." },
+              { title: "Resultados visíveis nas primeiras aplicações", desc: "Fórmula potente que alinha os fios instantaneamente sem danificar." },
               { title: "Redução Total de Frizz", desc: "Tecnologia anti-umidade que mantém o cabelo disciplinado." },
               { title: "Compatível com Químicas", desc: "Pode ser usado em cabelos tingidos, descoloridos ou com outras progressivas." },
               { title: "Economia Real", desc: "Um frasco rende até 5 aplicações. Muito mais barato que o salão." },
