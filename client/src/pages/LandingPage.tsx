@@ -416,24 +416,32 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="md:hidden space-y-4">
-            <h3 className="text-2xl font-display font-bold text-slate-900">Por que o Liso Mágico é a melhor escolha?</h3>
-            <div className="space-y-3">
-              {[
-                "Economia de até 85% comparado ao salão",
-                "Aplique no conforto da sua casa",
-                "Sem agendamento, sem espera",
-                "Um frasco rende várias aplicações",
-                "Pagamento somente na entrega"
-              ].map((item, idx) => (
-                <p key={idx} className="flex items-center gap-3 text-slate-600">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                  {item}
-                </p>
-              ))}
-            </div>
-            <div className="pt-4">
-              <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
+          <div className="md:hidden relative rounded-2xl overflow-hidden shadow-xl">
+            <div
+              className="relative bg-cover bg-center min-h-[380px] flex items-center"
+              style={{ backgroundImage: `url(${imgEconomyBg})` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+              <div className="relative z-10 p-8 space-y-4">
+                <h3 className="text-2xl font-display font-bold text-white drop-shadow-lg">Por que o Liso Mágico é a melhor escolha?</h3>
+                <div className="space-y-3">
+                  {[
+                    "Economia de até 85% comparado ao salão",
+                    "Aplique no conforto da sua casa",
+                    "Sem agendamento, sem espera",
+                    "Um frasco rende várias aplicações",
+                    "Pagamento somente na entrega"
+                  ].map((item, idx) => (
+                    <p key={idx} className="flex items-center gap-3 text-white/90">
+                      <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
+                      {item}
+                    </p>
+                  ))}
+                </div>
+                <div className="pt-2">
+                  <Button onClick={scrollToOffer}>QUERO ECONOMIZAR AGORA</Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
