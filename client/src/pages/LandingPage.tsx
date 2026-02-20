@@ -843,36 +843,33 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- FOOTER --- */}
-      <footer className="bg-slate-900 text-white py-12 border-t border-white/10">
+      <footer className="bg-white border-t border-slate-200 pt-12 pb-6">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-6 h-6 text-yellow-500" />
-                <span className="font-display font-bold text-xl">Liso<span className="text-yellow-500">Mágico</span></span>
-              </div>
-              <p className="text-white/60 mb-6 max-w-sm">
-                Tecnologia avançada para alinhamento capilar. Beleza, praticidade e segurança para você se sentir maravilhosa todos os dias.
-              </p>
-              <div className="mt-6 text-xs opacity-70">
-                Este produto é cosmético. Os resultados podem variar de acordo com características individuais, rotina de cuidados e modo de aplicação. Recomenda-se realizar teste de mecha antes do uso. Em caso de dúvidas, consulte um profissional.
-              </div>
-            </div>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 mb-10">
 
             <div>
-              <h5 className="font-bold text-lg mb-4">Links Rápidos</h5>
-              <ul className="space-y-2 text-white/60 text-sm">
-                <li><a href="#" className="hover:text-yellow-500">Início</a></li>
-                <li><a href="#offers" className="hover:text-yellow-500">Comprar Agora</a></li>
-                <li><a href="#how-it-works" className="hover:text-yellow-500">Rastrear Pedido</a></li>
-                <li><a href="/politica-de-privacidade" className="hover:text-yellow-500" data-testid="link-privacy-policy">Política de Privacidade</a></li>
-                <li><a href="/termos-de-uso" className="hover:text-yellow-500" data-testid="link-terms-of-use">Termos de Uso</a></li>
+              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">Institucional</h5>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/politica-de-privacidade" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-privacy-policy">Política de Privacidade</a></li>
+                <li><a href="/termos-de-uso" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-terms-of-use">Termos de Uso</a></li>
+                <li><a href="/politica-de-privacidade" className="text-slate-600 hover:text-[#C6A756] transition-colors">Política de Troca e Devolução</a></li>
+                <li><a href="#faq" className="text-slate-600 hover:text-[#C6A756] transition-colors">Contato</a></li>
               </ul>
             </div>
 
             <div>
-              <h5 className="font-bold text-lg mb-4">Atendimento</h5>
-              <ul className="space-y-2 text-white/60 text-sm">
+              <h5 className="text-lg font-semibold text-[#C6A756] mb-4">LISO MÁGICO COSMÉTICOS</h5>
+              <div className="space-y-1 text-sm text-slate-600">
+                <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
+                <p>CNPJ: 65.206.918/0001-37</p>
+                <p>Gabriel Rodrigues de Brito</p>
+                <p>Brasil</p>
+              </div>
+            </div>
+
+            <div>
+              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">Atendimento</h5>
+              <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                   Segunda a Segunda: das 7h às 23h
@@ -881,10 +878,11 @@ export default function LandingPage() {
                 <li>(34) 99766-8955</li>
               </ul>
             </div>
+
           </div>
-          
-          <div className="pt-8 border-t border-white/10 text-center text-white/40 text-sm">
-            &copy; 2026 Liso Mágico. Todos os direitos reservados.
+
+          <div className="max-w-5xl mx-auto pt-6 border-t border-slate-200 text-center text-slate-400 text-xs">
+            &copy; 2026 Liso Mágico Cosméticos. Todos os direitos reservados.
           </div>
         </div>
       </footer>
