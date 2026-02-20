@@ -852,7 +852,7 @@ export default function LandingPage() {
               <ul className="space-y-2 text-sm">
                 <li><a href="/politica-de-privacidade" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-privacy-policy">Política de Privacidade</a></li>
                 <li><a href="/termos-de-uso" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-terms-of-use">Termos de Uso</a></li>
-                <li><a href="/politica-de-privacidade" className="text-slate-600 hover:text-[#C6A756] transition-colors">Política de Troca e Devolução</a></li>
+                <li><a href="/troca-e-devolucao" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-exchange-policy">Política de Troca e Devolução</a></li>
                 <li><a href="#faq" className="text-slate-600 hover:text-[#C6A756] transition-colors">Contato</a></li>
               </ul>
             </div>
