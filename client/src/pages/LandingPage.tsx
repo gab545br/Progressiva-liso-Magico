@@ -660,7 +660,7 @@ export default function LandingPage() {
               originalPrice="R$ 197,90" 
               link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-876" 
               features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
-              installment="12x de R$ 13,99"
+              installment="12x de R$ 16,79"
               image={imgProduct1} 
               className="h-full"
             />
@@ -672,7 +672,7 @@ export default function LandingPage() {
               features={["Leve 3 Pague 2", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
               isPopular={true} 
               savings="25%" 
-              installment="12x de R$ 24,83"
+              installment="12x de R$ 29,78"
               image={imgProduct2} 
               className="h-full"
             />
@@ -683,7 +683,7 @@ export default function LandingPage() {
               link="https://app.coinzz.com.br/checkout/4-1-unidades-876" 
               features={["Leve 5 Pague 4", "Pagamento na entrega", "5 Frascos Liso Mágico", "Frete Grátis Expresso"]} 
               savings="17%" 
-              installment="12x de R$ 41,49"
+              installment="12x de R$ 49,78"
               image={imgProduct3} 
               className="h-full"
             />
