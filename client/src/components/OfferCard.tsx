@@ -13,6 +13,7 @@ interface OfferCardProps {
   savings?: string;
   image: string;
   className?: string;
+  installment?: string;
 }
 
 export function OfferCard({ 
@@ -24,7 +25,8 @@ export function OfferCard({
   isPopular = false,
   savings,
   image,
-  className
+  className,
+  installment
 }: OfferCardProps) {
   
   const handleBuy = () => {
@@ -72,6 +74,11 @@ export function OfferCard({
             <span className="text-sm text-slate-600 block">Por apenas</span>
             <div className="text-4xl font-bold text-slate-900 tracking-tight">{price}</div>
             <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
+            {installment && (
+              <div className="text-sm text-slate-500 mt-2">
+                ou <span className="font-semibold text-slate-700">{installment}</span>
+              </div>
+            )}
           </div>
         </div>
 
