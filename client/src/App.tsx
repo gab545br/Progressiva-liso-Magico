@@ -7,6 +7,7 @@ import LandingPage from "@/pages/LandingPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfUse from "@/pages/TermsOfUse";
 import ExchangePolicy from "@/pages/ExchangePolicy";
+import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/politica-de-privacidade" component={PrivacyPolicy} />
       <Route path="/termos-de-uso" component={TermsOfUse} />
       <Route path="/troca-e-devolucao" component={ExchangePolicy} />
+      <Route path="/contato" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );
