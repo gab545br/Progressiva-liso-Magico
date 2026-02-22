@@ -48,6 +48,7 @@ import imgBelo5 from "@assets/belo5_1771361035786.jpg";
 import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
 import mjnj from "@assets/mjnj.jpg";
+import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -649,6 +650,24 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      {/* --- ANVISA --- */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="Certificação ANVISA" subtitle="Produto aprovado e regulamentado pela Agência Nacional de Vigilância Sanitária" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-100">
+              <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
