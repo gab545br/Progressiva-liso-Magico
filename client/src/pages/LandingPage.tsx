@@ -652,27 +652,71 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- ANVISA --- */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img src={imgAnvisaBg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/80 to-slate-900/90"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">Certificação ANVISA</h2>
-            <p className="text-white/70 text-lg">Produto aprovado e regulamentado pela Agência Nacional de Vigilância Sanitária</p>
-          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
+            <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-5 py-2 mb-6">
+              <ShieldCheck className="w-5 h-5 text-green-400" />
+              <span className="text-green-300 text-sm font-semibold tracking-wide uppercase">Produto Regulamentado</span>
             </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Certificação ANVISA</h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">Aprovado pela Agência Nacional de Vigilância Sanitária — garantia de segurança e qualidade para o seu cabelo</p>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
+                <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-5"
+            >
+              {[
+                { title: "Autorização de Funcionamento", desc: "Registro ANVISA nº 4.02912-7 — empresa autorizada a fabricar cosméticos no Brasil." },
+                { title: "100% Livre de Formol", desc: "Fórmula aprovada sem substâncias proibidas. Seguro para uso profissional e doméstico." },
+                { title: "Responsável Técnica", desc: "Luciana Camargo — CRQ: 024023543. Profissional habilitada supervisionando a produção." },
+                { title: "Fabricação Nacional", desc: "Produzido por ERL Ind. Terceirista de Cosméticos — Vila Cachoeirinha, Cambuí/MG." },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex gap-4 items-start"
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#C6A756]/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-5 h-5 text-[#C6A756]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-base mb-1">{item.title}</h4>
+                    <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
