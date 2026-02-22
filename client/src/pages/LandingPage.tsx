@@ -49,6 +49,7 @@ import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
 import mjnj from "@assets/mjnj.jpg";
 import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
+import imgAnvisaBg from "@assets/foto_anvisa_1771778534905.jpg";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -651,9 +652,16 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- ANVISA --- */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <SectionHeader title="Certificação ANVISA" subtitle="Produto aprovado e regulamentado pela Agência Nacional de Vigilância Sanitária" />
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={imgAnvisaBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-slate-900/80"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">Certificação ANVISA</h2>
+            <p className="text-white/70 text-lg">Produto aprovado e regulamentado pela Agência Nacional de Vigilância Sanitária</p>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -661,7 +669,7 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto"
           >
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-100">
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
             </div>
           </motion.div>
