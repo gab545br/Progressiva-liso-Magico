@@ -680,8 +680,11 @@ export default function LandingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
-                <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#C6A756] via-[#e8d48b] to-[#C6A756] rounded-2xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div className="relative rounded-2xl overflow-hidden border-2 border-[#C6A756]/40 bg-white shadow-2xl">
+                  <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" className="w-full h-auto" />
+                </div>
               </div>
             </motion.div>
 
