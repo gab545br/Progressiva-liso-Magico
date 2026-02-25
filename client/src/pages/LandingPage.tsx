@@ -347,7 +347,7 @@ export default function LandingPage() {
                   <Sparkles className="w-4 h-4 text-[#C6A756]" />
                   <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Compare e Economize</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4 text-center">
                   Resultado de salão,<br /><span className="text-[#C6A756]">sem sair de casa</span>
                 </h2>
                 <p className="text-white/50 text-base text-center">Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
