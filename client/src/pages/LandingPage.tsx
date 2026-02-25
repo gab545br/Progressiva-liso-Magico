@@ -25,12 +25,14 @@ import { useCreateLead } from "@/hooks/use-leads";
 import { useToast } from "@/hooks/use-toast";
 
 // Import images
-import imgBefore1 from "@assets/01_1771343044433.jpg";
-import imgBefore2 from "@assets/02_1771343044433.jpg";
-import imgBefore3 from "@assets/03_1771343044432.jpg";
-import imgBefore4 from "@assets/04_1771343044431.jpg";
-import imgBefore5 from "@assets/05_1771343044431.jpg";
-import imgBefore6 from "@assets/06_1771343044430.jpg";
+import imgBeforeAfter1 from "@assets/3_1770932876368.jpg";
+import imgBeforeAfter2 from "@assets/5_1770932876367.jpg";
+import imgResult1 from "@assets/01_1771342379935.jpg";
+import imgResult2 from "@assets/02_1771342379934.jpg";
+import imgResult3 from "@assets/03_1771342379932.jpg";
+import imgResult4 from "@assets/06_1771342379927.jpg";
+import imgModel1 from "@assets/belo1_1771361035790.jpg";
+import imgModel2 from "@assets/belo2_1771361035789.jpg";
 import imgProductHero from "@assets/topo1_1771351544560.jpg";
 import imgProductHeroMobile from "@assets/progressiva_123_1771356324772.jpg";
 import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
@@ -443,26 +445,91 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- RESULTS GALLERY --- */}
-      <section id="results" className="py-16 bg-white">
-        <div className="container mx-auto px-4 text-center">
+      <section id="results" className="py-16 md:py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
           <SectionHeader 
-            title="Resultados de Clientes" 
-            subtitle="*Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação."
+            title="Resultados Reais" 
+            subtitle="Veja a transformação de quem já usa o Liso Mágico"
           />
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[imgBefore1, imgBefore2, imgBefore3, imgBefore4, imgBefore5, imgBefore6].map((img, idx) => (
-              <motion.div 
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+            {[
+              { img: imgBeforeAfter1, label: "Transformação completa" },
+              { img: imgBeforeAfter2, label: "Antes e depois real" },
+            ].map((item, idx) => (
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="rounded-2xl overflow-hidden shadow-lg bg-white"
+                transition={{ delay: idx * 0.15 }}
+                className="relative group rounded-2xl overflow-hidden shadow-xl bg-white"
               >
-                <img src={img} alt={`Resultado de cliente ${idx + 1}`} className="w-full h-auto" />
+                <img src={item.img} alt={item.label} className="w-full h-auto" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex gap-1">
+                        <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">ANTES</span>
+                        <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
+                      </div>
+                      <span className="text-white/80 text-sm">{item.label}</span>
+                    </div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-10">
+            {[imgResult1, imgResult2, imgResult3, imgResult4].map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="relative rounded-xl overflow-hidden shadow-lg group"
+              >
+                <img src={img} alt={`Resultado ${idx + 1}`} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                  DEPOIS
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+            {[imgModel1, imgModel2].map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="rounded-xl overflow-hidden shadow-lg"
+              >
+                <img src={img} alt={`Cliente satisfeita ${idx + 1}`} className="w-full h-auto" />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-slate-400 text-sm italic mb-6"
+          >
+            *Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação.
+          </motion.p>
+
+          <div className="text-center">
+            <Button onClick={scrollToOffer} data-testid="button-results-cta">QUERO ESSE RESULTADO</Button>
           </div>
         </div>
       </section>
