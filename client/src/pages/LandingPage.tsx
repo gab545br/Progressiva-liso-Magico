@@ -450,8 +450,11 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- RESULTS GALLERY --- */}
-      <section id="results" className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section id="results" className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white"></div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -502,7 +505,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="relative group rounded-2xl overflow-hidden shadow-xl bg-white"
+                className="relative group rounded-2xl overflow-hidden shadow-xl bg-white border border-slate-200"
               >
                 <img src={item.img} alt={item.name} className="w-full h-auto" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
@@ -529,13 +532,21 @@ export default function LandingPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative rounded-xl overflow-hidden shadow-lg group"
+              className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white p-2"
             >
-              <img src={imgBeforeAfter1} alt="Cabelo escuro — transformação total" className="w-full h-auto" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                <div className="flex items-center gap-2">
-                  <span className="bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">ANTES</span>
-                  <span className="bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
+              <img src={imgBeforeAfter1} alt="Cabelo escuro — transformação total" className="w-full h-auto rounded-xl" />
+              <div className="absolute inset-x-2 bottom-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 rounded-b-xl">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
+                    <ArrowRight className="w-4 h-4 text-white/50" />
+                    <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
