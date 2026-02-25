@@ -29,7 +29,7 @@ import imgBeforeAfter1 from "@assets/3_1770932876368.jpg";
 import imgBeforeAfter2 from "@assets/5_1770932876367.jpg";
 import imgBeforeAfter3 from "@assets/7_1770932876366.webp";
 import imgBeforeAfter4 from "@assets/8_1770932876365.webp";
-import imgBeforeAfter5 from "@assets/6_1770932876366.jpg";
+import imgBeforeAfter5 from "@assets/belo3_1771361035788.jpg";
 import imgResult1 from "@assets/01_1771342379935.jpg";
 import imgResult2 from "@assets/02_1771342379934.jpg";
 import imgResult3 from "@assets/03_1771342379932.jpg";
@@ -525,27 +525,40 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto mb-8">
-            {[
-              { img: imgBeforeAfter1, name: "Cabelo escuro — transformação total" },
-              { img: imgBeforeAfter5, name: "Frizz e volume? Nunca mais!" },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="relative rounded-xl overflow-hidden shadow-lg group"
-              >
-                <img src={item.img} alt={item.name} className="w-full h-auto" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                  <div className="flex items-center gap-2">
-                    <span className="bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">ANTES</span>
-                    <span className="bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
-                  </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative rounded-xl overflow-hidden shadow-lg group"
+            >
+              <img src={imgBeforeAfter1} alt="Cabelo escuro — transformação total" className="w-full h-auto" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                <div className="flex items-center gap-2">
+                  <span className="bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">ANTES</span>
+                  <span className="bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative rounded-xl overflow-hidden shadow-lg group"
+            >
+              <img src={imgBeforeAfter5} alt="Cabelo alinhado e com brilho natural" className="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                <p className="text-white text-sm font-medium">Cabelo alinhado e com brilho</p>
+                <div className="flex gap-0.5 mt-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
+                  ))}
+                </div>
+              </div>
+              <div className="absolute top-3 right-3 bg-green-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg backdrop-blur-sm">
+                RESULTADO
+              </div>
+            </motion.div>
           </div>
 
           <motion.div
