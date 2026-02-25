@@ -350,7 +350,7 @@ export default function LandingPage() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4">
                   Resultado de salão,<br /><span className="text-[#C6A756]">sem sair de casa</span>
                 </h2>
-                <p className="text-white/50 text-base">Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
+                <p className="text-white/50 text-base text-center">Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
               </div>
 
               <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -505,7 +505,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- MEDO DE COMPRAR NA INTERNET --- */}
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4 max-w-3xl text-center">
@@ -559,7 +558,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- SEGURANÇA E CONFIANÇA --- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -716,7 +714,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
