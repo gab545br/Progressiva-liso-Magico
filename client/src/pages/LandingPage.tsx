@@ -57,6 +57,7 @@ import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
 import mjnj from "@assets/mjnj.jpg";
 import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
+import imgResultsBg from "@assets/salão_1771380533123.jpg";
 import imgAnvisaBg from "@assets/foto_anvisa_1771778534905.jpg";
 
 export default function LandingPage() {
@@ -451,10 +452,12 @@ export default function LandingPage() {
       </section>
       {/* --- RESULTS GALLERY --- */}
       <section id="results" className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#fdfbf7] via-[#f5f0e8] to-[#faf6ef]"></div>
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#C6A756]/[0.04] rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.05] rounded-full blur-[100px] translate-x-1/3 translate-y-1/3"></div>
-        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-rose-200/[0.04] rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute inset-0">
+          <img src={imgResultsBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/85 to-slate-900/92"></div>
+        </div>
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#C6A756]/[0.06] rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.07] rounded-full blur-[100px] translate-x-1/3 translate-y-1/3"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -463,14 +466,14 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-4"
           >
-            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-5">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span className="text-green-600 text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-5">
+              <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
               Veja com seus próprios olhos
             </h2>
-            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Milhares de mulheres já transformaram seus cabelos com o Liso Mágico. Confira os resultados reais de quem já usou.
             </p>
           </motion.div>
@@ -488,10 +491,10 @@ export default function LandingPage() {
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="flex items-center justify-center gap-1">
-                  <span className="text-2xl md:text-3xl font-bold text-slate-900">{stat.number}</span>
+                  <span className="text-2xl md:text-3xl font-bold text-white">{stat.number}</span>
                   {stat.icon && <Star className="w-5 h-5 fill-[#C6A756] text-[#C6A756]" />}
                 </div>
-                <span className="text-slate-400 text-sm">{stat.label}</span>
+                <span className="text-white/50 text-sm">{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -507,7 +510,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="relative group rounded-2xl overflow-hidden shadow-xl bg-white border border-slate-200"
+                className="relative group rounded-2xl overflow-hidden shadow-xl bg-white/5 border border-white/10"
               >
                 <img src={item.img} alt={item.name} className="w-full h-auto" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
@@ -534,7 +537,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white p-2"
+              className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/5 p-2"
             >
               <img src={imgBeforeAfter1} alt="Cabelo escuro — transformação total" className="w-full h-auto rounded-xl" />
               <div className="absolute inset-x-2 bottom-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 rounded-b-xl">
@@ -560,8 +563,8 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center my-10"
           >
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-2">Cabelo dos sonhos após o Liso Mágico</h3>
-            <p className="text-slate-400">Liso, sedoso, brilhante e sem frizz — em qualquer tipo de cabelo</p>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">Cabelo dos sonhos após o Liso Mágico</h3>
+            <p className="text-white/50">Liso, sedoso, brilhante e sem frizz — em qualquer tipo de cabelo</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-8">
@@ -572,7 +575,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
-                className="relative rounded-xl overflow-hidden shadow-lg group"
+                className="relative rounded-xl overflow-hidden shadow-lg group border border-white/10"
               >
                 <img src={img} alt={`Resultado ${idx + 1}`} className="w-full h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute top-3 right-3 bg-green-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg backdrop-blur-sm">
@@ -593,7 +596,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="rounded-xl overflow-hidden shadow-lg relative group"
+                className="rounded-xl overflow-hidden shadow-lg relative group border border-white/10"
               >
                 <img src={item.img} alt={item.caption} className="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
@@ -612,7 +615,7 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center text-slate-400 text-xs italic mb-8"
+            className="text-center text-white/40 text-xs italic mb-8"
           >
             *Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação.
           </motion.p>
