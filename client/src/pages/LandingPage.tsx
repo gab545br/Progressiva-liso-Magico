@@ -57,7 +57,7 @@ import imgBelo6 from "@assets/vbn_1771361360487.jpg";
 
 import mjnj from "@assets/mjnj.jpg";
 import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
-import imgResultsBg from "@assets/salão_1771380533123.jpg";
+import imgResultsBg from "@assets/popo_1772062081745.png";
 import imgAnvisaBg from "@assets/foto_anvisa_1771778534905.jpg";
 
 export default function LandingPage() {
