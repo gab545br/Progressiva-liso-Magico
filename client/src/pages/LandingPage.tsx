@@ -353,7 +353,15 @@ export default function LandingPage() {
                 <p className="text-white/50 text-base">Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="hidden sm:flex absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-10 flex-col items-center">
+                  <div className="w-[2px] flex-1 bg-red-500/60"></div>
+                  <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
+                    <X className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="w-[2px] flex-1 bg-red-500/60"></div>
+                </div>
+
                 <div className="bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-2 h-2 rounded-full bg-red-400"></div>
@@ -372,6 +380,14 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
+                </div>
+
+                <div className="sm:hidden flex items-center gap-3 -my-1">
+                  <div className="flex-1 h-[2px] bg-red-500/40"></div>
+                  <div className="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
+                    <X className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <div className="flex-1 h-[2px] bg-red-500/40"></div>
                 </div>
 
                 <div className="bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-xl p-5">
