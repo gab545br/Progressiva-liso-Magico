@@ -321,12 +321,18 @@ export default function LandingPage() {
         </div>
       </div>
       {/* --- ECONOMY SECTION --- */}
-      <section className="relative py-20 md:py-24 overflow-hidden economy-section">
-        <div className="absolute inset-0">
-          <img src={imgEconomyHero} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/60 md:to-transparent"></div>
+      <section className="relative overflow-hidden economy-section">
+        <div className="md:hidden relative w-full h-[220px] overflow-hidden">
+          <img src={imgEconomyHero} alt="Profissional de cabelo" className="w-full h-full object-cover object-top" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900"></div>
         </div>
 
+        <div className="hidden md:block absolute inset-0">
+          <img src={imgEconomyHero} alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-transparent"></div>
+        </div>
+
+        <div className="relative bg-slate-900 md:bg-transparent py-12 md:py-24">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -417,6 +423,7 @@ export default function LandingPage() {
 
             <div className="hidden md:block"></div>
           </div>
+        </div>
         </div>
       </section>
       {/* --- RESULTS GALLERY --- */}
