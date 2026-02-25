@@ -528,7 +528,7 @@ export default function LandingPage() {
             *Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação.
           </motion.p>
 
-          <div className="text-center">
+          <div className="flex justify-center">
             <Button onClick={scrollToOffer} data-testid="button-results-cta">QUERO ESSE RESULTADO</Button>
           </div>
         </div>
