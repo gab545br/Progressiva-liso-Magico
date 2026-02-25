@@ -29,7 +29,7 @@ import imgBeforeAfter1 from "@assets/3_1770932876368.jpg";
 import imgBeforeAfter2 from "@assets/5_1770932876367.jpg";
 import imgBeforeAfter3 from "@assets/7_1770932876366.webp";
 import imgBeforeAfter4 from "@assets/8_1770932876365.webp";
-import imgBeforeAfter5 from "@assets/belo3_1771361035788.jpg";
+import imgBeforeAfter5 from "@assets/im_1772060763410.jpg";
 import imgResult1 from "@assets/01_1771342379935.jpg";
 import imgResult2 from "@assets/02_1771342379934.jpg";
 import imgResult3 from "@assets/03_1771342379932.jpg";
@@ -532,29 +532,37 @@ export default function LandingPage() {
             ))}
           </div>
 
-          <div className="max-w-2xl mx-auto mb-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/5 p-2"
-            >
-              <img src={imgBeforeAfter1} alt="Cabelo escuro — transformação total" className="w-full h-auto rounded-xl" />
-              <div className="absolute inset-x-2 bottom-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 rounded-b-xl">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
-                    <ArrowRight className="w-4 h-4 text-white/50" />
-                    <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+            {[
+              { img: imgBeforeAfter1, name: "Cabelo escuro — transformação total" },
+              { img: imgBeforeAfter5, name: "Cabelo loiro — liso e brilhante" },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/5"
+              >
+                <img src={item.img} alt={item.name} className="w-full h-auto" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
+                      <ArrowRight className="w-4 h-4 text-white/60" />
+                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
+                    </div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
-                    ))}
-                  </div>
+                  <p className="text-white/70 text-sm mt-2">{item.name}</p>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
 
           <motion.div
