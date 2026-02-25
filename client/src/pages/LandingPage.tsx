@@ -27,10 +27,14 @@ import { useToast } from "@/hooks/use-toast";
 // Import images
 import imgBeforeAfter1 from "@assets/3_1770932876368.jpg";
 import imgBeforeAfter2 from "@assets/5_1770932876367.jpg";
+import imgBeforeAfter3 from "@assets/7_1770932876366.webp";
+import imgBeforeAfter4 from "@assets/8_1770932876365.webp";
 import imgResult1 from "@assets/01_1771342379935.jpg";
 import imgResult2 from "@assets/02_1771342379934.jpg";
 import imgResult3 from "@assets/03_1771342379932.jpg";
 import imgResult4 from "@assets/06_1771342379927.jpg";
+import imgResult5 from "@assets/04_1771342379931.jpg";
+import imgResult6 from "@assets/05_1771342379929.jpg";
 import imgModel1 from "@assets/belo1_1771361035790.jpg";
 import imgModel2 from "@assets/belo2_1771361035789.jpg";
 import imgProductHero from "@assets/topo1_1771351544560.jpg";
@@ -445,17 +449,51 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- RESULTS GALLERY --- */}
-      <section id="results" className="py-16 md:py-20 bg-slate-50">
+      <section id="results" className="py-16 md:py-24 bg-slate-50">
         <div className="container mx-auto px-4">
-          <SectionHeader 
-            title="Resultados Reais" 
-            subtitle="Veja a transformação de quem já usa o Liso Mágico"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-4"
+          >
+            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-5">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span className="text-green-600 text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+              Veja com seus próprios olhos
+            </h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+              Milhares de mulheres já transformaram seus cabelos com o Liso Mágico. Confira os resultados reais de quem já usou.
+            </p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-12"
+          >
             {[
-              { img: imgBeforeAfter1, label: "Transformação completa" },
-              { img: imgBeforeAfter2, label: "Antes e depois real" },
+              { number: "4.800+", label: "Clientes satisfeitas" },
+              { number: "4.9", label: "Avaliação média", icon: true },
+              { number: "98%", label: "Aprovação" },
+            ].map((stat, idx) => (
+              <div key={idx} className="text-center">
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-2xl md:text-3xl font-bold text-slate-900">{stat.number}</span>
+                  {stat.icon && <Star className="w-5 h-5 fill-[#C6A756] text-[#C6A756]" />}
+                </div>
+                <span className="text-slate-400 text-sm">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+            {[
+              { img: imgBeforeAfter3, name: "Cabelo loiro cacheado → liso sedoso" },
+              { img: imgBeforeAfter4, name: "Cabelo crespo → liso brilhante" },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -465,15 +503,13 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.15 }}
                 className="relative group rounded-2xl overflow-hidden shadow-xl bg-white"
               >
-                <img src={item.img} alt={item.label} className="w-full h-auto" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <img src={item.img} alt={item.name} className="w-full h-auto" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="flex gap-1">
-                        <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">ANTES</span>
-                        <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
-                      </div>
-                      <span className="text-white/80 text-sm">{item.label}</span>
+                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
+                      <ArrowRight className="w-4 h-4 text-white/60" />
+                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
                     </div>
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
@@ -481,40 +517,86 @@ export default function LandingPage() {
                       ))}
                     </div>
                   </div>
+                  <p className="text-white/70 text-sm mt-2">{item.name}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-10">
-            {[imgResult1, imgResult2, imgResult3, imgResult4].map((img, idx) => (
+          <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto mb-8">
+            {[
+              { img: imgBeforeAfter1, name: "Cabelo escuro — transformação total" },
+              { img: imgBeforeAfter2, name: "Cabelo ressecado → hidratado e liso" },
+            ].map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="relative rounded-xl overflow-hidden shadow-lg group"
               >
-                <img src={img} alt={`Resultado ${idx + 1}`} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
-                  DEPOIS
+                <img src={item.img} alt={item.name} className="w-full h-auto" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                  <div className="flex items-center gap-2">
+                    <span className="bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">ANTES</span>
+                    <span className="bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">DEPOIS</span>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
-            {[imgModel1, imgModel2].map((img, idx) => (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center my-10"
+          >
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-2">Cabelo dos sonhos após o Liso Mágico</h3>
+            <p className="text-slate-400">Liso, sedoso, brilhante e sem frizz — em qualquer tipo de cabelo</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-8">
+            {[imgResult1, imgResult3, imgResult2, imgResult5, imgResult6, imgResult4].map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="relative rounded-xl overflow-hidden shadow-lg group"
+              >
+                <img src={img} alt={`Resultado ${idx + 1}`} className="w-full h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute top-3 right-3 bg-green-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg backdrop-blur-sm">
+                  RESULTADO
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto mb-10">
+            {[
+              { img: imgModel1, caption: "Ana Carolina — São Paulo" },
+              { img: imgModel2, caption: "Juliana Santos — Rio de Janeiro" },
+            ].map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="rounded-xl overflow-hidden shadow-lg"
+                className="rounded-xl overflow-hidden shadow-lg relative group"
               >
-                <img src={img} alt={`Cliente satisfeita ${idx + 1}`} className="w-full h-auto" />
+                <img src={item.img} alt={item.caption} className="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white text-sm font-medium">{item.caption}</p>
+                  <div className="flex gap-0.5 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -523,13 +605,13 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center text-slate-400 text-sm italic mb-6"
+            className="text-center text-slate-400 text-xs italic mb-8"
           >
             *Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação.
           </motion.p>
 
           <div className="flex justify-center">
-            <Button onClick={scrollToOffer} data-testid="button-results-cta">QUERO ESSE RESULTADO</Button>
+            <Button onClick={scrollToOffer} data-testid="button-results-cta">QUERO ESSA TRANSFORMAÇÃO</Button>
           </div>
         </div>
       </section>
