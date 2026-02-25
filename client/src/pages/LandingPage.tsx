@@ -29,6 +29,7 @@ import imgBeforeAfter1 from "@assets/3_1770932876368.jpg";
 import imgBeforeAfter2 from "@assets/5_1770932876367.jpg";
 import imgBeforeAfter3 from "@assets/7_1770932876366.webp";
 import imgBeforeAfter4 from "@assets/8_1770932876365.webp";
+import imgBeforeAfter5 from "@assets/6_1770932876366.jpg";
 import imgResult1 from "@assets/01_1771342379935.jpg";
 import imgResult2 from "@assets/02_1771342379934.jpg";
 import imgResult3 from "@assets/03_1771342379932.jpg";
@@ -526,7 +527,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto mb-8">
             {[
               { img: imgBeforeAfter1, name: "Cabelo escuro — transformação total" },
-              { img: imgBeforeAfter2, name: "Cabelo ressecado → hidratado e liso" },
+              { img: imgBeforeAfter5, name: "Frizz e volume? Nunca mais!" },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
