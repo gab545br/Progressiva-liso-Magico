@@ -451,8 +451,10 @@ export default function LandingPage() {
       </section>
       {/* --- RESULTS GALLERY --- */}
       <section id="results" className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white"></div>
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fdfbf7] via-[#f5f0e8] to-[#faf6ef]"></div>
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#C6A756]/[0.04] rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.05] rounded-full blur-[100px] translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-rose-200/[0.04] rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
