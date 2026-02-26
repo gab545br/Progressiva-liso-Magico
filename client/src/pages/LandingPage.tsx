@@ -1074,19 +1074,20 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-4 mt-14 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14 max-w-4xl mx-auto"
           >
             {[
-              { icon: ShieldCheck, label: "Compra Segura", color: "text-rose-400", bg: "bg-rose-50" },
-              { icon: PackageCheck, label: "Entrega Garantida", color: "text-[#C6A756]", bg: "bg-amber-50" },
-              { icon: Truck, label: "Frete Grátis", color: "text-rose-400", bg: "bg-rose-50" },
-              { icon: CheckCircle2, label: "Satisfação Garantida", color: "text-[#C6A756]", bg: "bg-amber-50" },
+              { icon: ShieldCheck, label: "Compra Segura", desc: "Dados protegidos", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
+              { icon: PackageCheck, label: "Entrega Garantida", desc: "Em todo o Brasil", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
+              { icon: Truck, label: "Frete Grátis", desc: "Sem taxa extra", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
+              { icon: CheckCircle2, label: "Satisfação", desc: "Garantida ou devolvemos", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
             ].map((selo, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 bg-white rounded-full px-5 py-2.5 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className={`w-8 h-8 rounded-full ${selo.bg} flex items-center justify-center`}>
-                  <selo.icon className={`w-4 h-4 ${selo.color}`} />
+              <div key={idx} className={`flex flex-col items-center text-center bg-white rounded-2xl px-4 py-5 border ${selo.border} shadow-sm hover:shadow-md transition-shadow`}>
+                <div className={`w-11 h-11 rounded-full ${selo.bg} flex items-center justify-center mb-3`}>
+                  <selo.icon className={`w-5 h-5 ${selo.color}`} />
                 </div>
-                <span className="text-xs font-bold text-slate-700">{selo.label}</span>
+                <span className="text-sm font-bold text-slate-800 leading-tight">{selo.label}</span>
+                <span className="text-[11px] text-slate-400 mt-1">{selo.desc}</span>
               </div>
             ))}
           </motion.div>
