@@ -15,7 +15,9 @@ import {
   PackageCheck,
   ChevronLeft,
   ChevronRight,
-  Quote
+  Quote,
+  Lock,
+  Eye
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -1019,17 +1021,18 @@ export default function LandingPage() {
                 <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6">Garantia de 7 Dias</h3>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Garantia de 7 Dias</h3>
+                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Não gostou do resultado? Devolvemos 100% do seu dinheiro. Sem burocracia.</p>
               </div>
-              <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
+              <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
                 {[
-                  "Se não gostar, devolvemos seu dinheiro",
-                  "Você só paga quando recebe o produto",
-                  "Compra 100% segura e garantida",
-                ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-rose-400 shrink-0" />
-                    <span className="text-sm text-slate-600">{text}</span>
+                  { text: "Devolução garantida sem complicação", icon: ShieldCheck },
+                  { text: "Você só paga quando receber", icon: PackageCheck },
+                  { text: "Compra 100% segura e protegida", icon: Lock },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-pink-50 shadow-sm">
+                    <item.icon className="w-4.5 h-4.5 text-rose-400 shrink-0" />
+                    <span className="text-sm text-slate-700">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -1047,18 +1050,19 @@ export default function LandingPage() {
                 <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6">Pagamento na Entrega</h3>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Pagamento na Entrega</h3>
+                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Receba primeiro, confira o produto e só depois pague. Simples assim.</p>
               </div>
-              <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
+              <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
                 {[
-                  "Pague somente quando receber em mãos",
-                  "Sem precisar de cartão de crédito",
-                  "Veja o produto antes de pagar",
-                  "Entrega rápida para todo o Brasil",
-                ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#C6A756] shrink-0" />
-                    <span className="text-sm text-slate-600">{text}</span>
+                  { text: "Pague somente quando receber em mãos", icon: PackageCheck },
+                  { text: "Sem precisar de cartão de crédito", icon: ShieldCheck },
+                  { text: "Veja o produto antes de pagar", icon: Eye },
+                  { text: "Entrega rápida para todo o Brasil", icon: Truck },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm">
+                    <item.icon className="w-4.5 h-4.5 text-[#C6A756] shrink-0" />
+                    <span className="text-sm text-slate-700">{item.text}</span>
                   </div>
                 ))}
               </div>
