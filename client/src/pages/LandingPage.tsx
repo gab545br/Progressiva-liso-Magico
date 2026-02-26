@@ -1016,7 +1016,7 @@ export default function LandingPage() {
             >
               <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200" />
               <div className="p-8 pb-6 flex flex-col items-center">
-                <div className="w-28 h-28 flex items-center justify-center mb-4">
+                <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
@@ -1048,7 +1048,7 @@ export default function LandingPage() {
             >
               <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4B96A] via-[#C6A756] to-[#D4B96A]" />
               <div className="p-8 pb-6 flex flex-col items-center">
-                <div className="w-28 h-28 flex items-center justify-center mb-4">
+                <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
