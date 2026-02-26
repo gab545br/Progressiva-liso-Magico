@@ -1002,33 +1002,38 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- GUARANTEE & TRUST --- */}
-      <section className="py-20 bg-gradient-to-b from-[#F8F6F3] to-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+          <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-white border border-pink-100 shadow-lg p-8 flex flex-col items-center text-center"
+              className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 via-rose-300 to-pink-300" />
-              <div className="w-32 h-32 flex items-center justify-center mb-5 -mt-1">
-                <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200" />
+              <div className="p-8 pb-6 flex flex-col items-center">
+                <div className="w-28 h-28 flex items-center justify-center mb-4">
+                  <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
+                <div className="inline-flex items-center gap-1.5 bg-rose-50 text-rose-500 text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  Risco Zero
+                </div>
               </div>
-              <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
-              <p className="text-rose-400 font-semibold text-sm mb-5 uppercase tracking-wider">Risco Zero</p>
-              <div className="space-y-3 text-left w-full">
+              <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
                 {[
                   "Se não gostar, devolvemos seu dinheiro",
                   "Você só paga quando recebe o produto",
                   "Compra 100% segura e garantida",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-pink-50/50 rounded-xl px-4 py-3 border border-pink-100">
-                    <div className="w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                    </div>
-                    <span className="text-sm text-slate-700">{text}</span>
+                  <div key={idx} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-rose-400 shrink-0" />
+                    <span className="text-sm text-slate-600">{text}</span>
                   </div>
                 ))}
               </div>
@@ -1038,27 +1043,30 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="relative rounded-3xl overflow-hidden bg-white border border-pink-100 shadow-lg p-8 flex flex-col items-center text-center"
+              transition={{ delay: 0.15 }}
+              className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C6A756] via-[#D4B96A] to-[#C6A756]" />
-              <div className="w-32 h-32 flex items-center justify-center mb-5 -mt-1">
-                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4B96A] via-[#C6A756] to-[#D4B96A]" />
+              <div className="p-8 pb-6 flex flex-col items-center">
+                <div className="w-28 h-28 flex items-center justify-center mb-4">
+                  <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-[#C6A756] text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
+                  <Truck className="w-3.5 h-3.5" />
+                  Compre Sem Medo
+                </div>
               </div>
-              <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
-              <p className="text-[#C6A756] font-semibold text-sm mb-5 uppercase tracking-wider">Compre Sem Medo</p>
-              <div className="space-y-3 text-left w-full">
+              <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
                 {[
                   "Pague somente quando receber em mãos",
                   "Sem precisar de cartão de crédito",
                   "Veja o produto antes de pagar",
                   "Entrega rápida para todo o Brasil",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-amber-50/50 rounded-xl px-4 py-3 border border-amber-100">
-                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
-                    </div>
-                    <span className="text-sm text-slate-700">{text}</span>
+                  <div key={idx} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#C6A756] shrink-0" />
+                    <span className="text-sm text-slate-600">{text}</span>
                   </div>
                 ))}
               </div>
@@ -1066,19 +1074,26 @@ export default function LandingPage() {
 
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5 mt-12 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-4 mt-14 max-w-3xl mx-auto"
+          >
             {[
-              { icon: ShieldCheck, label: "Compra Segura", color: "text-rose-400" },
-              { icon: PackageCheck, label: "Entrega Garantida", color: "text-[#C6A756]" },
-              { icon: Truck, label: "Frete Grátis", color: "text-rose-400" },
-              { icon: CheckCircle2, label: "Satisfação Garantida", color: "text-[#C6A756]" },
+              { icon: ShieldCheck, label: "Compra Segura", color: "text-rose-400", bg: "bg-rose-50" },
+              { icon: PackageCheck, label: "Entrega Garantida", color: "text-[#C6A756]", bg: "bg-amber-50" },
+              { icon: Truck, label: "Frete Grátis", color: "text-rose-400", bg: "bg-rose-50" },
+              { icon: CheckCircle2, label: "Satisfação Garantida", color: "text-[#C6A756]", bg: "bg-amber-50" },
             ].map((selo, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 bg-white rounded-full px-5 py-3 border border-slate-200 shadow-sm">
-                <selo.icon className={`w-5 h-5 ${selo.color}`} />
+              <div key={idx} className="flex items-center gap-2.5 bg-white rounded-full px-5 py-2.5 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className={`w-8 h-8 rounded-full ${selo.bg} flex items-center justify-center`}>
+                  <selo.icon className={`w-4 h-4 ${selo.color}`} />
+                </div>
                 <span className="text-xs font-bold text-slate-700">{selo.label}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* --- SOCIAL PROOF --- */}
