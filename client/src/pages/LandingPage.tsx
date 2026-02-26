@@ -316,10 +316,10 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-3">
-              Por que milhares de mulheres escolhem o <span className="text-[#C6A756]">Liso Mágico</span>?
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-3">
+              O segredo do cabelo perfeito está no <span className="text-[#C6A756]">Liso Mágico</span>
             </h2>
-            <p className="text-white/40 text-sm max-w-xl mx-auto">Benefícios reais que fazem a diferença no seu dia a dia</p>
+            <p className="text-white/50 text-base max-w-2xl mx-auto">Descubra o que torna esse produto o favorito de milhares de mulheres em todo o Brasil</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
