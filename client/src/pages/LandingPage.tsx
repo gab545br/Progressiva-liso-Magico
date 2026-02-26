@@ -308,22 +308,41 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- BENEFITS STRIP --- */}
-      <div className="bg-slate-900 text-white py-12">
+      <div className="bg-slate-900 text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-3">
+              Por que milhares de mulheres escolhem o <span className="text-[#C6A756]">Liso Mágico</span>?
+            </h2>
+            <p className="text-white/40 text-sm max-w-xl mx-auto">Benefícios reais que fazem a diferença no seu dia a dia</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Sparkles, title: "Resultados visíveis desde a primeira aplicação*", desc: "Auxilia no alinhamento dos fios e melhora a aparência do cabelo já no primeiro uso." },
-              { icon: Clock, title: "Redução significativa do frizz", desc: "Ajuda no controle do frizz e na proteção contra a umidade." },
-              { icon: ShieldCheck, title: "Compatível com diferentes tipos de cabelo", desc: "Pode ser utilizado em cabelos naturais, tingidos ou com química. Recomenda-se teste de mecha antes da aplicação." },
-              { icon: Truck, title: "Aplicação prática", desc: "Aplicação simples que pode ser feita em casa seguindo as instruções do rótulo." },
+              { icon: Sparkles, title: "Liso desde a 1ª aplicação", desc: "Alinha os fios e transforma a aparência do cabelo já no primeiro uso." },
+              { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Barreira anti-umidade que mantém o liso impecável por semanas." },
+              { icon: CheckCircle2, title: "Para todos os tipos de cabelo", desc: "Funciona em cabelos naturais, tingidos, com luzes ou outras químicas." },
+              { icon: Clock, title: "Rápido e prático", desc: "Aplique em casa em menos de 1 hora. Sem salão, sem agendamento." },
             ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-2">
-                  <item.icon className="w-6 h-6 text-yellow-400" />
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center text-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C6A756]/20 to-[#C6A756]/5 flex items-center justify-center mb-1">
+                  <item.icon className="w-7 h-7 text-[#C6A756]" />
                 </div>
-                <h3 className="font-bold text-lg font-sans text-white">{item.title}</h3>
-                <p className="text-white/60 text-sm">{item.desc}</p>
-              </div>
+                <h3 className="font-bold text-base md:text-lg font-sans text-white leading-tight">{item.title}</h3>
+                <p className="text-white/45 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
