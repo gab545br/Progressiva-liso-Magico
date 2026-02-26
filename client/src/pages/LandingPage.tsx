@@ -1004,7 +1004,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- GUARANTEE & TRUST --- */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-[#FFF9F5] via-[#FFF5EE] to-[#FFF9F5]">
         <div className="container mx-auto px-4">
           <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
 
