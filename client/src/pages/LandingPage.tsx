@@ -785,11 +785,8 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- HOW IT WORKS --- */}
-      <section id="how-it-works" className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={imgResultsBg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/92 via-slate-900/88 to-slate-900/94"></div>
-        </div>
+      <section id="how-it-works" className="relative py-20 md:py-28 bg-slate-900 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.05] rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#C6A756]/[0.04] rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3"></div>
 
