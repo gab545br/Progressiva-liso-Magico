@@ -867,7 +867,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-14"
+            className="flex justify-center mt-14"
           >
             <Button onClick={scrollToOffer} data-testid="button-cta-how-it-works">QUERO MEU LISO PERFEITO</Button>
           </motion.div>
