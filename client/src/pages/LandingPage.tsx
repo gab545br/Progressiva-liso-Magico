@@ -1013,10 +1013,10 @@ export default function LandingPage() {
 
         <div className="hidden md:block absolute inset-0">
           <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-white/95 via-white/80 to-white/60"></div>
         </div>
 
-        <div className="relative bg-white/60 md:bg-transparent py-16 md:py-20">
+        <div className="relative bg-white/70 md:bg-transparent py-16 md:py-20">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
 
