@@ -785,32 +785,95 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- HOW IT WORKS --- */}
-      <section id="how-it-works" className="py-16 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <section id="how-it-works" className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={imgResultsBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/92 via-slate-900/88 to-slate-900/94"></div>
+        </div>
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.05] rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#C6A756]/[0.04] rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3"></div>
+
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeader title="Como Funciona?" light />
-          <div className="grid md:grid-cols-5 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-5 py-2 mb-6">
+              <Sparkles className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-[#C6A756] text-sm font-semibold tracking-wide uppercase">Simples e Rápido</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Como Funciona?</h2>
+            <p className="text-white/50 text-lg max-w-2xl mx-auto">5 passos simples para conquistar o liso dos seus sonhos, no conforto da sua casa</p>
+          </motion.div>
+
+          <div className="hidden md:block">
+            <div className="flex items-start justify-between max-w-6xl mx-auto relative">
+              <div className="absolute top-10 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-[#C6A756]/30 to-transparent"></div>
+
+              {[
+                { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência.", icon: "💧" },
+                { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico mecha por mecha.", icon: "✋" },
+                { step: "03", title: "Deixe agir", desc: "Aguarde o tempo indicado no frasco.", icon: "⏳" },
+                { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e passe a prancha se desejar.", icon: "💨" },
+                { step: "05", title: "Liso Perfeito!", desc: "Cabelo liso, sedoso, com brilho e sem frizz!", icon: "✨" }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.12 }}
+                  className="flex flex-col items-center text-center w-1/5 relative"
+                >
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center mb-5 shadow-lg shadow-[#C6A756]/20 relative z-10 border-4 border-slate-900">
+                    <span className="text-2xl">{item.icon}</span>
+                  </div>
+                  <span className="text-[#C6A756]/60 text-xs font-bold tracking-widest mb-2">PASSO {item.step}</span>
+                  <h4 className="text-white font-bold text-base mb-2">{item.title}</h4>
+                  <p className="text-white/45 text-sm leading-relaxed px-2">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:hidden space-y-6">
             {[
-              { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência." },
-              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico em todo o cabelo.", highlight: "Aplique o produto" },
-              { step: "03", title: "Deixe agir", desc: "Deixe agir conforme as instruções no frasco.", highlight: "Deixe agir" },
-              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e finalize com prancha se desejar.", highlight: "Seque e finalize" },
-              { step: "05", title: "Liso Perfeito", desc: "Cabelo liso, leve, com brilho e sem frizz!", highlight: "Liso Perfeito" }
+              { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência.", icon: "💧" },
+              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico mecha por mecha.", icon: "✋" },
+              { step: "03", title: "Deixe agir", desc: "Aguarde o tempo indicado no frasco.", icon: "⏳" },
+              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e passe a prancha se desejar.", icon: "💨" },
+              { step: "05", title: "Liso Perfeito!", desc: "Cabelo liso, sedoso, com brilho e sem frizz!", icon: "✨" }
             ].map((item, idx) => (
-              <motion.div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-[#C6A756] mb-4 font-display">{item.step}</div>
-                <h4 className="text-lg font-bold mb-2 text-[#C6A756]">{item.title}</h4>
-                <p className="text-sm text-white/60">
-                  {item.highlight ? (
-                    <>
-                      <span className="text-[#C6A756] font-bold">{item.highlight}</span>{" "}
-                      {item.desc.replace(item.highlight, "").trim()}
-                    </>
-                  ) : item.desc}
-                </p>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm"
+              >
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center shrink-0 shadow-lg shadow-[#C6A756]/20">
+                  <span className="text-xl">{item.icon}</span>
+                </div>
+                <div>
+                  <span className="text-[#C6A756]/60 text-[10px] font-bold tracking-widest">PASSO {item.step}</span>
+                  <h4 className="text-white font-bold text-base mb-1">{item.title}</h4>
+                  <p className="text-white/45 text-sm">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-14"
+          >
+            <Button onClick={scrollToOffer} data-testid="button-cta-how-it-works">QUERO MEU LISO PERFEITO</Button>
+          </motion.div>
         </div>
       </section>
       {/* --- ANVISA --- */}
