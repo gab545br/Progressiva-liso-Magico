@@ -50,6 +50,7 @@ import imgEconomyHero from "@assets/021_1772058700457.png";
 import imgTrustBadge from "@assets/na_entrega_1772071666466.jpg";
 import imgGuarantee from "@assets/7_dias_1772071666467.jpg";
 import imgSafetyBg from "@assets/m12_1771383810333.jpg";
+import imgDeliveryBg from "@assets/photo_2026-02-25_23-23-20_1772072615131.jpg";
 import imgBelo1 from "@assets/belo1_1771361035790.jpg";
 import imgBelo2 from "@assets/belo2_1771361035789.jpg";
 import imgBelo3 from "@assets/belo3_1771361035788.jpg";
@@ -1004,8 +1005,12 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- GUARANTEE & TRUST --- */}
-      <section className="py-20 bg-gradient-to-b from-[#FFF9F5] via-[#FFF5EE] to-[#FFF9F5]">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-white/90" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
