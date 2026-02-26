@@ -1007,14 +1007,14 @@ export default function LandingPage() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
 
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-50/80 via-white to-rose-50/40 border border-pink-200/50 shadow-lg p-8 flex flex-col items-center text-center"
+              className="relative rounded-3xl overflow-hidden bg-white border border-pink-100 shadow-lg p-8 flex flex-col items-center text-center"
             >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-300 via-rose-300 to-pink-400" />
-              <div className="w-36 h-36 flex items-center justify-center mb-4">
-                <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain drop-shadow-lg" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 via-rose-300 to-pink-300" />
+              <div className="w-32 h-32 flex items-center justify-center mb-5 -mt-1">
+                <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
               <p className="text-rose-400 font-semibold text-sm mb-5 uppercase tracking-wider">Risco Zero</p>
@@ -1024,7 +1024,7 @@ export default function LandingPage() {
                   "Você só paga quando recebe o produto",
                   "Compra 100% segura e garantida",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-pink-100/80">
+                  <div key={idx} className="flex items-center gap-3 bg-pink-50/50 rounded-xl px-4 py-3 border border-pink-100">
                     <div className="w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-rose-400" />
                     </div>
@@ -1035,14 +1035,15 @@ export default function LandingPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-50/80 via-white to-amber-50/30 border border-pink-200/40 shadow-lg p-8 flex flex-col items-center text-center"
+              transition={{ delay: 0.1 }}
+              className="relative rounded-3xl overflow-hidden bg-white border border-pink-100 shadow-lg p-8 flex flex-col items-center text-center"
             >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C6A756] via-pink-300 to-[#C6A756]" />
-              <div className="w-36 h-36 flex items-center justify-center mb-4">
-                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain drop-shadow-lg" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C6A756] via-[#D4B96A] to-[#C6A756]" />
+              <div className="w-32 h-32 flex items-center justify-center mb-5 -mt-1">
+                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
               <p className="text-[#C6A756] font-semibold text-sm mb-5 uppercase tracking-wider">Compre Sem Medo</p>
@@ -1053,8 +1054,8 @@ export default function LandingPage() {
                   "Veja o produto antes de pagar",
                   "Entrega rápida para todo o Brasil",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-pink-100/60">
-                    <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
+                  <div key={idx} className="flex items-center gap-3 bg-amber-50/50 rounded-xl px-4 py-3 border border-amber-100">
+                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
                     </div>
                     <span className="text-sm text-slate-700">{text}</span>
