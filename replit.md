@@ -38,7 +38,7 @@ Preferred communication style: Simple, everyday language.
 ### Key Design Decisions
 1. **Shared route contracts**: The `shared/routes.ts` file defines API routes with their Zod schemas, used by both server (validation) and client (type-safe fetching). This prevents drift between frontend and backend.
 2. **No authentication**: This is a public-facing sales page with no user accounts. The only data flow is lead capture.
-3. **External checkout**: Purchase buttons link to external checkout URLs on `app.coinzz.com.br` — no payment processing is handled in this app.
+3. **External checkout (Affiliate model)**: Purchase buttons link to external checkout URLs on `entrega.logzz.com.br` — affiliate checkout, no payment processing handled in this app.
 4. **No WhatsApp integration**: Per explicit requirements, all WhatsApp references have been removed from the page.
 5. **Mobile-first design**: The page is designed for mobile conversion with responsive layouts and touch-friendly interactions.
 
@@ -46,9 +46,9 @@ Preferred communication style: Simple, everyday language.
 
 - **PostgreSQL**: Required database. Connection string must be provided via `DATABASE_URL` environment variable
 - **Google Fonts**: Inter and Playfair Display fonts loaded from Google's CDN
-- **Coinzz Checkout**: External checkout links for three product tiers:
-  - 1 unit: `https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-0`
-  - 2+1 units: `https://app.coinzz.com.br/checkout/2-1-unidades-0`
-  - 4+1 units: `https://app.coinzz.com.br/checkout/4-1-unidades-0`
+- **Logzz Checkout (Affiliate)**: External checkout links for three product tiers:
+  - 1 unit (R$ 149,00): `https://entrega.logzz.com.br/pay/memnz4o83/progressivalisomagico`
+  - 3 units (R$ 397,00): `https://entrega.logzz.com.br/pay/memnz4o83/liso3unidades`
+  - 2 units (R$ 297,00): `https://entrega.logzz.com.br/pay/memnz4o83/liso2unidades`
 - **Replit Plugins**: `@replit/vite-plugin-runtime-error-modal`, `@replit/vite-plugin-cartographer`, and `@replit/vite-plugin-dev-banner` used in development on Replit
 - **No external auth providers, no payment processing, no email service** integrated directly into the app

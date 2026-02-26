@@ -424,9 +424,9 @@ export default function LandingPage() {
                   </div>
                   <div className="space-y-3">
                     {[
-                      { label: "Progressiva", value: "R$ 167,90" },
+                      { label: "Progressiva", value: "R$ 149,00" },
                       { label: "Rendimento", value: "Até 5 aplicações" },
-                      { label: "Por aplicação", value: "R$ 33,58" },
+                      { label: "Por aplicação", value: "R$ 29,80" },
                       { label: "Tempo", value: "40 min–1 hora" },
                     ].map((row, idx) => (
                       <div key={idx} className="flex justify-between items-center">
@@ -966,35 +966,32 @@ export default function LandingPage() {
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
-              title="KIT BÁSICO" 
-              price="R$ 167,90" 
-              originalPrice="R$ 197,90" 
-              link="https://app.coinzz.com.br/checkout/1-progressiva-liso-magico-876" 
+              title="1 UNIDADE" 
+              price="R$ 149,00" 
+              originalPrice="R$ 199,00" 
+              link="https://entrega.logzz.com.br/pay/memnz4o83/progressivalisomagico" 
               features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
-              installment="12x de R$ 16,79"
               image={imgProduct1} 
               className="h-full"
             />
             <OfferCard 
-              title="MAIS VENDIDO (2+1)" 
-              price="R$ 297,90" 
-              originalPrice="R$ 397,90" 
-              link="https://app.coinzz.com.br/checkout/2-1-unidades-876" 
-              features={["Leve 3 Pague 2", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
+              title="3 UNIDADES" 
+              price="R$ 397,00" 
+              originalPrice="R$ 537,00" 
+              link="https://entrega.logzz.com.br/pay/memnz4o83/liso3unidades" 
+              features={["Melhor Custo-Benefício", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
               isPopular={true} 
-              savings="25%" 
-              installment="12x de R$ 29,78"
+              savings="26%" 
               image={imgProduct2} 
               className="h-full"
             />
             <OfferCard 
-              title="KIT MASTER (4+1)" 
-              price="R$ 497,90" 
-              originalPrice="R$ 597,90" 
-              link="https://app.coinzz.com.br/checkout/4-1-unidades-876" 
-              features={["Leve 5 Pague 4", "Pagamento na entrega", "5 Frascos Liso Mágico", "Frete Grátis Expresso"]} 
-              savings="17%" 
-              installment="12x de R$ 49,78"
+              title="2 UNIDADES" 
+              price="R$ 297,00" 
+              originalPrice="R$ 398,00" 
+              link="https://entrega.logzz.com.br/pay/memnz4o83/liso2unidades" 
+              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
+              savings="25%" 
               image={imgProduct3} 
               className="h-full"
             />
