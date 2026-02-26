@@ -107,7 +107,7 @@ export function OfferCard({
         
         <p className="text-center text-xs text-slate-400 mt-4 flex items-center justify-center gap-1">
           <Star className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
-          Garantia de 15 dias ou seu dinheiro de volta
+          Garantia de 7 dias ou seu dinheiro de volta
         </p>
       </div>
     </motion.div>

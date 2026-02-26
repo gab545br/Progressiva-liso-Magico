@@ -55,7 +55,7 @@ export default function TermsOfUse() {
 
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">5. Garantia e Devoluções</h2>
-            <p>Oferecemos garantia de 15 dias a partir do recebimento do produto. Dentro deste prazo, você pode solicitar a devolução nas seguintes condições:</p>
+            <p>Oferecemos garantia de 7 dias a partir do recebimento do produto. Dentro deste prazo, você pode solicitar a devolução nas seguintes condições:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Produto com defeito de fabricação</li>
               <li>Produto diferente do adquirido</li>

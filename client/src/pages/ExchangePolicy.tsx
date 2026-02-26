@@ -25,12 +25,12 @@ export default function ExchangePolicy() {
         <div className="prose prose-slate max-w-none space-y-6 text-slate-600 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">1. Garantia de Satisfação</h2>
-            <p>Na Liso Mágico Cosméticos, a sua satisfação é nossa prioridade. Por isso, oferecemos uma garantia de <strong>15 dias</strong> a partir da data de recebimento do produto. Se por qualquer motivo você não ficar satisfeita com o resultado, garantimos a devolução do seu dinheiro.</p>
+            <p>Na Liso Mágico Cosméticos, a sua satisfação é nossa prioridade. Por isso, oferecemos uma garantia de <strong>7 dias</strong> a partir da data de recebimento do produto. Se por qualquer motivo você não ficar satisfeita com o resultado, garantimos a devolução do seu dinheiro.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">2. Prazo para Solicitar Troca ou Devolução</h2>
-            <p>Você tem até <strong>15 dias corridos</strong> após o recebimento do produto para solicitar a troca ou devolução. Após esse prazo, não será possível processar a solicitação.</p>
+            <p>Você tem até <strong>7 dias corridos</strong> após o recebimento do produto para solicitar a troca ou devolução. Após esse prazo, não será possível processar a solicitação.</p>
           </section>
 
           <section>

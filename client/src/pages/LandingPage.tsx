@@ -1006,10 +1006,10 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl flex flex-col md:flex-row items-center gap-10 border border-slate-100">
             <div className="w-48 h-48 shrink-0">
-              <img src={imgGuarantee} alt="Garantia 15 Dias" className="w-full h-full object-contain" />
+              <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
             </div>
             <div>
-              <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Garantia de 15 Dias — Risco Zero</h2>
+              <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Garantia de 7 Dias — Risco Zero</h2>
               <div className="space-y-4 text-lg text-slate-600">
                 <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Se não gostar, devolvemos seu dinheiro</p>
                 <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Você só paga quando recebe o produto</p>
