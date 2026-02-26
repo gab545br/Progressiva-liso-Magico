@@ -1019,11 +1019,7 @@ export default function LandingPage() {
                 <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
-                <div className="inline-flex items-center gap-1.5 bg-rose-50 text-rose-500 text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  Risco Zero
-                </div>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6">Garantia de 7 Dias</h3>
               </div>
               <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
                 {[
@@ -1051,11 +1047,7 @@ export default function LandingPage() {
                 <div className="w-44 h-44 flex items-center justify-center mb-4">
                   <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
-                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-[#C6A756] text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
-                  <Truck className="w-3.5 h-3.5" />
-                  Compre Sem Medo
-                </div>
+                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6">Pagamento na Entrega</h3>
               </div>
               <div className="bg-slate-50/80 px-8 py-6 space-y-2.5 border-t border-slate-100">
                 {[
