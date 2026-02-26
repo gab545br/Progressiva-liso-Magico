@@ -324,7 +324,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Sparkles, title: "Liso desde a 1ª aplicação", desc: "Alinha os fios e transforma a aparência do cabelo já no primeiro uso." },
+              { icon: Sparkles, title: "Resultados progressivos", desc: "Auxilia no alinhamento dos fios, com melhora visível a cada aplicação." },
               { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Barreira anti-umidade que mantém o liso impecável por semanas." },
               { icon: CheckCircle2, title: "Para todos os tipos de cabelo", desc: "Funciona em cabelos naturais, tingidos, com luzes ou outras químicas." },
               { icon: Clock, title: "Rápido e prático", desc: "Aplique em casa em menos de 1 hora. Sem salão, sem agendamento." },
