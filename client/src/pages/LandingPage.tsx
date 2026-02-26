@@ -1005,11 +1005,18 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- GUARANTEE & TRUST --- */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover object-top md:object-center" />
-          <div className="absolute inset-0 bg-white/75" />
+      <section className="relative overflow-hidden">
+        <div className="md:hidden relative w-full h-[250px] overflow-hidden">
+          <img src={imgDeliveryBg} alt="Entrega segura" className="w-full h-full object-cover object-top" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
         </div>
+
+        <div className="hidden md:block absolute inset-0">
+          <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div className="relative bg-white/60 md:bg-transparent py-16 md:py-20">
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
 
@@ -1096,6 +1103,7 @@ export default function LandingPage() {
               </div>
             ))}
           </motion.div>
+        </div>
         </div>
       </section>
       {/* --- SOCIAL PROOF --- */}
