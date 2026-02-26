@@ -45,8 +45,8 @@ import imgProduct2 from "@assets/3_1772070671491.jpg";
 import imgProduct3 from "@assets/2_1772070671492.jpg";
 import imgEconomyBg from "@assets/salão_1_1771381400201.jpg";
 import imgEconomyHero from "@assets/021_1772058700457.png";
-import imgTrustBadge from "@assets/fu-removebg-preview_1771357333997.png";
-import imgGuarantee from "@assets/garantia_15_dias_1771025261217.PNG";
+import imgTrustBadge from "@assets/na_entrega_1772071666466.jpg";
+import imgGuarantee from "@assets/7_dias_1772071666467.jpg";
 import imgSafetyBg from "@assets/m12_1771383810333.jpg";
 import imgBelo1 from "@assets/belo1_1771361035790.jpg";
 import imgBelo2 from "@assets/belo2_1771361035789.jpg";
@@ -1010,23 +1010,23 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-50/30 border border-emerald-200/60 shadow-lg p-8 flex flex-col items-center text-center"
+              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-50/80 via-white to-rose-50/40 border border-pink-200/50 shadow-lg p-8 flex flex-col items-center text-center"
             >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500" />
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center mb-5 shadow-lg shadow-emerald-200/50">
-                <ShieldCheck className="w-12 h-12 text-white" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-300 via-rose-300 to-pink-400" />
+              <div className="w-36 h-36 flex items-center justify-center mb-4">
+                <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain drop-shadow-lg" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
-              <p className="text-emerald-600 font-semibold text-sm mb-5 uppercase tracking-wider">Risco Zero</p>
+              <p className="text-rose-400 font-semibold text-sm mb-5 uppercase tracking-wider">Risco Zero</p>
               <div className="space-y-3 text-left w-full">
                 {[
                   "Se não gostar, devolvemos seu dinheiro",
                   "Você só paga quando recebe o produto",
                   "Compra 100% segura e garantida",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-emerald-100/80">
-                    <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-pink-100/80">
+                    <div className="w-6 h-6 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-rose-400" />
                     </div>
                     <span className="text-sm text-slate-700">{text}</span>
                   </div>
@@ -1038,11 +1038,11 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 via-white to-amber-50/30 border border-[#C6A756]/30 shadow-lg p-8 flex flex-col items-center text-center"
+              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-pink-50/80 via-white to-amber-50/30 border border-pink-200/40 shadow-lg p-8 flex flex-col items-center text-center"
             >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C6A756] via-[#D4B96A] to-[#C6A756]" />
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#C6A756] to-[#A8893A] flex items-center justify-center mb-5 shadow-lg shadow-amber-200/50">
-                <Truck className="w-12 h-12 text-white" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C6A756] via-pink-300 to-[#C6A756]" />
+              <div className="w-36 h-36 flex items-center justify-center mb-4">
+                <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain drop-shadow-lg" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
               <p className="text-[#C6A756] font-semibold text-sm mb-5 uppercase tracking-wider">Compre Sem Medo</p>
@@ -1053,8 +1053,8 @@ export default function LandingPage() {
                   "Veja o produto antes de pagar",
                   "Entrega rápida para todo o Brasil",
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-amber-100/80">
-                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-pink-100/60">
+                    <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
                     </div>
                     <span className="text-sm text-slate-700">{text}</span>
@@ -1067,9 +1067,9 @@ export default function LandingPage() {
 
           <div className="flex flex-wrap items-center justify-center gap-5 mt-12 max-w-3xl mx-auto">
             {[
-              { icon: ShieldCheck, label: "Compra Segura", color: "text-emerald-500" },
+              { icon: ShieldCheck, label: "Compra Segura", color: "text-rose-400" },
               { icon: PackageCheck, label: "Entrega Garantida", color: "text-[#C6A756]" },
-              { icon: Truck, label: "Frete Grátis", color: "text-emerald-500" },
+              { icon: Truck, label: "Frete Grátis", color: "text-rose-400" },
               { icon: CheckCircle2, label: "Satisfação Garantida", color: "text-[#C6A756]" },
             ].map((selo, idx) => (
               <div key={idx} className="flex items-center gap-2.5 bg-white rounded-full px-5 py-3 border border-slate-200 shadow-sm">
