@@ -971,6 +971,7 @@ export default function LandingPage() {
               originalPrice="R$ 199,00" 
               link="https://entrega.logzz.com.br/pay/memnz4o83/progressivalisomagico" 
               features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Resultado de Salão", "Garantia VIP"]} 
+              installment="12x de R$ 14,04"
               image={imgProduct1} 
               className="h-full"
             />
@@ -982,6 +983,7 @@ export default function LandingPage() {
               features={["Melhor Custo-Benefício", "Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis"]} 
               isPopular={true} 
               savings="26%" 
+              installment="12x de R$ 37,41"
               image={imgProduct2} 
               className="h-full"
             />
@@ -992,6 +994,7 @@ export default function LandingPage() {
               link="https://entrega.logzz.com.br/pay/memnz4o83/liso2unidades" 
               features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
               savings="25%" 
+              installment="12x de R$ 27,99"
               image={imgProduct3} 
               className="h-full"
             />
