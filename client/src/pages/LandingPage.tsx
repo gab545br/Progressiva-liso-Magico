@@ -40,7 +40,7 @@ import imgModel1 from "@assets/belo1_1771361035790.jpg";
 import imgModel2 from "@assets/belo2_1771361035789.jpg";
 import imgProductHero from "@assets/topo1_1771351544560.jpg";
 import imgProductHeroMobile from "@assets/progressiva_123_1771356324772.jpg";
-import imgProduct1 from "@assets/1_unidade_1771343925546.jpg";
+import imgProduct1 from "@assets/1_1772070791598.jpg";
 import imgProduct2 from "@assets/3_1772070671491.jpg";
 import imgProduct3 from "@assets/2_1772070671492.jpg";
 import imgEconomyBg from "@assets/salão_1_1771381400201.jpg";

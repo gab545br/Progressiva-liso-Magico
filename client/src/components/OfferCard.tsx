@@ -51,11 +51,11 @@ export function OfferCard({
       )}
 
       <div className={`p-6 flex flex-col flex-1 ${isPopular ? 'pt-12' : 'pt-8'}`}>
-        <div className="h-64 rounded-xl bg-slate-50 mb-6 overflow-hidden flex items-center justify-center">
+        <div className="aspect-square rounded-2xl bg-gradient-to-b from-amber-50/60 to-white mb-6 overflow-hidden flex items-center justify-center p-3">
           <img 
             src={image} 
             alt={title} 
-            className="h-full object-contain transform hover:scale-105 transition-all duration-500" 
+            className="w-full h-full object-cover rounded-xl transform hover:scale-105 transition-all duration-500" 
           />
         </div>
 
