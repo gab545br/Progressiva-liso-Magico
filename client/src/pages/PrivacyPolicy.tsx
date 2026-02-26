@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
             <p>Não vendemos suas informações pessoais. Podemos compartilhar seus dados com:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Transportadoras para realizar a entrega do produto</li>
-              <li>Plataformas de pagamento para processar transações</li>
+              <li>Plataforma parceira de checkout para processar pagamentos de forma segura</li>
               <li>Ferramentas de análise para melhorar nosso site</li>
               <li>Autoridades legais quando exigido por lei</li>
             </ul>
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">5. Segurança dos Dados</h2>
-            <p>Adotamos medidas de segurança técnicas e organizacionais adequadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição. No entanto, nenhum método de transmissão pela internet é 100% seguro.</p>
+            <p>Adotamos medidas de segurança técnicas e organizacionais adequadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição. O processamento de pagamentos é realizado por plataforma especializada com certificação de segurança.</p>
           </section>
 
           <section>
@@ -84,12 +84,18 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">7. Alterações nesta Política</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">7. Dados da Empresa</h2>
+            <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
+            <p>CNPJ: 65.206.918/0001-37</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">8. Alterações nesta Política</h2>
             <p>Podemos atualizar esta Política de Privacidade periodicamente. Recomendamos que você revise esta página regularmente. As alterações entram em vigor imediatamente após a publicação no site.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">8. Contato</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">9. Contato</h2>
             <p>Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>E-mail: contato@lisomagico.com.br</li>
@@ -101,7 +107,7 @@ export default function PrivacyPolicy() {
       </main>
 
       <footer className="bg-slate-900 text-white/40 text-center py-6 text-sm">
-        &copy; 2026 Liso Mágico. Todos os direitos reservados.
+        &copy; 2026 Liso Mágico Cosméticos. Todos os direitos reservados.
       </footer>
     </div>
   );

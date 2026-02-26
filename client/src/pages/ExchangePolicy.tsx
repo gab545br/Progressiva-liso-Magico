@@ -91,7 +91,13 @@ export default function ExchangePolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Contato</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Dados da Empresa</h2>
+            <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
+            <p>CNPJ: 65.206.918/0001-37</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">11. Contato</h2>
             <p>Se você tiver dúvidas sobre nossa Política de Troca e Devolução, entre em contato conosco:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>E-mail: contato@lisomagico.com.br</li>

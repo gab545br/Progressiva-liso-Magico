@@ -37,8 +37,10 @@ export default function TermsOfUse() {
             <h2 className="text-xl font-bold text-slate-900 mb-3">3. Compra e Pagamento</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Os preços apresentados são em Reais (R$) e podem ser alterados sem aviso prévio</li>
-              <li>O pagamento é realizado na entrega do produto (pagamento contra entrega)</li>
-              <li>A confirmação do pedido será enviada por e-mail ou WhatsApp</li>
+              <li>Oferecemos três opções de compra: 1 unidade (R$ 149,00), 2 unidades (R$ 297,00) e 3 unidades (R$ 397,00)</li>
+              <li>O pagamento pode ser realizado na entrega do produto, via Pix ou cartão de crédito em até 12x</li>
+              <li>O processamento do pagamento é realizado por plataforma parceira especializada e segura</li>
+              <li>A confirmação do pedido será enviada por e-mail</li>
               <li>Nos reservamos o direito de cancelar pedidos em caso de suspeita de fraude</li>
             </ul>
           </section>
@@ -47,7 +49,7 @@ export default function TermsOfUse() {
             <h2 className="text-xl font-bold text-slate-900 mb-3">4. Entrega</h2>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>O prazo de entrega varia de 3 a 10 dias úteis, dependendo da região</li>
-              <li>O frete grátis é válido para as ofertas especificadas no site</li>
+              <li>O frete é grátis para todos os planos disponíveis no site</li>
               <li>É responsabilidade do cliente fornecer o endereço correto e completo</li>
               <li>Tentativas de entrega serão realizadas conforme política da transportadora</li>
             </ul>
@@ -55,7 +57,7 @@ export default function TermsOfUse() {
 
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">5. Garantia e Devoluções</h2>
-            <p>Oferecemos garantia de 7 dias a partir do recebimento do produto. Dentro deste prazo, você pode solicitar a devolução nas seguintes condições:</p>
+            <p>Oferecemos garantia de <strong>7 dias</strong> a partir do recebimento do produto. Dentro deste prazo, você pode solicitar a devolução nas seguintes condições:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>Produto com defeito de fabricação</li>
               <li>Produto diferente do adquirido</li>
@@ -92,12 +94,18 @@ export default function TermsOfUse() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">9. Alterações nos Termos</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">9. Dados da Empresa</h2>
+            <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
+            <p>CNPJ: 65.206.918/0001-37</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Alterações nos Termos</h2>
             <p>Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento. As alterações entram em vigor imediatamente após a publicação no site. Recomendamos que você revise esta página periodicamente.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Contato</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">11. Contato</h2>
             <p>Para dúvidas sobre estes Termos de Uso, entre em contato:</p>
             <ul className="list-disc pl-6 space-y-2 mt-3">
               <li>E-mail: contato@lisomagico.com.br</li>
@@ -107,14 +115,14 @@ export default function TermsOfUse() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">11. Foro</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">12. Foro</h2>
             <p>Fica eleito o foro da comarca do domicílio do consumidor para dirimir quaisquer questões decorrentes destes Termos de Uso, conforme o Código de Defesa do Consumidor.</p>
           </section>
         </div>
       </main>
 
       <footer className="bg-slate-900 text-white/40 text-center py-6 text-sm">
-        &copy; 2026 Liso Mágico. Todos os direitos reservados.
+        &copy; 2026 Liso Mágico Cosméticos. Todos os direitos reservados.
       </footer>
     </div>
   );
