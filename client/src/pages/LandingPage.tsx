@@ -1007,8 +1007,8 @@ export default function LandingPage() {
       {/* --- GUARANTEE & TRUST --- */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-white/90" />
+          <img src={imgDeliveryBg} alt="" className="w-full h-full object-cover object-top md:object-center" />
+          <div className="absolute inset-0 bg-white/75" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
