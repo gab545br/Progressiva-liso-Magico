@@ -1001,52 +1001,80 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      {/* --- GUARANTEE --- */}
-      <section className="py-16 bg-white">
+      {/* --- GUARANTEE & TRUST --- */}
+      <section className="py-20 bg-gradient-to-b from-[#F8F6F3] to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl flex flex-col md:flex-row items-center gap-10 border border-slate-100">
-            <div className="w-48 h-48 shrink-0">
-              <img src={imgGuarantee} alt="Garantia 7 Dias" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Garantia de 7 Dias — Risco Zero</h2>
-              <div className="space-y-4 text-lg text-slate-600">
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Se não gostar, devolvemos seu dinheiro</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Você só paga quando recebe o produto</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Compra 100% segura e garantida</p>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-emerald-50/30 border border-emerald-200/60 shadow-lg p-8 flex flex-col items-center text-center"
+            >
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500" />
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center mb-5 shadow-lg shadow-emerald-200/50">
+                <ShieldCheck className="w-12 h-12 text-white" />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* --- PAGAMENTO NA ENTREGA --- */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-10 shadow-xl flex flex-col md:flex-row items-center gap-10 border border-slate-100">
-            <div className="w-48 h-48 shrink-0">
-              <img src={imgTrustBadge} alt="Pagamento na Entrega" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">Pagamento na Entrega — Compre Sem Medo</h2>
-              <div className="space-y-4 text-lg text-slate-600">
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Pague somente quando receber o produto em mãos</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Sem precisar de cartão de crédito</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Mais segurança: veja antes, pague depois</p>
-                <p className="flex items-center gap-3"><CheckCircle2 className="text-green-500" /> Entrega rápida para todo o Brasil</p>
+              <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Garantia de 7 Dias</h3>
+              <p className="text-emerald-600 font-semibold text-sm mb-5 uppercase tracking-wider">Risco Zero</p>
+              <div className="space-y-3 text-left w-full">
+                {[
+                  "Se não gostar, devolvemos seu dinheiro",
+                  "Você só paga quando recebe o produto",
+                  "Compra 100% segura e garantida",
+                ].map((text, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-emerald-100/80">
+                    <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    </div>
+                    <span className="text-sm text-slate-700">{text}</span>
+                  </div>
+                ))}
               </div>
-            </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 via-white to-amber-50/30 border border-[#C6A756]/30 shadow-lg p-8 flex flex-col items-center text-center"
+            >
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C6A756] via-[#D4B96A] to-[#C6A756]" />
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#C6A756] to-[#A8893A] flex items-center justify-center mb-5 shadow-lg shadow-amber-200/50">
+                <Truck className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-display font-bold text-slate-900 mb-1">Pagamento na Entrega</h3>
+              <p className="text-[#C6A756] font-semibold text-sm mb-5 uppercase tracking-wider">Compre Sem Medo</p>
+              <div className="space-y-3 text-left w-full">
+                {[
+                  "Pague somente quando receber em mãos",
+                  "Sem precisar de cartão de crédito",
+                  "Veja o produto antes de pagar",
+                  "Entrega rápida para todo o Brasil",
+                ].map((text, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 border border-amber-100/80">
+                    <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
+                    </div>
+                    <span className="text-sm text-slate-700">{text}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+          <div className="flex flex-wrap items-center justify-center gap-5 mt-12 max-w-3xl mx-auto">
             {[
-              { icon: ShieldCheck, label: "Compra Segura" },
-              { icon: PackageCheck, label: "Entrega Garantida" },
-              { icon: Truck, label: "Frete Grátis" },
-              { icon: CheckCircle2, label: "Satisfação Garantida" },
+              { icon: ShieldCheck, label: "Compra Segura", color: "text-emerald-500" },
+              { icon: PackageCheck, label: "Entrega Garantida", color: "text-[#C6A756]" },
+              { icon: Truck, label: "Frete Grátis", color: "text-emerald-500" },
+              { icon: CheckCircle2, label: "Satisfação Garantida", color: "text-[#C6A756]" },
             ].map((selo, idx) => (
-              <div key={idx} className="flex flex-col items-center gap-2 bg-slate-50 rounded-xl px-5 py-4 border border-slate-100 min-w-[120px]">
-                <selo.icon className="w-7 h-7 text-green-500" />
-                <span className="text-xs font-bold text-slate-700 text-center">{selo.label}</span>
+              <div key={idx} className="flex items-center gap-2.5 bg-white rounded-full px-5 py-3 border border-slate-200 shadow-sm">
+                <selo.icon className={`w-5 h-5 ${selo.color}`} />
+                <span className="text-xs font-bold text-slate-700">{selo.label}</span>
               </div>
             ))}
           </div>
