@@ -972,7 +972,7 @@ export default function LandingPage() {
               title="1 UNIDADE" 
               price="R$ 149,00" 
               originalPrice="R$ 199,00" 
-              link="https://entrega.logzz.com.br/pay/memnz4o83/progressivalisomagico" 
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico" 
               features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
               installment="12x de R$ 15,22"
               image={imgProduct1} 

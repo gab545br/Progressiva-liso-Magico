@@ -47,8 +47,8 @@ Preferred communication style: Simple, everyday language.
 - **PostgreSQL**: Required database. Connection string must be provided via `DATABASE_URL` environment variable
 - **Google Fonts**: Inter and Playfair Display fonts loaded from Google's CDN
 - **Logzz Checkout (Affiliate)**: External checkout links for three product tiers:
-  - 1 unit (R$ 149,00): `https://entrega.logzz.com.br/pay/memnz4o83/progressivalisomagico`
-  - 3 units (R$ 397,00): `https://entrega.logzz.com.br/pay/memnz4o83/liso3unidades`
-  - 2 units (R$ 297,00): `https://entrega.logzz.com.br/pay/memnz4o83/liso2unidades`
+  - 1 unit (R$ 149,00): `https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico`
+  - 3 units (R$ 397,00): `https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades`
+  - 2 units (R$ 297,00): `https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades`
 - **Replit Plugins**: `@replit/vite-plugin-runtime-error-modal`, `@replit/vite-plugin-cartographer`, and `@replit/vite-plugin-dev-banner` used in development on Replit
 - **No external auth providers, no payment processing, no email service** integrated directly into the app
