@@ -982,7 +982,7 @@ export default function LandingPage() {
               title="3 UNIDADES" 
               price="R$ 397,00" 
               originalPrice="R$ 537,00" 
-              link="https://entrega.logzz.com.br/pay/memnz4o83/liso3unidades" 
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades" 
               features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
               isPopular={true} 
               savings="26%" 
@@ -994,7 +994,7 @@ export default function LandingPage() {
               title="2 UNIDADES" 
               price="R$ 297,00" 
               originalPrice="R$ 398,00" 
-              link="https://entrega.logzz.com.br/pay/memnz4o83/liso2unidades" 
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades" 
               features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
               savings="25%" 
               installment="12x de R$ 30,33"
