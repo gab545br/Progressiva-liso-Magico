@@ -91,9 +91,11 @@ export default function ExchangePolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Dados da Empresa</h2>
-            <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
-            <p>CNPJ: 65.206.918/0001-37</p>
+            <h2 className="text-xl font-bold text-slate-900 mb-3">10. Dados do Fabricante</h2>
+            <p>Fabricante: ERL Ind. Terceirista de Cosméticos</p>
+            <p>Registro ANVISA nº 4.02912-7</p>
+            <p>Responsável Técnica: Luciana Camargo — CRQ: 024023543</p>
+            <p>Localização: Vila Cachoeirinha, Cambuí/MG</p>
           </section>
 
           <section>

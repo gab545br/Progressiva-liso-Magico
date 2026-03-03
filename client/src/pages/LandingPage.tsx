@@ -1228,10 +1228,10 @@ export default function LandingPage() {
             <div>
               <h5 className="text-lg font-semibold text-[#C6A756] mb-4">LISO MÁGICO COSMÉTICOS</h5>
               <div className="space-y-1 text-sm text-slate-600">
-                <p>Razão Social: 65.206.918 GABRIEL RODRIGUES DE BRITO</p>
-                <p>CNPJ: 65.206.918/0001-37</p>
-                <p>Gabriel Rodrigues de Brito</p>
-                <p>Brasil</p>
+                <p>Fabricante: ERL Ind. Terceirista de Cosméticos</p>
+                <p>Registro ANVISA nº 4.02912-7</p>
+                <p>Resp. Técnica: Luciana Camargo — CRQ: 024023543</p>
+                <p>Cambuí/MG — Brasil</p>
               </div>
             </div>
 
