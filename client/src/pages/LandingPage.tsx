@@ -84,10 +84,10 @@ const faqData = [
   {
     category: "Pagamento e Entrega",
     items: [
-      { q: "O pagamento é realmente na entrega?", a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos dinheiro, cartão de débito e crédito na hora da entrega." },
+      { q: "O pagamento é realmente na entrega?", a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos todas as formas de pagamento: Pix, cartão de crédito e débito, boleto e dinheiro. E o melhor: você pode parcelar na hora da entrega!" },
       { q: "Qual o prazo de entrega?", a: "Entregamos em até 24 horas! Você escolhe o melhor dia para receber — pode ser no dia seguinte ou em até 3 dias. Na hora da compra, é só agendar a data que preferir." },
       { q: "O frete é realmente grátis?", a: "Sim! O frete é 100% grátis para todo o Brasil em todos os kits. Não há nenhum custo adicional além do valor do produto." },
-      { q: "Posso parcelar no cartão?", a: "Sim! Você pode parcelar em até 12x no cartão de crédito. O parcelamento é feito direto no checkout, de forma segura." },
+      { q: "Posso parcelar?", a: "Sim! Você pode parcelar na hora da entrega no cartão de crédito ou débito. Também aceitamos Pix, boleto e dinheiro. Você escolhe como prefere pagar!" },
     ]
   },
   {
@@ -316,7 +316,7 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
         >
           <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pronta para transformar seu cabelo?</h3>
-            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Agora que você tirou todas as suas dúvidas, aproveite a oferta especial com frete grátis e pagamento na entrega.</p>
+            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Aproveite a oferta especial com frete grátis, entrega em até 24h e pagamento na entrega — Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={scrollToOffer}
@@ -568,7 +568,7 @@ export default function LandingPage() {
                 <div className="hero-checks space-y-1 text-white/90 text-sm font-medium">
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
-                    Pagamento somente na entrega
+                    Pague na entrega: Pix, cartão, boleto ou dinheiro
                   </p>
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
@@ -981,7 +981,7 @@ export default function LandingPage() {
             </h2>
             <p className="text-lg text-slate-600 mb-2 max-w-xl mx-auto">
               Sabemos que golpes são comuns. Por isso, oferecemos o{" "}
-              <span className="font-bold text-green-600">PAGAMENTO NA ENTREGA</span>.
+              <span className="font-bold text-green-600">PAGAMENTO NA ENTREGA</span> — aceitamos Pix, cartão, boleto e dinheiro. Parcele na hora!
             </p>
             <p className="text-lg text-slate-600 mb-6 max-w-xl mx-auto">
               Você faz o pedido aqui no site, nós enviamos, e você só paga ao carteiro quando o produto chegar na sua mão.
@@ -991,7 +991,7 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Não precisa de cartão de crédito." },
+              { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Sem precisar pagar agora." },
               { step: "02", title: "Enviamos", desc: "Preparamos e despachamos seu pedido com total cuidado." },
               { step: "03", title: "Receba e Pague", desc: "Entrega em até 24h! Agende o melhor dia e pague somente quando receber." },
             ].map((item, idx) => (
@@ -1459,13 +1459,13 @@ export default function LandingPage() {
                   <img src={imgTrustBadge} alt="Pagamento na Entrega" loading="lazy" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Pagamento na Entrega</h3>
-                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Entrega em até 24 horas! Escolha o melhor dia para receber e pague somente na entrega.</p>
+                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Entrega em até 24h! Pague na entrega com Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
               </div>
               <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
                 {[
                   { text: "Receba em até 24h — você agenda o dia", icon: PackageCheck },
-                  { text: "Sem precisar de cartão de crédito", icon: ShieldCheck },
-                  { text: "Veja o produto antes de pagar", icon: Eye },
+                  { text: "Pix, cartão, boleto ou dinheiro", icon: ShieldCheck },
+                  { text: "Parcele na hora da entrega", icon: Eye },
                   { text: "Entrega em até 24h — agende o dia", icon: Truck },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm">
