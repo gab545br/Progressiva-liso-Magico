@@ -1446,52 +1446,53 @@ export default function LandingPage() {
             <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">Ingredientes de alta qualidade selecionados para nutrir, alisar e proteger seus fios — sem formol.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden shadow-lg border border-slate-100"
-            >
-              <img src={imgComposicao} alt="Composição do Liso Mágico" loading="lazy" className="w-full h-auto" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              {[
-                { name: "Acqua (Água)", desc: "Base purificada do produto" },
-                { name: "Cetrimonium Chloride", desc: "Quaternário de amônia — condiciona e desembaraça os fios" },
-                { name: "Cetearyl Alcool", desc: "Álcool cetearílico — emoliente que deixa os fios macios" },
-                { name: "Glycol Steareth", desc: "Monoestearato de glicerila — estabiliza e suaviza a fórmula" },
-                { name: "Shea Butter", desc: "Manteiga de Karité — nutrição intensa e brilho natural" },
-                { name: "Mineral Oil", desc: "Óleo Mineral — proteção e selagem dos fios" },
-                { name: "Phenoxyethanol", desc: "Fenoxietanol — conservante seguro aprovado pela ANVISA" },
-                { name: "Lactic Acid", desc: "Ácido Láctico — alinhamento e ação alisante suave" },
-                { name: "Theobroma Cacao Extract", desc: "Extrato de Cacau — hidratação profunda e aroma natural" },
-                { name: "Cocos Nucifera Extract", desc: "Extrato de Coco — fortalece e dá brilho aos fios" },
-                { name: "Fragrance", desc: "Perfume — fragrância suave e agradável" },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.04 }}
-                  className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors"
-                >
-                  <div className="w-2 h-2 rounded-full bg-[#C6A756] mt-2 shrink-0"></div>
-                  <div>
-                    <span className="font-semibold text-slate-800 text-sm">{item.name}</span>
-                    <span className="text-slate-500 text-sm"> — {item.desc}</span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {[
+              { name: "Acqua", sub: "Água", desc: "Base purificada do produto", icon: "💧" },
+              { name: "Cetrimonium Chloride", sub: "Quaternário de Amônia", desc: "Condiciona e desembaraça os fios", icon: "✨" },
+              { name: "Cetearyl Alcool", sub: "Álcool Cetearílico", desc: "Emoliente que deixa os fios macios", icon: "🌿" },
+              { name: "Glycol Steareth", sub: "Monoestearato de Glicerila", desc: "Estabiliza e suaviza a fórmula", icon: "🔬" },
+              { name: "Shea Butter", sub: "Manteiga de Karité", desc: "Nutrição intensa e brilho natural", icon: "🧈" },
+              { name: "Mineral Oil", sub: "Óleo Mineral", desc: "Proteção e selagem dos fios", icon: "💎" },
+              { name: "Phenoxyethanol", sub: "Fenoxietanol", desc: "Conservante seguro aprovado pela ANVISA", icon: "🛡️" },
+              { name: "Lactic Acid", sub: "Ácido Láctico", desc: "Alinhamento e ação alisante suave", icon: "⚗️" },
+              { name: "Theobroma Cacao", sub: "Extrato de Cacau", desc: "Hidratação profunda e aroma natural", icon: "🍫" },
+              { name: "Cocos Nucifera", sub: "Extrato de Coco", desc: "Fortalece e dá brilho aos fios", icon: "🥥" },
+              { name: "Fragrance", sub: "Perfume", desc: "Fragrância suave e agradável", icon: "🌸" },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.04 }}
+                className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:border-[#C6A756]/30 hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C6A756]/10 to-[#C6A756]/5 flex items-center justify-center shrink-0 text-lg group-hover:from-[#C6A756]/20 group-hover:to-[#C6A756]/10 transition-colors">
+                    {item.icon}
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                  <div className="min-w-0">
+                    <h4 className="font-bold text-slate-800 text-sm leading-tight">{item.name}</h4>
+                    <p className="text-[#C6A756] text-xs font-medium mt-0.5">{item.sub}</p>
+                    <p className="text-slate-500 text-xs mt-1.5 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <div className="inline-flex items-center gap-3 bg-green-50 border border-green-200 rounded-full px-6 py-3">
+              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              <span className="text-green-700 text-sm font-semibold">100% Livre de Formol — Fórmula aprovada pela ANVISA</span>
+            </div>
+          </motion.div>
         </div>
       </section>
       {/* --- SOCIAL PROOF --- */}
