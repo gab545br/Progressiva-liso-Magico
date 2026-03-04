@@ -65,18 +65,38 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ingredients carousel */
+/* Ingredients carousel - 11 cards × 176px (160px + 16px gap) = 1936px per set */
 @keyframes ingredients-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-11 * 176px));
   }
 }
 
-.animate-ingredients-scroll {
-  animation: ingredients-scroll 18s linear infinite;
+.ingredients-track {
+  display: flex;
+  gap: 16px;
+  animation: ingredients-scroll 25s linear infinite;
+  width: max-content;
+}
+
+.ingredients-card {
+  width: 160px;
+  min-width: 160px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.ingredients-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
 }
 
 /* Hide scrollbar */

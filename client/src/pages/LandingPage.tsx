@@ -1341,35 +1341,33 @@ export default function LandingPage() {
           >
             <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">Demais ingredientes da fórmula</h3>
             <div className="overflow-hidden relative">
-              <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
-              <div className="flex gap-4 animate-ingredients-scroll hover:[animation-play-state:paused]">
-                {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex gap-4 shrink-0">
-                    {[
-                      { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
-                      { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
-                      { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
-                      { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
-                      { inci: "Shea Butter", pt: "Manteiga de Karité", func: "Nutritivo" },
-                      { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
-                      { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
-                      { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
-                      { inci: "Extrato de Cacau", pt: "Theobroma Cacao", func: "Hidratante" },
-                      { inci: "Extrato de Coco", pt: "Cocos Nucifera", func: "Fortalecedor" },
-                      { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
-                    ].map((item, idx) => (
-                      <div
-                        key={`${setIdx}-${idx}`}
-                        className="min-w-[160px] bg-white/[0.04] border border-white/[0.06] rounded-xl p-5 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300"
-                      >
-                        <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
-                        <p className="text-white/30 text-xs mb-2">{item.pt}</p>
-                        <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
+              <div className="ingredients-track hover:[animation-play-state:paused]">
+                {[...Array(3)].flatMap((_, setIdx) =>
+                  [
+                    { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
+                    { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
+                    { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
+                    { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
+                    { inci: "Shea Butter", pt: "Manteiga de Karité", func: "Nutritivo" },
+                    { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
+                    { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
+                    { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
+                    { inci: "Extrato de Cacau", pt: "Theobroma Cacao", func: "Hidratante" },
+                    { inci: "Extrato de Coco", pt: "Cocos Nucifera", func: "Fortalecedor" },
+                    { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
+                  ].map((item, idx) => (
+                    <div
+                      key={`${setIdx}-${idx}`}
+                      className="ingredients-card"
+                    >
+                      <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
+                      <p className="text-white/30 text-xs mb-2">{item.pt}</p>
+                      <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </motion.div>
