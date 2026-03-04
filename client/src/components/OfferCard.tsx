@@ -55,6 +55,7 @@ export function OfferCard({
           <img 
             src={image} 
             alt={title} 
+            loading="lazy"
             className="w-full h-full object-cover rounded-xl transform hover:scale-105 transition-all duration-500" 
           />
         </div>
