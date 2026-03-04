@@ -76,6 +76,7 @@ import videoFab5 from "@assets/video_(3)_1772586717355.mp4";
 import videoFab6 from "@assets/Bipagem_1772586717363.mp4";
 import videoFab7 from "@assets/video_(7)_1772588020066.mp4";
 import videoFab8 from "@assets/video_(8)_1772588013113.mp4";
+import imgComposicao from "@assets/COMPOSIÇÃO_1772588375622.png";
 
 const faqData = [
   {
@@ -1428,6 +1429,71 @@ export default function LandingPage() {
       </section>
       {/* --- FABRICATION VIDEOS --- */}
       <FabricationSection />
+      {/* --- COMPOSIÇÃO --- */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 md:mb-14"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wider">
+              <FlaskConical className="w-4 h-4" />
+              Fórmula Exclusiva
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">Composição do <span className="text-[#C6A756]">Liso Mágico</span></h2>
+            <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">Ingredientes de alta qualidade selecionados para nutrir, alisar e proteger seus fios — sem formol.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden shadow-lg border border-slate-100"
+            >
+              <img src={imgComposicao} alt="Composição do Liso Mágico" loading="lazy" className="w-full h-auto" />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              {[
+                { name: "Acqua (Água)", desc: "Base purificada do produto" },
+                { name: "Cetrimonium Chloride", desc: "Quaternário de amônia — condiciona e desembaraça os fios" },
+                { name: "Cetearyl Alcool", desc: "Álcool cetearílico — emoliente que deixa os fios macios" },
+                { name: "Glycol Steareth", desc: "Monoestearato de glicerila — estabiliza e suaviza a fórmula" },
+                { name: "Shea Butter", desc: "Manteiga de Karité — nutrição intensa e brilho natural" },
+                { name: "Mineral Oil", desc: "Óleo Mineral — proteção e selagem dos fios" },
+                { name: "Phenoxyethanol", desc: "Fenoxietanol — conservante seguro aprovado pela ANVISA" },
+                { name: "Lactic Acid", desc: "Ácido Láctico — alinhamento e ação alisante suave" },
+                { name: "Theobroma Cacao Extract", desc: "Extrato de Cacau — hidratação profunda e aroma natural" },
+                { name: "Cocos Nucifera Extract", desc: "Extrato de Coco — fortalece e dá brilho aos fios" },
+                { name: "Fragrance", desc: "Perfume — fragrância suave e agradável" },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.04 }}
+                  className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors"
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#C6A756] mt-2 shrink-0"></div>
+                  <div>
+                    <span className="font-semibold text-slate-800 text-sm">{item.name}</span>
+                    <span className="text-slate-500 text-sm"> — {item.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
       {/* --- SOCIAL PROOF --- */}
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
