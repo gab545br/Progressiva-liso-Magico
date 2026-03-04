@@ -1284,6 +1284,96 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      {/* --- FABRICATION VIDEOS --- */}
+      <FabricationSection />
+      {/* --- COMPOSIÇÃO --- */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C6A756]/[0.04] rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#C6A756]/[0.03] rounded-full blur-[100px]"></div>
+
+        <div className="container mx-auto px-4 max-w-5xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 border border-[#C6A756]/20 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
+              <FlaskConical className="w-4 h-4" />
+              Composição do Produto
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Conheça a <span className="text-[#C6A756]">Composição</span> do Liso Mágico</h2>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Veja todos os ingredientes que compõem a fórmula do nosso produto — selecionados para alisar, nutrir e proteger seus fios. 100% livre de formol, aprovada pela ANVISA.</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/[0.03] border border-[#C6A756]/20 rounded-2xl p-6 md:p-10 max-w-3xl mx-auto mb-8"
+          >
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+              <FlaskConical className="w-5 h-5 text-[#C6A756]" />
+              <h3 className="text-white font-bold text-base md:text-lg uppercase tracking-wider">Ingredientes / INCI</h3>
+            </div>
+
+            <div className="space-y-0">
+              {[
+                { inci: "Acqua", pt: "Água", func: "Veículo" },
+                { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
+                { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
+                { inci: "Glycol Steareth", pt: "Monoestearato de Glicerila", func: "Estabilizante" },
+                { inci: "Butyrospermum Parkii (Shea Butter)", pt: "Manteiga de Karité", func: "Nutritivo" },
+                { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
+                { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
+                { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
+                { inci: "Theobroma Cacao Fruit Extract", pt: "Extrato de Cacau", func: "Hidratante" },
+                { inci: "Cocos Nucifera Fruit Extract", pt: "Extrato de Coco", func: "Fortalecedor" },
+                { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.03 }}
+                  className={`flex items-center justify-between py-3 px-3 rounded-lg ${idx % 2 === 0 ? 'bg-white/[0.02]' : ''} hover:bg-[#C6A756]/[0.05] transition-colors`}
+                >
+                  <div className="flex-1 min-w-0">
+                    <span className="text-white font-semibold text-sm">{item.inci}</span>
+                    <span className="text-white/30 text-sm mx-2">—</span>
+                    <span className="text-white/50 text-sm">{item.pt}</span>
+                  </div>
+                  <span className="text-[#C6A756] text-xs font-bold uppercase tracking-wider bg-[#C6A756]/10 px-3 py-1 rounded-full shrink-0 ml-3">{item.func}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-green-400" />
+              <span className="text-white/40 text-xs">Produto não contém formol. Notificação ANVISA nº 4.02912-7</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-10"
+          >
+            {[
+              { icon: ShieldCheck, text: "0% Formol" },
+              { icon: CheckCircle2, text: "Registro ANVISA" },
+              { icon: FlaskConical, text: "Ativos Naturais" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-[#C6A756]" />
+                <span className="text-white/60 text-sm font-medium">{item.text}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
@@ -1425,96 +1515,6 @@ export default function LandingPage() {
             ))}
           </motion.div>
         </div>
-        </div>
-      </section>
-      {/* --- FABRICATION VIDEOS --- */}
-      <FabricationSection />
-      {/* --- COMPOSIÇÃO --- */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C6A756]/[0.04] rounded-full blur-[150px]"></div>
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#C6A756]/[0.03] rounded-full blur-[100px]"></div>
-
-        <div className="container mx-auto px-4 max-w-5xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16"
-          >
-            <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 border border-[#C6A756]/20 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
-              <FlaskConical className="w-4 h-4" />
-              Composição do Produto
-            </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Conheça a <span className="text-[#C6A756]">Composição</span> do Liso Mágico</h2>
-            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Veja todos os ingredientes que compõem a fórmula do nosso produto — selecionados para alisar, nutrir e proteger seus fios. 100% livre de formol, aprovada pela ANVISA.</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/[0.03] border border-[#C6A756]/20 rounded-2xl p-6 md:p-10 max-w-3xl mx-auto mb-8"
-          >
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/[0.06]">
-              <FlaskConical className="w-5 h-5 text-[#C6A756]" />
-              <h3 className="text-white font-bold text-base md:text-lg uppercase tracking-wider">Ingredientes / INCI</h3>
-            </div>
-
-            <div className="space-y-0">
-              {[
-                { inci: "Acqua", pt: "Água", func: "Veículo" },
-                { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
-                { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
-                { inci: "Glycol Steareth", pt: "Monoestearato de Glicerila", func: "Estabilizante" },
-                { inci: "Butyrospermum Parkii (Shea Butter)", pt: "Manteiga de Karité", func: "Nutritivo" },
-                { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
-                { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
-                { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
-                { inci: "Theobroma Cacao Fruit Extract", pt: "Extrato de Cacau", func: "Hidratante" },
-                { inci: "Cocos Nucifera Fruit Extract", pt: "Extrato de Coco", func: "Fortalecedor" },
-                { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.03 }}
-                  className={`flex items-center justify-between py-3 px-3 rounded-lg ${idx % 2 === 0 ? 'bg-white/[0.02]' : ''} hover:bg-[#C6A756]/[0.05] transition-colors`}
-                >
-                  <div className="flex-1 min-w-0">
-                    <span className="text-white font-semibold text-sm">{item.inci}</span>
-                    <span className="text-white/30 text-sm mx-2">—</span>
-                    <span className="text-white/50 text-sm">{item.pt}</span>
-                  </div>
-                  <span className="text-[#C6A756] text-xs font-bold uppercase tracking-wider bg-[#C6A756]/10 px-3 py-1 rounded-full shrink-0 ml-3">{item.func}</span>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-green-400" />
-              <span className="text-white/40 text-xs">Produto não contém formol. Notificação ANVISA nº 4.02912-7</span>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-6 md:gap-10"
-          >
-            {[
-              { icon: ShieldCheck, text: "0% Formol" },
-              { icon: CheckCircle2, text: "Registro ANVISA" },
-              { icon: FlaskConical, text: "Ativos Naturais" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <item.icon className="w-4 h-4 text-[#C6A756]" />
-                <span className="text-white/60 text-sm font-medium">{item.text}</span>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
       {/* --- SOCIAL PROOF --- */}
