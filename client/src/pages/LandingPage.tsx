@@ -1443,10 +1443,10 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 border border-[#C6A756]/20 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
               <FlaskConical className="w-4 h-4" />
-              Fórmula Exclusiva
+              Composição do Produto
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">O que tem dentro do <span className="text-[#C6A756]">Liso Mágico</span></h2>
-            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Cada ingrediente foi escolhido para alisar, nutrir e proteger seus fios. Fórmula 100% livre de formol, aprovada pela ANVISA.</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Conheça a <span className="text-[#C6A756]">Composição</span> do Liso Mágico</h2>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Veja todos os ingredientes que compõem a fórmula do nosso produto — selecionados para alisar, nutrir e proteger seus fios. 100% livre de formol, aprovada pela ANVISA.</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8">
