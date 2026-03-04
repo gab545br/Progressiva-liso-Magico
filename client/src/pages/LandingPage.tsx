@@ -224,7 +224,6 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
                 QUERO MEU LISO MÁGICO
               </Button>
             </div>
-            <p className="text-white/40 text-xs mt-4">Dúvidas? contato@lisomagico.com.br · (34) 99766-8955</p>
           </div>
         </motion.div>
       </div>
