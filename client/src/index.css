@@ -78,7 +78,7 @@ html {
 .ingredients-track {
   display: flex;
   gap: 16px;
-  animation: ingredients-scroll 25s linear infinite;
+  animation: ingredients-scroll 35s linear infinite;
   width: max-content;
 }
 
