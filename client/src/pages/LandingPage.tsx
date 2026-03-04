@@ -1430,54 +1430,49 @@ export default function LandingPage() {
       {/* --- FABRICATION VIDEOS --- */}
       <FabricationSection />
       {/* --- COMPOSIÇÃO --- */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C6A756]/[0.04] rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#C6A756]/[0.03] rounded-full blur-[100px]"></div>
+
+        <div className="container mx-auto px-4 max-w-5xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10 md:mb-14"
+            className="text-center mb-12 md:mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 border border-[#C6A756]/20 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
               <FlaskConical className="w-4 h-4" />
               Fórmula Exclusiva
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">Composição do <span className="text-[#C6A756]">Liso Mágico</span></h2>
-            <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">Ingredientes de alta qualidade selecionados para nutrir, alisar e proteger seus fios — sem formol.</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">O que tem dentro do <span className="text-[#C6A756]">Liso Mágico</span></h2>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Cada ingrediente foi escolhido para alisar, nutrir e proteger seus fios. Fórmula 100% livre de formol, aprovada pela ANVISA.</p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8">
             {[
-              { name: "Acqua", sub: "Água", desc: "Base purificada do produto", icon: "💧" },
-              { name: "Cetrimonium Chloride", sub: "Quaternário de Amônia", desc: "Condiciona e desembaraça os fios", icon: "✨" },
-              { name: "Cetearyl Alcool", sub: "Álcool Cetearílico", desc: "Emoliente que deixa os fios macios", icon: "🌿" },
-              { name: "Glycol Steareth", sub: "Monoestearato de Glicerila", desc: "Estabiliza e suaviza a fórmula", icon: "🔬" },
-              { name: "Shea Butter", sub: "Manteiga de Karité", desc: "Nutrição intensa e brilho natural", icon: "🧈" },
-              { name: "Mineral Oil", sub: "Óleo Mineral", desc: "Proteção e selagem dos fios", icon: "💎" },
-              { name: "Phenoxyethanol", sub: "Fenoxietanol", desc: "Conservante seguro aprovado pela ANVISA", icon: "🛡️" },
-              { name: "Lactic Acid", sub: "Ácido Láctico", desc: "Alinhamento e ação alisante suave", icon: "⚗️" },
-              { name: "Theobroma Cacao", sub: "Extrato de Cacau", desc: "Hidratação profunda e aroma natural", icon: "🍫" },
-              { name: "Cocos Nucifera", sub: "Extrato de Coco", desc: "Fortalece e dá brilho aos fios", icon: "🥥" },
-              { name: "Fragrance", sub: "Perfume", desc: "Fragrância suave e agradável", icon: "🌸" },
+              { name: "Shea Butter", sub: "Manteiga de Karité", desc: "Nutrição intensa e brilho natural", highlight: true },
+              { name: "Lactic Acid", sub: "Ácido Láctico", desc: "Ação alisante suave e progressiva", highlight: true },
+              { name: "Theobroma Cacao", sub: "Extrato de Cacau", desc: "Hidratação profunda", highlight: true },
+              { name: "Cocos Nucifera", sub: "Extrato de Coco", desc: "Fortalece e dá brilho", highlight: true },
+              { name: "Cetrimonium Chloride", sub: "Quaternário de Amônia", desc: "Condiciona e desembaraça", highlight: false },
+              { name: "Cetearyl Alcool", sub: "Álcool Cetearílico", desc: "Maciez e toque sedoso", highlight: false },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.04 }}
-                className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 hover:border-[#C6A756]/30 hover:shadow-md transition-all duration-300 group"
+                transition={{ delay: idx * 0.06 }}
+                className={`rounded-2xl p-5 md:p-6 border transition-all duration-300 ${
+                  item.highlight
+                    ? 'bg-gradient-to-br from-[#C6A756]/10 to-transparent border-[#C6A756]/20 hover:border-[#C6A756]/40'
+                    : 'bg-white/[0.03] border-white/[0.06] hover:border-white/10'
+                }`}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C6A756]/10 to-[#C6A756]/5 flex items-center justify-center shrink-0 text-lg group-hover:from-[#C6A756]/20 group-hover:to-[#C6A756]/10 transition-colors">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="font-bold text-slate-800 text-sm leading-tight">{item.name}</h4>
-                    <p className="text-[#C6A756] text-xs font-medium mt-0.5">{item.sub}</p>
-                    <p className="text-slate-500 text-xs mt-1.5 leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
+                <h4 className="font-bold text-white text-sm md:text-base leading-tight">{item.name}</h4>
+                <p className="text-[#C6A756] text-xs font-semibold mt-1">{item.sub}</p>
+                <p className="text-white/40 text-xs mt-2 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -1486,12 +1481,33 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-8 text-center"
+            className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8"
           >
-            <div className="inline-flex items-center gap-3 bg-green-50 border border-green-200 rounded-full px-6 py-3">
-              <CheckCircle2 className="w-5 h-5 text-green-600" />
-              <span className="text-green-700 text-sm font-semibold">100% Livre de Formol — Fórmula aprovada pela ANVISA</span>
-            </div>
+            <h4 className="text-white/70 text-xs font-bold uppercase tracking-[2px] mb-4 flex items-center gap-2">
+              <div className="w-6 h-px bg-white/20"></div>
+              Composição Completa
+            </h4>
+            <p className="text-white/40 text-sm leading-loose">
+              <span className="text-white/60 font-medium">Acqua</span> (Água); <span className="text-white/60 font-medium">Cetrimonium Chloride</span> (Quaternário de Amônia); <span className="text-white/60 font-medium">Cetearyl Alcool</span> (Álcool Cetearílico); <span className="text-white/60 font-medium">Glycol Steareth</span> (Monoestearato de Glicerila); <span className="text-white/60 font-medium">Shea Butter</span> (Manteiga de Karité); <span className="text-white/60 font-medium">Mineral Oil</span> (Óleo Mineral); <span className="text-white/60 font-medium">Phenoxyethanol</span> (Fenoxietanol); <span className="text-white/60 font-medium">Lactic Acid</span> (Ácido Láctico); <span className="text-white/60 font-medium">Fragrance</span> (Perfume); <span className="text-white/60 font-medium">Theobroma Cacao Fruit Extract</span> (Extrato de Cacau); <span className="text-white/60 font-medium">Cocos Nucifera Fruit Extract</span> (Extrato de Coco).
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-6 md:gap-10"
+          >
+            {[
+              { icon: ShieldCheck, text: "Sem Formol" },
+              { icon: CheckCircle2, text: "Aprovado ANVISA" },
+              { icon: FlaskConical, text: "Base Orgânica" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-[#C6A756]" />
+                <span className="text-white/60 text-sm font-medium">{item.text}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
