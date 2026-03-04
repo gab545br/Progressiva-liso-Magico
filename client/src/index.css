@@ -99,13 +99,13 @@ html {
   border-color: rgba(255,255,255,0.12);
 }
 
-/* Fabrication videos carousel - 7 cards × (280px + 24px gap) = 2128px per set */
+/* Fabrication videos carousel - 7 cards × (240px + 24px gap) = 1848px per set */
 @keyframes fab-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-7 * 304px));
+    transform: translateX(calc(-7 * 264px));
   }
 }
 
@@ -117,17 +117,17 @@ html {
 }
 
 .fab-card {
-  width: 280px;
-  min-width: 280px;
-  height: 400px;
+  width: 240px;
+  min-width: 240px;
+  height: 420px;
   flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .fab-card {
-    width: 320px;
-    min-width: 320px;
-    height: 440px;
+    width: 260px;
+    min-width: 260px;
+    height: 460px;
   }
 
   @keyframes fab-scroll {
@@ -135,7 +135,7 @@ html {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-7 * 344px));
+      transform: translateX(calc(-7 * 284px));
     }
   }
 }
