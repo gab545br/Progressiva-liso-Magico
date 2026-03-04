@@ -70,15 +70,15 @@ import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
 import imgResultsBg from "@assets/popo_optimized.jpg";
 import imgAnvisaBg from "@assets/foto_anvisa_optimized.jpg";
 
-import videoFab1 from "@assets/video_1772586717268.mp4";
-import videoFab2 from "@assets/video_(1)_1772586717362.mp4";
+import videoFab1 from "@assets/video_1772586717268_opt.mp4";
+import videoFab2 from "@assets/video_(1)_1772586717362_opt.mp4";
 import videoFab3 from "@assets/video_(5)_1772586717270.mp4";
-import videoFab4 from "@assets/video_(6)_1772586717269.mp4";
-import videoFab5 from "@assets/video_(3)_1772586717355.mp4";
-import videoFab6 from "@assets/Bipagem_1772586717363.mp4";
-import videoFab7 from "@assets/video_(7)_1772588020066.mp4";
-import videoFab8 from "@assets/video_(8)_1772588013113.mp4";
-import imgComposicao from "@assets/composicao_hero.png";
+import videoFab4 from "@assets/video_(6)_1772586717269_opt.mp4";
+import videoFab5 from "@assets/video_(3)_1772586717355_opt.mp4";
+import videoFab6 from "@assets/Bipagem_1772586717363_opt.mp4";
+import videoFab7 from "@assets/video_(7)_1772588020066_opt.mp4";
+import videoFab8 from "@assets/video_(8)_1772588013113_opt.mp4";
+import imgComposicao from "@assets/composicao_hero_optimized.jpg";
 
 const faqData = [
   {
@@ -172,30 +172,27 @@ const fabricationVideos = [
 ];
 
 function FabricationSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const checkScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-  };
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener('scroll', checkScroll);
-    return () => el.removeEventListener('scroll', checkScroll);
+    const timer = setInterval(() => {
+      setCurrentVideo((prev) => (prev + 1) % fabricationVideos.length);
+    }, 5000);
+    return () => clearInterval(timer);
   }, []);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return;
-    const amount = scrollRef.current.clientWidth * 0.7;
-    scrollRef.current.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
-  };
+  useEffect(() => {
+    videoRefs.current.forEach((video, idx) => {
+      if (!video) return;
+      if (idx === currentVideo) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [currentVideo]);
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
@@ -214,68 +211,73 @@ function FabricationSection() {
             Veja como o Liso Mágico é <span className="text-[#C6A756]">fabricado</span>
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
-            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação do produto que vai transformar seu cabelo.
+            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação.
           </p>
         </motion.div>
 
-        <div className="relative">
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors -translate-x-1 md:-translate-x-4"
-              data-testid="button-fab-scroll-left"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-          )}
-          {canScrollRight && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors translate-x-1 md:translate-x-4"
-              data-testid="button-fab-scroll-right"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          )}
-
-          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-slate-800 to-transparent z-10 pointer-events-none"></div>
-
-          <div
-            ref={scrollRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-2"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+        <div className="max-w-4xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black aspect-[9/16] md:aspect-video max-h-[500px] md:max-h-[520px] mx-auto">
             {fabricationVideos.map((video, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex-shrink-0 w-[260px] md:w-[320px] snap-center"
+                className={`absolute inset-0 transition-opacity duration-700 ${idx === currentVideo ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
               >
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group">
-                  <video
-                    src={video.src}
-                    muted
-                    autoPlay
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-[360px] md:h-[440px] object-cover"
-                    data-testid={`video-fab-${idx}`}
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
-                        <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
-                      </div>
-                      <span className="text-white/90 text-sm font-medium">{video.label}</span>
-                    </div>
+                <video
+                  ref={(el) => { videoRefs.current[idx] = el; }}
+                  src={video.src}
+                  muted
+                  loop
+                  playsInline
+                  preload={idx < 2 ? "metadata" : "none"}
+                  className="w-full h-full object-cover"
+                  data-testid={`video-fab-${idx}`}
+                />
+              </div>
+            ))}
+
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 md:p-6 z-20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
+                    <Play className="w-4 h-4 text-[#C6A756] fill-[#C6A756]" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm md:text-base">{fabricationVideos[currentVideo].label}</p>
+                    <p className="text-white/40 text-xs">Etapa {currentVideo + 1} de {fabricationVideos.length}</p>
                   </div>
                 </div>
-              </motion.div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setCurrentVideo((prev) => (prev - 1 + fabricationVideos.length) % fabricationVideos.length)}
+                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                    data-testid="button-fab-prev"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-white" />
+                  </button>
+                  <button
+                    onClick={() => setCurrentVideo((prev) => (prev + 1) % fabricationVideos.length)}
+                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                    data-testid="button-fab-next"
+                  >
+                    <ChevronRight className="w-4 h-4 text-white" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
+              <span className="text-white/70 text-xs font-medium">{currentVideo + 1}/{fabricationVideos.length}</span>
+            </div>
+          </div>
+
+          <div className="flex gap-2 mt-4 justify-center">
+            {fabricationVideos.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentVideo(idx)}
+                className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentVideo ? 'bg-[#C6A756] w-8' : 'bg-white/20 w-4 hover:bg-white/30'}`}
+                data-testid={`button-fab-dot-${idx}`}
+              />
             ))}
           </div>
         </div>
