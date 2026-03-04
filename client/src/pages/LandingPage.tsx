@@ -1334,61 +1334,35 @@ export default function LandingPage() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden max-w-4xl mx-auto mb-8"
+            className="mb-10"
           >
-            <div className="bg-white/[0.03] px-6 md:px-8 py-4 border-b border-white/[0.06] flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <FlaskConical className="w-5 h-5 text-[#C6A756]" />
-                <h3 className="text-white font-bold text-sm md:text-base uppercase tracking-wider">Lista Completa INCI</h3>
-              </div>
-              <span className="text-white/30 text-xs hidden md:block">International Nomenclature of Cosmetic Ingredients</span>
-            </div>
-
-            <div className="divide-y divide-white/[0.04]">
+            <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">Demais ingredientes da fórmula</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
               {[
-                { num: "01", inci: "Acqua", pt: "Água Purificada", func: "Veículo", color: "bg-blue-500/20 text-blue-300" },
-                { num: "02", inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante", color: "bg-purple-500/20 text-purple-300" },
-                { num: "03", inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente", color: "bg-pink-500/20 text-pink-300" },
-                { num: "04", inci: "Glycol Steareth", pt: "Monoestearato de Glicerila", func: "Estabilizante", color: "bg-cyan-500/20 text-cyan-300" },
-                { num: "05", inci: "Butyrospermum Parkii", pt: "Manteiga de Karité", func: "Nutritivo", color: "bg-amber-500/20 text-amber-300" },
-                { num: "06", inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor", color: "bg-emerald-500/20 text-emerald-300" },
-                { num: "07", inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante", color: "bg-slate-500/20 text-slate-300" },
-                { num: "08", inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante", color: "bg-rose-500/20 text-rose-300" },
-                { num: "09", inci: "Theobroma Cacao Extract", pt: "Extrato de Cacau", func: "Hidratante", color: "bg-orange-500/20 text-orange-300" },
-                { num: "10", inci: "Cocos Nucifera Extract", pt: "Extrato de Coco", func: "Fortalecedor", color: "bg-lime-500/20 text-lime-300" },
-                { num: "11", inci: "Fragrance", pt: "Perfume", func: "Fragrância", color: "bg-violet-500/20 text-violet-300" },
+                { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
+                { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
+                { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
+                { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
+                { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
+                { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
+                { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.03 }}
-                  className="flex items-center gap-4 px-6 md:px-8 py-3.5 hover:bg-white/[0.02] transition-colors"
+                  transition={{ delay: idx * 0.04 }}
+                  className="bg-white/[0.04] border border-white/[0.06] rounded-xl p-4 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300"
                 >
-                  <span className="text-white/15 text-xs font-mono w-6 shrink-0">{item.num}</span>
-                  <div className="flex-1 min-w-0">
-                    <span className="text-white font-semibold text-sm">{item.inci}</span>
-                    <span className="text-white/25 mx-2 hidden sm:inline">|</span>
-                    <span className="text-white/40 text-sm hidden sm:inline">{item.pt}</span>
-                  </div>
-                  <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shrink-0 ${item.color}`}>{item.func}</span>
+                  <p className="text-white/80 font-semibold text-xs mb-1">{item.inci}</p>
+                  <p className="text-white/30 text-[10px] mb-2">{item.pt}</p>
+                  <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider">{item.func}</span>
                 </motion.div>
               ))}
-            </div>
-
-            <div className="px-6 md:px-8 py-4 bg-white/[0.02] border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-green-400" />
-                <span className="text-white/40 text-xs">0% Formol — Notificação ANVISA nº 4.02912-7</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
-                <span className="text-white/40 text-xs">Fórmula dermatologicamente testada</span>
-              </div>
             </div>
           </motion.div>
 
@@ -1396,22 +1370,39 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-4 md:gap-8"
+            className="bg-gradient-to-r from-[#C6A756]/10 via-transparent to-[#C6A756]/10 border border-[#C6A756]/15 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto mb-10"
           >
-            {[
-              { icon: ShieldCheck, label: "Sem Formol", sub: "0% na fórmula" },
-              { icon: CheckCircle2, label: "ANVISA", sub: "Nº 4.02912-7" },
-              { icon: FlaskConical, label: "Ativos Naturais", sub: "Base orgânica" },
-              { icon: Leaf, label: "Cruelty Free", sub: "Não testado em animais" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-xl px-4 py-3">
-                <item.icon className="w-5 h-5 text-[#C6A756]" />
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-green-400" />
+                </div>
                 <div>
-                  <span className="text-white/80 text-xs font-bold block">{item.label}</span>
-                  <span className="text-white/30 text-[10px]">{item.sub}</span>
+                  <p className="text-white font-bold text-sm">0% Formol</p>
+                  <p className="text-white/35 text-xs">Seguro para gestantes</p>
                 </div>
               </div>
-            ))}
+              <div className="w-px h-8 bg-white/10 hidden md:block"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#C6A756]/10 flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#C6A756]" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">ANVISA nº 4.02912-7</p>
+                  <p className="text-white/35 text-xs">Registro ativo e válido</p>
+                </div>
+              </div>
+              <div className="w-px h-8 bg-white/10 hidden md:block"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
+                  <Leaf className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">Cruelty Free</p>
+                  <p className="text-white/35 text-xs">Não testado em animais</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
