@@ -85,7 +85,7 @@ const faqData = [
     category: "Pagamento e Entrega",
     items: [
       { q: "O pagamento é realmente na entrega?", a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos dinheiro, cartão de débito e crédito na hora da entrega." },
-      { q: "Qual o prazo de entrega?", a: "O prazo médio é de 3 a 10 dias úteis, dependendo da sua região. Após o envio, você recebe o código de rastreamento para acompanhar cada etapa." },
+      { q: "Qual o prazo de entrega?", a: "Entregamos em até 24 horas! Você escolhe o melhor dia para receber — pode ser no dia seguinte ou em até 3 dias. Na hora da compra, é só agendar a data que preferir." },
       { q: "O frete é realmente grátis?", a: "Sim! O frete é 100% grátis para todo o Brasil em todos os kits. Não há nenhum custo adicional além do valor do produto." },
       { q: "Posso parcelar no cartão?", a: "Sim! Você pode parcelar em até 12x no cartão de crédito. O parcelamento é feito direto no checkout, de forma segura." },
     ]
@@ -549,7 +549,7 @@ export default function LandingPage() {
                 Cabelo liso, alinhado e sem frizz —
               </h1>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#d4a017] mb-6">
-                e você só paga na entrega.
+                e você só paga na entrega. Receba em até 24h!
               </h2>
               
               <p className="hero-description text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
@@ -572,7 +572,7 @@ export default function LandingPage() {
                   </p>
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
-                    Frete rápido para todo Brasil
+                    Entrega em até 24h — Agende o dia
                   </p>
                 </div>
               </div>
@@ -716,7 +716,7 @@ export default function LandingPage() {
                   "Economia de até 85% comparado ao salão",
                   "Aplique no conforto da sua casa",
                   "Sem agendamento, sem espera",
-                  "Pagamento somente na entrega",
+                  "Entrega em até 24h — agende o dia",
                 ].map((item, idx) => (
                   <motion.p
                     key={idx}
@@ -993,7 +993,7 @@ export default function LandingPage() {
             {[
               { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Não precisa de cartão de crédito." },
               { step: "02", title: "Enviamos", desc: "Preparamos e despachamos seu pedido com total cuidado." },
-              { step: "03", title: "Receba e Pague", desc: "Pague somente quando o produto chegar nas suas mãos." },
+              { step: "03", title: "Receba e Pague", desc: "Entrega em até 24h! Agende o melhor dia e pague somente quando receber." },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -1369,7 +1369,7 @@ export default function LandingPage() {
               price="R$ 149,00" 
               originalPrice="R$ 199,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico" 
-              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
+              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
               installment="12x de R$ 15,22"
               image={imgProduct1} 
               className="h-full"
@@ -1379,7 +1379,7 @@ export default function LandingPage() {
               price="R$ 397,00" 
               originalPrice="R$ 537,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades" 
-              features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
+              features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
               isPopular={true} 
               savings="26%" 
               installment="12x de R$ 40,54"
@@ -1391,7 +1391,7 @@ export default function LandingPage() {
               price="R$ 297,00" 
               originalPrice="R$ 398,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades" 
-              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Garantia VIP"]} 
+              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
               savings="25%" 
               installment="12x de R$ 30,33"
               image={imgProduct3} 
@@ -1459,14 +1459,14 @@ export default function LandingPage() {
                   <img src={imgTrustBadge} alt="Pagamento na Entrega" loading="lazy" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Pagamento na Entrega</h3>
-                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Receba primeiro, confira o produto e só depois pague. Simples assim.</p>
+                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Entrega em até 24 horas! Escolha o melhor dia para receber e pague somente na entrega.</p>
               </div>
               <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
                 {[
-                  { text: "Pague somente quando receber em mãos", icon: PackageCheck },
+                  { text: "Receba em até 24h — você agenda o dia", icon: PackageCheck },
                   { text: "Sem precisar de cartão de crédito", icon: ShieldCheck },
                   { text: "Veja o produto antes de pagar", icon: Eye },
-                  { text: "Entrega rápida para todo o Brasil", icon: Truck },
+                  { text: "Entrega em até 24h — agende o dia", icon: Truck },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm">
                     <item.icon className="w-4.5 h-4.5 text-[#C6A756] shrink-0" />
@@ -1486,7 +1486,7 @@ export default function LandingPage() {
           >
             {[
               { icon: ShieldCheck, label: "Compra Segura", desc: "Dados protegidos", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
-              { icon: PackageCheck, label: "Entrega Garantida", desc: "Em todo o Brasil", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
+              { icon: PackageCheck, label: "Entrega em 24h", desc: "Agende o melhor dia", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
               { icon: Truck, label: "Frete Grátis", desc: "Sem taxa extra", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
               { icon: CheckCircle2, label: "Satisfação", desc: "Garantida ou devolvemos", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
             ].map((selo, idx) => (
