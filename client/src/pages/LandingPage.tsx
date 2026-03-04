@@ -20,7 +20,9 @@ import {
   Eye,
   ChevronDown,
   HelpCircle,
-  MessageCircle
+  MessageCircle,
+  FlaskConical,
+  Play
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -65,6 +67,13 @@ import mjnj from "@assets/mjnj.jpg";
 import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
 import imgResultsBg from "@assets/popo_optimized.jpg";
 import imgAnvisaBg from "@assets/foto_anvisa_optimized.jpg";
+
+import videoFab1 from "@assets/video_1772586717268.mp4";
+import videoFab2 from "@assets/video_(1)_1772586717362.mp4";
+import videoFab3 from "@assets/video_(5)_1772586717270.mp4";
+import videoFab4 from "@assets/video_(6)_1772586717269.mp4";
+import videoFab5 from "@assets/video_(3)_1772586717355.mp4";
+import videoFab6 from "@assets/Bipagem_1772586717363.mp4";
 
 const faqData = [
   {
@@ -144,6 +153,146 @@ function FAQItem({ question, answer, isOpen, onClick, index }: { question: strin
         )}
       </AnimatePresence>
     </motion.div>
+  );
+}
+
+const fabricationVideos = [
+  { src: videoFab1, label: "Processo de fabricação" },
+  { src: videoFab2, label: "Controle de qualidade" },
+  { src: videoFab3, label: "Linha de produção" },
+  { src: videoFab4, label: "Matéria-prima selecionada" },
+  { src: videoFab5, label: "Envase e selagem" },
+  { src: videoFab6, label: "Embalagem e expedição" },
+];
+
+function FabricationSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll);
+    return () => el.removeEventListener('scroll', checkScroll);
+  }, []);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const amount = scrollRef.current.clientWidth * 0.7;
+    scrollRef.current.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
+
+  return (
+    <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wider">
+            <FlaskConical className="w-4 h-4" />
+            Fabricação Nacional
+          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+            Veja como o Liso Mágico é <span className="text-[#C6A756]">fabricado</span>
+          </h2>
+          <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
+            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação do produto que vai transformar seu cabelo.
+          </p>
+        </motion.div>
+
+        <div className="relative">
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll('left')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors -translate-x-1 md:-translate-x-4"
+              data-testid="button-fab-scroll-left"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+          )}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll('right')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-slate-700 hover:bg-white transition-colors translate-x-1 md:translate-x-4"
+              data-testid="button-fab-scroll-right"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          )}
+
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-slate-800 to-transparent z-10 pointer-events-none"></div>
+
+          <div
+            ref={scrollRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory px-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {fabricationVideos.map((video, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex-shrink-0 w-[260px] md:w-[320px] snap-center"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group">
+                  <video
+                    src={video.src}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-[360px] md:h-[440px] object-cover"
+                    data-testid={`video-fab-${idx}`}
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
+                        <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
+                      </div>
+                      <span className="text-white/90 text-sm font-medium">{video.label}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-10 md:mt-14"
+        >
+          {[
+            { label: "Registro ANVISA", value: "nº 4.02912-7" },
+            { label: "100% Livre de Formol", value: "Aprovado" },
+            { label: "Fabricação", value: "Nacional" },
+          ].map((item, idx) => (
+            <div key={idx} className="text-center">
+              <span className="text-[#C6A756] text-sm font-bold uppercase tracking-wider block">{item.label}</span>
+              <span className="text-white/60 text-xs">{item.value}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
@@ -1274,6 +1423,8 @@ export default function LandingPage() {
         </div>
         </div>
       </section>
+      {/* --- FABRICATION VIDEOS --- */}
+      <FabricationSection />
       {/* --- SOCIAL PROOF --- */}
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
