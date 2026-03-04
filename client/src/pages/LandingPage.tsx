@@ -74,6 +74,8 @@ import videoFab3 from "@assets/video_(5)_1772586717270.mp4";
 import videoFab4 from "@assets/video_(6)_1772586717269.mp4";
 import videoFab5 from "@assets/video_(3)_1772586717355.mp4";
 import videoFab6 from "@assets/Bipagem_1772586717363.mp4";
+import videoFab7 from "@assets/video_(7)_1772588020066.mp4";
+import videoFab8 from "@assets/video_(8)_1772588013113.mp4";
 
 const faqData = [
   {
@@ -157,11 +159,13 @@ function FAQItem({ question, answer, isOpen, onClick, index }: { question: strin
 }
 
 const fabricationVideos = [
-  { src: videoFab1, label: "Processo de fabricação" },
-  { src: videoFab2, label: "Controle de qualidade" },
+  { src: videoFab4, label: "Seleção de matéria-prima" },
+  { src: videoFab1, label: "Mistura dos ingredientes" },
   { src: videoFab3, label: "Linha de produção" },
-  { src: videoFab4, label: "Matéria-prima selecionada" },
+  { src: videoFab7, label: "Teste de qualidade" },
   { src: videoFab5, label: "Envase e selagem" },
+  { src: videoFab2, label: "Inspeção final" },
+  { src: videoFab8, label: "Rotulagem e acabamento" },
   { src: videoFab6, label: "Embalagem e expedição" },
 ];
 
