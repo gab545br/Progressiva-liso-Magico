@@ -76,7 +76,7 @@ import videoFab5 from "@assets/video_(3)_1772586717355.mp4";
 import videoFab6 from "@assets/Bipagem_1772586717363.mp4";
 import videoFab7 from "@assets/video_(7)_1772588020066.mp4";
 import videoFab8 from "@assets/video_(8)_1772588013113.mp4";
-import imgComposicao from "@assets/COMPOSIÇÃO_1772588375622.png";
+import imgComposicao from "@assets/composicao_hero.png";
 
 const faqData = [
   {
