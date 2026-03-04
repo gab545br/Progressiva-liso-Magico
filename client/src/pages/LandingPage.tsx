@@ -213,18 +213,18 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
           className="mt-12 md:mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ainda tem alguma dúvida?</h3>
-            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Nossa equipe está pronta para te atender de segunda a segunda, das 7h às 23h.</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pronta para transformar seu cabelo?</h3>
+            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Agora que você tirou todas as suas dúvidas, aproveite a oferta especial com frete grátis e pagamento na entrega.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={scrollToOffer}
                 className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-8 py-3 rounded-full"
                 data-testid="faq-cta-buy"
               >
-                QUERO COMPRAR AGORA
+                QUERO MEU LISO MÁGICO
               </Button>
             </div>
-            <p className="text-white/40 text-xs mt-4">contato@lisomagico.com.br · (34) 99766-8955</p>
+            <p className="text-white/40 text-xs mt-4">Dúvidas? contato@lisomagico.com.br · (34) 99766-8955</p>
           </div>
         </motion.div>
       </div>
