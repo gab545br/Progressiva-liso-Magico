@@ -1340,31 +1340,34 @@ export default function LandingPage() {
             className="mb-10"
           >
             <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">Demais ingredientes da fórmula</h3>
-            <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible md:pb-0 max-w-4xl mx-auto px-1">
-              {[
-                { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
-                { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
-                { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
-                { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
-                { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
-                { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
-                { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.04 }}
-                  className="min-w-[140px] snap-center bg-white/[0.04] border border-white/[0.06] rounded-xl p-5 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300 flex-shrink-0 md:flex-shrink md:min-w-0"
-                >
-                  <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
-                  <p className="text-white/30 text-xs mb-2">{item.pt}</p>
-                  <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
-                </motion.div>
-              ))}
+            <div className="overflow-hidden relative">
+              <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
+              <div className="flex gap-4 animate-ingredients-scroll hover:[animation-play-state:paused]">
+                {[...Array(2)].map((_, setIdx) => (
+                  <div key={setIdx} className="flex gap-4 shrink-0">
+                    {[
+                      { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
+                      { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
+                      { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
+                      { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
+                      { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
+                      { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
+                      { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
+                    ].map((item, idx) => (
+                      <div
+                        key={`${setIdx}-${idx}`}
+                        className="min-w-[160px] bg-white/[0.04] border border-white/[0.06] rounded-xl p-5 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300"
+                      >
+                        <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
+                        <p className="text-white/30 text-xs mb-2">{item.pt}</p>
+                        <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="text-white/20 text-[10px] text-center mt-3 md:hidden">Arraste para ver todos →</p>
           </motion.div>
 
           <motion.div

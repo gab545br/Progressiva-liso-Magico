@@ -65,6 +65,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ingredients carousel */
+@keyframes ingredients-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ingredients-scroll {
+  animation: ingredients-scroll 20s linear infinite;
+}
+
 /* Hide scrollbar */
 .scrollbar-hide {
   -ms-overflow-style: none;
