@@ -1340,7 +1340,7 @@ export default function LandingPage() {
             className="mb-10"
           >
             <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">Demais ingredientes da fórmula</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+            <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible md:pb-0 max-w-4xl mx-auto px-1">
               {[
                 { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
                 { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
@@ -1356,14 +1356,15 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.04 }}
-                  className="bg-white/[0.04] border border-white/[0.06] rounded-xl p-4 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300"
+                  className="min-w-[140px] snap-center bg-white/[0.04] border border-white/[0.06] rounded-xl p-5 text-center hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300 flex-shrink-0 md:flex-shrink md:min-w-0"
                 >
-                  <p className="text-white/80 font-semibold text-xs mb-1">{item.inci}</p>
-                  <p className="text-white/30 text-[10px] mb-2">{item.pt}</p>
-                  <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider">{item.func}</span>
+                  <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
+                  <p className="text-white/30 text-xs mb-2">{item.pt}</p>
+                  <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
                 </motion.div>
               ))}
             </div>
+            <p className="text-white/20 text-[10px] text-center mt-3 md:hidden">Arraste para ver todos →</p>
           </motion.div>
 
           <motion.div
