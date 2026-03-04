@@ -172,28 +172,6 @@ const fabricationVideos = [
 ];
 
 function FabricationSection() {
-  const [currentVideo, setCurrentVideo] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentVideo((prev) => (prev + 1) % fabricationVideos.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    videoRefs.current.forEach((video, idx) => {
-      if (!video) return;
-      if (idx === currentVideo) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  }, [currentVideo]);
-
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -211,74 +189,44 @@ function FabricationSection() {
             Veja como o Liso Mágico é <span className="text-[#C6A756]">fabricado</span>
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
-            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação.
+            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação do produto que vai transformar seu cabelo.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black aspect-[9/16] md:aspect-video max-h-[500px] md:max-h-[520px] mx-auto">
-            {fabricationVideos.map((video, idx) => (
-              <div
-                key={idx}
-                className={`absolute inset-0 transition-opacity duration-700 ${idx === currentVideo ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-              >
-                <video
-                  ref={(el) => { videoRefs.current[idx] = el; }}
-                  src={video.src}
-                  muted
-                  loop
-                  playsInline
-                  preload={idx < 2 ? "metadata" : "none"}
-                  className="w-full h-full object-cover"
-                  data-testid={`video-fab-${idx}`}
-                />
-              </div>
-            ))}
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-slate-800 to-transparent z-10 pointer-events-none"></div>
 
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 md:p-6 z-20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
-                    <Play className="w-4 h-4 text-[#C6A756] fill-[#C6A756]" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm md:text-base">{fabricationVideos[currentVideo].label}</p>
-                    <p className="text-white/40 text-xs">Etapa {currentVideo + 1} de {fabricationVideos.length}</p>
+          <div className="fab-track hover:[animation-play-state:paused]">
+            {[...Array(3)].flatMap((_, setIdx) =>
+              fabricationVideos.map((video, idx) => (
+                <div
+                  key={`${setIdx}-${idx}`}
+                  className="fab-card"
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
+                    <video
+                      src={video.src}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      preload={setIdx === 0 ? "metadata" : "none"}
+                      className="w-full h-full object-cover"
+                      data-testid={`video-fab-${setIdx}-${idx}`}
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
+                          <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
+                        </div>
+                        <span className="text-white/90 text-sm font-medium">{video.label}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setCurrentVideo((prev) => (prev - 1 + fabricationVideos.length) % fabricationVideos.length)}
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                    data-testid="button-fab-prev"
-                  >
-                    <ChevronLeft className="w-4 h-4 text-white" />
-                  </button>
-                  <button
-                    onClick={() => setCurrentVideo((prev) => (prev + 1) % fabricationVideos.length)}
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                    data-testid="button-fab-next"
-                  >
-                    <ChevronRight className="w-4 h-4 text-white" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
-              <span className="text-white/70 text-xs font-medium">{currentVideo + 1}/{fabricationVideos.length}</span>
-            </div>
-          </div>
-
-          <div className="flex gap-2 mt-4 justify-center">
-            {fabricationVideos.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentVideo(idx)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentVideo ? 'bg-[#C6A756] w-8' : 'bg-white/20 w-4 hover:bg-white/30'}`}
-                data-testid={`button-fab-dot-${idx}`}
-              />
-            ))}
+              ))
+            )}
           </div>
         </div>
 

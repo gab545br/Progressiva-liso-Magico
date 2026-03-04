@@ -99,6 +99,47 @@ html {
   border-color: rgba(255,255,255,0.12);
 }
 
+/* Fabrication videos carousel - 7 cards × (280px + 24px gap) = 2128px per set */
+@keyframes fab-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-7 * 304px));
+  }
+}
+
+.fab-track {
+  display: flex;
+  gap: 24px;
+  animation: fab-scroll 40s linear infinite;
+  width: max-content;
+}
+
+.fab-card {
+  width: 280px;
+  min-width: 280px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .fab-card {
+    width: 320px;
+    min-width: 320px;
+    height: 440px;
+  }
+
+  @keyframes fab-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-7 * 344px));
+    }
+  }
+}
+
 /* Hide scrollbar */
 .scrollbar-hide {
   -ms-overflow-style: none;
