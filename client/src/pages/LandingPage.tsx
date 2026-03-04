@@ -17,7 +17,10 @@ import {
   ChevronRight,
   Quote,
   Lock,
-  Eye
+  Eye,
+  ChevronDown,
+  HelpCircle,
+  MessageCircle
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -62,6 +65,172 @@ import mjnj from "@assets/mjnj.jpg";
 import imgAnvisa from "@assets/anvisa_1771777181813.jpg";
 import imgResultsBg from "@assets/popo_optimized.jpg";
 import imgAnvisaBg from "@assets/foto_anvisa_optimized.jpg";
+
+const faqData = [
+  {
+    category: "Pagamento e Entrega",
+    items: [
+      { q: "O pagamento é realmente na entrega?", a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos dinheiro, cartão de débito e crédito na hora da entrega." },
+      { q: "Qual o prazo de entrega?", a: "O prazo médio é de 3 a 10 dias úteis, dependendo da sua região. Após o envio, você recebe o código de rastreamento para acompanhar cada etapa." },
+      { q: "O frete é realmente grátis?", a: "Sim! O frete é 100% grátis para todo o Brasil em todos os kits. Não há nenhum custo adicional além do valor do produto." },
+      { q: "Posso parcelar no cartão?", a: "Sim! Você pode parcelar em até 12x no cartão de crédito. O parcelamento é feito direto no checkout, de forma segura." },
+    ]
+  },
+  {
+    category: "Sobre o Produto",
+    items: [
+      { q: "O Liso Mágico tem formol?", a: "Não! O Liso Mágico é 100% livre de formol e qualquer substância proibida. Sua fórmula é à base de ácidos orgânicos, queratina e vitaminas, aprovada pela ANVISA (Registro nº 4.02912-7)." },
+      { q: "Funciona em qual tipo de cabelo?", a: "Funciona em todos os tipos: crespos, cacheados, ondulados, lisos com frizz, tingidos, descoloridos e com química. O resultado varia conforme o tipo de fio, mas todos ficam mais lisos, brilhantes e sem frizz." },
+      { q: "Quanto tempo dura o efeito alisante?", a: "O efeito dura em média de 2 a 3 meses, dependendo do crescimento natural do cabelo e dos cuidados diários. Muitas clientes relatam que o efeito dura ainda mais com manutenção adequada." },
+      { q: "Posso usar em casa sozinha?", a: "Sim! O produto vem com instruções detalhadas passo a passo. É muito fácil de aplicar em casa, sem precisar ir ao salão. Basta lavar, aplicar, passar a chapinha e pronto." },
+      { q: "O produto danifica o cabelo?", a: "Não! Ao contrário, o Liso Mágico possui ativos que nutrem e hidratam os fios durante o alisamento. Seu cabelo fica mais saudável, brilhante e com menos pontas duplas." },
+    ]
+  },
+  {
+    category: "Garantia e Trocas",
+    items: [
+      { q: "E se eu não gostar do resultado?", a: "Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do seu dinheiro sem burocracia." },
+      { q: "Como faço para trocar ou devolver?", a: "Basta entrar em contato pelo e-mail contato@lisomagico.com.br ou pelo telefone (34) 99766-8955. Nossa equipe cuida de todo o processo para você, sem complicação." },
+      { q: "O produto é original e lacrado?", a: "Sim! Todos os produtos são 100% originais, lacrados de fábrica e com registro na ANVISA. Enviamos direto do fabricante para garantir a qualidade." },
+    ]
+  }
+];
+
+function FAQItem({ question, answer, isOpen, onClick, index }: { question: string; answer: string; isOpen: boolean; onClick: () => void; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="group"
+    >
+      <button
+        onClick={onClick}
+        className={`w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left transition-all duration-300 rounded-2xl ${
+          isOpen
+            ? 'bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-lg'
+            : 'bg-white hover:bg-slate-50 text-slate-800 shadow-sm border border-slate-100 hover:border-[#C6A756]/30 hover:shadow-md'
+        }`}
+        data-testid={`faq-toggle-${index}`}
+      >
+        <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+          <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
+            isOpen ? 'bg-[#C6A756]' : 'bg-[#C6A756]/10 group-hover:bg-[#C6A756]/20'
+          }`}>
+            <HelpCircle className={`w-4 h-4 md:w-5 md:h-5 ${isOpen ? 'text-white' : 'text-[#C6A756]'}`} />
+          </div>
+          <span className={`font-semibold text-sm md:text-base leading-snug ${isOpen ? 'text-white' : 'text-slate-800'}`}>
+            {question}
+          </span>
+        </div>
+        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
+          isOpen ? 'rotate-180 text-[#C6A756]' : 'text-slate-400'
+        }`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 md:px-6 py-4 md:py-5 ml-11 md:ml-14 text-slate-600 text-sm md:text-base leading-relaxed border-l-2 border-[#C6A756]/30 mt-1">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
+  const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
+
+  const toggleItem = (key: string) => {
+    setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  let globalIndex = 0;
+
+  return (
+    <section id="faq" className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wider">
+            <MessageCircle className="w-4 h-4" />
+            Tire Suas Dúvidas
+          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">Perguntas Frequentes</h2>
+          <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">Reunimos as dúvidas mais comuns das nossas clientes para te ajudar a tomar a melhor decisão.</p>
+        </motion.div>
+
+        <div className="space-y-10 md:space-y-14">
+          {faqData.map((section) => (
+            <div key={section.category}>
+              <motion.h3
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-sm font-bold text-[#C6A756] uppercase tracking-[2px] mb-5 flex items-center gap-2"
+              >
+                <div className="w-8 h-px bg-[#C6A756]"></div>
+                {section.category}
+              </motion.h3>
+              <div className="space-y-3">
+                {section.items.map((item) => {
+                  const key = `${section.category}-${globalIndex}`;
+                  const currentIndex = globalIndex;
+                  globalIndex++;
+                  return (
+                    <FAQItem
+                      key={key}
+                      question={item.q}
+                      answer={item.a}
+                      isOpen={!!openItems[key]}
+                      onClick={() => toggleItem(key)}
+                      index={currentIndex}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 md:mt-16 text-center"
+        >
+          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Ainda tem alguma dúvida?</h3>
+            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Nossa equipe está pronta para te atender de segunda a segunda, das 7h às 23h.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button
+                onClick={scrollToOffer}
+                className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-8 py-3 rounded-full"
+                data-testid="faq-cta-buy"
+              >
+                QUERO COMPRAR AGORA
+              </Button>
+            </div>
+            <p className="text-white/40 text-xs mt-4">contato@lisomagico.com.br · (34) 99766-8955</p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -1187,29 +1356,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- FAQ --- */}
-      <section id="faq" className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <SectionHeader title="Dúvidas Frequentes" />
-
-          <div className="space-y-4">
-            {[
-              { q: "O pagamento é realmente na entrega?", a: "Sim! Para sua total segurança, você só paga quando o carteiro entregar o produto na sua casa." },
-              { q: "Qual o prazo de entrega?", a: "O prazo médio é de 3 a 10 dias úteis, dependendo da sua região." },
-              { q: "Tem formol?", a: "Não! O Liso Mágico é totalmente livre de formol e componentes agressivos. É à base de ácidos orgânicos e vitaminas." },
-              { q: "Serve para qual tipo de cabelo?", a: "Para todos os tipos: crespos, cacheados, ondulados, tingidos ou descoloridos." },
-              { q: "Quanto tempo dura o efeito?", a: "O efeito liso dura em média 3 meses, dependendo do crescimento da raiz e cuidados diários." }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
-                <h4 className="font-bold text-lg text-slate-900 mb-2 font-sans flex items-start gap-3">
-                  <span className="text-yellow-500 text-xl">?</span>
-                  {item.q}
-                </h4>
-                <p className="text-slate-600 pl-6">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection scrollToOffer={scrollToOffer} />
       {/* --- FOOTER --- */}
       <footer className="bg-white border-t border-slate-200 pt-12 pb-6">
         <div className="container mx-auto px-4">
