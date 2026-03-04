@@ -194,9 +194,6 @@ function FabricationSection() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-slate-800 to-transparent z-10 pointer-events-none"></div>
-
           <div className="fab-track hover:[animation-play-state:paused]">
             {[...Array(3)].flatMap((_, setIdx) =>
               fabricationVideos.map((video, idx) => (
