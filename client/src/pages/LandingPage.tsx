@@ -161,7 +161,6 @@ function FAQItem({ question, answer, isOpen, onClick, index }: { question: strin
 const fabricationVideos = [
   { src: videoFab4, label: "Seleção de matéria-prima" },
   { src: videoFab1, label: "Mistura dos ingredientes" },
-  { src: videoFab3, label: "Linha de produção" },
   { src: videoFab7, label: "Teste de qualidade" },
   { src: videoFab5, label: "Envase e selagem" },
   { src: videoFab2, label: "Inspeção final" },
