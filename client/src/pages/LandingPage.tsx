@@ -1351,8 +1351,12 @@ export default function LandingPage() {
                       { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
                       { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
                       { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
+                      { inci: "Shea Butter", pt: "Manteiga de Karité", func: "Nutritivo" },
                       { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
                       { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
+                      { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
+                      { inci: "Extrato de Cacau", pt: "Theobroma Cacao", func: "Hidratante" },
+                      { inci: "Extrato de Coco", pt: "Cocos Nucifera", func: "Fortalecedor" },
                       { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
                     ].map((item, idx) => (
                       <div
