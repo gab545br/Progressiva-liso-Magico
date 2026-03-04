@@ -76,7 +76,7 @@ html {
 }
 
 .animate-ingredients-scroll {
-  animation: ingredients-scroll 14s linear infinite;
+  animation: ingredients-scroll 12s linear infinite;
 }
 
 /* Hide scrollbar */
