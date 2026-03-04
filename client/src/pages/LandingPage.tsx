@@ -254,6 +254,7 @@ function FabricationSection() {
                     src={video.src}
                     muted
                     autoPlay
+                    loop
                     playsInline
                     preload="metadata"
                     className="w-full h-[360px] md:h-[440px] object-cover"
