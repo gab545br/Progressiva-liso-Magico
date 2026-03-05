@@ -406,6 +406,31 @@ function CountdownTimer() {
   );
 }
 
+function LiveBuyerCount() {
+  const [count, setCount] = useState(127);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prev) => {
+        const change = Math.random() > 0.5 ? 1 : -1;
+        const next = prev + change;
+        return Math.max(89, Math.min(214, next));
+      });
+    }, 3000 + Math.random() * 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-2 text-xs text-slate-500">
+      <Users className="w-4 h-4 text-[#C6A756]" />
+      <span>
+        <strong className="text-slate-700">{count} pessoas</strong> comprando agora
+      </span>
+      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+    </div>
+  );
+}
+
 function StickyCtaBar({ onClick }: { onClick: () => void }) {
   const [visible, setVisible] = useState(false);
 
@@ -1484,10 +1509,7 @@ export default function LandingPage() {
               </div>
             </div>
             <CountdownTimer />
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <Users className="w-4 h-4 text-[#C6A756]" />
-              <span><strong className="text-slate-700">127 pessoas</strong> comprando agora</span>
-            </div>
+            <LiveBuyerCount />
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
