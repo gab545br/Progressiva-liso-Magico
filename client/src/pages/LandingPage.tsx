@@ -1745,7 +1745,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className="text-center mb-10 md:mb-14"
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-6">
               <Flame className="w-4 h-4 text-[#C6A756]" />
@@ -1754,40 +1754,130 @@ export default function LandingPage() {
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
               Não perca essa <span className="text-[#C6A756]">oportunidade</span>
             </h2>
-            <p className="text-white/60 text-base md:text-lg mb-8 max-w-xl mx-auto">
-              Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial. Oferta por tempo limitado!
+            <p className="text-white/50 text-base md:text-lg mb-8 max-w-xl mx-auto">
+              Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial.
             </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <div className="flex items-center justify-center gap-4 mb-4">
               <CountdownTimer />
             </div>
+            <p className="text-white/30 text-xs">Oferta expira em breve</p>
+          </motion.div>
 
-            <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
-              {[
-                { icon: Truck, text: "Frete Grátis" },
-                { icon: ShieldCheck, text: "Compra Segura" },
-                { icon: PackageCheck, text: "Pague na Entrega" },
-              ].map((item, idx) => (
-                <div key={idx} className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-[#C6A756]/10 flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-[#C6A756]" />
-                  </div>
-                  <span className="text-white/70 text-xs font-medium">{item.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-center">
-              <Button
-                onClick={scrollToOffer}
-                size="lg"
-                className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-12 py-4 rounded-full text-lg shadow-xl shadow-[#C6A756]/20"
-                data-testid="button-final-cta"
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto items-stretch">
+            {[
+              {
+                title: "1 UNIDADE",
+                price: "R$ 149",
+                cents: ",00",
+                originalPrice: "R$ 199,00",
+                perUnit: "R$ 149,00/un",
+                link: "https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico",
+                installment: "12x de R$ 15,22",
+                features: ["1 Frasco Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                popular: false,
+                badge: null,
+              },
+              {
+                title: "3 UNIDADES",
+                price: "R$ 397",
+                cents: ",00",
+                originalPrice: "R$ 537,00",
+                perUnit: "R$ 132,33/un",
+                link: "https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades",
+                installment: "12x de R$ 40,54",
+                features: ["3 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                popular: true,
+                badge: "Melhor Custo-Benefício",
+              },
+              {
+                title: "2 UNIDADES",
+                price: "R$ 297",
+                cents: ",00",
+                originalPrice: "R$ 398,00",
+                perUnit: "R$ 148,50/un",
+                link: "https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades",
+                installment: "12x de R$ 30,33",
+                features: ["2 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                popular: false,
+                badge: null,
+              },
+            ].map((plan, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`relative rounded-2xl overflow-hidden flex flex-col ${
+                  plan.popular
+                    ? 'bg-gradient-to-b from-[#C6A756]/20 to-[#C6A756]/5 border-2 border-[#C6A756] md:scale-105 md:-translate-y-2 z-10 shadow-2xl shadow-[#C6A756]/10'
+                    : 'bg-white/[0.04] border border-white/10 hover:border-white/20'
+                } transition-all duration-300`}
               >
-                QUERO MEU LISO MÁGICO AGORA
-              </Button>
-            </div>
-            <p className="text-white/30 text-xs mt-4">Garantia de 7 dias ou seu dinheiro de volta</p>
+                {plan.popular && (
+                  <div className="bg-[#C6A756] text-white text-center py-2 text-xs font-bold uppercase tracking-wider">
+                    Mais Vendido
+                  </div>
+                )}
+
+                <div className={`p-6 md:p-8 flex flex-col flex-1 ${plan.popular ? '' : 'pt-8'}`}>
+                  <h3 className="text-lg font-bold text-white/90 text-center mb-1">{plan.title}</h3>
+                  {plan.badge && (
+                    <span className="text-[10px] font-bold text-[#C6A756] uppercase tracking-wider text-center block mb-3">{plan.badge}</span>
+                  )}
+
+                  <div className="text-center mb-4">
+                    <span className="text-white/40 line-through text-sm block">De {plan.originalPrice}</span>
+                    <div className="flex items-baseline justify-center gap-0.5 mt-1">
+                      <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
+                      <span className="text-lg font-bold text-white">{plan.cents}</span>
+                    </div>
+                    <span className="text-white/40 text-xs block mt-1">ou {plan.installment}</span>
+                    <span className="text-[#C6A756] text-xs font-semibold block mt-1">{plan.perUnit}</span>
+                  </div>
+
+                  <ul className="space-y-2.5 mb-6 flex-1">
+                    {plan.features.map((f, i) => (
+                      <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                        <CheckCircle2 className="w-4 h-4 text-[#C6A756] shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href={plan.link}
+                    className={`block w-full text-center font-bold py-3.5 rounded-full text-sm transition-all duration-300 ${
+                      plan.popular
+                        ? 'bg-[#C6A756] hover:bg-[#b89a4a] text-white shadow-lg shadow-[#C6A756]/20'
+                        : 'bg-white/10 hover:bg-white/15 text-white border border-white/10'
+                    }`}
+                    data-testid={`button-final-plan-${idx}`}
+                  >
+                    COMPRAR AGORA
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-10 max-w-3xl mx-auto"
+          >
+            {[
+              { icon: Truck, text: "Frete Grátis" },
+              { icon: ShieldCheck, text: "Compra Segura" },
+              { icon: PackageCheck, text: "Pague na Entrega" },
+              { icon: Star, text: "Garantia 7 dias" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-[#C6A756]" />
+                <span className="text-white/40 text-xs font-medium">{item.text}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
