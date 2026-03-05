@@ -172,6 +172,30 @@ const fabricationVideos = [
 ];
 
 function FabricationSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const videos = section.querySelectorAll('video');
+          if (entry.isIntersecting) {
+            videos.forEach((v) => v.play().catch(() => {}));
+          } else {
+            videos.forEach((v) => v.pause());
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -193,7 +217,7 @@ function FabricationSection() {
           </p>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative" ref={sectionRef}>
           <div className="fab-track hover:[animation-play-state:paused]">
             {[...Array(3)].flatMap((_, setIdx) =>
               fabricationVideos.map((video, idx) => (
@@ -1463,10 +1487,10 @@ export default function LandingPage() {
               </div>
               <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
                 {[
-                  { text: "Receba em até 24h — você agenda o dia", icon: PackageCheck },
+                  { text: "Receba em até 24h — você agenda o dia", icon: Truck },
                   { text: "Pix, cartão, boleto ou dinheiro", icon: ShieldCheck },
                   { text: "Parcele na hora da entrega", icon: Eye },
-                  { text: "Entrega em até 24h — agende o dia", icon: Truck },
+                  { text: "Confira o produto antes de pagar", icon: PackageCheck },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm">
                     <item.icon className="w-4.5 h-4.5 text-[#C6A756] shrink-0" />
