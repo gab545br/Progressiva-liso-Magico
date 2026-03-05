@@ -431,6 +431,30 @@ function LiveBuyerCount() {
   );
 }
 
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 1500);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="fixed bottom-20 right-4 z-40 md:bottom-6 md:right-6 w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow-lg hover:bg-slate-800 transition-colors"
+      data-testid="button-scroll-top"
+    >
+      <ChevronDown className="w-5 h-5 text-white rotate-180" />
+    </button>
+  );
+}
+
 function StickyCtaBar({ onClick }: { onClick: () => void }) {
   const [visible, setVisible] = useState(false);
 
@@ -546,9 +570,18 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden pb-16 md:pb-0">
       <StickyCtaBar onClick={scrollToOffer} />
+      <ScrollToTopButton />
       {/* --- ANNOUNCEMENT BAR --- */}
-      <div className="bg-[#111111] text-[#D4A62A] py-2 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
-        Você só paga quando receber
+      <div className="bg-[#111111] text-[#D4A62A] py-2.5 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
+        <div className="flex items-center justify-center gap-2 md:gap-3">
+          <Truck className="w-4 h-4 shrink-0" />
+          <span>Frete Grátis</span>
+          <span className="text-white/30">|</span>
+          <PackageCheck className="w-4 h-4 shrink-0" />
+          <span>Pague na Entrega</span>
+          <span className="text-white/30 hidden sm:inline">|</span>
+          <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
+        </div>
       </div>
       {/* --- HEADER --- */}
       <header className="absolute top-[40px] left-0 right-0 z-[1000] bg-transparent px-[8%] py-[16px]">
@@ -1159,6 +1192,15 @@ export default function LandingPage() {
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src={mjnj} alt="Liso Mágico Produto" loading="lazy" className="w-full h-auto" />
+              </div>
+              <div className="absolute -bottom-4 -right-2 md:right-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-3 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-green-600" />
+                </div>
+                <div>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Registro ANVISA</p>
+                  <p className="text-sm font-bold text-slate-900">nº 4.02912-7</p>
+                </div>
               </div>
             </motion.div>
 

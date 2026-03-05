@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Zap } from "lucide-react";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
 
@@ -80,8 +80,19 @@ export function OfferCard({
 
           <div className="text-center mt-2">
             <span className="text-sm text-slate-600 block">Por apenas</span>
-            <div className="text-4xl font-bold text-slate-900 tracking-tight">{price}</div>
-            <div className="text-xs text-green-600 font-semibold mt-1">Pagamento na Entrega</div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.2 }}
+              className="text-4xl font-bold text-slate-900 tracking-tight"
+            >
+              {price}
+            </motion.div>
+            <div className="flex items-center justify-center gap-1 text-xs text-green-600 font-semibold mt-1">
+              <Zap className="w-3 h-3" />
+              Pagamento na Entrega
+            </div>
             {installment && (
               <div className="text-sm text-slate-500 mt-2">
                 ou <span className="font-semibold text-slate-700">{installment}</span>
