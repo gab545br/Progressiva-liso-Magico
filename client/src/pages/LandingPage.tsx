@@ -1777,14 +1777,16 @@ export default function LandingPage() {
               ))}
             </div>
 
-            <Button
-              onClick={scrollToOffer}
-              size="lg"
-              className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-12 py-4 rounded-full text-lg shadow-xl shadow-[#C6A756]/20"
-              data-testid="button-final-cta"
-            >
-              QUERO MEU LISO MÁGICO AGORA
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                onClick={scrollToOffer}
+                size="lg"
+                className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-12 py-4 rounded-full text-lg shadow-xl shadow-[#C6A756]/20"
+                data-testid="button-final-cta"
+              >
+                QUERO MEU LISO MÁGICO AGORA
+              </Button>
+            </div>
             <p className="text-white/30 text-xs mt-4">Garantia de 7 dias ou seu dinheiro de volta</p>
           </motion.div>
         </div>
