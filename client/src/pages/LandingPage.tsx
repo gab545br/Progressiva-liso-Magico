@@ -340,7 +340,7 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
         >
           <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pronta para transformar seu cabelo?</h3>
-            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Aproveite a oferta especial com frete grátis, entrega em até 24h e pagamento na entrega — Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
+            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Aproveite a oferta especial com frete grátis e pagamento na entrega — Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={scrollToOffer}
@@ -596,7 +596,7 @@ export default function LandingPage() {
                   </p>
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
-                    Entrega em até 24h — Agende o dia
+                    Agende o dia da sua entrega
                   </p>
                 </div>
               </div>
@@ -740,7 +740,7 @@ export default function LandingPage() {
                   "Economia de até 85% comparado ao salão",
                   "Aplique no conforto da sua casa",
                   "Sem agendamento, sem espera",
-                  "Entrega em até 24h — agende o dia",
+                  "Agende sua entrega em até 3 dias",
                 ].map((item, idx) => (
                   <motion.p
                     key={idx}
@@ -1393,7 +1393,7 @@ export default function LandingPage() {
               price="R$ 149,00" 
               originalPrice="R$ 199,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico" 
-              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
+              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
               installment="12x de R$ 15,22"
               image={imgProduct1} 
               className="h-full"
@@ -1403,7 +1403,7 @@ export default function LandingPage() {
               price="R$ 397,00" 
               originalPrice="R$ 537,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades" 
-              features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
+              features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
               isPopular={true} 
               savings="26%" 
               installment="12x de R$ 40,54"
@@ -1415,7 +1415,7 @@ export default function LandingPage() {
               price="R$ 297,00" 
               originalPrice="R$ 398,00" 
               link="https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades" 
-              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Entrega em até 24h"]} 
+              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
               savings="25%" 
               installment="12x de R$ 30,33"
               image={imgProduct3} 
