@@ -14,6 +14,7 @@ interface OfferCardProps {
   image: string;
   className?: string;
   installment?: string;
+  badge?: string;
 }
 
 export function OfferCard({ 
@@ -26,7 +27,8 @@ export function OfferCard({
   savings,
   image,
   className,
-  installment
+  installment,
+  badge
 }: OfferCardProps) {
   
   const handleBuy = () => {
@@ -51,13 +53,18 @@ export function OfferCard({
       )}
 
       <div className={`p-6 flex flex-col flex-1 ${isPopular ? 'pt-12' : 'pt-8'}`}>
-        <div className="aspect-square rounded-2xl bg-gradient-to-b from-amber-50/60 to-white mb-6 overflow-hidden flex items-center justify-center p-3">
+        <div className="relative aspect-square rounded-2xl bg-gradient-to-b from-amber-50/60 to-white mb-6 overflow-hidden flex items-center justify-center p-3">
           <img 
             src={image} 
             alt={title} 
             loading="lazy"
             className="w-full h-full object-cover rounded-xl transform hover:scale-105 transition-all duration-500" 
           />
+          {badge && (
+            <div className="absolute top-3 left-3 bg-gradient-to-r from-green-600 to-green-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wide">
+              {badge}
+            </div>
+          )}
         </div>
 
         <h3 className="text-xl font-bold text-slate-800 text-center mb-2">{title}</h3>

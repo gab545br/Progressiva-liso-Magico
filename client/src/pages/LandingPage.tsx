@@ -24,7 +24,9 @@ import {
   FlaskConical,
   Play,
   Droplets,
-  Leaf
+  Leaf,
+  Flame,
+  Users
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -357,6 +359,83 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   );
 }
 
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 47, seconds: 33 });
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem('countdown_end');
+    let endTime: number;
+    if (saved) {
+      endTime = parseInt(saved);
+    } else {
+      endTime = Date.now() + (2 * 60 * 60 + 47 * 60 + 33) * 1000;
+      sessionStorage.setItem('countdown_end', endTime.toString());
+    }
+
+    const tick = () => {
+      const diff = Math.max(0, endTime - Date.now());
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setTimeLeft({ hours: h, minutes: m, seconds: s });
+    };
+
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const pad = (n: number) => n.toString().padStart(2, '0');
+
+  return (
+    <div className="flex items-center gap-1.5">
+      {[
+        { value: pad(timeLeft.hours), label: "h" },
+        { value: pad(timeLeft.minutes), label: "m" },
+        { value: pad(timeLeft.seconds), label: "s" },
+      ].map((item, idx) => (
+        <div key={idx} className="flex items-center gap-1">
+          <span className="bg-slate-900 text-white font-bold text-lg md:text-xl px-2.5 py-1 rounded-lg min-w-[40px] text-center">
+            {item.value}
+          </span>
+          <span className="text-slate-500 text-xs font-medium">{item.label}</span>
+          {idx < 2 && <span className="text-slate-300 font-bold mx-0.5">:</span>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function StickyCtaBar({ onClick }: { onClick: () => void }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 600);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+      <div className="bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <Button
+          onClick={onClick}
+          className="w-full bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold py-3.5 rounded-full text-sm shadow-lg"
+          data-testid="button-sticky-cta"
+        >
+          <Flame className="w-4 h-4 mr-2" />
+          QUERO MEU LISO MÁGICO
+        </Button>
+        <p className="text-center text-[10px] text-slate-400 mt-1.5">Frete Grátis + Pagamento na Entrega</p>
+      </div>
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const offerSectionRef = useRef<HTMLDivElement>(null);
@@ -440,7 +519,8 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans overflow-x-hidden pb-16 md:pb-0">
+      <StickyCtaBar onClick={scrollToOffer} />
       {/* --- ANNOUNCEMENT BAR --- */}
       <div className="bg-[#111111] text-[#D4A62A] py-2 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
         Você só paga quando receber
@@ -1387,6 +1467,28 @@ export default function LandingPage() {
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-10 bg-white rounded-2xl p-5 md:p-6 shadow-md border border-red-100 max-w-3xl mx-auto"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
+                <Flame className="w-5 h-5 text-red-500" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-slate-900">Oferta expira em:</p>
+                <p className="text-[11px] text-slate-500">Últimas unidades com desconto</p>
+              </div>
+            </div>
+            <CountdownTimer />
+            <div className="flex items-center gap-2 text-xs text-slate-500">
+              <Users className="w-4 h-4 text-[#C6A756]" />
+              <span><strong className="text-slate-700">127 pessoas</strong> comprando agora</span>
+            </div>
+          </motion.div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
               title="1 UNIDADE" 
@@ -1409,6 +1511,7 @@ export default function LandingPage() {
               installment="12x de R$ 40,54"
               image={imgProduct2} 
               className="h-full"
+              badge="Melhor Custo-Benefício"
             />
             <OfferCard 
               title="2 UNIDADES" 
@@ -1530,6 +1633,33 @@ export default function LandingPage() {
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Resultados reais de quem já transformou o cabelo com Liso Mágico" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-10"
+          >
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {[imgBelo1, imgBelo2, imgBelo3, imgBelo4].map((img, idx) => (
+                  <div key={idx} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+              <span className="text-sm text-slate-600 font-medium">+4.800 clientes</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="text-sm font-bold text-slate-800">4.9/5</span>
+              <span className="text-xs text-slate-400">(2.347 avaliações)</span>
+            </div>
+          </motion.div>
           
           <div className="max-w-4xl mx-auto relative">
                 <div className="overflow-hidden">
@@ -1608,6 +1738,57 @@ export default function LandingPage() {
       </section>
       {/* --- FAQ --- */}
       <FAQSection scrollToOffer={scrollToOffer} />
+      {/* --- FINAL CTA --- */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-black text-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-6">
+              <Flame className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Última Chance</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+              Não perca essa <span className="text-[#C6A756]">oportunidade</span>
+            </h2>
+            <p className="text-white/60 text-base md:text-lg mb-8 max-w-xl mx-auto">
+              Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial. Oferta por tempo limitado!
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <CountdownTimer />
+            </div>
+
+            <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
+              {[
+                { icon: Truck, text: "Frete Grátis" },
+                { icon: ShieldCheck, text: "Compra Segura" },
+                { icon: PackageCheck, text: "Pague na Entrega" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center gap-2">
+                  <div className="w-12 h-12 rounded-full bg-[#C6A756]/10 flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-[#C6A756]" />
+                  </div>
+                  <span className="text-white/70 text-xs font-medium">{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            <Button
+              onClick={scrollToOffer}
+              size="lg"
+              className="bg-[#C6A756] hover:bg-[#b89a4a] text-white font-bold px-12 py-4 rounded-full text-lg shadow-xl shadow-[#C6A756]/20"
+              data-testid="button-final-cta"
+            >
+              QUERO MEU LISO MÁGICO AGORA
+            </Button>
+            <p className="text-white/30 text-xs mt-4">Garantia de 7 dias ou seu dinheiro de volta</p>
+          </motion.div>
+        </div>
+      </section>
       {/* --- FOOTER --- */}
       <footer className="bg-white border-t border-slate-200 pt-12 pb-6">
         <div className="container mx-auto px-4">
