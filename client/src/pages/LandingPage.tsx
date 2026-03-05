@@ -708,14 +708,14 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white leading-tight mb-2">
-                Cabelo liso, alinhado e sem frizz —
+                Liso perfeito, sem sair de casa
               </h1>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#d4a017] mb-6">
-                e você só paga na entrega. Receba em até 24h!
+                e sem pagar nada agora.
               </h2>
               
               <p className="hero-description text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
-                Tratamento sem formol que ajuda a reduzir o frizz, alinhar os fios e devolver o brilho ao cabelo.
+                A progressiva sem formol que alisa, reduz o frizz e devolve o brilho — com resultado de salão por uma fração do preço.
               </p>
 
               <div className="flex flex-col gap-4 mb-6 items-center md:items-start">
@@ -724,17 +724,21 @@ export default function LandingPage() {
                   onClick={scrollToOffer} 
                   className="hero-cta-btn w-[90%] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-[40px] px-8 border-none shadow-lg transition-all duration-300"
                 >
-                  QUERO MEU LISO MÁGICO
+                  QUERO MEU LISO PERFEITO
                 </Button>
                 
                 <div className="hero-checks space-y-1 text-white/90 text-sm font-medium">
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
-                    Pague na entrega: Pix, cartão, boleto ou dinheiro
+                    Pague só quando receber em mãos
                   </p>
                   <p className="flex items-center justify-center md:justify-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
-                    Agende o dia da sua entrega
+                    Frete grátis + entrega em até 24h
+                  </p>
+                  <p className="flex items-center justify-center md:justify-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#d4a017]" />
+                    Resultado visível na 1ª aplicação
                   </p>
                 </div>
               </div>
