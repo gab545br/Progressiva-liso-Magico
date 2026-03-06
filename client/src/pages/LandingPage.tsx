@@ -26,7 +26,7 @@ import {
   Droplets,
   Leaf,
   Flame,
-  Users
+  MapPin
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -359,76 +359,28 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   );
 }
 
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 47, seconds: 33 });
+function useVisitorCity() {
+  const [city, setCity] = useState<string | null>(null);
 
   useEffect(() => {
-    const saved = sessionStorage.getItem('countdown_end');
-    let endTime: number;
-    if (saved) {
-      endTime = parseInt(saved);
-    } else {
-      endTime = Date.now() + (2 * 60 * 60 + 47 * 60 + 33) * 1000;
-      sessionStorage.setItem('countdown_end', endTime.toString());
+    const cached = sessionStorage.getItem('visitor_city');
+    if (cached) {
+      setCity(cached);
+      return;
     }
 
-    const tick = () => {
-      const diff = Math.max(0, endTime - Date.now());
-      const h = Math.floor(diff / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      setTimeLeft({ hours: h, minutes: m, seconds: s });
-    };
-
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
+    fetch('https://ip-api.com/json/?fields=city,status&lang=pt-BR')
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success' && data.city) {
+          setCity(data.city);
+          sessionStorage.setItem('visitor_city', data.city);
+        }
+      })
+      .catch(() => {});
   }, []);
 
-  const pad = (n: number) => n.toString().padStart(2, '0');
-
-  return (
-    <div className="flex items-center gap-1.5">
-      {[
-        { value: pad(timeLeft.hours), label: "h" },
-        { value: pad(timeLeft.minutes), label: "m" },
-        { value: pad(timeLeft.seconds), label: "s" },
-      ].map((item, idx) => (
-        <div key={idx} className="flex items-center gap-1">
-          <span className="bg-slate-900 text-white font-bold text-lg md:text-xl px-2.5 py-1 rounded-lg min-w-[40px] text-center">
-            {item.value}
-          </span>
-          <span className="text-slate-500 text-xs font-medium">{item.label}</span>
-          {idx < 2 && <span className="text-slate-300 font-bold mx-0.5">:</span>}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function LiveBuyerCount() {
-  const [count, setCount] = useState(127);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((prev) => {
-        const change = Math.random() > 0.5 ? 1 : -1;
-        const next = prev + change;
-        return Math.max(89, Math.min(214, next));
-      });
-    }, 3000 + Math.random() * 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="flex items-center gap-2 text-xs text-slate-500">
-      <Users className="w-4 h-4 text-[#C6A756]" />
-      <span>
-        <strong className="text-slate-700">{count} pessoas</strong> comprando agora
-      </span>
-      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-    </div>
-  );
+  return city;
 }
 
 function ScrollToTopButton() {
@@ -492,6 +444,7 @@ export default function LandingPage() {
   const createLead = useCreateLead();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [autoPlayTestimonial, setAutoPlayTestimonial] = useState(true);
+  const visitorCity = useVisitorCity();
 
   const testimonials = [
     {
@@ -1530,6 +1483,22 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
 
+          {visitorCity && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center gap-2 mb-8"
+            >
+              <span className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-sm border border-slate-200 text-sm">
+                <MapPin className="w-4 h-4 text-[#C6A756]" />
+                <span className="text-slate-600">Últimas unidades disponíveis em</span>
+                <strong className="text-slate-900">{visitorCity}</strong>
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              </span>
+            </motion.div>
+          )}
+
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
               title="1 UNIDADE" 
@@ -1795,13 +1764,17 @@ export default function LandingPage() {
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
               Não perca essa <span className="text-[#C6A756]">oportunidade</span>
             </h2>
-            <p className="text-white/80 text-base md:text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-white/80 text-base md:text-lg mb-6 max-w-xl mx-auto">
               Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial.
             </p>
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <CountdownTimer />
-            </div>
-            <p className="text-white/30 text-xs">Oferta expira em breve</p>
+            {visitorCity && (
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-5 py-2.5 mb-4">
+                <MapPin className="w-4 h-4 text-[#C6A756]" />
+                <span className="text-white/70 text-sm">Últimas unidades em</span>
+                <strong className="text-white text-sm">{visitorCity}</strong>
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              </div>
+            )}
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto items-stretch">
