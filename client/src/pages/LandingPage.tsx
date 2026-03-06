@@ -521,8 +521,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans overflow-x-hidden pb-16 md:pb-0">
-      <StickyCtaBar onClick={scrollToOffer} />
+    <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <ScrollToTopButton />
       {/* --- ANNOUNCEMENT BAR --- */}
       <div className="bg-[#111111] text-[#D4A62A] py-2.5 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
