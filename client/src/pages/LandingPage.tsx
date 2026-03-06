@@ -1534,19 +1534,20 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-10 bg-white rounded-2xl p-5 md:p-6 shadow-md border border-red-100 max-w-3xl mx-auto"
+            className="flex flex-wrap items-center justify-center gap-3 md:gap-6 mb-10 max-w-3xl mx-auto"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
-                <Flame className="w-5 h-5 text-red-500" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-slate-900">Oferta expira em:</p>
-                <p className="text-[11px] text-slate-500">Últimas unidades com desconto</p>
-              </div>
+            <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-slate-100">
+              <Truck className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-sm text-slate-700 font-medium">Frete Grátis</span>
             </div>
-            <CountdownTimer />
-            <LiveBuyerCount />
+            <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-slate-100">
+              <PackageCheck className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-sm text-slate-700 font-medium">Pague na Entrega</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-slate-100">
+              <ShieldCheck className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-sm text-slate-700 font-medium">Garantia 7 dias</span>
+            </div>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
