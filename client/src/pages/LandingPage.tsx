@@ -369,10 +369,10 @@ function useVisitorCity() {
       return;
     }
 
-    fetch('https://ip-api.com/json/?fields=city,status&lang=pt-BR')
+    fetch('https://ipapi.co/json/')
       .then(res => res.json())
       .then(data => {
-        if (data.status === 'success' && data.city) {
+        if (data.city) {
           setCity(data.city);
           sessionStorage.setItem('visitor_city', data.city);
         }
