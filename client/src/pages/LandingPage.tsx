@@ -532,8 +532,19 @@ export default function LandingPage() {
           <span className="text-white/30">|</span>
           <PackageCheck className="w-4 h-4 shrink-0" />
           <span>Pague na Entrega</span>
-          <span className="text-white/30 hidden sm:inline">|</span>
-          <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
+          {visitorCity && (
+            <>
+              <span className="text-white/30">|</span>
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              <span className="text-xs">Entregamos em <strong className="text-[#D4A62A]">{visitorCity}</strong></span>
+            </>
+          )}
+          {!visitorCity && (
+            <>
+              <span className="text-white/30 hidden sm:inline">|</span>
+              <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
+            </>
+          )}
         </div>
       </div>
       {/* --- HEADER --- */}
