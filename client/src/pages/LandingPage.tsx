@@ -25,8 +25,7 @@ import {
   Play,
   Droplets,
   Leaf,
-  Flame,
-  MapPin
+  Flame
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -359,29 +358,6 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   );
 }
 
-function useVisitorCity() {
-  const [city, setCity] = useState<string | null>(null);
-
-  useEffect(() => {
-    const cached = sessionStorage.getItem('visitor_city');
-    if (cached) {
-      setCity(cached);
-      return;
-    }
-
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
-        if (data.city) {
-          setCity(data.city);
-          sessionStorage.setItem('visitor_city', data.city);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  return city;
-}
 
 function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -444,7 +420,6 @@ export default function LandingPage() {
   const createLead = useCreateLead();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [autoPlayTestimonial, setAutoPlayTestimonial] = useState(true);
-  const visitorCity = useVisitorCity();
 
   const testimonials = [
     {
@@ -531,19 +506,8 @@ export default function LandingPage() {
           <span className="text-white/30">|</span>
           <PackageCheck className="w-4 h-4 shrink-0" />
           <span>Pague na Entrega</span>
-          {visitorCity && (
-            <>
-              <span className="text-white/30">|</span>
-              <MapPin className="w-3.5 h-3.5 shrink-0" />
-              <span className="text-xs">Entregamos em <strong className="text-[#D4A62A]">{visitorCity}</strong></span>
-            </>
-          )}
-          {!visitorCity && (
-            <>
-              <span className="text-white/30 hidden sm:inline">|</span>
-              <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
-            </>
-          )}
+          <span className="text-white/30 hidden sm:inline">|</span>
+          <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
         </div>
       </div>
       {/* --- HEADER --- */}
@@ -1493,22 +1457,6 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
 
-          {visitorCity && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center gap-2 mb-8"
-            >
-              <span className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-sm border border-slate-200 text-sm">
-                <MapPin className="w-4 h-4 text-[#C6A756]" />
-                <span className="text-slate-600">Últimas unidades disponíveis em</span>
-                <strong className="text-slate-900">{visitorCity}</strong>
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              </span>
-            </motion.div>
-          )}
-
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
               title="1 UNIDADE" 
@@ -1777,14 +1725,6 @@ export default function LandingPage() {
             <p className="text-white/80 text-base md:text-lg mb-6 max-w-xl mx-auto">
               Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial.
             </p>
-            {visitorCity && (
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-5 py-2.5 mb-4">
-                <MapPin className="w-4 h-4 text-[#C6A756]" />
-                <span className="text-white/70 text-sm">Últimas unidades em</span>
-                <strong className="text-white text-sm">{visitorCity}</strong>
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              </div>
-            )}
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto items-stretch">
