@@ -499,15 +499,24 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <ScrollToTopButton />
       {/* --- ANNOUNCEMENT BAR --- */}
-      <div className="bg-[#111111] text-[#D4A62A] py-2.5 text-center font-semibold text-sm md:text-base px-4 tracking-[0.5px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] relative z-[1001]">
-        <div className="flex items-center justify-center gap-2 md:gap-3">
-          <Truck className="w-4 h-4 shrink-0" />
-          <span>Frete Grátis</span>
-          <span className="text-white/30">|</span>
-          <PackageCheck className="w-4 h-4 shrink-0" />
-          <span>Pague na Entrega</span>
-          <span className="text-white/30 hidden sm:inline">|</span>
-          <span className="hidden sm:inline text-[#D4A62A]/80 text-xs animate-pulse">Últimas unidades!</span>
+      <div className="bg-gradient-to-r from-[#111111] via-[#1a1a1a] to-[#111111] text-[#D4A62A] py-3 text-center px-4 shadow-[0_2px_12px_rgba(0,0,0,0.2)] relative z-[1001] overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxIiBmaWxsPSJyZ2JhKDIxMiwxNjYsMzgsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
+        <div className="relative flex items-center justify-center gap-3 md:gap-4">
+          <div className="flex items-center gap-1.5">
+            <Truck className="w-4 h-4 shrink-0 text-[#D4A62A]" />
+            <span className="text-sm font-bold">Frete Grátis</span>
+          </div>
+          <span className="text-[#D4A62A]/30 text-xs">✦</span>
+          <div className="flex items-center gap-1.5">
+            <PackageCheck className="w-4 h-4 shrink-0 text-[#D4A62A]" />
+            <span className="text-sm font-bold">Pague na Entrega</span>
+          </div>
+          <span className="text-[#D4A62A]/30 text-xs">✦</span>
+          <div className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 shrink-0 text-[#D4A62A]" />
+            <span className="text-sm font-bold hidden sm:inline">Garantia 7 Dias</span>
+            <span className="text-sm font-bold sm:hidden">7 Dias</span>
+          </div>
         </div>
       </div>
       {/* --- HEADER --- */}
