@@ -1197,15 +1197,6 @@ export default function LandingPage() {
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src={mjnj} alt="Liso Mágico Produto" loading="lazy" className="w-full h-auto" />
               </div>
-              <div className="absolute -bottom-4 -right-2 md:right-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Registro ANVISA</p>
-                  <p className="text-sm font-bold text-slate-900">nº 4.02912-7</p>
-                </div>
-              </div>
             </motion.div>
 
             <motion.div
