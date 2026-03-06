@@ -1819,10 +1819,10 @@ export default function LandingPage() {
               <Flame className="w-4 h-4 text-[#C6A756]" />
               <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Última Chance</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
               Não perca essa <span className="text-[#C6A756]">oportunidade</span>
             </h2>
-            <p className="text-white/50 text-base md:text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-white/80 text-base md:text-lg mb-8 max-w-xl mx-auto">
               Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial.
             </p>
             <div className="flex items-center justify-center gap-4 mb-4">
