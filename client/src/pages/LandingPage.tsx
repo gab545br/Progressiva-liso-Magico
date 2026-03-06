@@ -1530,41 +1530,6 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl mx-auto"
-          >
-            <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-5 md:p-6 shadow-lg border border-slate-700/50">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
-                    <Flame className="w-4 h-4 text-[#C6A756]" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">Promoção encerra em:</p>
-                    <p className="text-[11px] text-white/50">Estoque limitado</p>
-                  </div>
-                </div>
-                <CountdownTimer />
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-4 pt-4 border-t border-white/10">
-                <div className="flex items-center gap-1.5">
-                  <Truck className="w-3.5 h-3.5 text-[#C6A756]" />
-                  <span className="text-xs text-white/60 font-medium">Frete Grátis</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <PackageCheck className="w-3.5 h-3.5 text-[#C6A756]" />
-                  <span className="text-xs text-white/60 font-medium">Pague na Entrega</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#C6A756]" />
-                  <span className="text-xs text-white/60 font-medium">Garantia 7 dias</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
               title="1 UNIDADE" 
