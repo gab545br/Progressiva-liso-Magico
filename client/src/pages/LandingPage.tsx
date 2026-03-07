@@ -25,7 +25,8 @@ import {
   Play,
   Droplets,
   Leaf,
-  Flame
+  Flame,
+  Users
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -657,6 +658,33 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      {/* --- SOCIAL PROOF BAR --- */}
+      <div className="relative bg-gradient-to-r from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] border-y border-white/[0.06]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,167,86,0.06),transparent_70%)]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
+            {[
+              { number: "4.800+", label: "Clientes Satisfeitas", icon: Users },
+              { number: "98%", label: "Taxa de Aprovação", icon: ThumbsUp },
+              { number: "4.9", label: "Avaliação Média", icon: Star, isStar: true },
+              { number: "24h", label: "Entrega Expressa", icon: Truck },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center justify-center py-6 md:py-8 gap-1.5"
+              >
+                <item.icon className={`w-5 h-5 mb-1 ${item.isStar ? 'text-[#C6A756] fill-[#C6A756]' : 'text-[#C6A756]'}`} />
+                <span className="text-xl md:text-2xl font-bold text-white tracking-tight">{item.number}</span>
+                <span className="text-white/40 text-[10px] md:text-xs font-medium uppercase tracking-wider">{item.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
       {/* --- BENEFITS STRIP --- */}
       <div className="bg-slate-900 text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
