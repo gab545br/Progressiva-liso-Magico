@@ -605,18 +605,18 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="space-y-8 md:space-y-10"
+              className="space-y-8 md:space-y-12"
             >
               <div>
-                <h1 className="text-[1.75rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
+                <h1 className="text-[1.75rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5 md:mb-6" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
                   Liso Perfeito com Brilho de Salão
                 </h1>
-                <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto md:mx-0" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                <p className="text-base md:text-[1.1rem] lg:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto md:mx-0 md:leading-[1.8]" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
                   Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center md:items-start gap-6">
+              <div className="flex flex-col items-center md:items-start gap-6 md:gap-8">
                 <Button 
                   onClick={scrollToOffer} 
                   className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 py-2.5 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-sm whitespace-nowrap"
@@ -625,18 +625,18 @@ export default function LandingPage() {
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
 
-                <div className="grid grid-cols-3 gap-3 max-w-[400px] w-full">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 px-2 border border-white/10 text-center">
+                <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-[400px] md:max-w-[440px] w-full">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
                     <PackageCheck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
                     <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Pague na Entrega</span>
                     <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Entrega em 24h</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 px-2 border border-white/10 text-center">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
                     <ShieldCheck className="w-5 h-5 text-[#d4a017] mx-auto mb-1.5" />
                     <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Garantia 7 Dias</span>
                     <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Satisfação total</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 px-2 border border-white/10 text-center">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
                     <Truck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
                     <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Frete Grátis</span>
                     <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Todo o Brasil</span>
