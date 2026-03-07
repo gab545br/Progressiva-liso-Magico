@@ -205,17 +205,17 @@ function FabVideoCard({ video, idx }: { video: { src: string; label: string }; i
         />
         {!playing && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-              <Play className="w-5 h-5 md:w-6 md:h-6 text-slate-900 fill-slate-900 ml-0.5" />
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <Play className="w-6 h-6 text-slate-900 fill-slate-900 ml-1" />
             </div>
           </div>
         )}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-3 md:p-4 pointer-events-none">
-          <div className="flex items-center gap-1.5 md:gap-2">
-            <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
-              <Play className="w-2.5 h-2.5 md:w-3 md:h-3 text-[#C6A756] fill-[#C6A756]" />
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 pointer-events-none">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
+              <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
             </div>
-            <span className="text-white/90 text-xs md:text-sm font-medium">{video.label}</span>
+            <span className="text-white/90 text-sm font-medium">{video.label}</span>
           </div>
         </div>
       </div>
@@ -345,28 +345,23 @@ function FabricationSection() {
   }, []);
 
   return (
-    <section className="py-12 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-3 md:px-4 py-1.5 md:py-2 rounded-full mb-3 md:mb-4 uppercase tracking-wider">
-            <FlaskConical className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <div className="inline-flex items-center gap-2 bg-[#C6A756]/10 text-[#C6A756] text-xs font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wider">
+            <FlaskConical className="w-4 h-4" />
             Fabricação Nacional
           </div>
-          <h2 className="text-2xl md:text-5xl font-display font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
             Veja como o Liso Mágico é <span className="text-[#C6A756]">fabricado</span>
           </h2>
-          <p className="text-white/50 text-sm md:text-lg max-w-2xl mx-auto">
-            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação.
-          </p>
-          <p className="md:hidden text-white/30 text-xs mt-3 flex items-center justify-center gap-1.5">
-            <ChevronDown className="w-3 h-3 -rotate-90" />
-            Arraste para ver mais
-            <ChevronDown className="w-3 h-3 rotate-90" />
+          <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
+            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação do produto que vai transformar seu cabelo.
           </p>
         </motion.div>
 
