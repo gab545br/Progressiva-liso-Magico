@@ -1802,6 +1802,7 @@ export default function LandingPage() {
                 features: ["1 Frasco Liso Mágico", "Frete Grátis", "Pague na entrega"],
                 popular: false,
                 badge: null,
+                image: imgProduct1,
               },
               {
                 title: "3 UNIDADES",
@@ -1814,6 +1815,7 @@ export default function LandingPage() {
                 features: ["3 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
                 popular: true,
                 badge: "Melhor Custo-Benefício",
+                image: imgProduct2,
               },
               {
                 title: "2 UNIDADES",
@@ -1826,6 +1828,7 @@ export default function LandingPage() {
                 features: ["2 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
                 popular: false,
                 badge: null,
+                image: imgProduct3,
               },
             ].map((plan, idx) => (
               <motion.div
@@ -1847,6 +1850,10 @@ export default function LandingPage() {
                 )}
 
                 <div className={`p-6 md:p-8 flex flex-col flex-1 ${plan.popular ? '' : 'pt-8'}`}>
+                  <div className="w-28 h-28 mx-auto mb-4 rounded-xl overflow-hidden bg-white/5">
+                    <img src={plan.image} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+
                   <h3 className="text-lg font-bold text-white/90 text-center mb-1">{plan.title}</h3>
                   {plan.badge && (
                     <span className="text-[10px] font-bold text-[#C6A756] uppercase tracking-wider text-center block mb-3">{plan.badge}</span>
