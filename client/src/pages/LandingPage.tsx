@@ -611,14 +611,14 @@ export default function LandingPage() {
               </h1>
               
               <p className="text-[0.95rem] md:text-lg text-white/90 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto md:mx-0" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}>
-                Transforme seu cabelo com a Progressiva Liso Mágico sem formol que alisa, reduz o frizz e devolve o brilho natural já na primeira aplicação.
+                Transforme seu cabelo com a Progressiva Liso Mágico sem formol que alisa, reduz o frizz e devolve o brilho natural já nas primeiras aplicações.
               </p>
 
               <div className="space-y-2 mb-6 md:mb-8">
                 {[
                   "Efeito profissional de salão em casa",
                   "Fórmula segura e sem formol",
-                  "Resultado visível já na primeira aplicação",
+                  "Resultado visível já nas primeiras aplicações",
                 ].map((text, idx) => (
                   <motion.p
                     key={idx}
