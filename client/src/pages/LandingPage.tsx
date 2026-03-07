@@ -660,6 +660,24 @@ export default function LandingPage() {
                     Pague somente quando receber
                   </span>
                 </div>
+
+                <div className="flex items-center gap-3 mt-4 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+                  <div className="flex -space-x-2">
+                    {[imgBelo1, imgBelo2, imgBelo3, imgBelo4].map((img, idx) => (
+                      <div key={idx} className="w-7 h-7 rounded-full border-2 border-white/20 overflow-hidden">
+                        <img src={img} alt="" className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
+                      ))}
+                    </div>
+                    <span className="text-white/80 text-xs font-medium">+4.800 clientes satisfeitas</span>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -675,9 +693,9 @@ export default function LandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-3">
-              O segredo do cabelo perfeito está no <span className="text-[#C6A756]">Liso Mágico</span>
+              Por que mais de <span className="text-[#C6A756]">4.800 mulheres</span> escolheram o Liso Mágico?
             </h2>
-            <p className="text-white/50 text-base max-w-2xl mx-auto">Descubra o que torna esse produto o favorito de milhares de mulheres em todo o Brasil</p>
+            <p className="text-white/50 text-base max-w-2xl mx-auto">Resultados reais que falam por si — descubra o que faz desse produto o mais vendido do Brasil</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
@@ -733,9 +751,9 @@ export default function LandingPage() {
                   <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Compare e Economize</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4 text-center">
-                  Resultado de salão,<br /><span className="text-[#C6A756]">sem sair de casa</span>
+                  Você ainda paga <span className="text-red-400">caro</span> no salão?
                 </h2>
-                <p className="text-white/50 text-base text-center">Os valores podem variar conforme região, frequência e tipo de procedimento.</p>
+                <p className="text-white/50 text-base text-center">Compare e veja por que o Liso Mágico é a escolha inteligente</p>
               </div>
 
               <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -848,10 +866,10 @@ export default function LandingPage() {
               <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Veja com seus próprios olhos
+              Resultados que falam por si
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Milhares de mulheres já transformaram seus cabelos com o Liso Mágico. Confira os resultados reais de quem já usou.
+              Antes e depois reais — sem filtro, sem edição. Veja a transformação de quem já usou o Liso Mágico.
             </p>
           </motion.div>
 
@@ -1447,7 +1465,7 @@ export default function LandingPage() {
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Escolha seu Kit Ideal" subtitle="Ofertas por tempo limitado. Aproveite o Frete Grátis!" />
+          <SectionHeader title="Escolha seu Kit e Receba em Casa" subtitle="Frete grátis + pague somente na entrega. Sem risco, sem surpresas." />
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             <OfferCard 
@@ -1501,7 +1519,7 @@ export default function LandingPage() {
 
         <div className="relative bg-white/70 md:bg-transparent py-16 md:py-20">
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeader title="Sua Compra 100% Segura" subtitle="Compre com tranquilidade e confiança" />
+          <SectionHeader title="Zero Risco Para Você" subtitle="Receba primeiro, pague depois. Se não gostar, devolvemos seu dinheiro." />
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
 
@@ -1592,7 +1610,7 @@ export default function LandingPage() {
       {/* --- SOCIAL PROOF --- */}
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
-          <SectionHeader title="Avaliações positivas de clientes que testaram o produto." subtitle="Resultados reais de quem já transformou o cabelo com Liso Mágico" />
+          <SectionHeader title="O Que Nossas Clientes Estão Dizendo" subtitle="Histórias reais de quem já transformou o cabelo — e a autoestima — com o Liso Mágico" />
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -1712,10 +1730,10 @@ export default function LandingPage() {
               <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Última Chance</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Não perca essa <span className="text-[#C6A756]">oportunidade</span>
+              Seu cabelo dos sonhos está a <span className="text-[#C6A756]">um clique</span> de distância
             </h2>
             <p className="text-white/80 text-base md:text-lg mb-6 max-w-xl mx-auto">
-              Garanta seu Liso Mágico com frete grátis, pagamento na entrega e desconto especial.
+              Frete grátis, pagamento na entrega e garantia de 7 dias. Você não tem nada a perder.
             </p>
           </motion.div>
 
