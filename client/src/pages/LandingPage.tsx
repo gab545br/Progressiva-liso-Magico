@@ -599,7 +599,7 @@ export default function LandingPage() {
 
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
 
-        <div className="container mx-auto px-5 md:px-6 relative z-10 pt-28 pb-10 md:pt-32 md:pb-16">
+        <div className="container mx-auto px-5 md:px-6 relative z-10 pt-24 pb-10 md:pt-28 md:pb-16">
           <div className="max-w-[580px] mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
