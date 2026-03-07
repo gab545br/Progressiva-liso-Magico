@@ -340,6 +340,20 @@ function FabricationSection() {
         </motion.div>
 
         <div className="relative" ref={sectionRef}>
+          <button
+            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center hover:bg-white/20 transition-colors"
+            onClick={() => { if (trackRef.current) trackRef.current.scrollLeft -= 280; }}
+            data-testid="button-fab-prev"
+          >
+            <ChevronDown className="w-5 h-5 text-white rotate-90" />
+          </button>
+          <button
+            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center hover:bg-white/20 transition-colors"
+            onClick={() => { if (trackRef.current) trackRef.current.scrollLeft += 280; }}
+            data-testid="button-fab-next"
+          >
+            <ChevronDown className="w-5 h-5 text-white -rotate-90" />
+          </button>
           <div className="fab-track" ref={trackRef}>
             {[...fabricationVideos, ...fabricationVideos].map((video, idx) => (
               <FabVideoCard key={idx} video={video} idx={idx} />
