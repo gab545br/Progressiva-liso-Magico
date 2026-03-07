@@ -100,17 +100,23 @@ html {
 }
 
 /* Fabrication videos carousel */
+@keyframes fab-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-7 * 264px), 0, 0);
+  }
+}
+
 .fab-track {
   display: flex;
   gap: 24px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.fab-track::-webkit-scrollbar {
-  display: none;
+  animation: fab-scroll 55s linear infinite;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fab-card {
@@ -120,11 +126,25 @@ html {
   flex-shrink: 0;
 }
 
+.fab-card video {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
 @media (min-width: 768px) {
   .fab-card {
     width: 260px;
     min-width: 260px;
     height: 460px;
+  }
+
+  @keyframes fab-scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(calc(-7 * 284px), 0, 0);
+    }
   }
 }
 
