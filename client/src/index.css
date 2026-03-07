@@ -102,18 +102,21 @@ html {
 /* Fabrication videos carousel - 7 cards × (240px + 24px gap) = 1848px per set */
 @keyframes fab-scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(calc(-7 * 264px));
+    transform: translate3d(calc(-7 * 264px), 0, 0);
   }
 }
 
 .fab-track {
   display: flex;
   gap: 24px;
-  animation: fab-scroll 40s linear infinite;
+  animation: fab-scroll 55s linear infinite;
   width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .fab-card {
@@ -121,6 +124,11 @@ html {
   min-width: 240px;
   height: 420px;
   flex-shrink: 0;
+}
+
+.fab-card video {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 @media (min-width: 768px) {
@@ -132,10 +140,10 @@ html {
 
   @keyframes fab-scroll {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(calc(-7 * 284px));
+      transform: translate3d(calc(-7 * 284px), 0, 0);
     }
   }
 }

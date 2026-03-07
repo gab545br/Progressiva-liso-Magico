@@ -184,13 +184,17 @@ function FabricationSection() {
         entries.forEach((entry) => {
           const videos = section.querySelectorAll('video');
           if (entry.isIntersecting) {
-            videos.forEach((v) => v.play().catch(() => {}));
+            videos.forEach((v) => {
+              if (v.paused) v.play().catch(() => {});
+            });
           } else {
-            videos.forEach((v) => v.pause());
+            videos.forEach((v) => {
+              if (!v.paused) v.pause();
+            });
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     observer.observe(section);
@@ -220,7 +224,7 @@ function FabricationSection() {
 
         <div className="relative" ref={sectionRef}>
           <div className="fab-track hover:[animation-play-state:paused]">
-            {[...Array(3)].flatMap((_, setIdx) =>
+            {[...Array(2)].flatMap((_, setIdx) =>
               fabricationVideos.map((video, idx) => (
                 <div
                   key={`${setIdx}-${idx}`}
@@ -228,7 +232,6 @@ function FabricationSection() {
                 >
                   <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
                     <video
-                      src={video.src}
                       muted
                       autoPlay
                       loop
@@ -236,7 +239,9 @@ function FabricationSection() {
                       preload={setIdx === 0 ? "metadata" : "none"}
                       className="w-full h-full object-cover"
                       data-testid={`video-fab-${setIdx}-${idx}`}
-                    />
+                    >
+                      <source src={video.src} type="video/mp4" />
+                    </video>
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
