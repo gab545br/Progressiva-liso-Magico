@@ -226,12 +226,34 @@ function FabVideoCard({ video, idx }: { video: { src: string; label: string }; i
 function FabricationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const scrollPausedRef = useRef(false);
+
+  const scrollBy = (amount: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    scrollPausedRef.current = true;
+    const start = track.scrollLeft;
+    const target = start + amount;
+    const duration = 400;
+    let startTime: number | null = null;
+    const animate = (time: number) => {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      track.scrollLeft = start + (target - start) * ease;
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => { scrollPausedRef.current = false; }, 500);
+      }
+    };
+    requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     let rafId: number | null = null;
-    let scrollPaused = false;
     const speed = 0.5;
 
     const halfWidth = () => {
@@ -246,7 +268,7 @@ function FabricationSection() {
     };
 
     const scrollLoop = () => {
-      if (!scrollPaused && track) {
+      if (!scrollPausedRef.current && track) {
         track.scrollLeft += speed;
         const hw = halfWidth();
         if (track.scrollLeft >= hw) {
@@ -263,7 +285,7 @@ function FabricationSection() {
     let startScroll = 0;
 
     const onTouchStart = (e: TouchEvent) => {
-      scrollPaused = true;
+      scrollPausedRef.current = true;
       isDragging = true;
       startX = e.touches[0].clientX;
       startScroll = track.scrollLeft;
@@ -275,11 +297,11 @@ function FabricationSection() {
     };
     const onTouchEnd = () => {
       isDragging = false;
-      scrollPaused = false;
+      scrollPausedRef.current = false;
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      scrollPaused = true;
+      scrollPausedRef.current = true;
       isDragging = true;
       startX = e.clientX;
       startScroll = track.scrollLeft;
@@ -293,7 +315,7 @@ function FabricationSection() {
     };
     const onMouseUp = () => {
       isDragging = false;
-      scrollPaused = false;
+      scrollPausedRef.current = false;
       track.style.cursor = 'grab';
     };
 
@@ -342,14 +364,14 @@ function FabricationSection() {
         <div className="relative" ref={sectionRef}>
           <button
             className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center hover:bg-white/20 transition-colors"
-            onClick={() => { if (trackRef.current) trackRef.current.scrollLeft -= 280; }}
+            onClick={() => scrollBy(-280)}
             data-testid="button-fab-prev"
           >
             <ChevronDown className="w-5 h-5 text-white rotate-90" />
           </button>
           <button
             className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center hover:bg-white/20 transition-colors"
-            onClick={() => { if (trackRef.current) trackRef.current.scrollLeft += 280; }}
+            onClick={() => scrollBy(280)}
             data-testid="button-fab-next"
           >
             <ChevronDown className="w-5 h-5 text-white -rotate-90" />
