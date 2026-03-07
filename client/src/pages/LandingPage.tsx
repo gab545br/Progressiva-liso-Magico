@@ -293,11 +293,23 @@ function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
+    const container = scrollRef.current;
     const scrollAmount = 280;
-    scrollRef.current.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth'
-    });
+    const target = container.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+    const start = container.scrollLeft;
+    const diff = target - start;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / 500, 1);
+      container.scrollLeft = start + diff * easeInOutCubic(progress);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   };
 
   return (
