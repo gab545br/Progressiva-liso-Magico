@@ -600,51 +600,51 @@ export default function LandingPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
 
         <div className="container mx-auto px-5 md:px-8 lg:px-12 relative z-10 pt-24 pb-10 md:pt-0 md:pb-0 md:flex md:items-center md:min-h-[100vh]">
-          <div className="max-w-[580px] mx-auto text-center md:text-left md:mx-0 md:ml-[8%] lg:ml-[10%]">
+          <div className="max-w-[580px] md:max-w-[680px] mx-auto text-center md:text-left md:mx-0 md:ml-[8%] lg:ml-[10%]">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="space-y-8 md:space-y-12"
+              className="space-y-8 md:space-y-14"
             >
               <div>
-                <p className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base tracking-wide uppercase mb-3" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                <p className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base lg:text-lg tracking-wide uppercase mb-4 lg:mb-5" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
                   Progressiva Profissional Sem Formol
                 </p>
-                <h1 className="text-[1.75rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5 md:mb-6" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
+                <h1 className="text-[1.75rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-white leading-[1.15] md:leading-[1.1] mb-5 md:mb-7 lg:mb-8" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
                   <span className="md:hidden">Liso Perfeito com Brilho de Salão</span>
                   <span className="hidden md:inline">Liso Perfeito com<br />Brilho de Salão</span>
                 </h1>
-                <p className="text-base md:text-[1.1rem] lg:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto md:mx-0 md:leading-[1.8]" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                <p className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-[460px] md:max-w-[540px] mx-auto md:mx-0 md:leading-[1.85]" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
                   <span className="md:hidden">Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.</span>
                   <span className="hidden md:inline">Alisa, reduz o frizz e devolve o brilho dos fios com resultado de salão — sem precisar sair de casa. Fórmula aprovada por milhares de brasileiras.</span>
                 </p>
               </div>
 
-              <div className="flex flex-col items-center md:items-start gap-6 md:gap-8">
+              <div className="flex flex-col items-center md:items-start gap-6 md:gap-10">
                 <Button 
                   onClick={scrollToOffer} 
-                  className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 py-2.5 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-sm whitespace-nowrap"
+                  className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 md:px-10 py-2.5 md:py-3 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-[15px] whitespace-nowrap"
                   data-testid="button-hero-cta"
                 >
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
 
-                <div className="grid grid-cols-3 gap-3 md:gap-4 max-w-[400px] md:max-w-[440px] w-full">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
-                    <PackageCheck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Pague na Entrega</span>
-                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Entrega em 24h</span>
+                <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-[400px] md:max-w-[500px] w-full">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
+                    <PackageCheck className="w-5 h-5 md:w-6 md:h-6 text-green-400 mx-auto mb-1.5 md:mb-2" />
+                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Pague na Entrega</span>
+                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Entrega em 24h</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
-                    <ShieldCheck className="w-5 h-5 text-[#d4a017] mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Garantia 7 Dias</span>
-                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Satisfação total</span>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
+                    <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-[#d4a017] mx-auto mb-1.5 md:mb-2" />
+                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Garantia 7 Dias</span>
+                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Satisfação total</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-4 px-2 md:px-3 border border-white/10 text-center">
-                    <Truck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Frete Grátis</span>
-                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-1">Todo o Brasil</span>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
+                    <Truck className="w-5 h-5 md:w-6 md:h-6 text-green-400 mx-auto mb-1.5 md:mb-2" />
+                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Frete Grátis</span>
+                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Todo o Brasil</span>
                   </div>
                 </div>
               </div>
