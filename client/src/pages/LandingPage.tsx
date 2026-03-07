@@ -288,26 +288,91 @@ function FabricationSection() {
   );
 }
 
+function LazyVideo({ src, idx }: { src: string; idx: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  return (
+    <div ref={containerRef} className="relative w-full aspect-[9/16]">
+      {isVisible ? (
+        <>
+          <video
+            ref={videoRef}
+            src={src}
+            className="w-full h-full object-cover"
+            controls={isPlaying}
+            playsInline
+            preload="metadata"
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            data-testid={`video-testimonial-${idx}`}
+          />
+          {!isPlaying && (
+            <button
+              onClick={handlePlay}
+              className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/20 transition-colors duration-300"
+            >
+              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg shadow-black/20 hover:scale-110 transition-transform duration-300">
+                <Play className="w-6 h-6 text-slate-900 ml-1" />
+              </div>
+            </button>
+          )}
+        </>
+      ) : (
+        <div className="w-full h-full bg-white/5 flex items-center justify-center">
+          <Play className="w-8 h-8 text-white/20" />
+        </div>
+      )}
+    </div>
+  );
+}
+
 function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isScrolling = useRef(false);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (!scrollRef.current) return;
+    if (!scrollRef.current || isScrolling.current) return;
+    isScrolling.current = true;
     const container = scrollRef.current;
-    const scrollAmount = 280;
-    const target = container.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+    const cardWidth = 280;
+    const target = container.scrollLeft + (direction === 'left' ? -cardWidth : cardWidth);
     const start = container.scrollLeft;
     const diff = target - start;
     let startTime: number | null = null;
 
-    const easeInOutCubic = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / 500, 1);
-      container.scrollLeft = start + diff * easeInOutCubic(progress);
-      if (progress < 1) requestAnimationFrame(step);
+      const progress = Math.min(elapsed / 600, 1);
+      container.scrollLeft = start + diff * easeOutQuart(progress);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        isScrolling.current = false;
+      }
     };
     requestAnimationFrame(step);
   };
@@ -316,7 +381,7 @@ function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
     <div className="relative max-w-6xl mx-auto">
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide scroll-smooth"
       >
         {videos.map((video, idx) => (
           <motion.div
@@ -327,31 +392,24 @@ function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
             transition={{ delay: idx * 0.08 }}
             className="snap-center shrink-0 w-[220px] md:w-[260px] rounded-2xl overflow-hidden bg-white/5 border border-white/10"
           >
-            <video
-              src={video}
-              className="w-full aspect-[9/16] object-cover"
-              controls
-              playsInline
-              preload="metadata"
-              data-testid={`video-testimonial-${idx}`}
-            />
+            <LazyVideo src={video} idx={idx} />
           </motion.div>
         ))}
       </div>
 
-      <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none hidden md:block" />
-      <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block" />
+      <div className="absolute left-0 top-0 bottom-4 w-16 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none hidden md:block" />
+      <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block" />
 
       <button
         onClick={() => scroll('left')}
-        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        className="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-300"
         data-testid="button-video-depo-prev"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={() => scroll('right')}
-        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-300"
         data-testid="button-video-depo-next"
       >
         <ChevronRight className="w-5 h-5" />
