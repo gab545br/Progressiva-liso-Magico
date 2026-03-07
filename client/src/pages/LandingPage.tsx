@@ -626,19 +626,22 @@ export default function LandingPage() {
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/10 max-w-[420px] w-full">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <PackageCheck className="w-4.5 h-4.5 text-green-400" />
-                    </div>
-                    <span className="text-white font-bold text-sm md:text-base">Pagamento na Entrega</span>
+                <div className="grid grid-cols-3 gap-3 max-w-[420px] w-full">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
+                    <PackageCheck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
+                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Pague na Entrega</span>
+                    <span className="text-white/50 text-[10px] block mt-1">Entrega em 24h</span>
                   </div>
-                  <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-1">
-                    Você só paga quando o produto chegar na sua mão. Aceitamos Pix, cartão, boleto e dinheiro.
-                  </p>
-                  <p className="text-white/50 text-[11px] md:text-xs">
-                    Frete grátis para todo o Brasil • Entrega rápida
-                  </p>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
+                    <ShieldCheck className="w-5 h-5 text-[#d4a017] mx-auto mb-1.5" />
+                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Garantia 7 Dias</span>
+                    <span className="text-white/50 text-[10px] block mt-1">Satisfação total</span>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
+                    <Truck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
+                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Frete Grátis</span>
+                    <span className="text-white/50 text-[10px] block mt-1">Todo o Brasil</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
