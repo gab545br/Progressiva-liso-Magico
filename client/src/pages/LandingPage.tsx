@@ -839,11 +839,11 @@ export default function LandingPage() {
               <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
               <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4 whitespace-nowrap">
-              Antes e Depois Reais
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              Transformações <span className="text-[#C6A756]">Reais</span> de Quem Usou
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Antes e depois reais — sem filtro, sem edição. Veja a transformação de quem já usou o Liso Mágico.
+              Fotos reais de clientes — sem filtro, sem edição. Veja o poder do Liso Mágico em todos os tipos de cabelo.
             </p>
           </motion.div>
 
