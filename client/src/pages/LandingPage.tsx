@@ -174,17 +174,40 @@ const fabricationVideos = [
 
 function FabricationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const track = trackRef.current;
+    if (!section || !track) return;
     let loaded = false;
+    let scrollInterval: ReturnType<typeof setInterval> | null = null;
+    let isVisible = false;
+
+    const startAutoScroll = () => {
+      if (scrollInterval) return;
+      scrollInterval = setInterval(() => {
+        if (!track) return;
+        track.scrollLeft += 1;
+        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 10) {
+          track.scrollLeft = 0;
+        }
+      }, 30);
+    };
+
+    const stopAutoScroll = () => {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+      }
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
           const videos = section.querySelectorAll('video[data-src]') as NodeListOf<HTMLVideoElement>;
-          if (entry.isIntersecting) {
+          if (isVisible) {
             if (!loaded) {
               loaded = true;
               videos.forEach((v, i) => {
@@ -194,25 +217,45 @@ function FabricationSection() {
                     v.load();
                     v.play().catch(() => {});
                   }
-                }, i * 300);
+                }, i * 400);
               });
             } else {
               videos.forEach((v) => {
                 if (v.paused && v.src) v.play().catch(() => {});
               });
             }
+            startAutoScroll();
           } else {
             videos.forEach((v) => {
               if (!v.paused) v.pause();
             });
+            stopAutoScroll();
           }
         });
       },
       { threshold: 0.05 }
     );
 
+    let touchActive = false;
+    const onTouchStart = () => { touchActive = true; stopAutoScroll(); };
+    const onTouchEnd = () => { touchActive = false; if (isVisible) startAutoScroll(); };
+
+    track.addEventListener('touchstart', onTouchStart, { passive: true });
+    track.addEventListener('touchend', onTouchEnd, { passive: true });
+    track.addEventListener('mousedown', onTouchStart);
+    track.addEventListener('mouseup', onTouchEnd);
+    track.addEventListener('mouseleave', onTouchEnd);
+
     observer.observe(section);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      stopAutoScroll();
+      track.removeEventListener('touchstart', onTouchStart);
+      track.removeEventListener('touchend', onTouchEnd);
+      track.removeEventListener('mousedown', onTouchStart);
+      track.removeEventListener('mouseup', onTouchEnd);
+      track.removeEventListener('mouseleave', onTouchEnd);
+    };
   }, []);
 
   return (
@@ -237,11 +280,10 @@ function FabricationSection() {
         </motion.div>
 
         <div className="relative" ref={sectionRef}>
-          <div className="fab-track hover:[animation-play-state:paused]">
-            {[...Array(2)].flatMap((_, setIdx) =>
-              fabricationVideos.map((video, idx) => (
+          <div className="fab-track" ref={trackRef}>
+            {fabricationVideos.map((video, idx) => (
                 <div
-                  key={`${setIdx}-${idx}`}
+                  key={idx}
                   className="fab-card"
                 >
                   <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
@@ -252,7 +294,7 @@ function FabricationSection() {
                       preload="none"
                       data-src={video.src}
                       className="w-full h-full object-cover"
-                      data-testid={`video-fab-${setIdx}-${idx}`}
+                      data-testid={`video-fab-${idx}`}
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
                       <div className="flex items-center gap-2">
@@ -264,8 +306,7 @@ function FabricationSection() {
                     </div>
                   </div>
                 </div>
-              ))
-            )}
+            ))}
           </div>
         </div>
 

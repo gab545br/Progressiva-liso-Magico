@@ -99,24 +99,19 @@ html {
   border-color: rgba(255,255,255,0.12);
 }
 
-/* Fabrication videos carousel - 7 cards × (240px + 24px gap) = 1848px per set */
-@keyframes fab-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(calc(-7 * 264px), 0, 0);
-  }
-}
-
+/* Fabrication videos carousel */
 .fab-track {
   display: flex;
   gap: 24px;
-  animation: fab-scroll 55s linear infinite;
-  width: max-content;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fab-track::-webkit-scrollbar {
+  display: none;
 }
 
 .fab-card {
@@ -126,25 +121,11 @@ html {
   flex-shrink: 0;
 }
 
-.fab-card video {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
 @media (min-width: 768px) {
   .fab-card {
     width: 260px;
     min-width: 260px;
     height: 460px;
-  }
-
-  @keyframes fab-scroll {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(calc(-7 * 284px), 0, 0);
-    }
   }
 }
 
