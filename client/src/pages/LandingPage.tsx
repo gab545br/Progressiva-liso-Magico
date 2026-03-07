@@ -181,24 +181,42 @@ function FabricationSection() {
     const track = trackRef.current;
     if (!section || !track) return;
     let loaded = false;
-    let scrollInterval: ReturnType<typeof setInterval> | null = null;
+    let rafId: number | null = null;
     let isVisible = false;
+    let paused = false;
+    const speed = 0.5;
 
-    const startAutoScroll = () => {
-      if (scrollInterval) return;
-      scrollInterval = setInterval(() => {
-        if (!track) return;
-        track.scrollLeft += 1;
-        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 10) {
-          track.scrollLeft = 0;
-        }
-      }, 30);
+    const halfWidth = () => {
+      const totalCards = track.children.length;
+      const firstHalfCount = totalCards / 2;
+      let w = 0;
+      for (let i = 0; i < firstHalfCount; i++) {
+        const card = track.children[i] as HTMLElement;
+        w += card.offsetWidth + 24;
+      }
+      return w;
     };
 
-    const stopAutoScroll = () => {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-        scrollInterval = null;
+    const scrollLoop = () => {
+      if (!paused && track) {
+        track.scrollLeft += speed;
+        const hw = halfWidth();
+        if (track.scrollLeft >= hw) {
+          track.scrollLeft -= hw;
+        }
+      }
+      rafId = requestAnimationFrame(scrollLoop);
+    };
+
+    const startScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(scrollLoop);
+    };
+
+    const stopScroll = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
       }
     };
 
@@ -224,37 +242,36 @@ function FabricationSection() {
                 if (v.paused && v.src) v.play().catch(() => {});
               });
             }
-            startAutoScroll();
+            startScroll();
           } else {
             videos.forEach((v) => {
               if (!v.paused) v.pause();
             });
-            stopAutoScroll();
+            stopScroll();
           }
         });
       },
       { threshold: 0.05 }
     );
 
-    let touchActive = false;
-    const onTouchStart = () => { touchActive = true; stopAutoScroll(); };
-    const onTouchEnd = () => { touchActive = false; if (isVisible) startAutoScroll(); };
+    const onPointerDown = () => { paused = true; };
+    const onPointerUp = () => { paused = false; };
 
-    track.addEventListener('touchstart', onTouchStart, { passive: true });
-    track.addEventListener('touchend', onTouchEnd, { passive: true });
-    track.addEventListener('mousedown', onTouchStart);
-    track.addEventListener('mouseup', onTouchEnd);
-    track.addEventListener('mouseleave', onTouchEnd);
+    track.addEventListener('touchstart', onPointerDown, { passive: true });
+    track.addEventListener('touchend', onPointerUp, { passive: true });
+    track.addEventListener('mousedown', onPointerDown);
+    track.addEventListener('mouseup', onPointerUp);
+    track.addEventListener('mouseleave', onPointerUp);
 
     observer.observe(section);
     return () => {
       observer.disconnect();
-      stopAutoScroll();
-      track.removeEventListener('touchstart', onTouchStart);
-      track.removeEventListener('touchend', onTouchEnd);
-      track.removeEventListener('mousedown', onTouchStart);
-      track.removeEventListener('mouseup', onTouchEnd);
-      track.removeEventListener('mouseleave', onTouchEnd);
+      stopScroll();
+      track.removeEventListener('touchstart', onPointerDown);
+      track.removeEventListener('touchend', onPointerUp);
+      track.removeEventListener('mousedown', onPointerDown);
+      track.removeEventListener('mouseup', onPointerUp);
+      track.removeEventListener('mouseleave', onPointerUp);
     };
   }, []);
 
@@ -281,7 +298,7 @@ function FabricationSection() {
 
         <div className="relative" ref={sectionRef}>
           <div className="fab-track" ref={trackRef}>
-            {fabricationVideos.map((video, idx) => (
+            {[...fabricationVideos, ...fabricationVideos].map((video, idx) => (
                 <div
                   key={idx}
                   className="fab-card"
