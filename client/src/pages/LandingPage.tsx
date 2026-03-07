@@ -608,11 +608,16 @@ export default function LandingPage() {
               className="space-y-8 md:space-y-12"
             >
               <div>
+                <p className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base tracking-wide uppercase mb-3" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                  Progressiva Profissional Sem Formol
+                </p>
                 <h1 className="text-[1.75rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5 md:mb-6" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
-                  Liso Perfeito com Brilho de Salão
+                  <span className="md:hidden">Liso Perfeito com Brilho de Salão</span>
+                  <span className="hidden md:inline">Liso Perfeito com<br />Brilho de Salão</span>
                 </h1>
                 <p className="text-base md:text-[1.1rem] lg:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto md:mx-0 md:leading-[1.8]" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
-                  Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.
+                  <span className="md:hidden">Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.</span>
+                  <span className="hidden md:inline">Alisa, reduz o frizz e devolve o brilho dos fios com resultado de salão — sem precisar sair de casa. Fórmula aprovada por milhares de brasileiras.</span>
                 </p>
               </div>
 
