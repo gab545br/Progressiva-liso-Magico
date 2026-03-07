@@ -658,30 +658,21 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      {/* --- SOCIAL PROOF BAR --- */}
-      <div className="relative bg-gradient-to-r from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] border-y border-white/[0.06]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,167,86,0.06),transparent_70%)]"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
-            {[
-              { number: "4.800+", label: "Clientes Satisfeitas", icon: Users },
-              { number: "98%", label: "Taxa de Aprovação", icon: ThumbsUp },
-              { number: "4.9", label: "Avaliação Média", icon: Star, isStar: true },
-              { number: "24h", label: "Entrega Expressa", icon: Truck },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex flex-col items-center justify-center py-6 md:py-8 gap-1.5"
-              >
-                <item.icon className={`w-5 h-5 mb-1 ${item.isStar ? 'text-[#C6A756] fill-[#C6A756]' : 'text-[#C6A756]'}`} />
-                <span className="text-xl md:text-2xl font-bold text-white tracking-tight">{item.number}</span>
-                <span className="text-white/40 text-[10px] md:text-xs font-medium uppercase tracking-wider">{item.label}</span>
-              </motion.div>
-            ))}
+      {/* --- PAYMENT TRUST BAR --- */}
+      <div className="bg-[#111] border-y border-white/[0.06] py-4 md:py-5">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8">
+            <p className="text-white/50 text-xs md:text-sm font-medium uppercase tracking-wider flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-green-400" />
+              Formas de pagamento na entrega
+            </p>
+            <div className="flex items-center gap-4 md:gap-6">
+              {["Pix", "Cartão", "Boleto", "Dinheiro"].map((method) => (
+                <span key={method} className="text-white/70 text-xs md:text-sm font-semibold bg-white/[0.06] px-3 py-1.5 rounded-md border border-white/[0.08]">
+                  {method}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
