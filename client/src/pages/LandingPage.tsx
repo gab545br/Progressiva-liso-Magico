@@ -288,6 +288,66 @@ function FabricationSection() {
   );
 }
 
+function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 280;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  return (
+    <div className="relative max-w-6xl mx-auto">
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+      >
+        {videos.map((video, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.08 }}
+            className="snap-center shrink-0 w-[220px] md:w-[260px] rounded-2xl overflow-hidden bg-white/5 border border-white/10"
+          >
+            <video
+              src={video}
+              className="w-full aspect-[9/16] object-cover"
+              controls
+              playsInline
+              preload="metadata"
+              data-testid={`video-testimonial-${idx}`}
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none hidden md:block" />
+      <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block" />
+
+      <button
+        onClick={() => scroll('left')}
+        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        data-testid="button-video-depo-prev"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() => scroll('right')}
+        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        data-testid="button-video-depo-next"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
+}
+
 function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
@@ -1819,33 +1879,7 @@ export default function LandingPage() {
             <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Depoimentos reais em vídeo de quem já usou e aprovou o Liso Mágico</p>
           </motion.div>
 
-          <div className="relative max-w-6xl mx-auto">
-            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-              {[
-                videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2
-              ].map((video, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className="snap-center shrink-0 w-[220px] md:w-[260px] rounded-2xl overflow-hidden bg-white/5 border border-white/10"
-                >
-                  <video
-                    src={video}
-                    className="w-full aspect-[9/16] object-cover"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    data-testid={`video-testimonial-${idx}`}
-                  />
-                </motion.div>
-              ))}
-            </div>
-            <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none hidden md:block"></div>
-            <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block"></div>
-          </div>
+          <VideoTestimonialsCarousel videos={[videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2]} />
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
