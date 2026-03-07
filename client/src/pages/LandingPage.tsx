@@ -654,23 +654,20 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center md:justify-start gap-4 mt-3 bg-white/[0.06] backdrop-blur-sm rounded-xl px-4 py-3 border border-white/[0.08] max-w-[400px] md:max-w-[500px] w-full">
-                  <div className="flex -space-x-2.5">
+                <div className="flex items-center justify-center md:justify-start gap-3 mt-3 max-w-[400px] md:max-w-[500px] w-full">
+                  <div className="flex -space-x-3">
                     {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map((img, i) => (
-                      <img key={i} src={img} alt="" className="w-9 h-9 rounded-full border-2 border-white/20 object-cover shadow-sm" />
+                      <img key={i} src={img} alt="" className="w-10 h-10 rounded-full border-[2.5px] border-black/60 object-cover object-top shadow-md" style={{ zIndex: 5 - i }} />
                     ))}
                   </div>
-                  <div className="border-l border-white/10 pl-4">
-                    <div className="flex items-center gap-1.5">
-                      <div className="flex gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
-                        ))}
-                      </div>
-                      <span className="text-white/70 text-[11px] font-medium">4.9/5</span>
+                  <div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#d4a017] text-[#d4a017] drop-shadow-sm" />
+                      ))}
                     </div>
-                    <p className="text-white/50 text-[11px] md:text-xs mt-0.5">
-                      Avaliado por <span className="text-white font-semibold">4.800+</span> clientes
+                    <p className="text-white/60 text-[11px] md:text-xs mt-0.5 font-medium" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                      <span className="text-white">4.800+</span> clientes satisfeitas
                     </p>
                   </div>
                 </div>
