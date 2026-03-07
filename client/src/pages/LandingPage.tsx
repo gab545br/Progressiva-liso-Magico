@@ -750,7 +750,7 @@ export default function LandingPage() {
             <p className="text-white/50 text-base max-w-2xl mx-auto">Mais de 4.800 mulheres já transformaram seus cabelos — descubra por que o Liso Mágico é o mais vendido do país</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="hidden md:grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
               { icon: Sparkles, title: "Resultados progressivos", desc: "Auxilia no alinhamento dos fios, com melhora visível a cada aplicação." },
               { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Barreira anti-umidade que mantém o liso impecável por semanas." },
@@ -763,13 +763,39 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8 hover:bg-white/[0.06] hover:border-white/[0.12] hover:scale-[1.03] hover:shadow-xl hover:shadow-[#C6A756]/5 transition-all duration-500 cursor-default group"
+                className="flex flex-col items-center text-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 hover:bg-white/[0.06] hover:border-white/[0.12] hover:scale-[1.03] hover:shadow-xl hover:shadow-[#C6A756]/5 transition-all duration-500 cursor-default group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C6A756]/20 to-[#C6A756]/5 flex items-center justify-center mb-1 group-hover:from-[#C6A756]/30 group-hover:to-[#C6A756]/10 transition-all duration-500">
                   <item.icon className="w-7 h-7 text-[#C6A756] group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="font-bold text-base md:text-lg font-sans text-white leading-tight">{item.title}</h3>
+                <h3 className="font-bold text-lg font-sans text-white leading-tight">{item.title}</h3>
                 <p className="text-white/45 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="md:hidden space-y-3 max-w-md mx-auto">
+            {[
+              { icon: Sparkles, title: "Resultados progressivos", desc: "Melhora visível a cada aplicação." },
+              { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Liso impecável por semanas." },
+              { icon: CheckCircle2, title: "Para todos os tipos de cabelo", desc: "Naturais, tingidos ou com química." },
+              { icon: Clock, title: "Rápido e prático", desc: "Menos de 1 hora, sem salão." },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="flex items-center gap-4 bg-white/[0.04] border border-white/[0.08] rounded-xl px-5 py-4"
+              >
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#C6A756]/25 to-[#C6A756]/10 flex items-center justify-center shrink-0">
+                  <item.icon className="w-5.5 h-5.5 text-[#C6A756]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[15px] font-sans text-white leading-tight">{item.title}</h3>
+                  <p className="text-white/40 text-[13px] leading-snug mt-0.5">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
