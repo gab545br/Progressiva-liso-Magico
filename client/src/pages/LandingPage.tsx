@@ -512,8 +512,8 @@ export default function LandingPage() {
           </span>
           <span className="text-white/20">•</span>
           <span className="flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
-            Garantia 7 Dias
+            <Star className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0 fill-[#D4A62A]" />
+            +4.800 Clientes Satisfeitas
           </span>
         </div>
       </div>
@@ -616,9 +616,9 @@ export default function LandingPage() {
 
               <div className="space-y-2 mb-6 md:mb-8">
                 {[
-                  "Efeito profissional de salão em casa",
-                  "Fórmula segura e sem formol",
-                  "Resultado visível já nas primeiras aplicações",
+                  "Efeito de salão no conforto da sua casa",
+                  "100% livre de formol — seguro para todos os cabelos",
+                  "Cabelo mais liso, brilhante e sem frizz",
                 ].map((text, idx) => (
                   <motion.p
                     key={idx}
