@@ -603,7 +603,7 @@ export default function LandingPage() {
           }
         `}} />
 
-        <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/30 via-black/55 to-black/80 md:from-black/75 md:via-black/50 md:to-transparent" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_80%,rgba(212,160,23,0.08),transparent_50%)]" />
 
         <div className="container mx-auto px-5 md:px-8 lg:px-12 relative z-10 pt-24 pb-10 md:pt-0 md:pb-0 md:flex md:items-center md:min-h-[100vh]">
