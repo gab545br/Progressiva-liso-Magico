@@ -172,6 +172,57 @@ const fabricationVideos = [
   { src: videoFab6, label: "Embalagem e expedição" },
 ];
 
+function FabVideoCard({ video, idx }: { video: { src: string; label: string }; idx: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
+
+  return (
+    <div className="fab-card">
+      <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full cursor-pointer" onClick={togglePlay}>
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          src={video.src}
+          className="w-full h-full object-cover"
+          data-testid={`video-fab-${idx}`}
+          onEnded={() => setPlaying(false)}
+        />
+        {!playing && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <Play className="w-6 h-6 text-slate-900 fill-slate-900 ml-1" />
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 pointer-events-none">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
+              <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
+            </div>
+            <span className="text-white/90 text-sm font-medium">{video.label}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function FabricationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -180,7 +231,7 @@ function FabricationSection() {
     const track = trackRef.current;
     if (!track) return;
     let rafId: number | null = null;
-    let paused = false;
+    let scrollPaused = false;
     const speed = 0.5;
 
     const halfWidth = () => {
@@ -195,7 +246,7 @@ function FabricationSection() {
     };
 
     const scrollLoop = () => {
-      if (!paused && track) {
+      if (!scrollPaused && track) {
         track.scrollLeft += speed;
         const hw = halfWidth();
         if (track.scrollLeft >= hw) {
@@ -207,22 +258,63 @@ function FabricationSection() {
 
     rafId = requestAnimationFrame(scrollLoop);
 
-    const onPointerDown = () => { paused = true; };
-    const onPointerUp = () => { paused = false; };
+    let isDragging = false;
+    let startX = 0;
+    let startScroll = 0;
 
-    track.addEventListener('touchstart', onPointerDown, { passive: true });
-    track.addEventListener('touchend', onPointerUp, { passive: true });
-    track.addEventListener('mousedown', onPointerDown);
-    track.addEventListener('mouseup', onPointerUp);
-    track.addEventListener('mouseleave', onPointerUp);
+    const onTouchStart = (e: TouchEvent) => {
+      scrollPaused = true;
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startScroll = track.scrollLeft;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const diff = startX - e.touches[0].clientX;
+      track.scrollLeft = startScroll + diff;
+    };
+    const onTouchEnd = () => {
+      isDragging = false;
+      scrollPaused = false;
+    };
+
+    const onMouseDown = (e: MouseEvent) => {
+      scrollPaused = true;
+      isDragging = true;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+    };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const diff = startX - e.clientX;
+      track.scrollLeft = startScroll + diff;
+    };
+    const onMouseUp = () => {
+      isDragging = false;
+      scrollPaused = false;
+      track.style.cursor = 'grab';
+    };
+
+    track.style.cursor = 'grab';
+    track.addEventListener('touchstart', onTouchStart, { passive: true });
+    track.addEventListener('touchmove', onTouchMove, { passive: true });
+    track.addEventListener('touchend', onTouchEnd);
+    track.addEventListener('mousedown', onMouseDown);
+    track.addEventListener('mousemove', onMouseMove);
+    track.addEventListener('mouseup', onMouseUp);
+    track.addEventListener('mouseleave', onMouseUp);
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
-      track.removeEventListener('touchstart', onPointerDown);
-      track.removeEventListener('touchend', onPointerUp);
-      track.removeEventListener('mousedown', onPointerDown);
-      track.removeEventListener('mouseup', onPointerUp);
-      track.removeEventListener('mouseleave', onPointerUp);
+      track.removeEventListener('touchstart', onTouchStart);
+      track.removeEventListener('touchmove', onTouchMove);
+      track.removeEventListener('touchend', onTouchEnd);
+      track.removeEventListener('mousedown', onMouseDown);
+      track.removeEventListener('mousemove', onMouseMove);
+      track.removeEventListener('mouseup', onMouseUp);
+      track.removeEventListener('mouseleave', onMouseUp);
     };
   }, []);
 
@@ -250,34 +342,7 @@ function FabricationSection() {
         <div className="relative" ref={sectionRef}>
           <div className="fab-track" ref={trackRef}>
             {[...fabricationVideos, ...fabricationVideos].map((video, idx) => (
-                <div
-                  key={idx}
-                  className="fab-card"
-                >
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
-                    <video
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      src={video.src}
-                      className="w-full h-full object-cover"
-                      data-testid={`video-fab-${idx}`}
-                      onClick={(e) => {
-                        const v = e.currentTarget;
-                        if (v.paused) { v.play().catch(() => {}); } else { v.pause(); }
-                      }}
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 pointer-events-none">
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
-                          <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
-                        </div>
-                        <span className="text-white/90 text-sm font-medium">{video.label}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <FabVideoCard key={idx} video={video} idx={idx} />
             ))}
           </div>
         </div>
