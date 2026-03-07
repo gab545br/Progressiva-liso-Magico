@@ -616,22 +616,7 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/10 max-w-[420px] mx-auto md:mx-0">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <PackageCheck className="w-4.5 h-4.5 text-green-400" />
-                  </div>
-                  <span className="text-white font-bold text-sm md:text-base">Pagamento na Entrega</span>
-                </div>
-                <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-1">
-                  Você só paga quando o produto chegar na sua mão. Aceitamos Pix, cartão, boleto e dinheiro.
-                </p>
-                <p className="text-white/50 text-[11px] md:text-xs">
-                  Frete grátis para todo o Brasil • Entrega rápida
-                </p>
-              </div>
-
-              <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="flex flex-col items-center md:items-start gap-5">
                 <Button 
                   size="lg" 
                   onClick={scrollToOffer} 
@@ -640,6 +625,21 @@ export default function LandingPage() {
                 >
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/10 max-w-[420px] w-full">
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                      <PackageCheck className="w-4.5 h-4.5 text-green-400" />
+                    </div>
+                    <span className="text-white font-bold text-sm md:text-base">Pagamento na Entrega</span>
+                  </div>
+                  <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-1">
+                    Você só paga quando o produto chegar na sua mão. Aceitamos Pix, cartão, boleto e dinheiro.
+                  </p>
+                  <p className="text-white/50 text-[11px] md:text-xs">
+                    Frete grátis para todo o Brasil • Entrega rápida
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
