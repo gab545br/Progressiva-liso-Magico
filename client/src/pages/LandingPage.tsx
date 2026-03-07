@@ -178,15 +178,29 @@ function FabricationSection() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+    let loaded = false;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const videos = section.querySelectorAll('video');
+          const videos = section.querySelectorAll('video[data-src]') as NodeListOf<HTMLVideoElement>;
           if (entry.isIntersecting) {
-            videos.forEach((v) => {
-              if (v.paused) v.play().catch(() => {});
-            });
+            if (!loaded) {
+              loaded = true;
+              videos.forEach((v, i) => {
+                setTimeout(() => {
+                  if (v.dataset.src) {
+                    v.src = v.dataset.src;
+                    v.load();
+                    v.play().catch(() => {});
+                  }
+                }, i * 300);
+              });
+            } else {
+              videos.forEach((v) => {
+                if (v.paused && v.src) v.play().catch(() => {});
+              });
+            }
           } else {
             videos.forEach((v) => {
               if (!v.paused) v.pause();
@@ -233,15 +247,13 @@ function FabricationSection() {
                   <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
                     <video
                       muted
-                      autoPlay
                       loop
                       playsInline
-                      preload={setIdx === 0 ? "metadata" : "none"}
+                      preload="none"
+                      data-src={video.src}
                       className="w-full h-full object-cover"
                       data-testid={`video-fab-${setIdx}-${idx}`}
-                    >
-                      <source src={video.src} type="video/mp4" />
-                    </video>
+                    />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
