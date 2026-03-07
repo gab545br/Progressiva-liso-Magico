@@ -600,85 +600,44 @@ export default function LandingPage() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
 
         <div className="container mx-auto px-5 md:px-6 relative z-10 pt-28 pb-10 md:pt-32 md:pb-16">
-          <div className="max-w-[640px] mx-auto md:mx-0 md:pl-[5%] text-center md:text-left">
+          <div className="max-w-[580px] mx-auto md:mx-0 md:pl-[5%] text-center md:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
+              className="space-y-6 md:space-y-8"
             >
-              <h1 className="text-[1.7rem] md:text-5xl lg:text-6xl font-display font-bold text-white leading-[1.2] mb-3 md:mb-4" style={{ textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}>
-                Liso Perfeito com Brilho de Salão — <span className="text-[#d4a017]">Sem Sair de Casa</span>
-              </h1>
-              
-              <p className="text-[0.95rem] md:text-lg text-white/90 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto md:mx-0" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}>
-                Transforme seu cabelo com a Progressiva Liso Mágico sem formol que alisa, reduz o frizz e devolve o brilho natural já nas primeiras aplicações.
-              </p>
-
-              <div className="space-y-2 mb-6 md:mb-8">
-                {[
-                  "Efeito profissional de salão em casa",
-                  "Fórmula segura e sem formol",
-                  "Resultado visível já nas primeiras aplicações",
-                ].map((text, idx) => (
-                  <motion.p
-                    key={idx}
-                    initial={{ opacity: 0, x: -15 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + idx * 0.12 }}
-                    className="flex items-center justify-center md:justify-start gap-2.5 text-white text-sm md:text-base font-medium"
-                    style={{ textShadow: '0 1px 6px rgba(0,0,0,0.3)' }}
-                  >
-                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#d4a017] shrink-0" />
-                    {text}
-                  </motion.p>
-                ))}
+              <div>
+                <h1 className="text-[1.75rem] md:text-5xl lg:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-4" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
+                  Liso Perfeito com Brilho de Salão
+                </h1>
+                <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-[480px] mx-auto md:mx-0" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                  Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.
+                </p>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="flex flex-col items-center md:items-start gap-4"
-              >
+              <div className="flex flex-col items-center md:items-start gap-5">
                 <Button 
                   size="lg" 
                   onClick={scrollToOffer} 
-                  className="w-full max-w-[340px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-10 py-4 border-none shadow-[0_4px_20px_rgba(212,160,23,0.4)] hover:shadow-[0_6px_28px_rgba(212,160,23,0.5)] transition-all duration-300 text-base md:text-lg"
+                  className="w-full max-w-[320px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-10 py-4 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[0.95rem] md:text-base"
                   data-testid="button-hero-cta"
                 >
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
 
-                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 mt-1">
-                  <span className="flex items-center gap-2 text-white/90 text-xs md:text-sm font-medium">
+                <div className="flex items-center gap-4 text-white/80 text-xs md:text-sm">
+                  <span className="flex items-center gap-1.5">
                     <Truck className="w-4 h-4 text-[#d4a017]" />
-                    Frete grátis para todo Brasil
+                    Frete grátis
                   </span>
-                  <span className="hidden sm:block w-1 h-1 rounded-full bg-white/30"></span>
-                  <span className="flex items-center gap-2 text-white/90 text-xs md:text-sm font-medium">
+                  <span className="w-1 h-1 rounded-full bg-white/25"></span>
+                  <span className="flex items-center gap-1.5">
                     <PackageCheck className="w-4 h-4 text-[#d4a017]" />
-                    Pague somente quando receber
+                    Pague na entrega
                   </span>
                 </div>
-
-                <div className="flex items-center gap-3 mt-4 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
-                  <div className="flex -space-x-2">
-                    {[imgBelo1, imgBelo2, imgBelo3, imgBelo4].map((img, idx) => (
-                      <div key={idx} className="w-7 h-7 rounded-full border-2 border-white/20 overflow-hidden">
-                        <img src={img} alt="" className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
-                      ))}
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">+4.800 clientes satisfeitas</span>
-                  </div>
-                </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
