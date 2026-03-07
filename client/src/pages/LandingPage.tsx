@@ -839,7 +839,7 @@ export default function LandingPage() {
               <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
               <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4 whitespace-nowrap">
               Resultados que falam por si
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
