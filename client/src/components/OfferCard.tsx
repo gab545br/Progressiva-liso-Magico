@@ -39,10 +39,11 @@ export function OfferCard({
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: isPopular ? -20 : -8, transition: { duration: 0.3 } }}
       viewport={{ once: true }}
       className={cn(
-        "relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-300 flex flex-col",
-        isPopular ? 'border-2 border-[#C6A756] scale-105 md:-translate-y-4 z-10 shadow-lg' : 'border border-slate-100 hover:border-[#C6A756]/30',
+        "relative rounded-3xl overflow-hidden bg-white shadow-xl transition-all duration-500 flex flex-col hover:shadow-2xl",
+        isPopular ? 'border-2 border-[#C6A756] scale-105 md:-translate-y-4 z-10 shadow-lg hover:shadow-[#C6A756]/20' : 'border border-slate-100 hover:border-[#C6A756]/30',
         className
       )}
     >

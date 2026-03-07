@@ -28,10 +28,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
-        whileHover={{ scale: 1.02, y: -2 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.04, y: -3 }}
+        whileTap={{ scale: 0.97 }}
         className={cn(
-          "rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2",
+          "rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2 btn-shimmer",
           variants[variant],
           sizes[size],
           className

@@ -604,77 +604,136 @@ export default function LandingPage() {
         `}} />
 
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_80%,rgba(212,160,23,0.08),transparent_50%)]" />
 
         <div className="container mx-auto px-5 md:px-8 lg:px-12 relative z-10 pt-24 pb-10 md:pt-0 md:pb-0 md:flex md:items-center md:min-h-[100vh]">
           <div className="max-w-[580px] md:max-w-[680px] mx-auto text-center md:text-left md:mx-0 md:ml-[8%] lg:ml-[10%]">
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="space-y-8 md:space-y-14"
-            >
+            <div className="space-y-8 md:space-y-14">
               <div>
-                <p className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base lg:text-lg tracking-wide uppercase mb-4 lg:mb-5" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                <motion.p
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base lg:text-lg tracking-wide uppercase mb-4 lg:mb-5 text-gold-shine"
+                  style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+                >
                   Progressiva Profissional Sem Formol
-                </p>
-                <h1 className="text-[1.75rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-white leading-[1.15] md:leading-[1.1] mb-5 md:mb-7 lg:mb-8" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-[1.75rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-white leading-[1.15] md:leading-[1.1] mb-5 md:mb-7 lg:mb-8"
+                  style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}
+                >
                   <span className="md:hidden">Liso Perfeito com Brilho de Salão</span>
                   <span className="hidden md:inline">Liso Perfeito com<br />Brilho de Salão</span>
-                </h1>
-                <p className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-[460px] md:max-w-[540px] mx-auto md:mx-0 md:leading-[1.85]" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.5 }}
+                  className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-[460px] md:max-w-[540px] mx-auto md:mx-0 md:leading-[1.85]"
+                  style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+                >
                   <span className="md:hidden">Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.</span>
                   <span className="hidden md:inline">Alisa, reduz o frizz e devolve o brilho dos fios com resultado de salão — sem precisar sair de casa. Fórmula aprovada por milhares de brasileiras.</span>
-                </p>
+                </motion.p>
               </div>
 
               <div className="flex flex-col items-center md:items-start gap-6 md:gap-10">
-                <Button 
-                  onClick={scrollToOffer} 
-                  className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 md:px-10 py-2.5 md:py-3 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-[15px] whitespace-nowrap"
-                  data-testid="button-hero-cta"
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  QUERO RECEBER MEU LISO MÁGICO
-                </Button>
+                  <Button 
+                    onClick={scrollToOffer} 
+                    className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 md:px-10 py-2.5 md:py-3 border-none animate-pulse-glow btn-shimmer hover:scale-105 transition-all duration-300 text-[13px] md:text-[15px] whitespace-nowrap"
+                    data-testid="button-hero-cta"
+                  >
+                    QUERO RECEBER MEU LISO MÁGICO
+                  </Button>
+                </motion.div>
 
-                <div className="grid grid-cols-3 gap-3 md:gap-5 max-w-[400px] md:max-w-[500px] w-full">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
-                    <PackageCheck className="w-5 h-5 md:w-6 md:h-6 text-green-400 mx-auto mb-1.5 md:mb-2" />
-                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Pague na Entrega</span>
-                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Entrega em 24h</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
-                    <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-[#d4a017] mx-auto mb-1.5 md:mb-2" />
-                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Garantia 7 Dias</span>
-                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Satisfação total</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center">
-                    <Truck className="w-5 h-5 md:w-6 md:h-6 text-green-400 mx-auto mb-1.5 md:mb-2" />
-                    <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">Frete Grátis</span>
-                    <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Todo o Brasil</span>
-                  </div>
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  className="grid grid-cols-3 gap-3 md:gap-5 max-w-[400px] md:max-w-[500px] w-full"
+                >
+                  {[
+                    { icon: PackageCheck, label: "Pague na Entrega", sub: "Entrega em 24h", color: "text-green-400" },
+                    { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Satisfação total", color: "text-[#d4a017]" },
+                    { icon: Truck, label: "Frete Grátis", sub: "Todo o Brasil", color: "text-green-400" },
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 1.0 + idx * 0.15 }}
+                      className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center hover:bg-white/15 hover:border-white/20 transition-all duration-300 animate-float-delayed"
+                      style={{ animationDelay: `${idx * 0.5}s` }}
+                    >
+                      <item.icon className={`w-5 h-5 md:w-6 md:h-6 ${item.color} mx-auto mb-1.5 md:mb-2`} />
+                      <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">{item.label}</span>
+                      <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">{item.sub}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
 
-                <div className="flex items-center justify-center md:justify-start gap-3 mt-3 max-w-[400px] md:max-w-[500px] w-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.3 }}
+                  className="flex items-center justify-center md:justify-start gap-3 mt-3 max-w-[400px] md:max-w-[500px] w-full"
+                >
                   <div className="flex -space-x-3">
                     {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map((img, i) => (
-                      <img key={i} src={img} alt="" className="w-10 h-10 rounded-full border-[2.5px] border-black/60 object-cover object-top shadow-md" style={{ zIndex: 5 - i }} />
+                      <motion.img
+                        key={i}
+                        src={img}
+                        alt=""
+                        className="w-10 h-10 rounded-full border-[2.5px] border-black/60 object-cover object-top shadow-md"
+                        style={{ zIndex: 5 - i }}
+                        initial={{ opacity: 0, scale: 0, x: -10 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 1.4 + i * 0.1, ease: "backOut" }}
+                      />
                     ))}
                   </div>
                   <div>
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#d4a017] text-[#d4a017] drop-shadow-sm" />
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.2, delay: 1.9 + i * 0.08, ease: "backOut" }}
+                        >
+                          <Star className="w-3.5 h-3.5 fill-[#d4a017] text-[#d4a017] drop-shadow-sm" />
+                        </motion.div>
                       ))}
                     </div>
                     <p className="text-white/60 text-[11px] md:text-xs mt-0.5 font-medium" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                       <span className="text-white">4.800+</span> clientes satisfeitas
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
+        >
+          <span className="text-white/40 text-[10px] uppercase tracking-[3px] font-medium">Descubra mais</span>
+          <ChevronDown className="w-5 h-5 text-white/40 animate-scroll-bounce" />
+        </motion.div>
       </section>
       {/* --- BENEFITS STRIP --- */}
       <div className="bg-slate-900 text-white py-16 md:py-20">
@@ -704,10 +763,10 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8"
+                className="flex flex-col items-center text-center gap-3 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8 hover:bg-white/[0.06] hover:border-white/[0.12] hover:scale-[1.03] hover:shadow-xl hover:shadow-[#C6A756]/5 transition-all duration-500 cursor-default group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C6A756]/20 to-[#C6A756]/5 flex items-center justify-center mb-1">
-                  <item.icon className="w-7 h-7 text-[#C6A756]" />
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C6A756]/20 to-[#C6A756]/5 flex items-center justify-center mb-1 group-hover:from-[#C6A756]/30 group-hover:to-[#C6A756]/10 transition-all duration-500">
+                  <item.icon className="w-7 h-7 text-[#C6A756] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="font-bold text-base md:text-lg font-sans text-white leading-tight">{item.title}</h3>
                 <p className="text-white/45 text-sm leading-relaxed">{item.desc}</p>
@@ -1097,9 +1156,9 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-left"
+                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-left hover:shadow-lg hover:border-green-200 hover:-translate-y-1 transition-all duration-400 group"
               >
-                <div className="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center mb-4 text-sm">
+                <div className="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center mb-4 text-sm group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-green-500/30 transition-all duration-300">
                   {item.step}
                 </div>
                 <h4 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h4>
@@ -1156,9 +1215,9 @@ export default function LandingPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="flex gap-4 items-start"
+                    className="flex gap-4 items-start hover:bg-green-50/50 rounded-xl p-3 -m-3 transition-all duration-300 group/sec"
                   >
-                    <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0 group-hover/sec:bg-green-100 group-hover/sec:scale-110 transition-all duration-300">
                       <item.icon className="w-5 h-5 text-green-500" />
                     </div>
                     <div>
@@ -1210,10 +1269,10 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.12 }}
-                  className="flex flex-col items-center text-center w-1/5 relative"
+                  className="flex flex-col items-center text-center w-1/5 relative group cursor-default"
                 >
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center mb-5 shadow-lg shadow-[#C6A756]/20 relative z-10 border-4 border-slate-900">
-                    <span className="text-2xl">{item.icon}</span>
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center mb-5 shadow-lg shadow-[#C6A756]/20 relative z-10 border-4 border-slate-900 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-[#C6A756]/30 transition-all duration-500">
+                    <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
                   </div>
                   <span className="text-[#C6A756]/60 text-xs font-bold tracking-widest mb-2">PASSO {item.step}</span>
                   <h4 className="text-white font-bold text-base mb-2">{item.title}</h4>
@@ -1237,7 +1296,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm"
+                className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm hover:bg-white/[0.08] hover:border-white/20 transition-all duration-400"
               >
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center shrink-0 shadow-lg shadow-[#C6A756]/20">
                   <span className="text-xl">{item.icon}</span>
@@ -1314,9 +1373,9 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex gap-4 items-start"
+                  className="flex gap-4 items-start hover:bg-white/[0.04] rounded-xl p-3 -m-3 transition-all duration-300 group/anvisa"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#C6A756]/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-full bg-[#C6A756]/20 flex items-center justify-center shrink-0 mt-0.5 group-hover/anvisa:bg-[#C6A756]/30 group-hover/anvisa:scale-110 transition-all duration-300">
                     <CheckCircle2 className="w-5 h-5 text-[#C6A756]" />
                   </div>
                   <div>
