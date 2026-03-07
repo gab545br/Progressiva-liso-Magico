@@ -745,9 +745,9 @@ export default function LandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-3">
-              Por que mais de <span className="text-[#C6A756]">4.800 mulheres</span> escolheram o Liso Mágico?
+              O segredo do <span className="text-[#C6A756]">liso perfeito</span> que conquistou o Brasil
             </h2>
-            <p className="text-white/50 text-base max-w-2xl mx-auto">Resultados reais que falam por si — descubra o que faz desse produto o mais vendido do Brasil</p>
+            <p className="text-white/50 text-base max-w-2xl mx-auto">Mais de 4.800 mulheres já transformaram seus cabelos — descubra por que o Liso Mágico é o mais vendido do país</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
