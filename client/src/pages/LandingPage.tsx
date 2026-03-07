@@ -234,17 +234,19 @@ function FabricationSection() {
     scrollPausedRef.current = true;
     const start = track.scrollLeft;
     const target = start + amount;
-    const duration = 400;
+    const duration = 700;
     let startTime: number | null = null;
     const animate = (time: number) => {
       if (!startTime) startTime = time;
       const progress = Math.min((time - startTime) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
       track.scrollLeft = start + (target - start) * ease;
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        setTimeout(() => { scrollPausedRef.current = false; }, 500);
+        setTimeout(() => { scrollPausedRef.current = false; }, 600);
       }
     };
     requestAnimationFrame(animate);
