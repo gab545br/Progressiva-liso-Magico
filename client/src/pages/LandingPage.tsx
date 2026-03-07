@@ -616,31 +616,30 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center md:items-start gap-5">
+              <div className="flex flex-col items-center md:items-start gap-4">
                 <Button 
-                  size="lg" 
                   onClick={scrollToOffer} 
-                  className="w-full max-w-[340px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-10 py-4 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[0.95rem] md:text-base"
+                  className="w-full max-w-[300px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-8 py-3 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-sm md:text-[0.95rem]"
                   data-testid="button-hero-cta"
                 >
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
 
-                <div className="grid grid-cols-3 gap-3 max-w-[420px] w-full">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                    <PackageCheck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Pague na Entrega</span>
-                    <span className="text-white/50 text-[10px] block mt-1">Entrega em 24h</span>
+                <div className="grid grid-cols-3 gap-2.5 max-w-[380px] w-full mt-1">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-2.5 px-2 border border-white/10 text-center">
+                    <PackageCheck className="w-4.5 h-4.5 text-green-400 mx-auto mb-1" />
+                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Pague na Entrega</span>
+                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-0.5">Entrega em 24h</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                    <ShieldCheck className="w-5 h-5 text-[#d4a017] mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Garantia 7 Dias</span>
-                    <span className="text-white/50 text-[10px] block mt-1">Satisfação total</span>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-2.5 px-2 border border-white/10 text-center">
+                    <ShieldCheck className="w-4.5 h-4.5 text-[#d4a017] mx-auto mb-1" />
+                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Garantia 7 Dias</span>
+                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-0.5">Satisfação total</span>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                    <Truck className="w-5 h-5 text-green-400 mx-auto mb-1.5" />
-                    <span className="text-white font-bold text-[11px] md:text-xs block leading-tight">Frete Grátis</span>
-                    <span className="text-white/50 text-[10px] block mt-1">Todo o Brasil</span>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg py-2.5 px-2 border border-white/10 text-center">
+                    <Truck className="w-4.5 h-4.5 text-green-400 mx-auto mb-1" />
+                    <span className="text-white font-bold text-[10px] md:text-[11px] block leading-tight">Frete Grátis</span>
+                    <span className="text-white/50 text-[9px] md:text-[10px] block mt-0.5">Todo o Brasil</span>
                   </div>
                 </div>
               </div>
