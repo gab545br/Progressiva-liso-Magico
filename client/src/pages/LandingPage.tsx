@@ -177,12 +177,9 @@ function FabricationSection() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
     const track = trackRef.current;
-    if (!section || !track) return;
-    let loaded = false;
+    if (!track) return;
     let rafId: number | null = null;
-    let isVisible = false;
     let paused = false;
     const speed = 0.5;
 
@@ -208,51 +205,7 @@ function FabricationSection() {
       rafId = requestAnimationFrame(scrollLoop);
     };
 
-    const startScroll = () => {
-      if (rafId !== null) return;
-      rafId = requestAnimationFrame(scrollLoop);
-    };
-
-    const stopScroll = () => {
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          isVisible = entry.isIntersecting;
-          const videos = section.querySelectorAll('video[data-src]') as NodeListOf<HTMLVideoElement>;
-          if (isVisible) {
-            if (!loaded) {
-              loaded = true;
-              videos.forEach((v, i) => {
-                setTimeout(() => {
-                  if (v.dataset.src) {
-                    v.src = v.dataset.src;
-                    v.load();
-                    v.play().catch(() => {});
-                  }
-                }, i * 400);
-              });
-            } else {
-              videos.forEach((v) => {
-                if (v.paused && v.src) v.play().catch(() => {});
-              });
-            }
-            startScroll();
-          } else {
-            videos.forEach((v) => {
-              if (!v.paused) v.pause();
-            });
-            stopScroll();
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
+    rafId = requestAnimationFrame(scrollLoop);
 
     const onPointerDown = () => { paused = true; };
     const onPointerUp = () => { paused = false; };
@@ -263,10 +216,8 @@ function FabricationSection() {
     track.addEventListener('mouseup', onPointerUp);
     track.addEventListener('mouseleave', onPointerUp);
 
-    observer.observe(section);
     return () => {
-      observer.disconnect();
-      stopScroll();
+      if (rafId !== null) cancelAnimationFrame(rafId);
       track.removeEventListener('touchstart', onPointerDown);
       track.removeEventListener('touchend', onPointerUp);
       track.removeEventListener('mousedown', onPointerDown);
@@ -308,12 +259,16 @@ function FabricationSection() {
                       muted
                       loop
                       playsInline
-                      preload="none"
-                      data-src={video.src}
+                      preload="metadata"
+                      src={video.src}
                       className="w-full h-full object-cover"
                       data-testid={`video-fab-${idx}`}
+                      onClick={(e) => {
+                        const v = e.currentTarget;
+                        if (v.paused) { v.play().catch(() => {}); } else { v.pause(); }
+                      }}
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 pointer-events-none">
                       <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
                           <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
