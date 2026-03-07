@@ -653,6 +653,24 @@ export default function LandingPage() {
                     <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">Todo o Brasil</span>
                   </div>
                 </div>
+
+                <div className="flex items-center justify-center md:justify-start gap-3 mt-2">
+                  <div className="flex -space-x-2">
+                    {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map((img, i) => (
+                      <img key={i} src={img} alt="" className="w-8 h-8 rounded-full border-2 border-black/50 object-cover" />
+                    ))}
+                  </div>
+                  <div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
+                      ))}
+                    </div>
+                    <p className="text-white/60 text-[10px] md:text-xs mt-0.5">
+                      <span className="text-white font-semibold">4.800+</span> clientes satisfeitas
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
