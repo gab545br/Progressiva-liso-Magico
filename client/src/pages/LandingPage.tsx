@@ -1850,7 +1850,7 @@ export default function LandingPage() {
                 )}
 
                 <div className={`p-6 md:p-8 flex flex-col flex-1 ${plan.popular ? '' : 'pt-8'}`}>
-                  <div className="w-28 h-28 mx-auto mb-4 rounded-xl overflow-hidden bg-white/5">
+                  <div className="w-36 h-36 mx-auto mb-4 rounded-xl overflow-hidden bg-white/5">
                     <img src={plan.image} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
                   </div>
 
