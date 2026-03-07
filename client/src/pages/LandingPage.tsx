@@ -619,7 +619,7 @@ export default function LandingPage() {
               <div className="flex flex-col items-center gap-6">
                 <Button 
                   onClick={scrollToOffer} 
-                  className="w-full max-w-[300px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-8 py-3 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-sm md:text-[0.95rem]"
+                  className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 py-2.5 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-sm whitespace-nowrap"
                   data-testid="button-hero-cta"
                 >
                   QUERO RECEBER MEU LISO MÁGICO
