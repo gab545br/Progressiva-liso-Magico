@@ -1819,28 +1819,32 @@ export default function LandingPage() {
             <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Depoimentos reais em vídeo de quem já usou e aprovou o Liso Mágico</p>
           </motion.div>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible md:pb-0 md:gap-5 max-w-6xl mx-auto">
-            {[
-              videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2
-            ].map((video, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                className="snap-center shrink-0 w-[220px] md:w-auto rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group"
-              >
-                <video
-                  src={video}
-                  className="w-full aspect-[9/16] object-cover"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  data-testid={`video-testimonial-${idx}`}
-                />
-              </motion.div>
-            ))}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+              {[
+                videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2
+              ].map((video, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className="snap-center shrink-0 w-[220px] md:w-[260px] rounded-2xl overflow-hidden bg-white/5 border border-white/10"
+                >
+                  <video
+                    src={video}
+                    className="w-full aspect-[9/16] object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    data-testid={`video-testimonial-${idx}`}
+                  />
+                </motion.div>
+              ))}
+            </div>
+            <div className="absolute left-0 top-0 bottom-4 w-12 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none hidden md:block"></div>
+            <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block"></div>
           </div>
 
           <motion.div
