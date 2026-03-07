@@ -12,10 +12,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", pulse = false, children, ...props }, ref) => {
     
     const variants = {
-      primary: "bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-white shadow-lg shadow-yellow-500/30 border-none",
-      secondary: "bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20",
-      outline: "bg-transparent border-2 border-slate-900 text-slate-900 hover:bg-slate-50",
-      whatsapp: "bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/30",
+      primary: "bg-gradient-to-r from-[#d4a017] to-[#b8930f] hover:from-[#e0ad1a] hover:to-[#c9a015] text-white shadow-lg shadow-[#d4a017]/40 border-none font-bold",
+      secondary: "bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20 font-bold",
+      outline: "bg-transparent border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold",
+      whatsapp: "bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/30 font-bold",
     };
 
     const sizes = {

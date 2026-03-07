@@ -115,11 +115,8 @@ export function OfferCard({
 
         <Button 
           onClick={handleBuy} 
-          variant={isPopular ? "primary" : "primary"}
-          className={cn(
-            "w-full rounded-full font-bold transition-all duration-300",
-            isPopular ? "text-white opacity-100" : "bg-black text-white hover:bg-slate-900"
-          )}
+          variant="primary"
+          className="w-full rounded-full font-bold transition-all duration-300 text-white"
           size="lg"
         >
           QUERO COMPRAR AGORA
