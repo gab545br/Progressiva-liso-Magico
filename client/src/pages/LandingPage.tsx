@@ -599,8 +599,8 @@ export default function LandingPage() {
 
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/60 to-black/30 md:from-black/75 md:via-black/50 md:to-transparent" />
 
-        <div className="container mx-auto px-5 md:px-6 relative z-10 pt-24 pb-10 md:pt-28 md:pb-16">
-          <div className="max-w-[580px] mx-auto text-center">
+        <div className="container mx-auto px-5 md:px-8 lg:px-12 relative z-10 pt-24 pb-10 md:pt-0 md:pb-0 md:flex md:items-center md:min-h-[100vh]">
+          <div className="max-w-[580px] mx-auto text-center md:text-left md:mx-0 md:ml-[8%] lg:ml-[10%]">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
@@ -608,15 +608,15 @@ export default function LandingPage() {
               className="space-y-8 md:space-y-10"
             >
               <div>
-                <h1 className="text-[1.75rem] md:text-5xl lg:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
+                <h1 className="text-[1.75rem] md:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.5rem] font-display font-bold text-white leading-[1.15] mb-5" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}>
                   Liso Perfeito com Brilho de Salão
                 </h1>
-                <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
+                <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-[460px] mx-auto md:mx-0" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}>
                   Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col items-center md:items-start gap-6">
                 <Button 
                   onClick={scrollToOffer} 
                   className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 py-2.5 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[13px] md:text-sm whitespace-nowrap"
