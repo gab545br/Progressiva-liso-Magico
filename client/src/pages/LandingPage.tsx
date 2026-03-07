@@ -616,27 +616,30 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center md:items-start gap-5">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/10 max-w-[420px] mx-auto md:mx-0">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <PackageCheck className="w-4.5 h-4.5 text-green-400" />
+                  </div>
+                  <span className="text-white font-bold text-sm md:text-base">Pagamento na Entrega</span>
+                </div>
+                <p className="text-white/70 text-xs md:text-sm leading-relaxed mb-1">
+                  Você só paga quando o produto chegar na sua mão. Aceitamos Pix, cartão, boleto e dinheiro.
+                </p>
+                <p className="text-white/50 text-[11px] md:text-xs">
+                  Frete grátis para todo o Brasil • Entrega rápida
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center md:items-start gap-3">
                 <Button 
                   size="lg" 
                   onClick={scrollToOffer} 
-                  className="w-full max-w-[320px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-10 py-4 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[0.95rem] md:text-base"
+                  className="w-full max-w-[340px] md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-bold rounded-full px-10 py-4 border-none shadow-[0_4px_24px_rgba(212,160,23,0.35)] hover:shadow-[0_6px_32px_rgba(212,160,23,0.45)] transition-all duration-300 text-[0.95rem] md:text-base"
                   data-testid="button-hero-cta"
                 >
                   QUERO RECEBER MEU LISO MÁGICO
                 </Button>
-
-                <div className="flex items-center gap-4 text-white/80 text-xs md:text-sm">
-                  <span className="flex items-center gap-1.5">
-                    <Truck className="w-4 h-4 text-[#d4a017]" />
-                    Frete grátis
-                  </span>
-                  <span className="w-1 h-1 rounded-full bg-white/25"></span>
-                  <span className="flex items-center gap-1.5">
-                    <PackageCheck className="w-4 h-4 text-[#d4a017]" />
-                    Pague na entrega
-                  </span>
-                </div>
               </div>
             </motion.div>
           </div>
