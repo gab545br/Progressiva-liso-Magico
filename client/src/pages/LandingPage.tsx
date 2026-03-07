@@ -82,6 +82,14 @@ import videoFab7 from "@assets/video_(7)_1772588020066_opt.mp4";
 import videoFab8 from "@assets/video_(8)_1772588013113_opt.mp4";
 import imgComposicao from "@assets/composicao_hero_optimized.jpg";
 
+import videoDepo1 from "@assets/1depoimento_1772886583833.mp4";
+import videoDepo2 from "@assets/depoimento_2_‐_Feito_com_o_Clipchamp_1772886583832.mp4";
+import videoDepo3 from "@assets/depoimento3_1772886583832.mp4";
+import videoDepo4 from "@assets/depoimento4_1772886583831.mp4";
+import videoDepo5 from "@assets/depoimento5_1772886583830.mp4";
+import videoDepo6 from "@assets/depoimento6_1772886583829.mp4";
+import videoDepo7 from "@assets/depoimento7_1772886583828.mp4";
+
 const faqData = [
   {
     category: "Pagamento e Entrega",
@@ -1790,6 +1798,59 @@ export default function LandingPage() {
               Quero Meu Liso Perfeito — Pagamento na Entrega
             </Button>
           </div>
+        </div>
+      </section>
+      {/* --- VIDEO TESTIMONIALS --- */}
+      <section className="py-16 md:py-20 bg-slate-950 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 md:mb-14"
+          >
+            <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-6">
+              <Play className="w-4 h-4 text-[#C6A756]" />
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Depoimentos Reais</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              Veja o que nossas <span className="text-[#C6A756]">clientes</span> estão dizendo
+            </h2>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Depoimentos reais em vídeo de quem já usou e aprovou o Liso Mágico</p>
+          </motion.div>
+
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible md:pb-0 md:gap-5 max-w-6xl mx-auto">
+            {[
+              videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2
+            ].map((video, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="snap-center shrink-0 w-[220px] md:w-auto rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group"
+              >
+                <video
+                  src={video}
+                  className="w-full aspect-[9/16] object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  data-testid={`video-testimonial-${idx}`}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-10"
+          >
+            <Button onClick={scrollToOffer} data-testid="button-cta-video-depo">QUERO MEU LISO PERFEITO</Button>
+          </motion.div>
         </div>
       </section>
       {/* --- FAQ --- */}
