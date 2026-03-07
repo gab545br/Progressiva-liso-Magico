@@ -654,20 +654,23 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center md:justify-start gap-3 mt-2">
-                  <div className="flex -space-x-2">
+                <div className="flex items-center justify-center md:justify-start gap-4 mt-3 bg-white/[0.06] backdrop-blur-sm rounded-xl px-4 py-3 border border-white/[0.08] max-w-[400px] md:max-w-[500px] w-full">
+                  <div className="flex -space-x-2.5">
                     {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map((img, i) => (
-                      <img key={i} src={img} alt="" className="w-8 h-8 rounded-full border-2 border-black/50 object-cover" />
+                      <img key={i} src={img} alt="" className="w-9 h-9 rounded-full border-2 border-white/20 object-cover shadow-sm" />
                     ))}
                   </div>
-                  <div>
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
-                      ))}
+                  <div className="border-l border-white/10 pl-4">
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-[#d4a017] text-[#d4a017]" />
+                        ))}
+                      </div>
+                      <span className="text-white/70 text-[11px] font-medium">4.9/5</span>
                     </div>
-                    <p className="text-white/60 text-[10px] md:text-xs mt-0.5">
-                      <span className="text-white font-semibold">4.800+</span> clientes satisfeitas
+                    <p className="text-white/50 text-[11px] md:text-xs mt-0.5">
+                      Avaliado por <span className="text-white font-semibold">4.800+</span> clientes
                     </p>
                   </div>
                 </div>
@@ -676,24 +679,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      {/* --- PAYMENT TRUST BAR --- */}
-      <div className="bg-[#111] border-y border-white/[0.06] py-4 md:py-5">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8">
-            <p className="text-white/50 text-xs md:text-sm font-medium uppercase tracking-wider flex items-center gap-2">
-              <Lock className="w-3.5 h-3.5 text-green-400" />
-              Formas de pagamento na entrega
-            </p>
-            <div className="flex items-center gap-4 md:gap-6">
-              {["Pix", "Cartão", "Boleto", "Dinheiro"].map((method) => (
-                <span key={method} className="text-white/70 text-xs md:text-sm font-semibold bg-white/[0.06] px-3 py-1.5 rounded-md border border-white/[0.08]">
-                  {method}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
       {/* --- BENEFITS STRIP --- */}
       <div className="bg-slate-900 text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
