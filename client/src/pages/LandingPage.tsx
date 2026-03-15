@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  CheckCircle2, 
-  Truck, 
-  ShieldCheck, 
-  Star, 
-  Clock, 
-  Sparkles, 
-  ThumbsUp, 
+import {
+  CheckCircle2,
+  Truck,
+  ShieldCheck,
+  Star,
+  Clock,
+  Sparkles,
+  ThumbsUp,
   AlertCircle,
   Menu,
   X,
@@ -26,7 +26,7 @@ import {
   Droplets,
   Leaf,
   Flame,
-  Users
+  Users,
 } from "lucide-react";
 
 import { Button } from "@/components/Button";
@@ -94,33 +94,81 @@ const faqData = [
   {
     category: "Pagamento e Entrega",
     items: [
-      { q: "O pagamento é realmente na entrega?", a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos todas as formas de pagamento: Pix, cartão de crédito e débito, boleto e dinheiro. E o melhor: você pode parcelar na hora da entrega!" },
-      { q: "Qual o prazo de entrega?", a: "Entregamos em até 24 horas! Você escolhe o melhor dia para receber — pode ser no dia seguinte ou em até 3 dias. Na hora da compra, é só agendar a data que preferir." },
-      { q: "O frete é realmente grátis?", a: "Sim! O frete é 100% grátis para todo o Brasil em todos os kits. Não há nenhum custo adicional além do valor do produto." },
-      { q: "Posso parcelar?", a: "Sim! Você pode parcelar na hora da entrega no cartão de crédito ou débito. Também aceitamos Pix, boleto e dinheiro. Você escolhe como prefere pagar!" },
-    ]
+      {
+        q: "O pagamento é realmente na entrega?",
+        a: "Sim! Você recebe o produto primeiro, confere tudo certinho e só depois paga ao entregador. Aceitamos todas as formas de pagamento: Pix, cartão de crédito e débito, boleto e dinheiro. E o melhor: você pode parcelar na hora da entrega!",
+      },
+      {
+        q: "Qual o prazo de entrega?",
+        a: "Entregamos em até 24 horas! Você escolhe o melhor dia para receber — pode ser no dia seguinte ou em até 3 dias. Na hora da compra, é só agendar a data que preferir.",
+      },
+      {
+        q: "O frete é realmente grátis?",
+        a: "Sim! O frete é 100% grátis para todo o Brasil em todos os kits. Não há nenhum custo adicional além do valor do produto.",
+      },
+      {
+        q: "Posso parcelar?",
+        a: "Sim! Você pode parcelar na hora da entrega no cartão de crédito ou débito. Também aceitamos Pix, boleto e dinheiro. Você escolhe como prefere pagar!",
+      },
+    ],
   },
   {
     category: "Sobre o Produto",
     items: [
-      { q: "O Liso Mágico tem formol?", a: "Não! O Liso Mágico é 100% livre de formol e qualquer substância proibida. Sua fórmula é à base de ácidos orgânicos, queratina e vitaminas, aprovada pela ANVISA (Registro nº 4.02912-7)." },
-      { q: "Funciona em qual tipo de cabelo?", a: "Funciona em todos os tipos: crespos, cacheados, ondulados, lisos com frizz, tingidos, descoloridos e com química. O resultado varia conforme o tipo de fio, mas todos ficam mais lisos, brilhantes e sem frizz." },
-      { q: "Quanto tempo dura o efeito alisante?", a: "O efeito dura em média de 2 a 3 meses, dependendo do crescimento natural do cabelo e dos cuidados diários. Muitas clientes relatam que o efeito dura ainda mais com manutenção adequada." },
-      { q: "Posso usar em casa sozinha?", a: "Sim! O produto vem com instruções detalhadas passo a passo. É muito fácil de aplicar em casa, sem precisar ir ao salão. Basta lavar, aplicar, passar a chapinha e pronto." },
-      { q: "O produto danifica o cabelo?", a: "Não! Ao contrário, o Liso Mágico possui ativos que nutrem e hidratam os fios durante o alisamento. Seu cabelo fica mais saudável, brilhante e com menos pontas duplas." },
-    ]
+      {
+        q: "O Liso Mágico tem formol?",
+        a: "Não! O Liso Mágico é 100% livre de formol e qualquer substância proibida. Sua fórmula é à base de ácidos orgânicos, queratina e vitaminas, aprovada pela ANVISA (Registro nº 4.02912-7).",
+      },
+      {
+        q: "Funciona em qual tipo de cabelo?",
+        a: "Funciona em todos os tipos: crespos, cacheados, ondulados, lisos com frizz, tingidos, descoloridos e com química. O resultado varia conforme o tipo de fio, mas todos ficam mais lisos, brilhantes e sem frizz.",
+      },
+      {
+        q: "Quanto tempo dura o efeito alisante?",
+        a: "O efeito dura em média de 2 a 3 meses, dependendo do crescimento natural do cabelo e dos cuidados diários. Muitas clientes relatam que o efeito dura ainda mais com manutenção adequada.",
+      },
+      {
+        q: "Posso usar em casa sozinha?",
+        a: "Sim! O produto vem com instruções detalhadas passo a passo. É muito fácil de aplicar em casa, sem precisar ir ao salão. Basta lavar, aplicar, passar a chapinha e pronto.",
+      },
+      {
+        q: "O produto danifica o cabelo?",
+        a: "Não! Ao contrário, o Liso Mágico possui ativos que nutrem e hidratam os fios durante o alisamento. Seu cabelo fica mais saudável, brilhante e com menos pontas duplas.",
+      },
+    ],
   },
   {
     category: "Garantia e Trocas",
     items: [
-      { q: "E se eu não gostar do resultado?", a: "Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do seu dinheiro sem burocracia." },
-      { q: "Como faço para trocar ou devolver?", a: "Basta entrar em contato pelo e-mail contato@lisomagico.com.br ou pelo telefone (34) 99766-8955. Nossa equipe cuida de todo o processo para você, sem complicação." },
-      { q: "O produto é original e lacrado?", a: "Sim! Todos os produtos são 100% originais, lacrados de fábrica e com registro na ANVISA. Enviamos direto do fabricante para garantir a qualidade." },
-    ]
-  }
+      {
+        q: "E se eu não gostar do resultado?",
+        a: "Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do seu dinheiro sem burocracia.",
+      },
+      {
+        q: "Como faço para trocar ou devolver?",
+        a: "Basta entrar em contato pelo e-mail contato@lisomagico.com.br ou pelo telefone (34) 99766-8955. Nossa equipe cuida de todo o processo para você, sem complicação.",
+      },
+      {
+        q: "O produto é original e lacrado?",
+        a: "Sim! Todos os produtos são 100% originais, lacrados de fábrica e com registro na ANVISA. Enviamos direto do fabricante para garantir a qualidade.",
+      },
+    ],
+  },
 ];
 
-function FAQItem({ question, answer, isOpen, onClick, index }: { question: string; answer: string; isOpen: boolean; onClick: () => void; index: number }) {
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onClick,
+  index,
+}: {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onClick: () => void;
+  index: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -133,32 +181,42 @@ function FAQItem({ question, answer, isOpen, onClick, index }: { question: strin
         onClick={onClick}
         className={`w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left transition-all duration-300 rounded-2xl ${
           isOpen
-            ? 'bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-lg'
-            : 'bg-white hover:bg-slate-50 text-slate-800 shadow-sm border border-slate-100 hover:border-[#C6A756]/30 hover:shadow-md'
+            ? "bg-gradient-to-r from-slate-900 to-slate-800 text-white shadow-lg"
+            : "bg-white hover:bg-slate-50 text-slate-800 shadow-sm border border-slate-100 hover:border-[#C6A756]/30 hover:shadow-md"
         }`}
         data-testid={`faq-toggle-${index}`}
       >
         <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
-          <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
-            isOpen ? 'bg-[#C6A756]' : 'bg-[#C6A756]/10 group-hover:bg-[#C6A756]/20'
-          }`}>
-            <HelpCircle className={`w-4 h-4 md:w-5 md:h-5 ${isOpen ? 'text-white' : 'text-[#C6A756]'}`} />
+          <div
+            className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
+              isOpen
+                ? "bg-[#C6A756]"
+                : "bg-[#C6A756]/10 group-hover:bg-[#C6A756]/20"
+            }`}
+          >
+            <HelpCircle
+              className={`w-4 h-4 md:w-5 md:h-5 ${isOpen ? "text-white" : "text-[#C6A756]"}`}
+            />
           </div>
-          <span className={`font-semibold text-sm md:text-base leading-snug ${isOpen ? 'text-white' : 'text-slate-800'}`}>
+          <span
+            className={`font-semibold text-sm md:text-base leading-snug ${isOpen ? "text-white" : "text-slate-800"}`}
+          >
             {question}
           </span>
         </div>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
-          isOpen ? 'rotate-180 text-[#C6A756]' : 'text-slate-400'
-        }`} />
+        <ChevronDown
+          className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
+            isOpen ? "rotate-180 text-[#C6A756]" : "text-slate-400"
+          }`}
+        />
       </button>
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <div className="px-5 md:px-6 py-4 md:py-5 ml-11 md:ml-14 text-slate-600 text-sm md:text-base leading-relaxed border-l-2 border-[#C6A756]/30 mt-1">
@@ -191,7 +249,7 @@ function FabricationSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const videos = section.querySelectorAll('video');
+          const videos = section.querySelectorAll("video");
           if (entry.isIntersecting) {
             videos.forEach((v) => {
               if (v.paused) v.play().catch(() => {});
@@ -203,7 +261,7 @@ function FabricationSection() {
           }
         });
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
 
     observer.observe(section);
@@ -224,10 +282,13 @@ function FabricationSection() {
             Fabricação Nacional
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-            Veja como o Liso Mágico é <span className="text-[#C6A756]">fabricado</span>
+            Veja como o Liso Mágico é{" "}
+            <span className="text-[#C6A756]">fabricado</span>
           </h2>
           <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
-            Produzido com tecnologia de ponta e ingredientes selecionados. Conheça de perto o processo de fabricação do produto que vai transformar seu cabelo.
+            Produzido com tecnologia de ponta e ingredientes selecionados.
+            Conheça de perto o processo de fabricação do produto que vai
+            transformar seu cabelo.
           </p>
         </motion.div>
 
@@ -235,10 +296,7 @@ function FabricationSection() {
           <div className="fab-track hover:[animation-play-state:paused]">
             {[...Array(2)].flatMap((_, setIdx) =>
               fabricationVideos.map((video, idx) => (
-                <div
-                  key={`${setIdx}-${idx}`}
-                  className="fab-card"
-                >
+                <div key={`${setIdx}-${idx}`} className="fab-card">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-black group h-full">
                     <video
                       muted
@@ -256,12 +314,14 @@ function FabricationSection() {
                         <div className="w-6 h-6 rounded-full bg-[#C6A756]/20 flex items-center justify-center">
                           <Play className="w-3 h-3 text-[#C6A756] fill-[#C6A756]" />
                         </div>
-                        <span className="text-white/90 text-sm font-medium">{video.label}</span>
+                        <span className="text-white/90 text-sm font-medium">
+                          {video.label}
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))
+              )),
             )}
           </div>
         </div>
@@ -278,7 +338,9 @@ function FabricationSection() {
             { label: "Fabricação", value: "Nacional" },
           ].map((item, idx) => (
             <div key={idx} className="text-center">
-              <span className="text-[#C6A756] text-sm font-bold uppercase tracking-wider block">{item.label}</span>
+              <span className="text-[#C6A756] text-sm font-bold uppercase tracking-wider block">
+                {item.label}
+              </span>
               <span className="text-white/60 text-xs">{item.value}</span>
             </div>
           ))}
@@ -298,8 +360,13 @@ function LazyVideo({ src, idx }: { src: string; idx: number }) {
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
-      { rootMargin: '200px' }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -351,12 +418,13 @@ function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const isScrolling = useRef(false);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current || isScrolling.current) return;
     isScrolling.current = true;
     const container = scrollRef.current;
     const cardWidth = 280;
-    const target = container.scrollLeft + (direction === 'left' ? -cardWidth : cardWidth);
+    const target =
+      container.scrollLeft + (direction === "left" ? -cardWidth : cardWidth);
     const start = container.scrollLeft;
     const diff = target - start;
     let startTime: number | null = null;
@@ -401,14 +469,14 @@ function VideoTestimonialsCarousel({ videos }: { videos: string[] }) {
       <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none hidden md:block" />
 
       <button
-        onClick={() => scroll('left')}
+        onClick={() => scroll("left")}
         className="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-300"
         data-testid="button-video-depo-prev"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
-        onClick={() => scroll('right')}
+        onClick={() => scroll("right")}
         className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-300"
         data-testid="button-video-depo-next"
       >
@@ -422,13 +490,16 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   const toggleItem = (key: string) => {
-    setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
+    setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   let globalIndex = 0;
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white">
+    <section
+      id="faq"
+      className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white"
+    >
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -440,8 +511,13 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
             <MessageCircle className="w-4 h-4" />
             Tire Suas Dúvidas
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">Perguntas Frequentes</h2>
-          <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">Reunimos as dúvidas mais comuns das nossas clientes para te ajudar a tomar a melhor decisão.</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 mb-4">
+            Perguntas Frequentes
+          </h2>
+          <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto">
+            Reunimos as dúvidas mais comuns das nossas clientes para te ajudar a
+            tomar a melhor decisão.
+          </p>
         </motion.div>
 
         <div className="space-y-10 md:space-y-14">
@@ -484,8 +560,13 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
           className="mt-12 md:mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pronta para transformar seu cabelo?</h3>
-            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">Aproveite a oferta especial com frete grátis e pagamento na entrega — Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+              Pronta para transformar seu cabelo?
+            </h3>
+            <p className="text-white/60 text-sm md:text-base mb-6 max-w-lg mx-auto">
+              Aproveite a oferta especial com frete grátis e pagamento na
+              entrega — Pix, cartão, boleto ou dinheiro. Parcele na hora!
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 onClick={scrollToOffer}
@@ -502,7 +583,6 @@ function FAQSection({ scrollToOffer }: { scrollToOffer: () => void }) {
   );
 }
 
-
 function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
 
@@ -510,15 +590,15 @@ function ScrollToTopButton() {
     const handleScroll = () => {
       setVisible(window.scrollY > 1500);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!visible) return null;
 
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className="fixed bottom-20 right-4 z-40 md:bottom-6 md:right-6 w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow-lg hover:bg-slate-800 transition-colors"
       data-testid="button-scroll-top"
     >
@@ -534,8 +614,8 @@ function StickyCtaBar({ onClick }: { onClick: () => void }) {
     const handleScroll = () => {
       setVisible(window.scrollY > 600);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!visible) return null;
@@ -551,7 +631,9 @@ function StickyCtaBar({ onClick }: { onClick: () => void }) {
           <Flame className="w-4 h-4 mr-2" />
           QUERO MEU LISO MÁGICO
         </Button>
-        <p className="text-center text-[10px] text-slate-400 mt-1.5">Frete Grátis + Pagamento na Entrega</p>
+        <p className="text-center text-[10px] text-slate-400 mt-1.5">
+          Frete Grátis + Pagamento na Entrega
+        </p>
       </div>
     </div>
   );
@@ -624,11 +706,15 @@ export default function LandingPage() {
     setTimeout(() => setAutoPlayTestimonial(true), 8000);
   };
 
-  const prevTestimonial = () => goToTestimonial((currentTestimonial - 1 + testimonials.length) % testimonials.length);
-  const nextTestimonial = () => goToTestimonial((currentTestimonial + 1) % testimonials.length);
+  const prevTestimonial = () =>
+    goToTestimonial(
+      (currentTestimonial - 1 + testimonials.length) % testimonials.length,
+    );
+  const nextTestimonial = () =>
+    goToTestimonial((currentTestimonial + 1) % testimonials.length);
 
   const scrollToOffer = () => {
-    offerSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    offerSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const navItems = [
@@ -666,27 +752,33 @@ export default function LandingPage() {
         <div className="container mx-auto h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Sparkles className="w-8 h-8 text-[#d4a017]" />
-            <span className="font-display font-bold text-2xl tracking-tight text-white">Liso<span className="text-[#d4a017]">Mágico</span></span>
+            <span className="font-display font-bold text-2xl tracking-tight text-white">
+              Liso<span className="text-[#d4a017]">Mágico</span>
+            </span>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a 
-                key={item.label} 
+              <a
+                key={item.label}
                 href={item.href}
                 className="text-sm font-medium text-white hover:text-[#d4a017] transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <Button size="sm" onClick={scrollToOffer} className="bg-[#d4a017] hover:bg-[#b88a14] text-white border-none">
+            <Button
+              size="sm"
+              onClick={scrollToOffer}
+              className="bg-[#d4a017] hover:bg-[#b88a14] text-white border-none"
+            >
               COMPRAR AGORA
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -705,8 +797,8 @@ export default function LandingPage() {
             >
               <nav className="flex flex-col p-4 gap-4">
                 {navItems.map((item) => (
-                  <a 
-                    key={item.label} 
+                  <a
+                    key={item.label}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
                     className="text-base font-medium text-white hover:text-[#d4a017]"
@@ -714,7 +806,13 @@ export default function LandingPage() {
                     {item.label}
                   </a>
                 ))}
-                <Button onClick={() => { setIsMenuOpen(false); scrollToOffer(); }} className="w-full bg-[#d4a017] hover:bg-[#b88a14] text-white border-none">
+                <Button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    scrollToOffer();
+                  }}
+                  className="w-full bg-[#d4a017] hover:bg-[#b88a14] text-white border-none"
+                >
                   COMPRAR AGORA
                 </Button>
               </nav>
@@ -723,15 +821,17 @@ export default function LandingPage() {
         </AnimatePresence>
       </header>
       {/* --- HERO SECTION --- */}
-      <section 
-        id="hero" 
+      <section
+        id="hero"
         className="relative min-h-[100vh] flex items-center overflow-hidden bg-cover bg-no-repeat hero-section"
-        style={{ 
+        style={{
           backgroundImage: `url(${imgProductHero})`,
-          backgroundPosition: 'right center'
+          backgroundPosition: "right center",
         }}
       >
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           @media (max-width: 768px) {
             #hero { 
               background-image: url(${imgProductHeroMobile}) !important;
@@ -739,7 +839,9 @@ export default function LandingPage() {
               background-size: cover !important;
             }
           }
-        `}} />
+        `,
+          }}
+        />
 
         <div className="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-black/30 via-black/55 to-black/80 md:from-black/75 md:via-black/50 md:to-transparent" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_80%,rgba(212,160,23,0.08),transparent_50%)]" />
@@ -753,29 +855,46 @@ export default function LandingPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="hidden md:block text-[#d4a017] font-semibold text-sm md:text-base lg:text-lg tracking-wide uppercase mb-4 lg:mb-5 text-gold-shine"
-                  style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+                  style={{ textShadow: "0 1px 8px rgba(0,0,0,0.25)" }}
                 >
                   Progressiva Profissional Sem Formol
                 </motion.p>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="text-[1.75rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-bold text-white leading-[1.15] md:leading-[1.1] mb-5 md:mb-7 lg:mb-8"
-                  style={{ textShadow: '0 2px 20px rgba(0,0,0,0.35)' }}
+                  style={{ textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
                 >
-                  <span className="md:hidden">Liso Perfeito com Brilho de Salão</span>
-                  <span className="hidden md:inline">Liso Perfeito com<br />Brilho de Salão</span>
+                  <span className="md:hidden">
+                    Liso Perfeito com Brilho de Salão
+                  </span>
+                  <span className="hidden md:inline">
+                    Liso Perfeito com
+                    <br />
+                    Brilho de Salão
+                  </span>
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.5 }}
                   className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed max-w-[460px] md:max-w-[540px] mx-auto md:mx-0 md:leading-[1.85]"
-                  style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+                  style={{ textShadow: "0 1px 8px rgba(0,0,0,0.25)" }}
                 >
-                  <span className="md:hidden">Progressiva sem formol que alisa, reduz o frizz e devolve o brilho — no conforto da sua casa.</span>
-                  <span className="hidden md:inline">Alisa, reduz o frizz e devolve o brilho dos fios com resultado de salão — sem precisar sair de casa. Fórmula aprovada por milhares de brasileiras.</span>
+                  <span className="md:hidden">
+                    Progressiva sem formol que alisa, reduz o frizz e devolve o
+                    brilho — no conforto da sua casa.
+                  </span>
+                  <span className="hidden md:inline">
+                    Alisa, reduz o frizz e devolve o brilho dos fios com
+                    resultado de salão — sem precisar sair de casa. Fórmula
+                    aprovada por milhares de brasileiras.
+                  </span>
                 </motion.p>
               </div>
 
@@ -783,10 +902,14 @@ export default function LandingPage() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.7,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                 >
-                  <Button 
-                    onClick={scrollToOffer} 
+                  <Button
+                    onClick={scrollToOffer}
                     className="md:w-auto bg-[#d4a017] hover:bg-[#b88a14] text-white font-semibold rounded-full px-8 md:px-10 py-2.5 md:py-3 border-none animate-pulse-glow btn-shimmer hover:scale-105 transition-all duration-300 text-[13px] md:text-[15px] whitespace-nowrap"
                     data-testid="button-hero-cta"
                   >
@@ -801,9 +924,24 @@ export default function LandingPage() {
                   className="grid grid-cols-3 gap-3 md:gap-5 max-w-[400px] md:max-w-[500px] w-full"
                 >
                   {[
-                    { icon: PackageCheck, label: "Pague na Entrega", sub: "Entrega em 24h", color: "text-green-400" },
-                    { icon: ShieldCheck, label: "Garantia 7 Dias", sub: "Satisfação total", color: "text-[#d4a017]" },
-                    { icon: Truck, label: "Frete Grátis", sub: "Todo o Brasil", color: "text-green-400" },
+                    {
+                      icon: PackageCheck,
+                      label: "Pague na Entrega",
+                      sub: "Entrega em 24h",
+                      color: "text-green-400",
+                    },
+                    {
+                      icon: ShieldCheck,
+                      label: "Garantia 7 Dias",
+                      sub: "Satisfação total",
+                      color: "text-[#d4a017]",
+                    },
+                    {
+                      icon: Truck,
+                      label: "Frete Grátis",
+                      sub: "Todo o Brasil",
+                      color: "text-green-400",
+                    },
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -813,9 +951,15 @@ export default function LandingPage() {
                       className="bg-white/10 backdrop-blur-sm rounded-lg py-3 md:py-5 px-2 md:px-4 border border-white/10 text-center hover:bg-white/15 hover:border-white/20 transition-all duration-300 animate-float-delayed"
                       style={{ animationDelay: `${idx * 0.5}s` }}
                     >
-                      <item.icon className={`w-5 h-5 md:w-6 md:h-6 ${item.color} mx-auto mb-1.5 md:mb-2`} />
-                      <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">{item.label}</span>
-                      <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">{item.sub}</span>
+                      <item.icon
+                        className={`w-5 h-5 md:w-6 md:h-6 ${item.color} mx-auto mb-1.5 md:mb-2`}
+                      />
+                      <span className="text-white font-bold text-[10px] md:text-xs block leading-tight">
+                        {item.label}
+                      </span>
+                      <span className="text-white/50 text-[9px] md:text-[11px] block mt-1">
+                        {item.sub}
+                      </span>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -827,18 +971,24 @@ export default function LandingPage() {
                   className="flex items-center justify-center md:justify-start gap-3 mt-3 max-w-[400px] md:max-w-[500px] w-full"
                 >
                   <div className="flex -space-x-3">
-                    {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map((img, i) => (
-                      <motion.img
-                        key={i}
-                        src={img}
-                        alt=""
-                        className="w-10 h-10 rounded-full border-[2.5px] border-black/60 object-cover object-top shadow-md"
-                        style={{ zIndex: 5 - i }}
-                        initial={{ opacity: 0, scale: 0, x: -10 }}
-                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 1.4 + i * 0.1, ease: "backOut" }}
-                      />
-                    ))}
+                    {[imgBelo1, imgBelo2, imgBelo3, imgBelo4, imgBelo5].map(
+                      (img, i) => (
+                        <motion.img
+                          key={i}
+                          src={img}
+                          alt=""
+                          className="w-10 h-10 rounded-full border-[2.5px] border-black/60 object-cover object-top shadow-md"
+                          style={{ zIndex: 5 - i }}
+                          initial={{ opacity: 0, scale: 0, x: -10 }}
+                          animate={{ opacity: 1, scale: 1, x: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: 1.4 + i * 0.1,
+                            ease: "backOut",
+                          }}
+                        />
+                      ),
+                    )}
                   </div>
                   <div>
                     <div className="flex gap-0.5">
@@ -847,14 +997,22 @@ export default function LandingPage() {
                           key={i}
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.2, delay: 1.9 + i * 0.08, ease: "backOut" }}
+                          transition={{
+                            duration: 0.2,
+                            delay: 1.9 + i * 0.08,
+                            ease: "backOut",
+                          }}
                         >
                           <Star className="w-3.5 h-3.5 fill-[#d4a017] text-[#d4a017] drop-shadow-sm" />
                         </motion.div>
                       ))}
                     </div>
-                    <p className="text-white/60 text-[11px] md:text-xs mt-0.5 font-medium" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
-                      <span className="text-white">4.800+</span> clientes satisfeitas
+                    <p
+                      className="text-white/60 text-[11px] md:text-xs mt-0.5 font-medium"
+                      style={{ textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
+                    >
+                      <span className="text-white">4.800+</span> clientes
+                      satisfeitas
                     </p>
                   </div>
                 </motion.div>
@@ -869,7 +1027,9 @@ export default function LandingPage() {
           transition={{ delay: 2, duration: 0.8 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
         >
-          <span className="text-white/40 text-[10px] uppercase tracking-[3px] font-medium">Descubra mais</span>
+          <span className="text-white/40 text-[10px] uppercase tracking-[3px] font-medium">
+            Descubra mais
+          </span>
           <ChevronDown className="w-5 h-5 text-white/40 animate-scroll-bounce" />
         </motion.div>
       </section>
@@ -883,17 +1043,37 @@ export default function LandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-4xl font-display font-bold text-white mb-3">
-              O segredo do <span className="text-[#C6A756]">liso perfeito</span> que conquistou o Brasil
+              O segredo do <span className="text-[#C6A756]">liso perfeito</span>{" "}
+              que conquistou o Brasil
             </h2>
-            <p className="text-white/50 text-base max-w-2xl mx-auto">Mais de 4.800 mulheres já transformaram seus cabelos — descubra por que o Liso Mágico é o mais vendido do país</p>
+            <p className="text-white/50 text-base max-w-2xl mx-auto">
+              Mais de 4.800 mulheres já transformaram seus cabelos — descubra
+              por que o Liso Mágico é o mais vendido do país
+            </p>
           </motion.div>
 
           <div className="hidden md:grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Sparkles, title: "Resultados progressivos", desc: "Auxilia no alinhamento dos fios, com melhora visível a cada aplicação." },
-              { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Barreira anti-umidade que mantém o liso impecável por semanas." },
-              { icon: CheckCircle2, title: "Para todos os tipos de cabelo", desc: "Funciona em cabelos naturais, tingidos, com luzes ou outras químicas." },
-              { icon: Clock, title: "Rápido e prático", desc: "Aplique em casa em menos de 1 hora. Sem salão, sem agendamento." },
+              {
+                icon: Sparkles,
+                title: "Resultados progressivos",
+                desc: "Auxilia no alinhamento dos fios, com melhora visível a cada aplicação.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Elimina o frizz por completo",
+                desc: "Barreira anti-umidade que mantém o liso impecável por semanas.",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Para todos os tipos de cabelo",
+                desc: "Funciona em cabelos naturais, tingidos, com luzes ou outras químicas.",
+              },
+              {
+                icon: Clock,
+                title: "Rápido e prático",
+                desc: "Aplique em casa em menos de 1 hora. Sem salão, sem agendamento.",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -906,18 +1086,38 @@ export default function LandingPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C6A756]/20 to-[#C6A756]/5 flex items-center justify-center mb-1 group-hover:from-[#C6A756]/30 group-hover:to-[#C6A756]/10 transition-all duration-500">
                   <item.icon className="w-7 h-7 text-[#C6A756] group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="font-bold text-lg font-sans text-white leading-tight">{item.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-bold text-lg font-sans text-white leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-white/45 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
 
           <div className="md:hidden space-y-3 max-w-md mx-auto">
             {[
-              { icon: Sparkles, title: "Resultados progressivos", desc: "Melhora visível a cada aplicação." },
-              { icon: ShieldCheck, title: "Elimina o frizz por completo", desc: "Liso impecável por semanas." },
-              { icon: CheckCircle2, title: "Para todos os tipos de cabelo", desc: "Naturais, tingidos ou com química." },
-              { icon: Clock, title: "Rápido e prático", desc: "Menos de 1 hora, sem salão." },
+              {
+                icon: Sparkles,
+                title: "Resultados progressivos",
+                desc: "Melhora visível a cada aplicação.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Elimina o frizz por completo",
+                desc: "Liso impecável por semanas.",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Para todos os tipos de cabelo",
+                desc: "Naturais, tingidos ou com química.",
+              },
+              {
+                icon: Clock,
+                title: "Rápido e prático",
+                desc: "Menos de 1 hora, sem salão.",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -931,8 +1131,12 @@ export default function LandingPage() {
                   <item.icon className="w-5.5 h-5.5 text-[#C6A756]" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[15px] font-sans text-white leading-tight">{item.title}</h3>
-                  <p className="text-white/40 text-[13px] leading-snug mt-0.5">{item.desc}</p>
+                  <h3 className="font-bold text-[15px] font-sans text-white leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/40 text-[13px] leading-snug mt-0.5">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -942,129 +1146,172 @@ export default function LandingPage() {
       {/* --- ECONOMY SECTION --- */}
       <section className="relative overflow-hidden economy-section">
         <div className="md:hidden relative w-full h-[220px] overflow-hidden">
-          <img src={imgEconomyHero} alt="Profissional de cabelo" loading="lazy" className="w-full h-full object-cover object-top" />
+          <img
+            src={imgEconomyHero}
+            alt="Profissional de cabelo"
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900"></div>
         </div>
 
         <div className="hidden md:block absolute inset-0">
-          <img src={imgEconomyHero} alt="" loading="lazy" className="w-full h-full object-cover object-center" />
+          <img
+            src={imgEconomyHero}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-transparent"></div>
         </div>
 
         <div className="relative bg-slate-900 md:bg-transparent py-12 md:py-24">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
-            >
-              <div>
-                <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-5">
-                  <Sparkles className="w-4 h-4 text-[#C6A756]" />
-                  <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Compare e Economize</span>
-                </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4 text-center">
-                  Você ainda paga <span className="text-red-400">caro</span> no salão?
-                </h2>
-                <p className="text-white/50 text-base text-center">Compare e veja por que o Liso Mágico é a escolha inteligente</p>
-              </div>
-
-              <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="hidden sm:flex absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-10 flex-col items-center">
-                  <div className="w-[2px] flex-1 bg-red-500/60"></div>
-                  <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
-                    <X className="w-4 h-4 text-white" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                <div>
+                  <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-5">
+                    <Sparkles className="w-4 h-4 text-[#C6A756]" />
+                    <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">
+                      Compare e Economize
+                    </span>
                   </div>
-                  <div className="w-[2px] flex-1 bg-red-500/60"></div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-4 text-center">
+                    Você ainda paga <span className="text-red-400">caro</span>{" "}
+                    no salão?
+                  </h2>
+                  <p className="text-white/50 text-base text-center">
+                    Compare e veja por que o Liso Mágico é a escolha inteligente
+                  </p>
                 </div>
 
-                <div className="bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                    <span className="text-red-300 text-xs font-bold uppercase tracking-wider">Salão de Beleza</span>
+                <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="hidden sm:flex absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-10 flex-col items-center">
+                    <div className="w-[2px] flex-1 bg-red-500/60"></div>
+                    <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
+                      <X className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="w-[2px] flex-1 bg-red-500/60"></div>
                   </div>
-                  <div className="space-y-3">
-                    {[
-                      { label: "Por sessão", value: "R$ 200–500" },
-                      { label: "Frequência", value: "A cada 3 meses" },
-                      { label: "Custo anual", value: "R$ 800–2.000" },
-                      { label: "Tempo", value: "3 a 5 horas" },
-                    ].map((row, idx) => (
-                      <div key={idx} className="flex justify-between items-center">
-                        <span className="text-white/50 text-sm">{row.label}</span>
-                        <span className="text-red-300 font-semibold text-sm">{row.value}</span>
-                      </div>
-                    ))}
+
+                  <div className="bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                      <span className="text-red-300 text-xs font-bold uppercase tracking-wider">
+                        Salão de Beleza
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        { label: "Por sessão", value: "R$ 200–500" },
+                        { label: "Frequência", value: "A cada 3 meses" },
+                        { label: "Custo anual", value: "R$ 800–2.000" },
+                        { label: "Tempo", value: "3 a 5 horas" },
+                      ].map((row, idx) => (
+                        <div
+                          key={idx}
+                          className="flex justify-between items-center"
+                        >
+                          <span className="text-white/50 text-sm">
+                            {row.label}
+                          </span>
+                          <span className="text-red-300 font-semibold text-sm">
+                            {row.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="sm:hidden flex items-center gap-3 -my-1">
+                    <div className="flex-1 h-[2px] bg-red-500/40"></div>
+                    <div className="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
+                      <X className="w-3.5 h-3.5 text-white" />
+                    </div>
+                    <div className="flex-1 h-[2px] bg-red-500/40"></div>
+                  </div>
+
+                  <div className="bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                      <span className="text-green-300 text-xs font-bold uppercase tracking-wider">
+                        Liso Mágico
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        { label: "Progressiva", value: "R$ 149,00" },
+                        { label: "Rendimento", value: "Até 5 aplicações" },
+                        { label: "Por aplicação", value: "R$ 29,80" },
+                        { label: "Tempo", value: "40 min–1 hora" },
+                      ].map((row, idx) => (
+                        <div
+                          key={idx}
+                          className="flex justify-between items-center"
+                        >
+                          <span className="text-white/50 text-sm">
+                            {row.label}
+                          </span>
+                          <span className="text-green-300 font-semibold text-sm">
+                            {row.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="sm:hidden flex items-center gap-3 -my-1">
-                  <div className="flex-1 h-[2px] bg-red-500/40"></div>
-                  <div className="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
-                    <X className="w-3.5 h-3.5 text-white" />
-                  </div>
-                  <div className="flex-1 h-[2px] bg-red-500/40"></div>
+                <div className="space-y-3">
+                  {[
+                    "Economia de até 85% comparado ao salão",
+                    "Aplique no conforto da sua casa",
+                    "Sem agendamento, sem espera",
+                    "Agende sua entrega em até 3 dias",
+                  ].map((item, idx) => (
+                    <motion.p
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex items-center gap-3 text-white/80"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
+                      {item}
+                    </motion.p>
+                  ))}
                 </div>
 
-                <div className="bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                    <span className="text-green-300 text-xs font-bold uppercase tracking-wider">Liso Mágico</span>
-                  </div>
-                  <div className="space-y-3">
-                    {[
-                      { label: "Progressiva", value: "R$ 149,00" },
-                      { label: "Rendimento", value: "Até 5 aplicações" },
-                      { label: "Por aplicação", value: "R$ 29,80" },
-                      { label: "Tempo", value: "40 min–1 hora" },
-                    ].map((row, idx) => (
-                      <div key={idx} className="flex justify-between items-center">
-                        <span className="text-white/50 text-sm">{row.label}</span>
-                        <span className="text-green-300 font-semibold text-sm">{row.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                {[
-                  "Economia de até 85% comparado ao salão",
-                  "Aplique no conforto da sua casa",
-                  "Sem agendamento, sem espera",
-                  "Agende sua entrega em até 3 dias",
-                ].map((item, idx) => (
-                  <motion.p
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-center gap-3 text-white/80"
+                <div>
+                  <Button
+                    onClick={scrollToOffer}
+                    data-testid="button-economy-cta"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
-                    {item}
-                  </motion.p>
-                ))}
-              </div>
+                    QUERO ECONOMIZAR AGORA
+                  </Button>
+                </div>
+              </motion.div>
 
-              <div>
-                <Button onClick={scrollToOffer} data-testid="button-economy-cta">QUERO ECONOMIZAR AGORA</Button>
-              </div>
-            </motion.div>
-
-            <div className="hidden md:block"></div>
+              <div className="hidden md:block"></div>
+            </div>
           </div>
-        </div>
         </div>
       </section>
       {/* --- RESULTS GALLERY --- */}
       <section id="results" className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={imgResultsBg} alt="" loading="lazy" className="w-full h-full object-cover" />
+          <img
+            src={imgResultsBg}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/85 to-slate-900/92"></div>
         </div>
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#C6A756]/[0.06] rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
@@ -1079,13 +1326,17 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-5">
               <CheckCircle2 className="w-4 h-4 text-[#C6A756]" />
-              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Resultados Comprovados</span>
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">
+                Resultados Comprovados
+              </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Transformações <span className="text-[#C6A756]">Reais</span> de Quem Usou
+              Transformações <span className="text-[#C6A756]">Reais</span> de
+              Quem Usou
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Fotos reais de clientes — sem filtro, sem edição. Veja o poder do Liso Mágico em todos os tipos de cabelo.
+              Fotos reais de clientes — sem filtro, sem edição. Veja o poder do
+              Liso Mágico em todos os tipos de cabelo.
             </p>
           </motion.div>
 
@@ -1102,8 +1353,12 @@ export default function LandingPage() {
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="flex items-center justify-center gap-1">
-                  <span className="text-2xl md:text-3xl font-bold text-white">{stat.number}</span>
-                  {stat.icon && <Star className="w-5 h-5 fill-[#C6A756] text-[#C6A756]" />}
+                  <span className="text-2xl md:text-3xl font-bold text-white">
+                    {stat.number}
+                  </span>
+                  {stat.icon && (
+                    <Star className="w-5 h-5 fill-[#C6A756] text-[#C6A756]" />
+                  )}
                 </div>
                 <span className="text-white/50 text-sm">{stat.label}</span>
               </div>
@@ -1112,7 +1367,10 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
             {[
-              { img: imgBeforeAfter3, name: "Cabelo loiro cacheado → liso sedoso" },
+              {
+                img: imgBeforeAfter3,
+                name: "Cabelo loiro cacheado → liso sedoso",
+              },
               { img: imgBeforeAfter4, name: "Cabelo crespo → liso brilhante" },
             ].map((item, idx) => (
               <motion.div
@@ -1123,17 +1381,29 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.15 }}
                 className="relative group rounded-2xl overflow-hidden shadow-xl bg-white/5 border border-white/10"
               >
-                <img src={item.img} alt={item.name} loading="lazy" className="w-full h-auto" />
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
+                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                        ANTES
+                      </span>
                       <ArrowRight className="w-4 h-4 text-white/60" />
-                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
+                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                        DEPOIS
+                      </span>
                     </div>
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
+                        <Star
+                          key={i}
+                          className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]"
+                        />
                       ))}
                     </div>
                   </div>
@@ -1145,7 +1415,10 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
             {[
-              { img: imgBeforeAfter1, name: "Cabelo escuro — transformação total" },
+              {
+                img: imgBeforeAfter1,
+                name: "Cabelo escuro — transformação total",
+              },
               { img: imgBeforeAfter5, name: "Cabelo loiro — liso e brilhante" },
             ].map((item, idx) => (
               <motion.div
@@ -1156,17 +1429,29 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.1 }}
                 className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/5"
               >
-                <img src={item.img} alt={item.name} loading="lazy" className="w-full h-auto" />
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">ANTES</span>
+                      <span className="bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                        ANTES
+                      </span>
                       <ArrowRight className="w-4 h-4 text-white/60" />
-                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">DEPOIS</span>
+                      <span className="bg-green-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                        DEPOIS
+                      </span>
                     </div>
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]" />
+                        <Star
+                          key={i}
+                          className="w-3.5 h-3.5 fill-[#C6A756] text-[#C6A756]"
+                        />
                       ))}
                     </div>
                   </div>
@@ -1182,12 +1467,23 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center my-10"
           >
-            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">Cabelo dos sonhos após o Liso Mágico</h3>
-            <p className="text-white/50">Liso, sedoso, brilhante e sem frizz — em qualquer tipo de cabelo</p>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2">
+              Cabelo dos sonhos após o Liso Mágico
+            </h3>
+            <p className="text-white/50">
+              Liso, sedoso, brilhante e sem frizz — em qualquer tipo de cabelo
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-8">
-            {[imgResult1, imgResult3, imgResult2, imgResult5, imgResult6, imgResult4].map((img, idx) => (
+            {[
+              imgResult1,
+              imgResult3,
+              imgResult2,
+              imgResult5,
+              imgResult6,
+              imgResult4,
+            ].map((img, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -1196,7 +1492,12 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.08 }}
                 className="relative rounded-xl overflow-hidden shadow-lg group border border-white/10"
               >
-                <img src={img} alt={`Resultado ${idx + 1}`} loading="lazy" className="w-full h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src={img}
+                  alt={`Resultado ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute top-3 right-3 bg-green-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg backdrop-blur-sm">
                   RESULTADO
                 </div>
@@ -1217,12 +1518,22 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.15 }}
                 className="rounded-xl overflow-hidden shadow-lg relative group border border-white/10"
               >
-                <img src={item.img} alt={item.caption} loading="lazy" className="w-full h-auto group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src={item.img}
+                  alt={item.caption}
+                  loading="lazy"
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white text-sm font-medium">{item.caption}</p>
+                  <p className="text-white text-sm font-medium">
+                    {item.caption}
+                  </p>
                   <div className="flex gap-0.5 mt-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-[#C6A756] text-[#C6A756]" />
+                      <Star
+                        key={i}
+                        className="w-3 h-3 fill-[#C6A756] text-[#C6A756]"
+                      />
                     ))}
                   </div>
                 </div>
@@ -1236,30 +1547,46 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center text-white/40 text-xs italic mb-8"
           >
-            *Resultados podem variar de acordo com o tipo de cabelo e modo de aplicação.
+            *Resultados podem variar de acordo com o tipo de cabelo e modo de
+            aplicação.
           </motion.p>
 
           <div className="flex justify-center">
-            <Button onClick={scrollToOffer} data-testid="button-results-cta">QUERO ESSA TRANSFORMAÇÃO</Button>
+            <Button onClick={scrollToOffer} data-testid="button-results-cta">
+              QUERO ESSA TRANSFORMAÇÃO
+            </Button>
           </div>
         </div>
       </section>
       {/* --- BENEFITS DETAIL --- */}
       <section id="benefits" className="py-16 bg-rose-50/50">
         <div className="container mx-auto px-4 max-w-3xl">
-          <SectionHeader 
-            title="Por que escolher o Liso Mágico?" 
-          />
-          
+          <SectionHeader title="Por que escolher o Liso Mágico?" />
+
           <div className="space-y-6">
             {[
-              { title: "Resultados visíveis nas primeiras aplicações", desc: "Fórmula potente que alinha os fios instantaneamente sem danificar." },
-              { title: "Redução Total de Frizz", desc: "Tecnologia anti-umidade que mantém o cabelo disciplinado." },
-              { title: "Compatível com Químicas", desc: "Pode ser usado em cabelos tingidos, descoloridos ou com outras progressivas." },
-              { title: "Economia Real", desc: "Um frasco rende até 5 aplicações. Muito mais barato que o salão." },
-              { title: "Fácil de Aplicar", desc: "Você mesma faz em casa, no chuveiro, sem complicação." }
+              {
+                title: "Resultados visíveis nas primeiras aplicações",
+                desc: "Fórmula potente que alinha os fios instantaneamente sem danificar.",
+              },
+              {
+                title: "Redução Total de Frizz",
+                desc: "Tecnologia anti-umidade que mantém o cabelo disciplinado.",
+              },
+              {
+                title: "Compatível com Químicas",
+                desc: "Pode ser usado em cabelos tingidos, descoloridos ou com outras progressivas.",
+              },
+              {
+                title: "Economia Real",
+                desc: "Um frasco rende até 5 aplicações. Muito mais barato que o salão.",
+              },
+              {
+                title: "Fácil de Aplicar",
+                desc: "Você mesma faz em casa, no chuveiro, sem complicação.",
+              },
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -1271,7 +1598,9 @@ export default function LandingPage() {
                   <CheckCircle2 className="w-5 h-5 text-green-500" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 font-sans">{item.title}</h4>
+                  <h4 className="text-lg font-bold text-slate-900 font-sans">
+                    {item.title}
+                  </h4>
                   <p className="text-slate-600">{item.desc}</p>
                 </div>
               </motion.div>
@@ -1300,19 +1629,37 @@ export default function LandingPage() {
             </h2>
             <p className="text-lg text-slate-600 mb-2 max-w-xl mx-auto">
               Sabemos que golpes são comuns. Por isso, oferecemos o{" "}
-              <span className="font-bold text-green-600">PAGAMENTO NA ENTREGA</span> — aceitamos Pix, cartão, boleto e dinheiro. Parcele na hora!
+              <span className="font-bold text-green-600">
+                PAGAMENTO NA ENTREGA
+              </span>{" "}
+              — aceitamos Pix, cartão, boleto e dinheiro. Parcele na hora!
             </p>
             <p className="text-lg text-slate-600 mb-6 max-w-xl mx-auto">
-              Você faz o pedido aqui no site, nós enviamos, e você só paga ao carteiro quando o produto chegar na sua mão.
+              Você faz o pedido aqui no site, nós enviamos, e você só paga ao
+              carteiro quando o produto chegar na sua mão.
             </p>
-            <p className="text-xl font-bold text-slate-900 mb-10">Risco ZERO para você!</p>
+            <p className="text-xl font-bold text-slate-900 mb-10">
+              Risco ZERO para você!
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              { step: "01", title: "Faça o Pedido", desc: "Preencha seus dados. Sem precisar pagar agora." },
-              { step: "02", title: "Enviamos", desc: "Preparamos e despachamos seu pedido com total cuidado." },
-              { step: "03", title: "Receba e Pague", desc: "Entrega em até 24h! Agende o melhor dia e pague somente quando receber." },
+              {
+                step: "01",
+                title: "Faça o Pedido",
+                desc: "Preencha seus dados. Sem precisar pagar agora.",
+              },
+              {
+                step: "02",
+                title: "Enviamos",
+                desc: "Preparamos e despachamos seu pedido com total cuidado.",
+              },
+              {
+                step: "03",
+                title: "Receba e Pague",
+                desc: "Entrega em até 24h! Agende o melhor dia e pague somente quando receber.",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -1325,14 +1672,18 @@ export default function LandingPage() {
                 <div className="w-10 h-10 rounded-full bg-green-500 text-white font-bold flex items-center justify-center mb-4 text-sm group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-green-500/30 transition-all duration-300">
                   {item.step}
                 </div>
-                <h4 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h4>
+                <h4 className="font-bold text-lg text-slate-900 mb-2">
+                  {item.title}
+                </h4>
                 <p className="text-slate-500 text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
           <div className="mt-10">
-            <Button onClick={scrollToOffer} data-testid="button-cta-medo">QUERO COMPRAR SEM RISCO</Button>
+            <Button onClick={scrollToOffer} data-testid="button-cta-medo">
+              QUERO COMPRAR SEM RISCO
+            </Button>
           </div>
         </div>
       </section>
@@ -1348,7 +1699,12 @@ export default function LandingPage() {
               className="relative"
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img src={mjnj} alt="Liso Mágico Produto" loading="lazy" className="w-full h-auto" />
+                <img
+                  src={mjnj}
+                  alt="Liso Mágico Produto"
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
 
@@ -1362,16 +1718,37 @@ export default function LandingPage() {
                 Seguro para você e seu cabelo
               </h2>
               <p className="text-slate-500 mb-8 text-lg">
-                Fórmula desenvolvida com ingredientes seguros, sem substâncias agressivas.
+                Fórmula desenvolvida com ingredientes seguros, sem substâncias
+                agressivas.
               </p>
 
               <div className="space-y-5">
                 {[
-                  { icon: ShieldCheck, title: "Sem efeitos colaterais", desc: "Não causa ardência, irritação no couro cabeludo nem queda de cabelo." },
-                  { icon: Sparkles, title: "100% livre de formol", desc: "Fórmula à base de ácidos orgânicos e vitaminas. Sem cheiro forte nem gases tóxicos." },
-                  { icon: CheckCircle2, title: "Não danifica os fios", desc: "Diferente de outras progressivas, o Liso Mágico não resseca nem quebra o cabelo." },
-                  { icon: ThumbsUp, title: "Compatível com qualquer química", desc: "Pode ser usado em cabelos tingidos, com luzes, descoloridos ou com outras químicas." },
-                  { icon: Clock, title: "Resultado duradouro", desc: "O efeito liso dura em média 3 meses, dependendo dos cuidados e do tipo de cabelo." },
+                  {
+                    icon: ShieldCheck,
+                    title: "Sem efeitos colaterais",
+                    desc: "Não causa ardência, irritação no couro cabeludo nem queda de cabelo.",
+                  },
+                  {
+                    icon: Sparkles,
+                    title: "100% livre de formol",
+                    desc: "Fórmula à base de ácidos orgânicos e vitaminas. Sem cheiro forte nem gases tóxicos.",
+                  },
+                  {
+                    icon: CheckCircle2,
+                    title: "Não danifica os fios",
+                    desc: "Diferente de outras progressivas, o Liso Mágico não resseca nem quebra o cabelo.",
+                  },
+                  {
+                    icon: ThumbsUp,
+                    title: "Compatível com qualquer química",
+                    desc: "Pode ser usado em cabelos tingidos, com luzes, descoloridos ou com outras químicas.",
+                  },
+                  {
+                    icon: Clock,
+                    title: "Resultado duradouro",
+                    desc: "O efeito liso dura em média 3 meses, dependendo dos cuidados e do tipo de cabelo.",
+                  },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -1385,7 +1762,9 @@ export default function LandingPage() {
                       <item.icon className="w-5 h-5 text-green-500" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-base">{item.title}</h4>
+                      <h4 className="font-bold text-slate-900 text-base">
+                        {item.title}
+                      </h4>
                       <p className="text-slate-500 text-sm">{item.desc}</p>
                     </div>
                   </motion.div>
@@ -1396,8 +1775,17 @@ export default function LandingPage() {
         </div>
       </section>
       {/* --- HOW IT WORKS --- */}
-      <section id="how-it-works" className="relative py-20 md:py-28 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <section
+        id="how-it-works"
+        className="relative py-20 md:py-28 bg-slate-900 text-white overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+            backgroundSize: "30px 30px",
+          }}
+        ></div>
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#C6A756]/[0.05] rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#C6A756]/[0.04] rounded-full blur-[80px] -translate-x-1/3 translate-y-1/3"></div>
 
@@ -1410,10 +1798,17 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-5 py-2 mb-6">
               <Sparkles className="w-4 h-4 text-[#C6A756]" />
-              <span className="text-[#C6A756] text-sm font-semibold tracking-wide uppercase">Simples e Rápido</span>
+              <span className="text-[#C6A756] text-sm font-semibold tracking-wide uppercase">
+                Simples e Rápido
+              </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Como Funciona?</h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">5 passos simples para conquistar o liso dos seus sonhos, no conforto da sua casa</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              Como Funciona?
+            </h2>
+            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+              5 passos simples para conquistar o liso dos seus sonhos, no
+              conforto da sua casa
+            </p>
           </motion.div>
 
           <div className="hidden md:block">
@@ -1421,11 +1816,36 @@ export default function LandingPage() {
               <div className="absolute top-10 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-[#C6A756]/30 to-transparent"></div>
 
               {[
-                { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência.", icon: "💧" },
-                { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico mecha por mecha.", icon: "✋" },
-                { step: "03", title: "Deixe agir", desc: "Aguarde o tempo indicado no frasco.", icon: "⏳" },
-                { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e passe a prancha se desejar.", icon: "💨" },
-                { step: "05", title: "Liso Perfeito!", desc: "Cabelo liso, sedoso, com brilho e sem frizz!", icon: "✨" }
+                {
+                  step: "01",
+                  title: "Lave o cabelo",
+                  desc: "Lave bem com seu shampoo de preferência.",
+                  icon: "💧",
+                },
+                {
+                  step: "02",
+                  title: "Aplique o produto",
+                  desc: "Aplique a Progressiva Liso Mágico mecha por mecha.",
+                  icon: "✋",
+                },
+                {
+                  step: "03",
+                  title: "Deixe agir",
+                  desc: "Aguarde o tempo indicado no frasco.",
+                  icon: "⏳",
+                },
+                {
+                  step: "04",
+                  title: "Seque e finalize",
+                  desc: "Enxágue, seque e passe a prancha se desejar.",
+                  icon: "💨",
+                },
+                {
+                  step: "05",
+                  title: "Liso Perfeito!",
+                  desc: "Cabelo liso, sedoso, com brilho e sem frizz!",
+                  icon: "✨",
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -1436,11 +1856,19 @@ export default function LandingPage() {
                   className="flex flex-col items-center text-center w-1/5 relative group cursor-default"
                 >
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C6A756] to-[#a88b3a] flex items-center justify-center mb-5 shadow-lg shadow-[#C6A756]/20 relative z-10 border-4 border-slate-900 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-[#C6A756]/30 transition-all duration-500">
-                    <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
+                    <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                      {item.icon}
+                    </span>
                   </div>
-                  <span className="text-[#C6A756]/60 text-xs font-bold tracking-widest mb-2">PASSO {item.step}</span>
-                  <h4 className="text-white font-bold text-base mb-2">{item.title}</h4>
-                  <p className="text-white/45 text-sm leading-relaxed px-2">{item.desc}</p>
+                  <span className="text-[#C6A756]/60 text-xs font-bold tracking-widest mb-2">
+                    PASSO {item.step}
+                  </span>
+                  <h4 className="text-white font-bold text-base mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-white/45 text-sm leading-relaxed px-2">
+                    {item.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -1448,11 +1876,36 @@ export default function LandingPage() {
 
           <div className="md:hidden space-y-6">
             {[
-              { step: "01", title: "Lave o cabelo", desc: "Lave bem com seu shampoo de preferência.", icon: "💧" },
-              { step: "02", title: "Aplique o produto", desc: "Aplique a Progressiva Liso Mágico mecha por mecha.", icon: "✋" },
-              { step: "03", title: "Deixe agir", desc: "Aguarde o tempo indicado no frasco.", icon: "⏳" },
-              { step: "04", title: "Seque e finalize", desc: "Enxágue, seque e passe a prancha se desejar.", icon: "💨" },
-              { step: "05", title: "Liso Perfeito!", desc: "Cabelo liso, sedoso, com brilho e sem frizz!", icon: "✨" }
+              {
+                step: "01",
+                title: "Lave o cabelo",
+                desc: "Lave bem com seu shampoo de preferência.",
+                icon: "💧",
+              },
+              {
+                step: "02",
+                title: "Aplique o produto",
+                desc: "Aplique a Progressiva Liso Mágico mecha por mecha.",
+                icon: "✋",
+              },
+              {
+                step: "03",
+                title: "Deixe agir",
+                desc: "Aguarde o tempo indicado no frasco.",
+                icon: "⏳",
+              },
+              {
+                step: "04",
+                title: "Seque e finalize",
+                desc: "Enxágue, seque e passe a prancha se desejar.",
+                icon: "💨",
+              },
+              {
+                step: "05",
+                title: "Liso Perfeito!",
+                desc: "Cabelo liso, sedoso, com brilho e sem frizz!",
+                icon: "✨",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -1466,8 +1919,12 @@ export default function LandingPage() {
                   <span className="text-xl">{item.icon}</span>
                 </div>
                 <div>
-                  <span className="text-[#C6A756]/60 text-[10px] font-bold tracking-widest">PASSO {item.step}</span>
-                  <h4 className="text-white font-bold text-base mb-1">{item.title}</h4>
+                  <span className="text-[#C6A756]/60 text-[10px] font-bold tracking-widest">
+                    PASSO {item.step}
+                  </span>
+                  <h4 className="text-white font-bold text-base mb-1">
+                    {item.title}
+                  </h4>
                   <p className="text-white/45 text-sm">{item.desc}</p>
                 </div>
               </motion.div>
@@ -1480,14 +1937,24 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="flex justify-center mt-14"
           >
-            <Button onClick={scrollToOffer} data-testid="button-cta-how-it-works">QUERO MEU LISO PERFEITO</Button>
+            <Button
+              onClick={scrollToOffer}
+              data-testid="button-cta-how-it-works"
+            >
+              QUERO MEU LISO PERFEITO
+            </Button>
           </motion.div>
         </div>
       </section>
       {/* --- ANVISA --- */}
       <section className="relative py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={imgAnvisaBg} alt="" loading="lazy" className="w-full h-full object-cover" />
+          <img
+            src={imgAnvisaBg}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/80 to-slate-900/90"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -1500,10 +1967,17 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-5 py-2 mb-6">
               <ShieldCheck className="w-5 h-5 text-green-400" />
-              <span className="text-green-300 text-sm font-semibold tracking-wide uppercase">Produto Regulamentado</span>
+              <span className="text-green-300 text-sm font-semibold tracking-wide uppercase">
+                Produto Regulamentado
+              </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Certificação ANVISA</h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">Aprovado pela Agência Nacional de Vigilância Sanitária — garantia de segurança e qualidade para o seu cabelo</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              Certificação ANVISA
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              Aprovado pela Agência Nacional de Vigilância Sanitária — garantia
+              de segurança e qualidade para o seu cabelo
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
@@ -1514,7 +1988,12 @@ export default function LandingPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
-                <img src={imgAnvisa} alt="Certificação ANVISA - Progressiva Liso Mágico" loading="lazy" className="w-full h-auto" />
+                <img
+                  src={imgAnvisa}
+                  alt="Certificação ANVISA - Progressiva Liso Mágico"
+                  loading="lazy"
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
 
@@ -1526,10 +2005,22 @@ export default function LandingPage() {
               className="space-y-5"
             >
               {[
-                { title: "Autorização de Funcionamento", desc: "Registro ANVISA nº 4.02912-7 — empresa autorizada a fabricar cosméticos no Brasil." },
-                { title: "100% Livre de Formol", desc: "Fórmula aprovada sem substâncias proibidas. Seguro para uso profissional e doméstico." },
-                { title: "Responsável Técnica", desc: "Luciana Camargo — CRQ: 024023543. Profissional habilitada supervisionando a produção." },
-                { title: "Fabricação Nacional", desc: "Produzido por ERL Ind. Terceirista de Cosméticos — Vila Cachoeirinha, Cambuí/MG." },
+                {
+                  title: "Autorização de Funcionamento",
+                  desc: "Registro ANVISA nº 4.02912-7 — empresa autorizada a fabricar cosméticos no Brasil.",
+                },
+                {
+                  title: "100% Livre de Formol",
+                  desc: "Fórmula aprovada sem substâncias proibidas. Seguro para uso profissional e doméstico.",
+                },
+                {
+                  title: "Responsável Técnica",
+                  desc: "Luciana Camargo — CRQ: 024023543. Profissional habilitada supervisionando a produção.",
+                },
+                {
+                  title: "Fabricação Nacional",
+                  desc: "Produzido por ERL Ind. Terceirista de Cosméticos — Vila Cachoeirinha, Cambuí/MG.",
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -1543,8 +2034,12 @@ export default function LandingPage() {
                     <CheckCircle2 className="w-5 h-5 text-[#C6A756]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-base mb-1">{item.title}</h4>
-                    <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                    <h4 className="font-bold text-white text-base mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-white/55 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -1570,16 +2065,46 @@ export default function LandingPage() {
               <FlaskConical className="w-4 h-4" />
               Composição do Produto
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Conheça a <span className="text-[#C6A756]">Composição</span> do Liso Mágico</h2>
-            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Ingredientes de alta performance selecionados para alisar, nutrir e proteger seus fios — 100% livre de formol.</p>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+              Conheça a <span className="text-[#C6A756]">Composição</span> do
+              Liso Mágico
+            </h2>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
+              Ingredientes de alta performance selecionados para alisar, nutrir
+              e proteger seus fios — 100% livre de formol.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-4 mb-10">
             {[
-              { icon: Leaf, name: "Manteiga de Karité", inci: "Butyrospermum Parkii", benefit: "Nutrição profunda e brilho intenso. Rica em vitaminas A e E, penetra nos fios restaurando a fibra capilar." },
-              { icon: FlaskConical, name: "Ácido Láctico", inci: "Lactic Acid", benefit: "Ação alisante progressiva e suave. Alinha a fibra do cabelo sem agredir, mantendo a saúde dos fios." },
-              { icon: Droplets, name: "Extrato de Cacau", inci: "Theobroma Cacao", benefit: "Hidratação intensa e aroma natural. Antioxidante poderoso que sela a cutícula e reduz o frizz." },
-              { icon: Sparkles, name: "Extrato de Coco", inci: "Cocos Nucifera", benefit: "Fortalecimento e brilho sedoso. Previne a quebra e devolve a elasticidade natural dos fios." },
+              {
+                icon: Leaf,
+                name: "Manteiga de Karité",
+                inci: "Butyrospermum Parkii",
+                benefit:
+                  "Nutrição profunda e brilho intenso. Rica em vitaminas A e E, penetra nos fios restaurando a fibra capilar.",
+              },
+              {
+                icon: FlaskConical,
+                name: "Ácido Láctico",
+                inci: "Lactic Acid",
+                benefit:
+                  "Ação alisante progressiva e suave. Alinha a fibra do cabelo sem agredir, mantendo a saúde dos fios.",
+              },
+              {
+                icon: Droplets,
+                name: "Extrato de Cacau",
+                inci: "Theobroma Cacao",
+                benefit:
+                  "Hidratação intensa e aroma natural. Antioxidante poderoso que sela a cutícula e reduz o frizz.",
+              },
+              {
+                icon: Sparkles,
+                name: "Extrato de Coco",
+                inci: "Cocos Nucifera",
+                benefit:
+                  "Fortalecimento e brilho sedoso. Previne a quebra e devolve a elasticidade natural dos fios.",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -1592,9 +2117,15 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-[#C6A756]/10 flex items-center justify-center mb-4 group-hover:bg-[#C6A756]/20 transition-colors">
                   <item.icon className="w-6 h-6 text-[#C6A756]" />
                 </div>
-                <h4 className="text-white font-bold text-base mb-1">{item.name}</h4>
-                <p className="text-[#C6A756]/70 text-xs font-mono mb-3">{item.inci}</p>
-                <p className="text-white/45 text-sm leading-relaxed">{item.benefit}</p>
+                <h4 className="text-white font-bold text-base mb-1">
+                  {item.name}
+                </h4>
+                <p className="text-[#C6A756]/70 text-xs font-mono mb-3">
+                  {item.inci}
+                </p>
+                <p className="text-white/45 text-sm leading-relaxed">
+                  {item.benefit}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -1605,7 +2136,9 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="mb-10"
           >
-            <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">Demais ingredientes da fórmula</h3>
+            <h3 className="text-white/50 text-xs font-bold uppercase tracking-[3px] text-center mb-6">
+              Demais ingredientes da fórmula
+            </h3>
             <div className="overflow-hidden relative">
               <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
@@ -1613,26 +2146,63 @@ export default function LandingPage() {
                 {[...Array(3)].flatMap((_, setIdx) =>
                   [
                     { inci: "Acqua", pt: "Água Purificada", func: "Veículo" },
-                    { inci: "Cetrimonium Chloride", pt: "Cloreto de Cetrimônio", func: "Condicionante" },
-                    { inci: "Cetearyl Alcohol", pt: "Álcool Cetearílico", func: "Emoliente" },
-                    { inci: "Glycol Steareth", pt: "Mono. de Glicerila", func: "Estabilizante" },
-                    { inci: "Shea Butter", pt: "Manteiga de Karité", func: "Nutritivo" },
-                    { inci: "Mineral Oil", pt: "Óleo Mineral", func: "Protetor" },
-                    { inci: "Phenoxyethanol", pt: "Fenoxietanol", func: "Conservante" },
-                    { inci: "Lactic Acid", pt: "Ácido Láctico", func: "Alisante" },
-                    { inci: "Extrato de Cacau", pt: "Theobroma Cacao", func: "Hidratante" },
-                    { inci: "Extrato de Coco", pt: "Cocos Nucifera", func: "Fortalecedor" },
+                    {
+                      inci: "Cetrimonium Chloride",
+                      pt: "Cloreto de Cetrimônio",
+                      func: "Condicionante",
+                    },
+                    {
+                      inci: "Cetearyl Alcohol",
+                      pt: "Álcool Cetearílico",
+                      func: "Emoliente",
+                    },
+                    {
+                      inci: "Glycol Steareth",
+                      pt: "Mono. de Glicerila",
+                      func: "Estabilizante",
+                    },
+                    {
+                      inci: "Shea Butter",
+                      pt: "Manteiga de Karité",
+                      func: "Nutritivo",
+                    },
+                    {
+                      inci: "Mineral Oil",
+                      pt: "Óleo Mineral",
+                      func: "Protetor",
+                    },
+                    {
+                      inci: "Phenoxyethanol",
+                      pt: "Fenoxietanol",
+                      func: "Conservante",
+                    },
+                    {
+                      inci: "Lactic Acid",
+                      pt: "Ácido Láctico",
+                      func: "Alisante",
+                    },
+                    {
+                      inci: "Extrato de Cacau",
+                      pt: "Theobroma Cacao",
+                      func: "Hidratante",
+                    },
+                    {
+                      inci: "Extrato de Coco",
+                      pt: "Cocos Nucifera",
+                      func: "Fortalecedor",
+                    },
                     { inci: "Fragrance", pt: "Perfume", func: "Fragrância" },
                   ].map((item, idx) => (
-                    <div
-                      key={`${setIdx}-${idx}`}
-                      className="ingredients-card"
-                    >
-                      <p className="text-white/80 font-semibold text-sm mb-1.5">{item.inci}</p>
+                    <div key={`${setIdx}-${idx}`} className="ingredients-card">
+                      <p className="text-white/80 font-semibold text-sm mb-1.5">
+                        {item.inci}
+                      </p>
                       <p className="text-white/30 text-xs mb-2">{item.pt}</p>
-                      <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">{item.func}</span>
+                      <span className="text-[#C6A756] text-[10px] font-bold uppercase tracking-wider bg-[#C6A756]/10 px-2.5 py-1 rounded-full">
+                        {item.func}
+                      </span>
                     </div>
-                  ))
+                  )),
                 )}
               </div>
             </div>
@@ -1660,8 +2230,12 @@ export default function LandingPage() {
                   <CheckCircle2 className="w-5 h-5 text-[#C6A756]" />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-sm">ANVISA nº 4.02912-7</p>
-                  <p className="text-white/35 text-xs">Registro ativo e válido</p>
+                  <p className="text-white font-bold text-sm">
+                    ANVISA nº 4.02912-7
+                  </p>
+                  <p className="text-white/35 text-xs">
+                    Registro ativo e válido
+                  </p>
                 </div>
               </div>
               <div className="w-px h-8 bg-white/10 hidden md:block"></div>
@@ -1671,7 +2245,9 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">Cruelty Free</p>
-                  <p className="text-white/35 text-xs">Não testado em animais</p>
+                  <p className="text-white/35 text-xs">
+                    Não testado em animais
+                  </p>
                 </div>
               </div>
             </div>
@@ -1681,41 +2257,59 @@ export default function LandingPage() {
       {/* --- OFFERS --- */}
       <section id="offers" ref={offerSectionRef} className="py-16 bg-[#F8F6F3]">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Escolha seu Kit e Receba em Casa" subtitle="Frete grátis + pague somente na entrega. Sem risco, sem surpresas." />
+          <SectionHeader
+            title="Escolha seu Kit e Receba em Casa"
+            subtitle="Frete grátis + pague somente na entrega. Sem risco, sem surpresas."
+          />
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-            <OfferCard 
-              title="1 UNIDADE" 
-              price="R$ 149,00" 
-              originalPrice="R$ 199,00" 
-              link="https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico" 
-              features={["Pagamento na entrega", "1 Frasco Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
+            <OfferCard
+              title="1 UNIDADE"
+              price="R$ 149,00"
+              originalPrice="R$ 199,00"
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico"
+              features={[
+                "Pagamento na entrega",
+                "1 Frasco Liso Mágico",
+                "Frete Grátis",
+                "Agende o dia da entrega",
+              ]}
               installment="12x de R$ 15,22"
-              image={imgProduct1} 
+              image={imgProduct1}
               className="h-full"
             />
-            <OfferCard 
-              title="3 UNIDADES" 
-              price="R$ 397,00" 
-              originalPrice="R$ 537,00" 
-              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades" 
-              features={["Pagamento na entrega", "3 Frascos Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
-              isPopular={true} 
-              savings="26%" 
+            <OfferCard
+              title="3 UNIDADES"
+              price="R$ 397,00"
+              originalPrice="R$ 537,00"
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades"
+              features={[
+                "Pagamento na entrega",
+                "3 Frascos Liso Mágico",
+                "Frete Grátis",
+                "Agende o dia da entrega",
+              ]}
+              isPopular={true}
+              savings="26%"
               installment="12x de R$ 40,54"
-              image={imgProduct2} 
+              image={imgProduct2}
               className="h-full"
               badge="Melhor Custo-Benefício"
             />
-            <OfferCard 
-              title="2 UNIDADES" 
-              price="R$ 297,00" 
-              originalPrice="R$ 398,00" 
-              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades" 
-              features={["Pagamento na entrega", "2 Frascos Liso Mágico", "Frete Grátis", "Agende o dia da entrega"]} 
-              savings="25%" 
+            <OfferCard
+              title="2 UNIDADES"
+              price="R$ 297,00"
+              originalPrice="R$ 398,00"
+              link="https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades"
+              features={[
+                "Pagamento na entrega",
+                "2 Frascos Liso Mágico",
+                "Frete Grátis",
+                "Agende o dia da entrega",
+              ]}
+              savings="25%"
               installment="12x de R$ 30,33"
-              image={imgProduct3} 
+              image={imgProduct3}
               className="h-full"
             />
           </div>
@@ -1724,109 +2318,202 @@ export default function LandingPage() {
       {/* --- GUARANTEE & TRUST --- */}
       <section className="relative overflow-hidden">
         <div className="md:hidden relative w-full h-[250px] overflow-hidden">
-          <img src={imgDeliveryBg} alt="Entrega segura" loading="lazy" className="w-full h-full object-cover object-top" />
+          <img
+            src={imgDeliveryBg}
+            alt="Entrega segura"
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
         </div>
 
         <div className="hidden md:block absolute inset-0">
-          <img src={imgDeliveryBg} alt="" loading="lazy" className="w-full h-full object-cover object-center" />
+          <img
+            src={imgDeliveryBg}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-l from-white/95 via-white/80 to-white/60"></div>
         </div>
 
         <div className="relative bg-white/70 md:bg-transparent py-16 md:py-20">
-        <div className="container mx-auto px-4 relative z-10">
-          <SectionHeader title="Zero Risco Para Você" subtitle="Receba primeiro, pague depois. Se não gostar, devolvemos seu dinheiro." />
+          <div className="container mx-auto px-4 relative z-10">
+            <SectionHeader
+              title="Zero Risco Para Você"
+              subtitle="Receba primeiro, pague depois. Se não gostar, devolvemos seu dinheiro."
+            />
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200" />
+                <div className="p-8 pb-6 flex flex-col items-center">
+                  <div className="w-44 h-44 flex items-center justify-center mb-4">
+                    <img
+                      src={imgGuarantee}
+                      alt="Garantia 7 Dias"
+                      loading="lazy"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">
+                    Garantia de 7 Dias
+                  </h3>
+                  <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">
+                    Não gostou do resultado? Devolvemos 100% do seu dinheiro.
+                    Sem burocracia.
+                  </p>
+                </div>
+                <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
+                  {[
+                    {
+                      text: "Devolução garantida sem complicação",
+                      icon: ShieldCheck,
+                    },
+                    { text: "Você só paga quando receber", icon: PackageCheck },
+                    { text: "Compra 100% segura e protegida", icon: Lock },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-pink-50 shadow-sm"
+                    >
+                      <item.icon className="w-4.5 h-4.5 text-rose-400 shrink-0" />
+                      <span className="text-sm text-slate-700">
+                        {item.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 }}
+                className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4B96A] via-[#C6A756] to-[#D4B96A]" />
+                <div className="p-8 pb-6 flex flex-col items-center">
+                  <div className="w-44 h-44 flex items-center justify-center mb-4">
+                    <img
+                      src={imgTrustBadge}
+                      alt="Pagamento na Entrega"
+                      loading="lazy"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">
+                    Pagamento na Entrega
+                  </h3>
+                  <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">
+                    Entrega em até 24h! Pague na entrega com Pix, cartão, boleto
+                    ou dinheiro. Parcele na hora!
+                  </p>
+                </div>
+                <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
+                  {[
+                    {
+                      text: "Receba em até 24h — você agenda o dia",
+                      icon: Truck,
+                    },
+                    {
+                      text: "Pix, cartão, boleto ou dinheiro",
+                      icon: ShieldCheck,
+                    },
+                    { text: "Parcele na hora da entrega", icon: Eye },
+                    {
+                      text: "Confira o produto antes de pagar",
+                      icon: PackageCheck,
+                    },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm"
+                    >
+                      <item.icon className="w-4.5 h-4.5 text-[#C6A756] shrink-0" />
+                      <span className="text-sm text-slate-700">
+                        {item.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14 max-w-4xl mx-auto"
             >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200" />
-              <div className="p-8 pb-6 flex flex-col items-center">
-                <div className="w-44 h-44 flex items-center justify-center mb-4">
-                  <img src={imgGuarantee} alt="Garantia 7 Dias" loading="lazy" className="w-full h-full object-contain" />
-                </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Garantia de 7 Dias</h3>
-                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Não gostou do resultado? Devolvemos 100% do seu dinheiro. Sem burocracia.</p>
-              </div>
-              <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
-                {[
-                  { text: "Devolução garantida sem complicação", icon: ShieldCheck },
-                  { text: "Você só paga quando receber", icon: PackageCheck },
-                  { text: "Compra 100% segura e protegida", icon: Lock },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-pink-50 shadow-sm">
-                    <item.icon className="w-4.5 h-4.5 text-rose-400 shrink-0" />
-                    <span className="text-sm text-slate-700">{item.text}</span>
+              {[
+                {
+                  icon: ShieldCheck,
+                  label: "Compra Segura",
+                  desc: "Dados protegidos",
+                  color: "text-rose-400",
+                  bg: "bg-rose-50",
+                  border: "border-rose-100",
+                },
+                {
+                  icon: PackageCheck,
+                  label: "Entrega em 24h",
+                  desc: "Agende o melhor dia",
+                  color: "text-[#C6A756]",
+                  bg: "bg-amber-50",
+                  border: "border-amber-100",
+                },
+                {
+                  icon: Truck,
+                  label: "Frete Grátis",
+                  desc: "Sem taxa extra",
+                  color: "text-rose-400",
+                  bg: "bg-rose-50",
+                  border: "border-rose-100",
+                },
+                {
+                  icon: CheckCircle2,
+                  label: "Satisfação",
+                  desc: "Garantida ou devolvemos",
+                  color: "text-[#C6A756]",
+                  bg: "bg-amber-50",
+                  border: "border-amber-100",
+                },
+              ].map((selo, idx) => (
+                <div
+                  key={idx}
+                  className={`flex flex-col items-center text-center bg-white rounded-2xl px-4 py-5 border ${selo.border} shadow-sm hover:shadow-md transition-shadow`}
+                >
+                  <div
+                    className={`w-11 h-11 rounded-full ${selo.bg} flex items-center justify-center mb-3`}
+                  >
+                    <selo.icon className={`w-5 h-5 ${selo.color}`} />
                   </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="relative rounded-3xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4B96A] via-[#C6A756] to-[#D4B96A]" />
-              <div className="p-8 pb-6 flex flex-col items-center">
-                <div className="w-44 h-44 flex items-center justify-center mb-4">
-                  <img src={imgTrustBadge} alt="Pagamento na Entrega" loading="lazy" className="w-full h-full object-contain" />
+                  <span className="text-sm font-bold text-slate-800 leading-tight">
+                    {selo.label}
+                  </span>
+                  <span className="text-[11px] text-slate-400 mt-1">
+                    {selo.desc}
+                  </span>
                 </div>
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Pagamento na Entrega</h3>
-                <p className="text-sm text-slate-500 mb-4 max-w-[280px] leading-relaxed">Entrega em até 24h! Pague na entrega com Pix, cartão, boleto ou dinheiro. Parcele na hora!</p>
-              </div>
-              <div className="bg-slate-50/80 px-8 py-6 space-y-3 border-t border-slate-100">
-                {[
-                  { text: "Receba em até 24h — você agenda o dia", icon: Truck },
-                  { text: "Pix, cartão, boleto ou dinheiro", icon: ShieldCheck },
-                  { text: "Parcele na hora da entrega", icon: Eye },
-                  { text: "Confira o produto antes de pagar", icon: PackageCheck },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2.5 border border-amber-50 shadow-sm">
-                    <item.icon className="w-4.5 h-4.5 text-[#C6A756] shrink-0" />
-                    <span className="text-sm text-slate-700">{item.text}</span>
-                  </div>
-                ))}
-              </div>
+              ))}
             </motion.div>
-
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14 max-w-4xl mx-auto"
-          >
-            {[
-              { icon: ShieldCheck, label: "Compra Segura", desc: "Dados protegidos", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
-              { icon: PackageCheck, label: "Entrega em 24h", desc: "Agende o melhor dia", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
-              { icon: Truck, label: "Frete Grátis", desc: "Sem taxa extra", color: "text-rose-400", bg: "bg-rose-50", border: "border-rose-100" },
-              { icon: CheckCircle2, label: "Satisfação", desc: "Garantida ou devolvemos", color: "text-[#C6A756]", bg: "bg-amber-50", border: "border-amber-100" },
-            ].map((selo, idx) => (
-              <div key={idx} className={`flex flex-col items-center text-center bg-white rounded-2xl px-4 py-5 border ${selo.border} shadow-sm hover:shadow-md transition-shadow`}>
-                <div className={`w-11 h-11 rounded-full ${selo.bg} flex items-center justify-center mb-3`}>
-                  <selo.icon className={`w-5 h-5 ${selo.color}`} />
-                </div>
-                <span className="text-sm font-bold text-slate-800 leading-tight">{selo.label}</span>
-                <span className="text-[11px] text-slate-400 mt-1">{selo.desc}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
         </div>
       </section>
       {/* --- SOCIAL PROOF --- */}
       <section className="py-16 bg-white border-y border-slate-100 social-proof">
         <div className="container mx-auto px-4 text-center">
-          <SectionHeader title="O Que Nossas Clientes Estão Dizendo" subtitle="Histórias reais de quem já transformou o cabelo — e a autoestima — com o Liso Mágico" />
+          <SectionHeader
+            title="O Que Nossas Clientes Estão Dizendo"
+            subtitle="Histórias reais de quem já transformou o cabelo — e a autoestima — com o Liso Mágico"
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -1837,91 +2524,118 @@ export default function LandingPage() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[imgBelo1, imgBelo2, imgBelo3, imgBelo4].map((img, idx) => (
-                  <div key={idx} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm">
-                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  <div
+                    key={idx}
+                    className="w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm"
+                  >
+                    <img
+                      src={img}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
-              <span className="text-sm text-slate-600 font-medium">+4.800 clientes</span>
+              <span className="text-sm text-slate-600 font-medium">
+                +4.800 clientes
+              </span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                  />
                 ))}
               </div>
               <span className="text-sm font-bold text-slate-800">4.9/5</span>
               <span className="text-xs text-slate-400">(2.347 avaliações)</span>
             </div>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto relative">
-                <div className="overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentTestimonial}
-                      initial={{ opacity: 0, x: 60 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -60 }}
-                      transition={{ duration: 0.4 }}
-                      className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100"
-                    >
-                      <Quote className="w-10 h-10 text-[#d4a017]/30 mx-auto mb-6" />
-                      <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-8 italic" data-testid={`text-testimonial-${currentTestimonial}`}>
-                        "{testimonials[currentTestimonial].text}"
+            <div className="overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentTestimonial}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100"
+                >
+                  <Quote className="w-10 h-10 text-[#d4a017]/30 mx-auto mb-6" />
+                  <p
+                    className="text-lg md:text-xl text-slate-700 leading-relaxed mb-8 italic"
+                    data-testid={`text-testimonial-${currentTestimonial}`}
+                  >
+                    "{testimonials[currentTestimonial].text}"
+                  </p>
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#d4a017] shadow-md">
+                      <img
+                        src={testimonials[currentTestimonial].image}
+                        alt={testimonials[currentTestimonial].name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <p
+                        className="font-bold text-slate-900 text-lg"
+                        data-testid={`text-testimonial-name-${currentTestimonial}`}
+                      >
+                        {testimonials[currentTestimonial].name}
                       </p>
-                      <div className="flex flex-col items-center gap-4">
-                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#d4a017] shadow-md">
-                          <img
-                            src={testimonials[currentTestimonial].image}
-                            alt={testimonials[currentTestimonial].name}
-                            className="w-full h-full object-cover"
+                      <p className="text-slate-500 text-sm">
+                        {testimonials[currentTestimonial].location}
+                      </p>
+                      <div className="flex items-center justify-center gap-1 mt-2">
+                        {Array.from({
+                          length: testimonials[currentTestimonial].rating,
+                        }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
                           />
-                        </div>
-                        <div className="text-center">
-                          <p className="font-bold text-slate-900 text-lg" data-testid={`text-testimonial-name-${currentTestimonial}`}>
-                            {testimonials[currentTestimonial].name}
-                          </p>
-                          <p className="text-slate-500 text-sm">{testimonials[currentTestimonial].location}</p>
-                          <div className="flex items-center justify-center gap-1 mt-2">
-                            {Array.from({ length: testimonials[currentTestimonial].rating }).map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            ))}
-                          </div>
-                        </div>
+                        ))}
                       </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-                <button
-                  onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
-                  data-testid="button-testimonial-prev"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
-                  data-testid="button-testimonial-next"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
+              data-testid="button-testimonial-prev"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center text-slate-600"
+              data-testid="button-testimonial-next"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
 
-                <div className="flex items-center justify-center gap-2 mt-8">
-                  {testimonials.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => goToTestimonial(idx)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        idx === currentTestimonial ? "bg-[#d4a017] w-6" : "bg-slate-300"
-                      }`}
-                      data-testid={`button-testimonial-dot-${idx}`}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToTestimonial(idx)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    idx === currentTestimonial
+                      ? "bg-[#d4a017] w-6"
+                      : "bg-slate-300"
+                  }`}
+                  data-testid={`button-testimonial-dot-${idx}`}
+                />
+              ))}
+            </div>
+          </div>
 
           <div className="mt-12 hidden md:flex justify-center">
             <Button onClick={scrollToOffer}>
@@ -1941,15 +2655,30 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-6">
               <Play className="w-4 h-4 text-[#C6A756]" />
-              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Depoimentos Reais</span>
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">
+                Depoimentos Reais
+              </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Veja o que nossas <span className="text-[#C6A756]">clientes</span> estão dizendo
+              Veja o que nossas <span className="text-[#C6A756]">clientes</span>{" "}
+              estão dizendo
             </h2>
-            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">Depoimentos reais em vídeo de quem já usou e aprovou o Liso Mágico</p>
+            <p className="text-white/50 text-base md:text-lg max-w-2xl mx-auto">
+              Depoimentos reais em vídeo de quem já usou e aprovou o Liso Mágico
+            </p>
           </motion.div>
 
-          <VideoTestimonialsCarousel videos={[videoDepo1, videoDepo3, videoDepo4, videoDepo5, videoDepo6, videoDepo7, videoDepo2]} />
+          <VideoTestimonialsCarousel
+            videos={[
+              videoDepo1,
+              videoDepo3,
+              videoDepo4,
+              videoDepo5,
+              videoDepo6,
+              videoDepo7,
+              videoDepo2,
+            ]}
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -1957,7 +2686,9 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="flex justify-center mt-10"
           >
-            <Button onClick={scrollToOffer} data-testid="button-cta-video-depo">QUERO MEU LISO PERFEITO</Button>
+            <Button onClick={scrollToOffer} data-testid="button-cta-video-depo">
+              QUERO MEU LISO PERFEITO
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -1974,13 +2705,17 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#C6A756]/20 border border-[#C6A756]/30 rounded-full px-4 py-1.5 mb-6">
               <Flame className="w-4 h-4 text-[#C6A756]" />
-              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">Última Chance</span>
+              <span className="text-[#C6A756] text-sm font-semibold uppercase tracking-wide">
+                Última Chance
+              </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-              Seu cabelo dos sonhos está a <span className="text-[#C6A756]">um clique</span> de distância
+              Seu cabelo dos sonhos está a{" "}
+              <span className="text-[#C6A756]">um clique</span> de distância
             </h2>
             <p className="text-white/80 text-base md:text-lg mb-6 max-w-xl mx-auto">
-              Frete grátis, pagamento na entrega e garantia de 7 dias. Você não tem nada a perder.
+              Frete grátis, pagamento na entrega e garantia de 7 dias. Você não
+              tem nada a perder.
             </p>
           </motion.div>
 
@@ -1994,7 +2729,11 @@ export default function LandingPage() {
                 perUnit: "R$ 149,00/un",
                 link: "https://entrega.logzz.com.br/pay/mem60mkm8/progressivalisomagico",
                 installment: "12x de R$ 15,22",
-                features: ["1 Frasco Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                features: [
+                  "1 Frasco Liso Mágico",
+                  "Frete Grátis",
+                  "Pague na entrega",
+                ],
                 popular: false,
                 badge: null,
                 image: imgProduct1,
@@ -2007,7 +2746,11 @@ export default function LandingPage() {
                 perUnit: "R$ 132,33/un",
                 link: "https://entrega.logzz.com.br/pay/mem60mkm8/liso3unidades",
                 installment: "12x de R$ 40,54",
-                features: ["3 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                features: [
+                  "3 Frascos Liso Mágico",
+                  "Frete Grátis",
+                  "Pague na entrega",
+                ],
                 popular: true,
                 badge: "Melhor Custo-Benefício",
                 image: imgProduct2,
@@ -2020,7 +2763,11 @@ export default function LandingPage() {
                 perUnit: "R$ 148,50/un",
                 link: "https://entrega.logzz.com.br/pay/mem60mkm8/liso2unidades",
                 installment: "12x de R$ 30,33",
-                features: ["2 Frascos Liso Mágico", "Frete Grátis", "Pague na entrega"],
+                features: [
+                  "2 Frascos Liso Mágico",
+                  "Frete Grátis",
+                  "Pague na entrega",
+                ],
                 popular: false,
                 badge: null,
                 image: imgProduct3,
@@ -2034,8 +2781,8 @@ export default function LandingPage() {
                 transition={{ delay: idx * 0.1 }}
                 className={`relative rounded-2xl overflow-hidden flex flex-col ${
                   plan.popular
-                    ? 'bg-gradient-to-b from-[#C6A756]/20 to-[#C6A756]/5 border-2 border-[#C6A756] md:scale-105 md:-translate-y-2 z-10 shadow-2xl shadow-[#C6A756]/10'
-                    : 'bg-white/[0.04] border border-white/10 hover:border-white/20'
+                    ? "bg-gradient-to-b from-[#C6A756]/20 to-[#C6A756]/5 border-2 border-[#C6A756] md:scale-105 md:-translate-y-2 z-10 shadow-2xl shadow-[#C6A756]/10"
+                    : "bg-white/[0.04] border border-white/10 hover:border-white/20"
                 } transition-all duration-300`}
               >
                 {plan.popular && (
@@ -2044,29 +2791,53 @@ export default function LandingPage() {
                   </div>
                 )}
 
-                <div className={`p-6 md:p-8 flex flex-col flex-1 ${plan.popular ? '' : 'pt-8'}`}>
+                <div
+                  className={`p-6 md:p-8 flex flex-col flex-1 ${plan.popular ? "" : "pt-8"}`}
+                >
                   <div className="w-36 h-36 mx-auto mb-4 rounded-xl overflow-hidden bg-white/5">
-                    <img src={plan.image} alt={plan.title} loading="lazy" className="w-full h-full object-cover" />
+                    <img
+                      src={plan.image}
+                      alt={plan.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white/90 text-center mb-1">{plan.title}</h3>
+                  <h3 className="text-lg font-bold text-white/90 text-center mb-1">
+                    {plan.title}
+                  </h3>
                   {plan.badge && (
-                    <span className="text-[10px] font-bold text-[#C6A756] uppercase tracking-wider text-center block mb-3">{plan.badge}</span>
+                    <span className="text-[10px] font-bold text-[#C6A756] uppercase tracking-wider text-center block mb-3">
+                      {plan.badge}
+                    </span>
                   )}
 
                   <div className="text-center mb-4">
-                    <span className="text-white/40 line-through text-sm block">De {plan.originalPrice}</span>
+                    <span className="text-white/40 line-through text-sm block">
+                      De {plan.originalPrice}
+                    </span>
                     <div className="flex items-baseline justify-center gap-0.5 mt-1">
-                      <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
-                      <span className="text-lg font-bold text-white">{plan.cents}</span>
+                      <span className="text-3xl md:text-4xl font-bold text-white">
+                        {plan.price}
+                      </span>
+                      <span className="text-lg font-bold text-white">
+                        {plan.cents}
+                      </span>
                     </div>
-                    <span className="text-white/40 text-xs block mt-1">ou {plan.installment}</span>
-                    <span className="text-[#C6A756] text-xs font-semibold block mt-1">{plan.perUnit}</span>
+                    <span className="text-white/40 text-xs block mt-1">
+                      ou {plan.installment}
+                    </span>
+                    <span className="text-[#C6A756] text-xs font-semibold block mt-1">
+                      {plan.perUnit}
+                    </span>
                   </div>
 
                   <ul className="space-y-2.5 mb-6 flex-1">
                     {plan.features.map((f, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                      <li
+                        key={i}
+                        className="flex items-center gap-2.5 text-sm text-white/70"
+                      >
                         <CheckCircle2 className="w-4 h-4 text-[#C6A756] shrink-0" />
                         {f}
                       </li>
@@ -2077,8 +2848,8 @@ export default function LandingPage() {
                     href={plan.link}
                     className={`block w-full text-center font-bold py-3.5 rounded-full text-sm transition-all duration-300 ${
                       plan.popular
-                        ? 'bg-[#C6A756] hover:bg-[#b89a4a] text-white shadow-lg shadow-[#C6A756]/20'
-                        : 'bg-white/10 hover:bg-white/15 text-white border border-white/10'
+                        ? "bg-[#C6A756] hover:bg-[#b89a4a] text-white shadow-lg shadow-[#C6A756]/20"
+                        : "bg-white/10 hover:bg-white/15 text-white border border-white/10"
                     }`}
                     data-testid={`button-final-plan-${idx}`}
                   >
@@ -2103,7 +2874,9 @@ export default function LandingPage() {
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <item.icon className="w-4 h-4 text-[#C6A756]" />
-                <span className="text-white/40 text-xs font-medium">{item.text}</span>
+                <span className="text-white/40 text-xs font-medium">
+                  {item.text}
+                </span>
               </div>
             ))}
           </motion.div>
@@ -2113,19 +2886,54 @@ export default function LandingPage() {
       <footer className="bg-white border-t border-slate-200 pt-12 pb-6">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 mb-10">
-
             <div>
-              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">Institucional</h5>
+              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">
+                Institucional
+              </h5>
               <ul className="space-y-2 text-sm">
-                <li><a href="/politica-de-privacidade" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-privacy-policy">Política de Privacidade</a></li>
-                <li><a href="/termos-de-uso" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-terms-of-use">Termos de Uso</a></li>
-                <li><a href="/troca-e-devolucao" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-exchange-policy">Política de Troca e Devolução</a></li>
-                <li><a href="/contato" className="text-slate-600 hover:text-[#C6A756] transition-colors" data-testid="link-contact">Contato</a></li>
+                <li>
+                  <a
+                    href="/politica-de-privacidade"
+                    className="text-slate-600 hover:text-[#C6A756] transition-colors"
+                    data-testid="link-privacy-policy"
+                  >
+                    Política de Privacidade
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/termos-de-uso"
+                    className="text-slate-600 hover:text-[#C6A756] transition-colors"
+                    data-testid="link-terms-of-use"
+                  >
+                    Termos de Uso
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/troca-e-devolucao"
+                    className="text-slate-600 hover:text-[#C6A756] transition-colors"
+                    data-testid="link-exchange-policy"
+                  >
+                    Política de Troca e Devolução
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/contato"
+                    className="text-slate-600 hover:text-[#C6A756] transition-colors"
+                    data-testid="link-contact"
+                  >
+                    Contato
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
-              <h5 className="text-lg font-semibold text-[#C6A756] mb-4">LISO MÁGICO COSMÉTICOS</h5>
+              <h5 className="text-lg font-semibold text-[#C6A756] mb-4">
+                LISO MÁGICO COSMÉTICOS
+              </h5>
               <div className="space-y-1 text-sm text-slate-600">
                 <p>Fabricante: ERL Ind. Terceirista de Cosméticos</p>
                 <p>Registro ANVISA nº 4.02912-7</p>
@@ -2135,7 +2943,9 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">Atendimento</h5>
+              <h5 className="text-sm font-bold tracking-[2px] text-[#C6A756] mb-4 uppercase">
+                Atendimento
+              </h5>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -2145,7 +2955,6 @@ export default function LandingPage() {
                 <li>(34) 99766-8955</li>
               </ul>
             </div>
-
           </div>
 
           <div className="max-w-5xl mx-auto pt-6 border-t border-slate-200 text-center text-slate-400 text-xs">
